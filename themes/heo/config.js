@@ -16,9 +16,9 @@ const CONFIG = {
   HEO_HERO_BODY_REVERSE: false,
 
   // 英雄区(首页顶部大卡)
-  HEO_HERO_TITLE_1: '精品Mac软件',
-  HEO_HERO_TITLE_2: '下载与教程',
-  HEO_HERO_TITLE_3: 'macdl.com',
+  HEO_HERO_TITLE_1: '收录正版、好用的M',
+  HEO_HERO_TITLE_2: 'Mac产品',
+  HEO_HERO_TITLE_3: 'MacAppHQ.com',
   HEO_HERO_TITLE_4: '年度精选',
   HEO_HERO_TITLE_5: '2023年度Mac软件',
   HEO_HERO_TITLE_LINK: 'https://tangly1024.com',
