@@ -19,9 +19,9 @@ const CONFIG = {
   HEO_HERO_TITLE_1: '收录正版、好用的',
   HEO_HERO_TITLE_2: 'Mac产品',
   HEO_HERO_TITLE_3: 'MacAppHQ.com',
-  HEO_HERO_TITLE_4: '年度精选',
-  HEO_HERO_TITLE_5: '2023年度Mac软件',
-  HEO_HERO_TITLE_LINK: 'https://tangly1024.com',
+  HEO_HERO_TITLE_4: '付费应用享折扣',
+  HEO_HERO_TITLE_5: '付费软件专属折扣',
+  HEO_HERO_TITLE_LINK: '/tag/%E4%B8%93%E5%B1%9E%E4%BB%98%E8%B4%B9%E4%BC%98%E6%83%A0',
 
   // 英雄区显示三个置顶分类
   HEO_HERO_CATEGORY_1: { title: '精选软件', url: '/tag/精选软件' },
