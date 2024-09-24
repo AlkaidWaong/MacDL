@@ -45,11 +45,11 @@ const CONFIG = {
   ],
 
   // 个人资料底部按钮
-  HEO_INFO_CARD_URL1: '/about',
-  HEO_INFO_CARD_ICON1: 'fas fa-user',
-  HEO_INFO_CARD_URL2: 'https://github.com/AlkaidWaong',
-  HEO_INFO_CARD_ICON2: 'fab fa-github',
-  HEO_INFO_CARD_URL3: 'https://blog.ifoz.net',
+  HEO_INFO_CARD_URL1: 'https://github.com/AlkaidWaong',
+  HEO_INFO_CARD_ICON1: 'fa-brands fa-square-x-twitter',
+  HEO_INFO_CARD_URL2: 'https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzU5MDgyOTM0NA==&action=getalbum&album_id=3592341866810769411#wechat_redirect',
+  HEO_INFO_CARD_ICON2: 'fa-brands fa-weixin',
+  HEO_INFO_CARD_URL3: 'https://bento.me/alkaidwaong',
   HEO_INFO_CARD_TEXT3: '了解更多',
 
   // 用户技能图标
