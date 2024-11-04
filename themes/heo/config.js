@@ -25,7 +25,7 @@ const CONFIG = {
   HEO_HERO_COVER_TITLE: '随便逛逛',
 
   // 英雄区显示三个置顶分类
-  HEO_HERO_CATEGORY_1: { title: '精选软件', url: '/tag/精选软件' },
+  HEO_HERO_CATEGORY_1: { title: '精选软件', url: 'https://www.macapphq.com/featured-apps' },
   HEO_HERO_CATEGORY_2: { title: '付费软件平替', url: '/tag/平替软件' },
   HEO_HERO_CATEGORY_3: { title: '独立开发者App', url: '/tag/独立开发者App' },
 
