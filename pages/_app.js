@@ -12,6 +12,7 @@ import { getBaseLayoutByTheme } from '@/themes/theme'
 import { useRouter } from 'next/router'
 import { useCallback, useMemo } from 'react'
 import { getQueryParam } from '../lib/utils'
+import Error from './_error'
 
 // 各种扩展插件 这个要阻塞引入
 import BLOG from '@/blog.config'
@@ -32,6 +33,11 @@ const ClerkProvider = dynamic(() =>
 const MyApp = ({ Component, pageProps }) => {
   // 一些可能出现 bug 的样式，可以统一放入该钩子进行调整
   useAdjustStyle()
+
+  // 如果有错误，显示错误页面
+  if (pageProps.error) {
+    return <Error statusCode={pageProps.error.statusCode} />
+  }
 
   const route = useRouter()
   const theme = useMemo(() => {

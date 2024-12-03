@@ -19,6 +19,7 @@ const SEO = props => {
   const router = useRouter()
   const meta = getSEOMeta(props, router, useGlobal()?.locale)
   const webFontUrl = siteConfig('FONT_URL')
+  const canonicalUrl = getCanonicalUrl(props, router, url)
 
   useEffect(() => {
     // 使用WebFontLoader字体加载
@@ -133,6 +134,7 @@ const SEO = props => {
       <meta key="twitter:title" name='twitter:title' content={title} />
 
       <link rel='icon' href={BLOG_FAVICON} />
+      <link key="canonical" rel='canonical' href={canonicalUrl} />
 
       {COMMENT_WEBMENTION_ENABLE && (
         <>
@@ -164,6 +166,51 @@ const SEO = props => {
       {children}
     </Head>
   )
+}
+
+/**
+ * 获取规范的URL
+ * @param {*} props 
+ * @param {*} router 
+ * @param {*} baseUrl
+ * @returns {string}
+ */
+const getCanonicalUrl = (props, router, baseUrl) => {
+  const { post, tag, category, page } = props
+  // 移除URL末尾的斜杠
+  baseUrl = baseUrl.replace(/\/$/, '')
+
+  // 根据不同的路由生成规范URL
+  switch (router.route) {
+    case '/':
+      return baseUrl
+    case '/archive':
+      return `${baseUrl}/archive`
+    case '/page/[page]':
+      return baseUrl // 分页页面指向首页
+    case '/category/[category]':
+    case '/category/[category]/page/[page]':
+      return `${baseUrl}/category/${category}` // 分类页面，忽略分页
+    case '/tag/[tag]':
+    case '/tag/[tag]/page/[page]':
+      return `${baseUrl}/tag/${tag}` // 标签页面，忽略分页
+    case '/search':
+    case '/search/[keyword]':
+    case '/search/[keyword]/page/[page]':
+      return `${baseUrl}/search` // 搜索页面指向基础搜索页
+    case '/404':
+      return baseUrl // 404页面指向首页
+    case '/tag':
+      return `${baseUrl}/tag`
+    case '/category':
+      return `${baseUrl}/category`
+    default:
+      // 文章页面
+      if (post?.slug) {
+        return `${baseUrl}/${post.slug}`
+      }
+      return baseUrl
+  }
 }
 
 /**
