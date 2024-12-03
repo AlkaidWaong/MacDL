@@ -107,28 +107,30 @@ const SEO = props => {
       <meta charSet='UTF-8' />
       {SEO_GOOGLE_SITE_VERIFICATION && (
         <meta
+          key="google-site-verification"
           name='google-site-verification'
           content={SEO_GOOGLE_SITE_VERIFICATION}
         />
       )}
       {SEO_BAIDU_SITE_VERIFICATION && (
         <meta
+          key="baidu-site-verification"
           name='baidu-site-verification'
           content={SEO_BAIDU_SITE_VERIFICATION}
         />
       )}
-      <meta name='keywords' content={keywords} />
-      <meta name='description' content={description} />
-      <meta property='og:locale' content={lang} />
-      <meta property='og:title' content={title} />
-      <meta property='og:description' content={description} />
-      <meta property='og:url' content={url} />
-      <meta property='og:image' content={image} />
-      <meta property='og:site_name' content={title} />
-      <meta property='og:type' content={type} />
-      <meta name='twitter:card' content='summary_large_image' />
-      <meta name='twitter:description' content={description} />
-      <meta name='twitter:title' content={title} />
+      <meta key="keywords" name='keywords' content={keywords} />
+      <meta key="description" name='description' content={description} />
+      <meta key="og:locale" property='og:locale' content={lang} />
+      <meta key="og:title" property='og:title' content={title} />
+      <meta key="og:description" property='og:description' content={description} />
+      <meta key="og:url" property='og:url' content={url} />
+      <meta key="og:image" property='og:image' content={image} />
+      <meta key="og:site_name" property='og:site_name' content={title} />
+      <meta key="og:type" property='og:type' content={type} />
+      <meta key="twitter:card" name='twitter:card' content='summary_large_image' />
+      <meta key="twitter:description" name='twitter:description' content={description} />
+      <meta key="twitter:title" name='twitter:title' content={title} />
 
       <link rel='icon' href={BLOG_FAVICON} />
 
@@ -199,17 +201,10 @@ const getSEOMeta = (props, router, locale) => {
         type: 'website'
       }
     case '/category/[category]':
-      return {
-        title: `${category} | ${locale.COMMON.CATEGORY} | ${siteInfo?.title}`,
-        description: `${siteInfo?.description}`,
-        slug: 'category/' + category,
-        image: `${siteInfo?.pageCover}`,
-        type: 'website'
-      }
     case '/category/[category]/page/[page]':
       return {
         title: `${category} | ${locale.COMMON.CATEGORY} | ${siteInfo?.title}`,
-        description: `${siteInfo?.description}`,
+        description: `浏览 ${siteInfo?.title} 中所有关于 ${category} 的文章和资源。发现更多 Mac 软件使用技巧与教程。`,
         slug: 'category/' + category,
         image: `${siteInfo?.pageCover}`,
         type: 'website'
@@ -218,7 +213,7 @@ const getSEOMeta = (props, router, locale) => {
     case '/tag/[tag]/page/[page]':
       return {
         title: `${tag} | ${locale.COMMON.TAGS} | ${siteInfo?.title}`,
-        description: `${siteInfo?.description}`,
+        description: `查看 ${siteInfo?.title} 中所有标记为 ${tag} 的文章。了解更多相关 Mac 软件资讯与使用方法。`,
         image: `${siteInfo?.pageCover}`,
         slug: 'tag/' + tag,
         type: 'website'
