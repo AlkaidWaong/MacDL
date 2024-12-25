@@ -14,6 +14,10 @@ const CONFIG = {
   // 博客主体区左右侧组件颠倒位置
   HEO_HERO_BODY_REVERSE: false,
 
+// 首页卡片侧边栏的文章数和建站天数开关
+  SHOW_ARTICLE_COUNT: false,
+  SHOW_SITE_DAYS: false,
+
   // 英雄区(首页顶部大卡)
   HEO_HERO_TITLE_1: '收录正版、好用的',
   HEO_HERO_TITLE_2: 'Mac产品',
