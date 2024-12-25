@@ -37,12 +37,12 @@ const CONFIG = {
   // 右侧个人资料卡牌欢迎语，点击可自动切换
   HEO_INFOCARD_GREETINGS: [
     '你好！我是',
-    '🔍 分享与热心帮助',
-    '🤝 专修交互与设计',
-    '🏃 脚踏实地行动派',
-    '🏠 智能家居小能手',
-    '🤖️ 数码科技爱好者',
-    '🧱 团队小组发动机'
+    ' 分享与热心帮助',
+    ' 专修交互与设计',
+    ' 脚踏实地行动派',
+    ' 智能家居小能手',
+    ' 数码科技爱好者',
+    ' 团队小组发动机'
   ],
 
   // 个人资料底部按钮
@@ -113,10 +113,13 @@ const CONFIG = {
     }
   ],
 
-  HEO_SOCIAL_CARD: true, // 是否显示右侧，点击加入社群按钮
-  HEO_SOCIAL_CARD_TITLE_1: '交流频道',
-  HEO_SOCIAL_CARD_TITLE_2: '加入我们的社群讨论分享',
-  HEO_SOCIAL_CARD_TITLE_3: '点击加入社群',
+  HEO_SOCIAL_CARD: false, // 是否显示右侧，点击加入社群按钮
+  HEO_SOCIAL_CARD_TITLE_1: '微信公众号',
+  HEO_SOCIAL_CARD_TITLE_2: '快人一步获取最新资讯',
+  HEO_SOCIAL_CARD_TITLE_3: '扫一扫',
+  HEO_SOCIAL_CARD_BG_COLOR: '#72BB72', // 社群卡片背景色
+  HEO_SOCIAL_CARD_TITLE_4: '不错过精彩内容',
+  HEO_SOCIAL_CARD_QR_CODE: '/images/wechat-qrcode.jpg', // 社群二维码
   HEO_SOCIAL_CARD_URL: 'https://docs.tangly1024.com/article/how-to-question',
 
   // *****  以下配置无效，只是预留开发 ****
