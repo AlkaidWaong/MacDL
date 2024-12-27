@@ -157,6 +157,24 @@ const BLOG = {
   LAYOUT_SIDEBAR_REVERSE:
     process.env.NEXT_PUBLIC_LAYOUT_SIDEBAR_REVERSE || false,
 
+  SIDEBAR_ADVERTISEMENT: {
+    ENABLE: true,
+    TITLE: '自用推荐',
+    SUBTITLE: '长期稳定使用不操心，不定期更新！',
+    ADS: [
+      {
+        IMAGE: '/images/ugreen.png',
+        LINK: 'https://union-click.jd.com/jdc?e=618%7Cpc%7C&p=JF8BAS4JK1olXwMGXVhaAE8RBV8IGloTVQcEUlxcAUkeAV9MRANLAjZbERscSkAJHTdNTwcKBlMdBgABFksWAmkAGl0TXwcLVldfFxJSXzI4b1hoAl1kUTg4SDF3RzYKWhtuHQFdNFJROEonA24JG1kTVQULVG5tCEwnQgEBGVgXVQQyVW5dDkkTAW4MG1MUXwECZFldAXsTA2YOHFMdWQ4eXFhcC0wRAGk4K2sWbQECXUpbegpFF2l6K2sVbQUyVF9dAEkWAWwIGV0JXQEBVFhdFEsRAWsIE1kWXAcLVVttCkoWB2Y4K4WbyWJwVg5ZfQxuX2lOEgZeO0Hc2spMeiAXB2o4TBl8WGB3HAEAXh1lUW9wHCsdOUcFCy08ZklTWxd3RxhVWVtXH19aaxxSXV8NKw',
+        DESCRIPTION: 'Type-C扩展坞，接口丰富，连接稳定'
+      },
+      {
+        IMAGE: '/images/mulfit.png',
+        LINK: 'https://union-click.jd.com/jdc?e=618%7Cpc%7C&p=JF8BASYJK1olXDYCVV9cDU0eAG4PHFIlGVlaCgFtUQ5SQi0DBUVNGFJeSwUIFxlJX3EIGloUWAALV19aD0IIWipURmteFkRKSiY6cCtHYQ9BfCVrGhhpMAAbBEcnAl8IGloVXwAKV1ddOHsXBF9edVsUXAcDVV1bCE0nAl8IHVkRXwcFUFhbAE4RM2gIEmsRXQ8EU1ZVDEMLC2kJGFwTXgAyZG5eOEwXCnsOaRpHSQBwZG5dOEgnA24IEl8dVQQBUVxBCEsVCmwJB1sTXwIAVVlZDksXB2g4GVoUWQ8yZIDTnCMWYjNrHR9GJG0KPT4fahHJjfsZZz8RXQcHZDhdXhZxRC53bSAWK3pVCV8pfTgTQBZdTDUXLWRaLyY2aBhhWjBbbw5iB2cyUW4',
+        DESCRIPTION: '山姆升级款米乔笔记本支架，拯救低头族'
+      }
+    ]
+  },
+
   // 一个小插件展示你的facebook fan page~ @see https://tw.andys.pro/article/add-facebook-fanpage-notionnext
   FACEBOOK_PAGE_TITLE: process.env.NEXT_PUBLIC_FACEBOOK_PAGE_TITLE || null, // 邊欄 Facebook Page widget 的標題欄，填''則無標題欄 e.g FACEBOOK 粉絲團'
   FACEBOOK_PAGE: process.env.NEXT_PUBLIC_FACEBOOK_PAGE || null, // Facebook Page 的連結 e.g https://www.facebook.com/tw.andys.pro
@@ -165,7 +183,7 @@ const BLOG = {
 
   BEI_AN: process.env.NEXT_PUBLIC_BEI_AN || '', // 备案号 闽ICP备XXXXXXX
 
-  // START********代码相关********
+  // START ************代码相关********
   // PrismJs 代码相关
   PRISM_JS_PATH: 'https://npm.elemecdn.com/prismjs@1.29.0/components/',
   PRISM_JS_AUTO_LOADER:
@@ -189,7 +207,7 @@ const BLOG = {
   CODE_COLLAPSE_EXPAND_DEFAULT:
     process.env.NEXT_PUBLIC_CODE_COLLAPSE_EXPAND_DEFAULT || true, // 折叠代码默认是展开状态
 
-  // END********代码相关********
+  // END ************代码相关********
 
   // Mermaid 图表CDN
   MERMAID_CDN:

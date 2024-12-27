@@ -7,6 +7,7 @@ import { InfoCard } from './InfoCard'
 import LatestPostsGroupMini from './LatestPostsGroupMini'
 import TagGroups from './TagGroups'
 import TouchMeCard from './TouchMeCard'
+import { SidebarAds } from './SidebarAds'
 
 const FaceBookPage = dynamic(
   () => {
@@ -48,6 +49,9 @@ export default function SideRight(props) {
         <div className='wow fadeInUp'>
           <TouchMeCard />
         </div>
+
+        {/* 广告区域 */}
+        <SidebarAds />
 
         {/* 最新文章列表 */}
         <div
