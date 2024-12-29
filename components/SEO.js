@@ -5,6 +5,47 @@ import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 
+// IndexNow配置
+const INDEX_NOW_CONFIG = {
+  apiKey: 'c40a448fa32a4d35bc65fe8d0ec8e772',
+  apiEndpoint: 'https://api.indexnow.org/indexnow'
+}
+
+// 提交URL到IndexNow
+const submitToIndexNow = async (urls) => {
+  // 仅在生产环境下运行
+  if (process.env.NODE_ENV !== 'production') {
+    console.log('IndexNow: 开发环境下不提交URL:', urls)
+    return
+  }
+
+  try {
+    const response = await fetch(INDEX_NOW_CONFIG.apiEndpoint, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        host: window.location.hostname,
+        key: INDEX_NOW_CONFIG.apiKey,
+        urlList: Array.isArray(urls) ? urls : [urls],
+        keyLocation: `https://${window.location.hostname}/${INDEX_NOW_CONFIG.apiKey}.txt`
+      })
+    })
+
+    if (response.ok) {
+      console.log('IndexNow: URL提交成功:', urls)
+      return true
+    } else {
+      console.error('IndexNow: URL提交失败:', await response.text())
+      return false
+    }
+  } catch (error) {
+    console.error('IndexNow: 提交过程中出错:', error)
+    return false
+  }
+}
+
 /**
  * 页面的Head头，有用于SEO
  * @param {*} param0
@@ -40,6 +81,14 @@ const SEO = props => {
     })
   }, [])
 
+  // 监听文章变化，自动提交到IndexNow
+  useEffect(() => {
+    if (post?.id && process.env.NODE_ENV === 'production') {
+      const postUrl = `${siteConfig('LINK')}${router.asPath}`
+      submitToIndexNow(postUrl).catch(console.error)
+    }
+  }, [post, router.asPath])
+
   // SEO关键词
   let keywords = meta?.tags || siteConfig('KEYWORDS')
   if (post?.tags && post?.tags?.length > 0) {
@@ -52,8 +101,8 @@ const SEO = props => {
   const title = meta?.title || siteConfig('TITLE')
   const description = meta?.description || `${siteInfo?.description}`
   const type = meta?.type || 'website'
-  const lang = siteConfig('LANG').replace('-', '_') // Facebook OpenGraph 要 zh_CN 這樣的格式才抓得到語言
-  const category = meta?.category || siteConfig('KEYWORDS') // section 主要是像是 category 這樣的分類，Facebook 用這個來抓連結的分類
+  const lang = siteConfig('LANG').replace('-', '_') // Facebook OpenGraph 要 zh_CN 这样的格式才抓得到语言
+  const category = meta?.category || siteConfig('KEYWORDS') // section 主要是像是 category 这样的分类，Facebook 用这个来抓连结的分分类
   const favicon = siteConfig('BLOG_FAVICON')
   const BACKGROUND_DARK = siteConfig('BACKGROUND_DARK', '', NOTION_CONFIG)
 
