@@ -1,6 +1,7 @@
 import { siteConfig } from '@/lib/config'
 import { useGlobal } from '@/lib/global'
 import { loadExternalResource } from '@/lib/utils'
+import { getCanonicalUrl } from '@/lib/utils/url'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
@@ -53,14 +54,15 @@ const submitToIndexNow = async (urls) => {
  */
 const SEO = props => {
   const { children, siteInfo, post, NOTION_CONFIG } = props
-  let url = siteConfig('PATH')?.length
-    ? `${siteConfig('LINK')}/${siteConfig('SUB_PATH', '')}`
-    : siteConfig('LINK')
-  let image
   const router = useRouter()
   const meta = getSEOMeta(props, router, useGlobal()?.locale)
   const webFontUrl = siteConfig('FONT_URL')
-  const canonicalUrl = getCanonicalUrl(props, router, url)
+  
+  // 使用新的URL工具生成规范URL
+  const canonicalUrl = getCanonicalUrl(
+    router.asPath.split('?')[0].split('#')[0],
+    post?.type === 'Post'
+  )
 
   useEffect(() => {
     // 使用WebFontLoader字体加载
@@ -95,170 +97,125 @@ const SEO = props => {
     keywords = post?.tags?.join(',')
   }
   if (meta) {
-    url = `${url}/${meta.slug}`
-    image = meta.image || '/bg_image.jpg'
-  }
-  const title = meta?.title || siteConfig('TITLE')
-  const description = meta?.description || `${siteInfo?.description}`
-  const type = meta?.type || 'website'
-  const lang = siteConfig('LANG').replace('-', '_') // Facebook OpenGraph 要 zh_CN 这样的格式才抓得到语言
-  const category = meta?.category || siteConfig('KEYWORDS') // section 主要是像是 category 这样的分类，Facebook 用这个来抓连结的分分类
-  const favicon = siteConfig('BLOG_FAVICON')
-  const BACKGROUND_DARK = siteConfig('BACKGROUND_DARK', '', NOTION_CONFIG)
+    const url = `${siteConfig('LINK')}${meta.slug}`
+    const image = meta.image || '/bg_image.jpg'
+    const title = meta?.title || siteConfig('TITLE')
+    const description = meta?.description || `${siteInfo?.description}`
+    const type = meta?.type || 'website'
+    const lang = siteConfig('LANG').replace('-', '_') // Facebook OpenGraph 要 zh_CN 这样的格式才抓得到语言
+    const category = meta?.category || siteConfig('KEYWORDS') // section 主要是像是 category 这样的分类，Facebook 用这个来抓连结的分分类
+    const favicon = siteConfig('BLOG_FAVICON')
+    const BACKGROUND_DARK = siteConfig('BACKGROUND_DARK', '', NOTION_CONFIG)
 
-  const SEO_BAIDU_SITE_VERIFICATION = siteConfig(
-    'SEO_BAIDU_SITE_VERIFICATION',
-    null,
-    NOTION_CONFIG
-  )
+    const SEO_BAIDU_SITE_VERIFICATION = siteConfig(
+      'SEO_BAIDU_SITE_VERIFICATION',
+      null,
+      NOTION_CONFIG
+    )
 
-  const SEO_GOOGLE_SITE_VERIFICATION = siteConfig(
-    'SEO_GOOGLE_SITE_VERIFICATION',
-    null,
-    NOTION_CONFIG
-  )
+    const SEO_GOOGLE_SITE_VERIFICATION = siteConfig(
+      'SEO_GOOGLE_SITE_VERIFICATION',
+      null,
+      NOTION_CONFIG
+    )
 
-  const BLOG_FAVICON = siteConfig('BLOG_FAVICON', null, NOTION_CONFIG)
+    const BLOG_FAVICON = siteConfig('BLOG_FAVICON', null, NOTION_CONFIG)
 
-  const COMMENT_WEBMENTION_ENABLE = siteConfig(
-    'COMMENT_WEBMENTION_ENABLE',
-    null,
-    NOTION_CONFIG
-  )
+    const COMMENT_WEBMENTION_ENABLE = siteConfig(
+      'COMMENT_WEBMENTION_ENABLE',
+      null,
+      NOTION_CONFIG
+    )
 
-  const COMMENT_WEBMENTION_HOSTNAME = siteConfig(
-    'COMMENT_WEBMENTION_HOSTNAME',
-    null,
-    NOTION_CONFIG
-  )
-  const COMMENT_WEBMENTION_AUTH = siteConfig(
-    'COMMENT_WEBMENTION_AUTH',
-    null,
-    NOTION_CONFIG
-  )
-  const ANALYTICS_BUSUANZI_ENABLE = siteConfig(
-    'ANALYTICS_BUSUANZI_ENABLE',
-    null,
-    NOTION_CONFIG
-  )
+    const COMMENT_WEBMENTION_HOSTNAME = siteConfig(
+      'COMMENT_WEBMENTION_HOSTNAME',
+      null,
+      NOTION_CONFIG
+    )
+    const COMMENT_WEBMENTION_AUTH = siteConfig(
+      'COMMENT_WEBMENTION_AUTH',
+      null,
+      NOTION_CONFIG
+    )
+    const ANALYTICS_BUSUANZI_ENABLE = siteConfig(
+      'ANALYTICS_BUSUANZI_ENABLE',
+      null,
+      NOTION_CONFIG
+    )
 
-  const FACEBOOK_PAGE = siteConfig('FACEBOOK_PAGE', null, NOTION_CONFIG)
+    const FACEBOOK_PAGE = siteConfig('FACEBOOK_PAGE', null, NOTION_CONFIG)
 
-  return (
-    <Head>
-      <link rel='icon' href={favicon} />
-      <title>{title}</title>
-      <meta name='theme-color' content={BACKGROUND_DARK} />
-      <meta
-        name='viewport'
-        content='width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0'
-      />
-      <meta name='robots' content='follow, index' />
-      <meta charSet='UTF-8' />
-      {SEO_GOOGLE_SITE_VERIFICATION && (
+    return (
+      <Head>
+        <link rel='icon' href={favicon} />
+        <title>{title}</title>
+        <meta name='theme-color' content={BACKGROUND_DARK} />
         <meta
-          key="google-site-verification"
-          name='google-site-verification'
-          content={SEO_GOOGLE_SITE_VERIFICATION}
+          name='viewport'
+          content='width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0'
         />
-      )}
-      {SEO_BAIDU_SITE_VERIFICATION && (
-        <meta
-          key="baidu-site-verification"
-          name='baidu-site-verification'
-          content={SEO_BAIDU_SITE_VERIFICATION}
-        />
-      )}
-      <meta key="keywords" name='keywords' content={keywords} />
-      <meta key="description" name='description' content={description} />
-      <meta key="og:locale" property='og:locale' content={lang} />
-      <meta key="og:title" property='og:title' content={title} />
-      <meta key="og:description" property='og:description' content={description} />
-      <meta key="og:url" property='og:url' content={url} />
-      <meta key="og:image" property='og:image' content={image} />
-      <meta key="og:site_name" property='og:site_name' content={title} />
-      <meta key="og:type" property='og:type' content={type} />
-      <meta key="twitter:card" name='twitter:card' content='summary_large_image' />
-      <meta key="twitter:description" name='twitter:description' content={description} />
-      <meta key="twitter:title" name='twitter:title' content={title} />
-
-      <link rel='icon' href={BLOG_FAVICON} />
-      <link key="canonical" rel='canonical' href={canonicalUrl} />
-
-      {COMMENT_WEBMENTION_ENABLE && (
-        <>
-          <link
-            rel='webmention'
-            href={`https://webmention.io/${COMMENT_WEBMENTION_HOSTNAME}/webmention`}
+        <meta name='robots' content='follow, index' />
+        <meta charSet='UTF-8' />
+        {SEO_GOOGLE_SITE_VERIFICATION && (
+          <meta
+            key="google-site-verification"
+            name='google-site-verification'
+            content={SEO_GOOGLE_SITE_VERIFICATION}
           />
-          <link
-            rel='pingback'
-            href={`https://webmention.io/${COMMENT_WEBMENTION_HOSTNAME}/xmlrpc`}
+        )}
+        {SEO_BAIDU_SITE_VERIFICATION && (
+          <meta
+            key="baidu-site-verification"
+            name='baidu-site-verification'
+            content={SEO_BAIDU_SITE_VERIFICATION}
           />
-          {COMMENT_WEBMENTION_AUTH && (
-            <link href={COMMENT_WEBMENTION_AUTH} rel='me' />
-          )}
-        </>
-      )}
+        )}
+        <meta key="keywords" name='keywords' content={keywords} />
+        <meta key="description" name='description' content={description} />
+        <meta key="og:locale" property='og:locale' content={lang} />
+        <meta key="og:title" property='og:title' content={title} />
+        <meta key="og:description" property='og:description' content={description} />
+        <meta key="og:url" property='og:url' content={url} />
+        <meta key="og:image" property='og:image' content={image} />
+        <meta key="og:site_name" property='og:site_name' content={title} />
+        <meta key="og:type" property='og:type' content={type} />
+        <meta key="twitter:card" name='twitter:card' content='summary_large_image' />
+        <meta key="twitter:description" name='twitter:description' content={description} />
+        <meta key="twitter:title" name='twitter:title' content={title} />
 
-      {ANALYTICS_BUSUANZI_ENABLE && (
-        <meta name='referrer' content='no-referrer-when-downgrade' />
-      )}
-      {meta?.type === 'Post' && (
-        <>
-          <meta property='article:published_time' content={meta.publishDay} />
-          <meta property='article:author' content={siteConfig('AUTHOR')} />
-          <meta property='article:section' content={category} />
-          <meta property='article:publisher' content={FACEBOOK_PAGE} />
-        </>
-      )}
-      {children}
-    </Head>
-  )
-}
+        <link rel='icon' href={BLOG_FAVICON} />
+        <link rel='canonical' href={canonicalUrl} />
 
-/**
- * 获取规范的URL
- * @param {*} props 
- * @param {*} router 
- * @param {*} baseUrl
- * @returns {string}
- */
-const getCanonicalUrl = (props, router, baseUrl) => {
-  const { post, tag, category, page } = props
-  // 移除URL末尾的斜杠
-  baseUrl = baseUrl.replace(/\/$/, '')
+        {COMMENT_WEBMENTION_ENABLE && (
+          <>
+            <link
+              rel='webmention'
+              href={`https://webmention.io/${COMMENT_WEBMENTION_HOSTNAME}/webmention`}
+            />
+            <link
+              rel='pingback'
+              href={`https://webmention.io/${COMMENT_WEBMENTION_HOSTNAME}/xmlrpc`}
+            />
+            {COMMENT_WEBMENTION_AUTH && (
+              <link href={COMMENT_WEBMENTION_AUTH} rel='me' />
+            )}
+          </>
+        )}
 
-  // 根据不同的路由生成规范URL
-  switch (router.route) {
-    case '/':
-      return baseUrl
-    case '/archive':
-      return `${baseUrl}/archive`
-    case '/page/[page]':
-      return baseUrl // 分页页面指向首页
-    case '/category/[category]':
-    case '/category/[category]/page/[page]':
-      return `${baseUrl}/category/${category}` // 分类页面，忽略分页
-    case '/tag/[tag]':
-    case '/tag/[tag]/page/[page]':
-      return `${baseUrl}/tag/${tag}` // 标签页面，忽略分页
-    case '/search':
-    case '/search/[keyword]':
-    case '/search/[keyword]/page/[page]':
-      return `${baseUrl}/search` // 搜索页面指向基础搜索页
-    case '/404':
-      return baseUrl // 404页面指向首页
-    case '/tag':
-      return `${baseUrl}/tag`
-    case '/category':
-      return `${baseUrl}/category`
-    default:
-      // 文章页面
-      if (post?.slug) {
-        return `${baseUrl}/${post.slug}`
-      }
-      return baseUrl
+        {ANALYTICS_BUSUANZI_ENABLE && (
+          <meta name='referrer' content='no-referrer-when-downgrade' />
+        )}
+        {meta?.type === 'Post' && (
+          <>
+            <meta property='article:published_time' content={meta.publishDay} />
+            <meta property='article:author' content={siteConfig('AUTHOR')} />
+            <meta property='article:section' content={category} />
+            <meta property='article:publisher' content={FACEBOOK_PAGE} />
+          </>
+        )}
+        {children}
+      </Head>
+    )
   }
 }
 

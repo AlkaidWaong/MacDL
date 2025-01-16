@@ -90,9 +90,9 @@ const nextConfig = {
   i18n: process.env.EXPORT
     ? undefined
     : {
+        locales,
         defaultLocale: BLOG.LANG.slice(0, 2),
-        // 支持的所有多语言,按需填写即可
-        locales
+        localeDetection: false  // 禁用自动语言检测
       },
   images: {
     // 图片压缩
@@ -212,6 +212,18 @@ const nextConfig = {
   },
   experimental: {
     scrollRestoration: true
+  },
+  async rewrites() {
+    const baseUrl = BLOG.LINK || 'https://example.com'
+    return {
+      beforeFiles: [
+        // 处理文章页面的.html后缀
+        {
+          source: `/${BLOG.POST_URL_PREFIX}/:slug((?!.*\\.html$).*$)`,
+          destination: `/${BLOG.POST_URL_PREFIX}/:slug.html`,
+        }
+      ]
+    }
   },
   exportPathMap: async function (
     defaultPathMap,
