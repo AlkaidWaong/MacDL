@@ -1,8 +1,8 @@
 # MacAppHQ - 精品Mac软件下载与效率工具推荐
 
 <p align="center">
-  <a href="https://www.macapphq.com" target="_blank">
-    <img src="./docs/theme-next.png" alt="MacAppHQ" width="300"/>
+  <a href="https://www.macapphq.com" target="_blank">  
+    <img src="https://s2.loli.net/2025/01/02/etUxcNXV3GDOona.png" alt="MacAppHQ" width="600"/>
   </a>
 </p>
 
