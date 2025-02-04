@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router'
+import { siteConfig } from '@/lib/config'
 
 /**
  * 标签组
@@ -13,9 +14,12 @@ const TagGroups = ({ tags, className }) => {
   const { tag: currentTag } = router.query
   if (!tags) return <></>
 
+const limitedTags = siteConfig('PREVIEW_TAG_COUNT') > 0
+  ? tags.slice(0, siteConfig('PREVIEW_TAG_COUNT')) : tags
+  
   return (
         <div id="tags-group" className="dark:border-gray-700 space-y-2">
-            {tags.map((tag, index) => {
+            {limitedTags.map((tag, index) => {
               const selected = currentTag === tag.name
               return (
                     <Link passHref key={index} href={`/tag/${encodeURIComponent(tag.name)}`}
