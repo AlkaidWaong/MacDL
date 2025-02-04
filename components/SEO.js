@@ -180,10 +180,11 @@ const getSEOMeta = (props, router, locale) => {
   const keyword = router?.query?.s
 
   const TITLE = siteConfig('TITLE')
+
   switch (router.route) {
     case '/':
       return {
-        title: `${siteInfo?.title} | ${siteConfig('BIO')}`,
+        title: `${siteInfo?.title} | ${siteInfo?.description}`,
         description: `${siteInfo?.description}`,
         image: `${siteInfo?.pageCover}`,
         slug: '',
