@@ -19,23 +19,18 @@ export function AnalyticsCard(props) {
   const { postCount } = props
   return <>
         <div className='text-md flex flex-col space-y-1 justify-center px-3'>
-            {siteConfig('SHOW_ARTICLE_COUNT', false, CONFIG) && (
-              <div className='inline'>
+            <div className='inline'>
                 <div className='flex justify-between'>
                     <div>{postCountTitle}</div>
                     <div>{postCount}</div>
                 </div>
-              </div>
-            )}
-            
-            {siteConfig('SHOW_SITE_DAYS', false, CONFIG) && (
-              <div className='inline'>
+            </div>
+            <div className='inline'>
                 <div className='flex justify-between'>
                     <div>{siteTimeTitle}</div>
                     <div>{diffDays} 天</div>
                 </div>
-              </div>
-            )}
+            </div>
             <div className='hidden busuanzi_container_page_pv'>
                 <div className='flex justify-between'>
                     <div>{siteVisitTitle}</div>

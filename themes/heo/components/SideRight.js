@@ -7,7 +7,6 @@ import { InfoCard } from './InfoCard'
 import LatestPostsGroupMini from './LatestPostsGroupMini'
 import TagGroups from './TagGroups'
 import TouchMeCard from './TouchMeCard'
-import { SidebarAds } from './SidebarAds'
 
 const FaceBookPage = dynamic(
   () => {
@@ -50,9 +49,6 @@ export default function SideRight(props) {
           <TouchMeCard />
         </div>
 
-        {/* 广告区域 */}
-        <SidebarAds />
-
         {/* 最新文章列表 */}
         <div
           className={
@@ -72,7 +68,7 @@ export default function SideRight(props) {
             'bg-white dark:bg-[#1e1e1e] dark:text-white hover:border-indigo-600  dark:hover:border-yellow-600 duration-200'
           }>
           <TagGroups tags={sortedTags} currentTag={currentTag} />
-           {/* <hr className='mx-1 flex border-dashed relative my-4' /> 	*/}
+          <hr className='mx-1 flex border-dashed relative my-4' />
           <AnalyticsCard {...props} />
         </Card>
       </div>

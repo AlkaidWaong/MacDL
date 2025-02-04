@@ -1,6 +1,5 @@
 import { siteConfig } from '@/lib/config'
 import { checkStartWithHttp } from '@/lib/utils'
-import { getInternalLinkHref } from '@/lib/utils/url'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import NotionIcon from './NotionIcon'
@@ -21,15 +20,9 @@ const BlogPostCard = ({ post, className }) => {
     post.pageIcon.indexOf('amazonaws.com') !== -1
       ? post.pageIcon + '&width=88'
       : post.pageIcon
-
-  // 根据是否为外部链接生成href
-  const href = checkStartWithHttp(post.slug) 
-    ? post.slug 
-    : getInternalLinkHref(post.href || `${siteConfig('POST_URL_PREFIX')}/${post.slug}`, true)
-
   return (
     <Link
-      href={href}
+      href={post?.href}
       target={checkStartWithHttp(post.slug) ? '_blank' : '_self'}
       passHref>
       <div
