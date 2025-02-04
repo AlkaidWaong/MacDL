@@ -79,7 +79,7 @@ const BlogPostCard = ({ index, post, showSummary, siteInfo }) => {
               href={post?.href}
               passHref
               className={
-                ' group-hover:text-indigo-700 dark:hover:text-yellow-700 dark:group-hover:text-yellow-600 text-black dark:text-gray-100  line-clamp-2 replace cursor-pointer text-xl font-extrabold leading-relaxed'
+                ' group-hover:text-indigo-700 dark:hover:text-yellow-700 dark:group-hover:text-yellow-600 text-black dark:text-gray-100  line-clamp-2 replace cursor-pointer text-xl font-extrabold leading-tight'
               }>
               {siteConfig('POST_TITLE_ICON') && (
                 <NotionIcon
@@ -92,11 +92,14 @@ const BlogPostCard = ({ index, post, showSummary, siteInfo }) => {
           </header>
 
           {/* 摘要 */}
-          {/* {(!showPreview || showSummary) && (
+{/*
+          {(!showPreview || showSummary) && (
             <main className='line-clamp-2 replace text-gray-700  dark:text-gray-300 text-sm font-light leading-tight'>
               {post.summary}
             </main>
-          )} */}
+          )}
+
+          */}
 
           <div className='md:flex-nowrap flex-wrap md:justify-start inline-block'>
             <div>

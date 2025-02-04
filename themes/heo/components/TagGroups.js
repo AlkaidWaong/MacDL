@@ -14,11 +14,9 @@ const TagGroups = ({ tags, className }) => {
   const { tag: currentTag } = router.query
   if (!tags) return <></>
 
-  // 添加标签数量限制
-  const limitedTags = siteConfig('PREVIEW_TAG_COUNT') > 0 
-    ? tags.slice(0, siteConfig('PREVIEW_TAG_COUNT')) 
-    : tags
-
+const limitedTags = siteConfig('PREVIEW_TAG_COUNT') > 0
+  ? tags.slice(0, siteConfig('PREVIEW_TAG_COUNT')) : tags
+  
   return (
         <div id="tags-group" className="dark:border-gray-700 space-y-2">
             {limitedTags.map((tag, index) => {
