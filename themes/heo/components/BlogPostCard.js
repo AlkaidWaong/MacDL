@@ -92,11 +92,14 @@ const BlogPostCard = ({ index, post, showSummary, siteInfo }) => {
           </header>
 
           {/* 摘要 */}
+{/*
           {(!showPreview || showSummary) && (
             <main className='line-clamp-2 replace text-gray-700  dark:text-gray-300 text-sm font-light leading-tight'>
               {post.summary}
             </main>
           )}
+
+          */}
 
           <div className='md:flex-nowrap flex-wrap md:justify-start inline-block'>
             <div>
