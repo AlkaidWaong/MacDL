@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import SmartLink from '@/components/SmartLink'
 import { useRouter } from 'next/router'
 import { siteConfig } from '@/lib/config'
 
@@ -22,7 +22,7 @@ const limitedTags = siteConfig('PREVIEW_TAG_COUNT') > 0
             {limitedTags.map((tag, index) => {
               const selected = currentTag === tag.name
               return (
-                    <Link passHref key={index} href={`/tag/${encodeURIComponent(tag.name)}`}
+                    <SmartLink passHref key={index} href={`/tag/${encodeURIComponent(tag.name)}`}
                         className={'cursor-pointer inline-block  whitespace-nowrap'}
                     >
                         <div className={`${className || ''} 
@@ -38,7 +38,7 @@ const limitedTags = siteConfig('PREVIEW_TAG_COUNT') > 0
                                     <></>
                                 )}
                         </div>
-                    </Link>
+                    </SmartLink>
               )
             })}
         </div>
