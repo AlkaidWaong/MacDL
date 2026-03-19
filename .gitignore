@@ -15,6 +15,10 @@
 # production
 /build
 
+# astro
+/astro/dist/
+/astro/node_modules/.astro/
+
 # misc
 .DS_Store
 *.pem
