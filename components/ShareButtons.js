@@ -38,8 +38,6 @@ import {
   TumblrShareButton,
   TwitterIcon,
   TwitterShareButton,
-  ThreadsIcon,
-  ThreadsShareButton,
   ViberIcon,
   ViberShareButton,
   VKIcon,
@@ -324,13 +322,21 @@ const ShareButtons = ({ post }) => {
             )
           case 'threads':
             return (
-              <ThreadsShareButton
+              <button
                 key={singleService}
-                url={shareUrl}
-                title={titleWithSiteInfo}
-                className='mx-1'>
-                <ThreadsIcon size={32} round />
-              </ThreadsShareButton>
+                aria-label='Share to Threads'
+                onClick={() => {
+                  if (typeof window === 'undefined') return
+                  const text = `${titleWithSiteInfo} ${shareUrl}`
+                  window.open(
+                    `https://www.threads.net/intent/post?text=${encodeURIComponent(text)}`,
+                    '_blank',
+                    'noopener,noreferrer'
+                  )
+                }}
+                className='cursor-pointer bg-black text-white rounded-full mx-1 w-8 h-8 flex items-center justify-center'>
+                <span className='text-xs font-bold'>@</span>
+              </button>
             )
           case 'qq':
             return (

@@ -5,6 +5,16 @@ import { fetchGlobalAllData } from '@/lib/db/SiteDataApi'
 import { extractLangId, extractLangPrefix } from '@/lib/utils/pageId'
 import { getServerSideSitemap } from 'next-sitemap'
 
+function escapeXml(str) {
+  if (!str) return ''
+  return String(str)
+    .replace(/&(?!amp;|lt;|gt;|quot;|#39;)/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;')
+}
+
 export const getServerSideProps = async ctx => {
   let fields = []
   const siteIds = BLOG.NOTION_PAGE_ID.split(',')
@@ -28,6 +38,8 @@ export const getServerSideProps = async ctx => {
   }
 
   fields = getUniqueFields(fields);
+  // Ensure loc is XML-safe. Some slugs contain '&' which must be escaped in XML.
+  fields = fields.map(f => ({ ...f, loc: escapeXml(f.loc) }))
 
   // 缓存
   ctx.res.setHeader(
