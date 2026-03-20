@@ -16,16 +16,6 @@
       "permanent": true
     },
     {
-      "source": "/https:/github.com/tangly1024/NotionNext",
-      "destination": "https://github.com/tangly1024/NotionNext",
-      "permanent": true
-    },
-    {
-      "source": "/https:/jsj.top/f/PdePIC",
-      "destination": "https://jsj.top/f/PdePIC",
-      "permanent": true
-    },
-    {
       "source": "/feed",
       "destination": "/rss/feed.xml",
       "permanent": true
