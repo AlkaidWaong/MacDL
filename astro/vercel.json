@@ -1,0 +1,64 @@
+{
+  "redirects": [
+    {
+      "source": "/en",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/zh",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/:path*",
+      "destination": "/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/https:/github.com/tangly1024/NotionNext",
+      "destination": "https://github.com/tangly1024/NotionNext",
+      "permanent": true
+    },
+    {
+      "source": "/https:/jsj.top/f/PdePIC",
+      "destination": "https://jsj.top/f/PdePIC",
+      "permanent": true
+    },
+    {
+      "source": "/feed",
+      "destination": "/rss/feed.xml",
+      "permanent": true
+    },
+    {
+      "source": "/oops",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/category/%E7%B3%BB%E7%BB%9F%E5%AE%89%E5%85%A8",
+      "destination": "/category/%E7%B3%BB%E7%BB%9F%E5%B7%A5%E5%85%B7",
+      "permanent": true
+    },
+    {
+      "source": "/category/系统安全",
+      "destination": "/category/系统工具",
+      "permanent": true
+    },
+    {
+      "source": "/tag/ORC",
+      "destination": "/tag/OCR",
+      "permanent": true
+    },
+    {
+      "source": "/tag/ORC/page/:page",
+      "destination": "/tag/OCR/page/:page",
+      "permanent": true
+    },
+    {
+      "source": "/:path*.html",
+      "destination": "/:path*",
+      "permanent": true
+    }
+  ]
+}

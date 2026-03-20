@@ -1,0 +1,41 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+import { normalizeTag } from "../../lib/tags";
+
+const posts = await getCollection("posts", ({ data }) => !data.draft);
+const tagCount = new Map();
+for (const post of posts) {
+  for (const t of post.data.tags ?? []) {
+    const canonical = normalizeTag(t);
+    tagCount.set(canonical, (tagCount.get(canonical) ?? 0) + 1);
+  }
+}
+const tags = Array.from(tagCount.entries()).sort((a, b) => b[1] - a[1]);
+const canonical = "https://www.macapphq.com/tag";
+---
+
+<BaseLayout
+  title="Mac 工具标签索引与主题入口 | MacAppHQ"
+  description="按标签浏览 Mac 工具专题，快速发现对应场景的推荐应用与实测文章。"
+  canonical={canonical}
+>
+  <section class="glass page-head">
+    <div class="page-crumb">
+      <a href="/">首页</a>
+      <span>/</span>
+      <span>标签</span>
+    </div>
+    <p>标签索引 · 共 {tags.length} 个标签</p>
+  </section>
+
+  <section class="glass content" style="margin: 16px 0 36px;">
+    <div class="meta" style="gap: 12px;">
+      {tags.map(([name, count]) => (
+        <a class="pill" href={`/tag/${encodeURIComponent(name)}`}>
+          {name} <span style="opacity: .55;">({count})</span>
+        </a>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

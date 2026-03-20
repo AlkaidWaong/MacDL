@@ -1,0 +1,67 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { pickFirstBodyImage } from "../lib/cover";
+
+type Props = {
+  post: CollectionEntry<"posts">;
+  showDescription?: boolean;
+  showMeta?: boolean;
+  showBadge?: boolean;
+};
+
+const { post, showDescription = true, showMeta = true, showBadge = true } = Astro.props;
+const url = `/article/${post.data.urlSlug}`;
+const categories = post.data.categories ?? [];
+const title = post.data.title ?? "";
+const primary = categories[0] ?? "";
+const body = (post as unknown as { body?: string }).body ?? "";
+
+const coverSrc =
+  post.data.heroImage?.trim() ||
+  post.data.cover?.trim() ||
+  pickFirstBodyImage(body) ||
+  "";
+
+function hashCode(s: string): number {
+  let h = 0;
+  for (let i = 0; i < s.length; i++) h = (h * 31 + s.charCodeAt(i)) | 0;
+  return Math.abs(h);
+}
+
+const palettes = [
+  ["#2563eb", "#0ea5e9"], // blue
+  ["#e11d48", "#fb7185"], // red
+  ["#7c3aed", "#a78bfa"], // violet
+  ["#059669", "#34d399"], // green
+  ["#f97316", "#fbbf24"]  // orange
+];
+const [g1, g2] = palettes[hashCode(post.data.urlSlug) % palettes.length];
+---
+
+<article class="card post-card" style={`--g1:${g1};--g2:${g2};`}>
+  <a class="post-card__link" href={url} aria-label={title} style="text-decoration:none;">
+    <div class:list={["post-card__media", coverSrc ? "has-img" : ""]} aria-hidden="true">
+      {coverSrc ? (
+        <img class="post-card__img" src={coverSrc} alt="" loading="lazy" decoding="async" />
+      ) : null}
+      {showBadge && primary ? <div class="post-card__badge">{primary}</div> : null}
+    </div>
+    <div class="post-card__body">
+      {showMeta ? (
+        <div class="meta">
+          <time datetime={post.data.date.toISOString()}>
+            {post.data.date.toISOString().slice(0, 10)}
+          </time>
+        </div>
+      ) : null}
+      <h2 class="post-card__title">{title}</h2>
+      {showDescription ? (
+        post.data.description ? (
+          <p class="post-card__desc">{post.data.description}</p>
+        ) : (
+          <p class="post-card__desc"> </p>
+        )
+      ) : null}
+    </div>
+  </a>
+</article>
