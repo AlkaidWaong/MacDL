@@ -11,10 +11,12 @@ for (const post of posts) {
 const categories = [...catCounter.entries()]
   .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0], "zh-Hans-CN"))
   .map(([name, count]) => ({ name, count }));
+const topCategories = categories.slice(0, 8);
 
 const featuredSoftware = posts
   .filter((post) => (post.data.tags ?? []).includes("精选软件"))
-  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+  .slice(0, 8);
 ---
 
 <footer class="footer">
@@ -24,11 +26,12 @@ const featuredSoftware = posts
         <section>
           <h3>分类入口</h3>
           <div class="footer-cats">
-            {categories.map((cat) => (
+            {topCategories.map((cat) => (
               <a href={`/category/${encodeURIComponent(cat.name)}`}>
                 {cat.name} <span>({cat.count})</span>
               </a>
             ))}
+            <a class="footer-more" href="/category">查看全部分类</a>
           </div>
         </section>
 
@@ -40,6 +43,7 @@ const featuredSoftware = posts
                 <a href={`/article/${post.data.urlSlug}`}>{post.data.title}</a>
               </li>
             ))}
+            <li><a class="footer-more" href={`/tag/${encodeURIComponent("精选软件")}`}>查看更多精选软件</a></li>
           </ul>
         </section>
 
