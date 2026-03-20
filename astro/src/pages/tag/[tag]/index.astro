@@ -1,0 +1,70 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import PostCard from "../../../components/PostCard.astro";
+import Pagination from "../../../components/Pagination.astro";
+import { getCollection } from "astro:content";
+import { normalizeTag } from "../../../lib/tags";
+
+const PAGE_SIZE = 12;
+
+export async function getStaticPaths() {
+  const posts = await getCollection("posts", ({ data }) => !data.draft);
+  const tagSet = new Set();
+  for (const post of posts) {
+    for (const t of post.data.tags ?? []) tagSet.add(t);
+  }
+  return Array.from(tagSet).map((tag) => ({ params: { tag } }));
+}
+
+const tagParam = Astro.params.tag ?? "";
+let tagName = tagParam;
+try {
+  tagName = decodeURIComponent(tagParam);
+} catch {}
+const canonicalTag = normalizeTag(tagName);
+
+if (canonicalTag !== tagName) {
+  return Astro.redirect(`/tag/${encodeURIComponent(canonicalTag)}`, 301);
+}
+
+const posts = (await getCollection("posts", ({ data }) => !data.draft))
+  .filter((p) => (p.data.tags ?? []).map((t) => normalizeTag(t)).includes(canonicalTag))
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+
+const totalPages = Math.max(1, Math.ceil(posts.length / PAGE_SIZE));
+const pagePosts = posts.slice(0, PAGE_SIZE);
+const canonical = `https://www.macapphq.com/tag/${encodeURIComponent(canonicalTag)}`;
+---
+
+<BaseLayout
+  title={`${canonicalTag} 相关文章与工具推荐 | MacAppHQ`}
+  description={`浏览标签「${canonicalTag}」下的 Mac 工具推荐、实测体验与工作流文章。`}
+  canonical={canonical}
+>
+  <section class="glass page-head">
+    <div class="page-crumb">
+      <a href="/">首页</a>
+      <span>/</span>
+      <a href="/tag">标签</a>
+      <span>/</span>
+      <span>{canonicalTag}</span>
+    </div>
+    <p>共 {posts.length} 篇文章</p>
+  </section>
+
+  <section class="grid" aria-label="Tag posts">
+    {pagePosts.map((post) => (
+      <PostCard post={post} />
+    ))}
+  </section>
+
+  <Pagination
+    current={1}
+    total={totalPages}
+    hrefFor={(p) =>
+      p === 1
+        ? `/tag/${encodeURIComponent(canonicalTag)}`
+        : `/tag/${encodeURIComponent(canonicalTag)}/page/${p}`
+    }
+  />
+</BaseLayout>

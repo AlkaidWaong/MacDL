@@ -17,6 +17,8 @@
 
 # astro
 /astro/dist/
+/astro/node_modules/
+/astro/.astro/
 /astro/node_modules/.astro/
 
 # misc

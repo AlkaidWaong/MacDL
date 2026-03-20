@@ -1,0 +1,56 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+import friendlinksData from "../data/friendlinks.json";
+
+const pages = await getCollection("pages", ({ data }) => !data.draft);
+const page = pages.find((p) => p.data.urlSlug === "links") ?? null;
+const { Content } = page ? await page.render() : { Content: null };
+
+const canonical = `https://www.macapphq.com/links`;
+const links = (friendlinksData?.links ?? []) as Array<{
+  name: string;
+  url: string;
+  description?: string;
+}>;
+---
+
+<BaseLayout
+  title={`${page?.data.title ?? "友链"} | MacAppHQ`}
+  description={page?.data.description}
+  canonical={canonical}
+>
+  <section class="glass content">
+    <h1>{page?.data.title ?? "友链"}</h1>
+    {Content ? <Content /> : null}
+  </section>
+
+  <div class="wrap" style="margin-top: 18px; margin-bottom: 36px;">
+    <section class="glass" style="padding: 18px 16px;">
+      <div style="display:flex; align-items: baseline; justify-content: space-between; gap: 12px; flex-wrap: wrap;">
+        <h2 style="margin: 0; font-family: var(--serif); letter-spacing: -0.01em;">朋友们</h2>
+        <div class="meta">
+          <span>{links.length} 个站点</span>
+        </div>
+      </div>
+
+      <div class="grid" style="margin-bottom: 0;">
+        {links.map((item) => (
+          <a class="card" href={item.url} target="_blank" rel="noopener noreferrer" style="text-decoration: none;">
+            <h2 style="font-size: 18px; margin-bottom: 6px;">{item.name}</h2>
+            {item.description ? (
+              <p style="margin: 0 0 10px; color: var(--muted);">{item.description}</p>
+            ) : (
+              <p style="margin: 0 0 10px; color: var(--muted);"> </p>
+            )}
+            <div class="meta">
+              <span>{new URL(item.url).host}</span>
+              <span>外部链接</span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+

@@ -1,0 +1,102 @@
+---
+import BaseLayout from "../../../../layouts/BaseLayout.astro";
+import PostCard from "../../../../components/PostCard.astro";
+import Pagination from "../../../../components/Pagination.astro";
+import { getCollection } from "astro:content";
+
+function parsePositiveInt(value) {
+  const n = Number.parseInt(String(value), 10);
+  return Number.isFinite(n) && n > 0 ? n : null;
+}
+
+export async function getStaticPaths() {
+  const PAGE_SIZE = 12;
+  const posts = await getCollection("posts", ({ data }) => !data.draft);
+  const categorySet = new Set();
+  for (const post of posts) {
+    for (const c of post.data.categories ?? []) {
+      categorySet.add(c);
+    }
+  }
+
+  const paths = [];
+  for (const categoryName of categorySet) {
+    const total = posts.filter((p) =>
+      (p.data.categories ?? []).includes(categoryName)
+    ).length;
+    const totalPages = Math.max(1, Math.ceil(total / PAGE_SIZE));
+    for (let page = 2; page <= totalPages; page++) {
+      paths.push({
+        params: {
+          name: categoryName,
+          page: String(page)
+        }
+      });
+    }
+  }
+  return paths;
+}
+
+const nameParam = Astro.params.name ?? "";
+const pageParam = parsePositiveInt(Astro.params.page);
+let categoryName = nameParam;
+try {
+  categoryName = decodeURIComponent(nameParam);
+} catch {}
+
+if (!pageParam || pageParam <= 1) {
+  return Astro.redirect(`/category/${encodeURIComponent(categoryName)}`, 301);
+}
+
+const all = await getCollection("posts", ({ data }) => !data.draft);
+const filtered = all
+  .filter((p) => (p.data.categories ?? []).includes(categoryName))
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+
+const PAGE_SIZE = 12;
+const totalPages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
+const page = Math.min(pageParam, totalPages);
+const start = PAGE_SIZE * (page - 1);
+const posts = filtered.slice(start, start + PAGE_SIZE);
+const canonical = `https://www.macapphq.com/category/${encodeURIComponent(
+  categoryName
+)}/page/${page}`;
+---
+
+<BaseLayout
+  title={`${categoryName} Mac 应用推荐（第 ${page} 页） | MacAppHQ`}
+  description={`浏览 ${categoryName} 分类下的 Mac 应用推荐与评测内容，第 ${page} 页。`}
+  canonical={canonical}
+  robots="noindex,follow"
+>
+  <section class="glass page-head">
+    <div class="page-crumb">
+      <a href="/">首页</a>
+      <span>/</span>
+      <a href="/category">分类</a>
+      <span>/</span>
+      <a href={`/category/${encodeURIComponent(categoryName)}`}>{categoryName}</a>
+      <span>/</span>
+      <span>第 {page} 页</span>
+    </div>
+    <p>
+      共 {filtered.length} 篇文章
+    </p>
+  </section>
+
+  <section class="grid" aria-label="Category posts">
+    {posts.map((post) => (
+      <PostCard post={post} />
+    ))}
+  </section>
+
+  <Pagination
+    current={page}
+    total={totalPages}
+    hrefFor={(p) =>
+      p === 1
+        ? `/category/${encodeURIComponent(categoryName)}`
+        : `/category/${encodeURIComponent(categoryName)}/page/${p}`
+    }
+  />
+</BaseLayout>

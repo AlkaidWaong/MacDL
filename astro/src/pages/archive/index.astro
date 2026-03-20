@@ -1,0 +1,45 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+
+const posts = (await getCollection("posts", ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.date.getTime() - a.data.date.getTime()
+);
+
+const groups = new Map();
+for (const p of posts) {
+  const y = String(p.data.date.getFullYear());
+  if (!groups.has(y)) groups.set(y, []);
+  groups.get(y).push(p);
+}
+const years = Array.from(groups.keys()).sort((a, b) => Number(b) - Number(a));
+const canonical = "https://www.macapphq.com/archive";
+---
+
+<BaseLayout title="归档 | MacAppHQ" description="按时间浏览文章" canonical={canonical}>
+  <section class="glass hero">
+    <h1>归档</h1>
+    <p>共 {posts.length} 篇文章</p>
+  </section>
+
+  <section class="glass content" style="margin: 16px 0 36px;">
+    {years.map((y) => (
+      <div style="margin: 18px 0 22px;">
+        <h2 style="margin: 0 0 10px;">{y}</h2>
+        <div class="meta" style="flex-direction: column; gap: 6px;">
+          {groups.get(y).map((p) => (
+            <a href={`/article/${p.data.urlSlug}`} style="text-decoration: none;">
+              <span style="font-family: var(--serif); color: rgba(17,16,21,.88);">
+                {p.data.title}
+              </span>
+              <span style="margin-left: 10px; color: var(--muted); font-size: 13px;">
+                {p.data.date.toISOString().slice(0, 10)}
+              </span>
+            </a>
+          ))}
+        </div>
+      </div>
+    ))}
+  </section>
+</BaseLayout>
+

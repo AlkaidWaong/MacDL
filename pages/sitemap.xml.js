@@ -1,9 +1,10 @@
 // pages/sitemap.xml.js
 import BLOG from '@/blog.config'
 import { siteConfig } from '@/lib/config'
-import { fetchGlobalAllData } from '@/lib/db/SiteDataApi'
 import { extractLangId, extractLangPrefix } from '@/lib/utils/pageId'
 import { getServerSideSitemap } from 'next-sitemap'
+import fs from 'fs'
+import path from 'path'
 
 function escapeXml(str) {
   if (!str) return ''
@@ -15,7 +16,49 @@ function escapeXml(str) {
     .replace(/'/g, '&#39;')
 }
 
+function loadSitemapIndex() {
+  const p = path.join(process.cwd(), 'data', 'sitemap_index.json')
+  if (!fs.existsSync(p)) return null
+  try {
+    const raw = fs.readFileSync(p, 'utf-8')
+    const data = JSON.parse(raw)
+    if (!data || !Array.isArray(data.urls)) return null
+    return data
+  } catch (e) {
+    console.warn('[sitemap] failed to read data/sitemap_index.json', e)
+    return null
+  }
+}
+
+function indexToFields(indexData) {
+  const urls = indexData?.urls || []
+  return urls
+    .map(u => {
+      if (!u || !u.loc) return null
+      return {
+        loc: escapeXml(u.loc),
+        lastmod: u.lastmod,
+        changefreq: u.changefreq,
+        priority: u.priority
+      }
+    })
+    .filter(Boolean)
+}
+
 export const getServerSideProps = async ctx => {
+  // Prefer local index generated from CSV. This removes runtime dependency on Notion.
+  const indexData = loadSitemapIndex()
+  if (indexData) {
+    const fields = indexToFields(indexData)
+    ctx.res.setHeader(
+      'Cache-Control',
+      'public, max-age=3600, stale-while-revalidate=59'
+    )
+    return getServerSideSitemap(ctx, fields)
+  }
+
+  const { fetchGlobalAllData } = await import('@/lib/db/SiteDataApi')
+
   let fields = []
   const siteIds = BLOG.NOTION_PAGE_ID.split(',')
 

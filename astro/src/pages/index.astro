@@ -1,0 +1,88 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PostCard from "../components/PostCard.astro";
+import { getCollection } from "astro:content";
+
+const all = await getCollection("posts", ({ data }) => !data.draft);
+const featuredAll = all.filter((post) => post.data.featured);
+
+function shuffle<T>(items: T[]): T[] {
+  const arr = items.slice();
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+
+const featured = shuffle(featuredAll).slice(0, 4);
+const posts = all.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+const fixedTagEntries = [
+  {
+    href: `/tag/${encodeURIComponent("独立开发者App")}`,
+    title: "独立开发者的 App",
+    description: "发现值得长期支持的小而美产品，优先看到真正解决问题的创新工具。",
+    image: "/indie.png"
+  },
+  {
+    href: `/tag/${encodeURIComponent("平替软件")}`,
+    title: "付费软件平替",
+    description: "用更低成本达到接近体验，快速找到高性价比替代方案。",
+    image: "/altertive.png"
+  }
+];
+---
+
+<BaseLayout
+  title="MacAppHQ - Mac 应用推荐、效率工具与工作流指南"
+  description="MacAppHQ 持续更新 Mac 应用推荐、效率工具评测、独立开发者 App 与平替软件清单，帮你更快选到真正好用的工具。"
+  keywords="Mac应用推荐,Mac效率工具,macOS软件,独立开发者App,平替软件,工作流"
+  canonical="https://www.macapphq.com/"
+>
+  {featured.length ? (
+    <>
+      <div class="section-head">
+        <h2>精选推荐</h2>
+      </div>
+      <section class="featured-grid" aria-label="Featured Posts">
+        <div class="featured-col featured-col--left">
+          {featured.slice(0, 2).map((post) => (
+            <PostCard post={post} showDescription={false} showMeta={false} showBadge={false} />
+          ))}
+        </div>
+        <div class="featured-col featured-col--center">
+          {featured.slice(2, 3).map((post) => (
+            <PostCard post={post} showDescription={false} showMeta={false} showBadge={false} />
+          ))}
+        </div>
+        <div class="featured-col featured-col--right">
+          {featured.slice(3, 4).map((post) => (
+            <PostCard post={post} showDescription={false} showMeta={false} showBadge={false} />
+          ))}
+          {fixedTagEntries.map((entry) => (
+            <article class="card post-card topic-card">
+              <a class="post-card__link" href={entry.href} aria-label={entry.title} style="text-decoration:none;">
+                <div class="post-card__media has-img" aria-hidden="true">
+                  <img class="post-card__img" src={entry.image} alt="" loading="lazy" decoding="async" />
+                </div>
+                <div class="post-card__body">
+                  <h2 class="post-card__title">{entry.title}</h2>
+                  <p class="topic-card__desc">{entry.description}</p>
+                </div>
+              </a>
+            </article>
+          ))}
+        </div>
+      </section>
+    </>
+  ) : null}
+
+  <div class="section-head">
+    <h2>最新更新</h2>
+  </div>
+  <section class="grid" aria-label="Posts">
+    {posts.map((post) => (
+      <PostCard post={post} />
+    ))}
+  </section>
+</BaseLayout>

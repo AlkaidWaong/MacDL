@@ -1,0 +1,103 @@
+---
+import BaseLayout from "../../../../layouts/BaseLayout.astro";
+import PostCard from "../../../../components/PostCard.astro";
+import Pagination from "../../../../components/Pagination.astro";
+import { getCollection } from "astro:content";
+import { normalizeTag } from "../../../../lib/tags";
+
+function parsePositiveInt(value) {
+  const n = Number.parseInt(String(value), 10);
+  return Number.isFinite(n) && n > 0 ? n : null;
+}
+
+export async function getStaticPaths() {
+  const PAGE_SIZE = 12;
+  const posts = await getCollection("posts", ({ data }) => !data.draft);
+  const tagSet = new Set();
+  for (const post of posts) {
+    for (const t of post.data.tags ?? []) tagSet.add(t);
+  }
+
+  const paths = [];
+  for (const tag of tagSet) {
+    const count = posts.filter((p) => (p.data.tags ?? []).includes(tag)).length;
+    const totalPages = Math.max(1, Math.ceil(count / PAGE_SIZE));
+    for (let page = 2; page <= totalPages; page++) {
+      paths.push({ params: { tag, page: String(page) } });
+    }
+  }
+  return paths;
+}
+
+const PAGE_SIZE = 12;
+const tagParam = Astro.params.tag ?? "";
+const pageParam = parsePositiveInt(Astro.params.page);
+let tagName = tagParam;
+try {
+  tagName = decodeURIComponent(tagParam);
+} catch {}
+const canonicalTag = normalizeTag(tagName);
+
+if (!pageParam || pageParam <= 1) {
+  return Astro.redirect(`/tag/${encodeURIComponent(canonicalTag)}`, 301);
+}
+
+if (canonicalTag !== tagName) {
+  return Astro.redirect(
+    `/tag/${encodeURIComponent(canonicalTag)}/page/${pageParam}`,
+    301
+  );
+}
+
+const all = await getCollection("posts", ({ data }) => !data.draft);
+const posts = all
+  .filter((p) => (p.data.tags ?? []).map((t) => normalizeTag(t)).includes(canonicalTag))
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+
+const totalPages = Math.max(1, Math.ceil(posts.length / PAGE_SIZE));
+const page = Math.min(pageParam ?? 2, totalPages);
+const start = PAGE_SIZE * (page - 1);
+const pagePosts = posts.slice(start, start + PAGE_SIZE);
+
+const canonical = `https://www.macapphq.com/tag/${encodeURIComponent(
+  canonicalTag
+)}/page/${page}`;
+---
+
+<BaseLayout
+  title={`${canonicalTag} 相关文章（第 ${page} 页） | MacAppHQ`}
+  description={`浏览标签「${canonicalTag}」下的 Mac 工具推荐与实测内容，第 ${page} 页。`}
+  canonical={canonical}
+  robots="noindex,follow"
+>
+  <section class="glass page-head">
+    <div class="page-crumb">
+      <a href="/">首页</a>
+      <span>/</span>
+      <a href="/tag">标签</a>
+      <span>/</span>
+      <a href={`/tag/${encodeURIComponent(canonicalTag)}`}>{canonicalTag}</a>
+      <span>/</span>
+      <span>第 {page} 页</span>
+    </div>
+    <p>
+      共 {posts.length} 篇文章
+    </p>
+  </section>
+
+  <section class="grid" aria-label="Tag posts">
+    {pagePosts.map((post) => (
+      <PostCard post={post} />
+    ))}
+  </section>
+
+  <Pagination
+    current={page}
+    total={totalPages}
+    hrefFor={(p) =>
+      p === 1
+        ? `/tag/${encodeURIComponent(canonicalTag)}`
+        : `/tag/${encodeURIComponent(canonicalTag)}/page/${p}`
+    }
+  />
+</BaseLayout>

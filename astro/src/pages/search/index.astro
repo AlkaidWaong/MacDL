@@ -1,0 +1,76 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+const canonical = "https://www.macapphq.com/search";
+---
+
+<BaseLayout
+  title="搜索 | MacAppHQ"
+  description="站内搜索"
+  canonical={canonical}
+  robots="noindex,follow"
+>
+  <section class="glass hero">
+    <h1>搜索</h1>
+    <p>本地静态搜索，不依赖第三方服务。</p>
+  </section>
+
+  <section class="glass content" style="margin: 16px 0 36px;">
+    <label class="meta" for="q" style="display:block; margin-bottom: 10px;">
+      输入关键词（标题/摘要/标签）
+    </label>
+    <input
+      id="q"
+      type="search"
+      placeholder="例如：AI、邮件、剪贴板…"
+      style="width: 100%; padding: 12px 12px; border-radius: 12px; border: 1px solid var(--border); background: rgba(255,255,255,.7); outline: none;"
+    />
+    <div id="result" style="margin-top: 14px;"></div>
+  </section>
+
+  <script is:inline>
+    const el = document.getElementById("q");
+    const out = document.getElementById("result");
+    let data = null;
+    async function load() {
+      if (data) return data;
+      const res = await fetch("/search-index.json", { cache: "force-cache" });
+      data = await res.json();
+      return data;
+    }
+    function render(items) {
+      if (!items.length) {
+        out.innerHTML = '<p style="color: var(--muted); margin: 0;">没有匹配结果</p>';
+        return;
+      }
+      out.innerHTML =
+        '<div class="meta" style="flex-direction: column; gap: 10px;">' +
+        items
+          .slice(0, 30)
+          .map(
+            (it) =>
+              `<a class="pill" style="justify-content: space-between;" href="${it.url}"><span>${it.title}</span><span style="opacity:.55">${it.date || ""}</span></a>`
+          )
+          .join("") +
+        "</div>";
+    }
+    function score(q, it) {
+      const s = (it.title + " " + (it.description || "") + " " + (it.tags || []).join(" ")).toLowerCase();
+      return s.includes(q) ? 1 : 0;
+    }
+    async function onInput() {
+      const q = (el.value || "").trim().toLowerCase();
+      if (!q) {
+        out.innerHTML = '<p style="color: var(--muted); margin: 0;">输入关键词开始搜索</p>';
+        return;
+      }
+      const items = await load();
+      const matched = items
+        .map((it) => ({ it, s: score(q, it) }))
+        .filter((x) => x.s > 0)
+        .map((x) => x.it);
+      render(matched);
+    }
+    out.innerHTML = '<p style="color: var(--muted); margin: 0;">输入关键词开始搜索</p>';
+    el.addEventListener("input", onInput, { passive: true });
+  </script>
+</BaseLayout>

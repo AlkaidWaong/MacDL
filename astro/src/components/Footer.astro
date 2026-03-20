@@ -1,0 +1,74 @@
+---
+import { getCollection } from "astro:content";
+
+const posts = await getCollection("posts", ({ data }) => !data.draft);
+const catCounter = new Map<string, number>();
+for (const post of posts) {
+  for (const c of post.data.categories ?? []) {
+    catCounter.set(c, (catCounter.get(c) ?? 0) + 1);
+  }
+}
+const categories = [...catCounter.entries()]
+  .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0], "zh-Hans-CN"))
+  .map(([name, count]) => ({ name, count }));
+
+const featuredSoftware = posts
+  .filter((post) => (post.data.tags ?? []).includes("精选软件"))
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+---
+
+<footer class="footer">
+  <div class="wrap">
+    <section class="glass footer-panel">
+      <div class="footer-grid">
+        <section>
+          <h3>分类入口</h3>
+          <div class="footer-cats">
+            {categories.map((cat) => (
+              <a href={`/category/${encodeURIComponent(cat.name)}`}>
+                {cat.name} <span>({cat.count})</span>
+              </a>
+            ))}
+          </div>
+        </section>
+
+        <section>
+          <h3>精选软件</h3>
+          <ul>
+            {featuredSoftware.map((post) => (
+              <li>
+                <a href={`/article/${post.data.urlSlug}`}>{post.data.title}</a>
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        <section>
+          <h3>站点</h3>
+          <ul>
+            <li><a href="/category">分类页</a></li>
+            <li><a href="/tag">标签页</a></li>
+            <li><a href="/search">搜索页</a></li>
+            <li><a href="/links">友链页</a></li>
+            <li><a href="/rss/feed.xml">RSS 订阅</a></li>
+            <li><a href="/sitemap-index.xml">Sitemap</a></li>
+          </ul>
+        </section>
+
+        <section>
+          <h3>About</h3>
+          <ul>
+            <li><a href="/about">关于我们</a></li>
+            <li><a href="/privacy-policy">隐私政策</a></li>
+            <li><a href="/Risk-Warning">风险提示</a></li>
+          </ul>
+        </section>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© {new Date().getFullYear()} MacAppHQ</span>
+        <span>Built with Astro</span>
+      </div>
+    </section>
+  </div>
+</footer>

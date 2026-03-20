@@ -1,0 +1,1972 @@
+{
+  "generatedAt": "2026-03-19T15:11:09.632Z",
+  "source": {
+    "csv": "/Users/wangdong/Downloads/私人与共享/Mac客 c0ff69e2f9dc4688a7f527608e795dd9.csv"
+  },
+  "host": "https://www.macapphq.com",
+  "urlCount": 327,
+  "urls": [
+    {
+      "loc": "https://www.macapphq.com/",
+      "lastmod": "2026-03-19",
+      "changefreq": "daily",
+      "priority": "0.7"
+    },
+    {
+      "loc": "https://www.macapphq.com/archive",
+      "lastmod": "2026-03-19",
+      "changefreq": "daily",
+      "priority": "0.7"
+    },
+    {
+      "loc": "https://www.macapphq.com/category",
+      "lastmod": "2026-03-19",
+      "changefreq": "daily",
+      "priority": "0.7"
+    },
+    {
+      "loc": "https://www.macapphq.com/rss/feed.xml",
+      "lastmod": "2026-03-19",
+      "changefreq": "daily",
+      "priority": "0.7"
+    },
+    {
+      "loc": "https://www.macapphq.com/search",
+      "lastmod": "2026-03-19",
+      "changefreq": "daily",
+      "priority": "0.7"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag",
+      "lastmod": "2026-03-19",
+      "changefreq": "daily",
+      "priority": "0.7"
+    },
+    {
+      "loc": "https://www.macapphq.com/links",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/article/launchos-macos-launchpad",
+      "lastmod": "2026-01-15",
+      "changefreq": "daily",
+      "priority": "0.7"
+    },
+    {
+      "loc": "https://www.macapphq.com/article/roam-fm-macos-world-radio-background-sound",
+      "lastmod": "2026-01-15",
+      "changefreq": "daily",
+      "priority": "0.7"
+    },
+    {
+      "loc": "https://www.macapphq.com/article/demoget",
+      "lastmod": "2025-05-06",
+      "changefreq": "daily",
+      "priority": "0.7"
+    },
+    {
+      "loc": "https://www.macapphq.com/article/pronotes",
+      "lastmod": "2025-04-14",
+      "changefreq": "daily",
+      "priority": "0.7"
+    },
+    {
+      "loc": "https://www.macapphq.com/article/charmbar",
+      "lastmod": "2025-04-09",
+      "changefreq": "daily",
+      "priority": "0.7"
+    },
+    {
+      "loc": "https://www.macapphq.com/article/poptranslate",
+      "lastmod": "2025-04-02",
+      "changefreq": "daily",
+      "priority": "0.7"
+    },
+    {
+      "loc": "https://www.macapphq.com/article/deskwidgets",
+      "lastmod": "2025-02-19",
+      "changefreq": "daily",
+      "priority": "0.7"
+    },
+    {
+      "loc": "https://www.macapphq.com/article/mac-zhuomian-zhengli-dasui",
+      "lastmod": "2025-03-20",
+      "changefreq": "daily",
+      "priority": "0.7"
+    },
+    {
+      "loc": "https://www.macapphq.com/article/Scapple",
+      "lastmod": "2025-02-19",
+      "changefreq": "daily",
+      "priority": "0.7"
+    },
+    {
+      "loc": "https://www.macapphq.com/article/App-Cleaner-&-Uninstaller",
+      "lastmod": "2025-02-19",
+      "changefreq": "daily",
+      "priority": "0.7"
+    },
+    {
+      "loc": "https://www.macapphq.com/article/imacopilot",
+      "lastmod": "2025-02-17",
+      "changefreq": "daily",
+      "priority": "0.7"
+    },
+    {
+      "loc": "https://www.macapphq.com/article/quill",
+      "lastmod": "2025-02-17",
+      "changefreq": "daily",
+      "priority": "0.7"
+    },
+    {
+      "loc": "https://www.macapphq.com/article/markedit",
+      "lastmod": "2025-02-17",
+      "changefreq": "daily",
+      "priority": "0.7"
+    },
+    {
+      "loc": "https://www.macapphq.com/article/menubarX",
+      "lastmod": "2025-02-14",
+      "changefreq": "daily",
+      "priority": "0.7"
+    },
+    {
+      "loc": "https://www.macapphq.com/article/downie",
+      "lastmod": "2025-02-14",
+      "changefreq": "daily",
+      "priority": "0.7"
+    },
+    {
+      "loc": "https://www.macapphq.com/article/cherry-studio",
+      "lastmod": "2025-02-12",
+      "changefreq": "daily",
+      "priority": "0.7"
+    },
+    {
+      "loc": "https://www.macapphq.com/article/hipixel",
+      "lastmod": "2025-02-04",
+      "changefreq": "daily",
+      "priority": "0.7"
+    },
+    {
+      "loc": "https://www.macapphq.com/article/macbooster",
+      "lastmod": "2025-01-10",
+      "changefreq": "daily",
+      "priority": "0.7"
+    },
+    {
+      "loc": "https://www.macapphq.com/article/dockdoor",
+      "lastmod": "2025-01-03",
+      "changefreq": "daily",
+      "priority": "0.7"
+    },
+    {
+      "loc": "https://www.macapphq.com/article/airbuddy",
+      "lastmod": "2024-12-27",
+      "changefreq": "daily",
+      "priority": "0.7"
+    },
+    {
+      "loc": "https://www.macapphq.com/article/rightmenu-master-for-mac",
+      "lastmod": "2024-12-26",
+      "changefreq": "daily",
+      "priority": "0.7"
+    },
+    {
+      "loc": "https://www.macapphq.com/article/pastebot-for-mac",
+      "lastmod": "2024-12-27",
+      "changefreq": "daily",
+      "priority": "0.7"
+    },
+    {
+      "loc": "https://www.macapphq.com/article/yoink-for-mac",
+      "lastmod": "2024-12-26",
+      "changefreq": "daily",
+      "priority": "0.7"
+    },
+    {
+      "loc": "https://www.macapphq.com/article/pixpin-for-mac",
+      "lastmod": "2024-12-26",
+      "changefreq": "daily",
+      "priority": "0.7"
+    },
+    {
+      "loc": "https://www.macapphq.com/article/dia-broswer",
+      "lastmod": "2024-12-05",
+      "changefreq": "daily",
+      "priority": "0.7"
+    },
+    {
+      "loc": "https://www.macapphq.com/article/deta-surf",
+      "lastmod": "2024-12-05",
+      "changefreq": "daily",
+      "priority": "0.7"
+    },
+    {
+      "loc": "https://www.macapphq.com/article/biread",
+      "lastmod": "2024-12-11",
+      "changefreq": "daily",
+      "priority": "0.7"
+    },
+    {
+      "loc": "https://www.macapphq.com/article/zipic-for-mac",
+      "lastmod": "2024-12-02",
+      "changefreq": "daily",
+      "priority": "0.7"
+    },
+    {
+      "loc": "https://www.macapphq.com/article/cleanclip-for-mac",
+      "lastmod": "2024-12-02",
+      "changefreq": "daily",
+      "priority": "0.7"
+    },
+    {
+      "loc": "https://www.macapphq.com/article/LANDrop-for-mac",
+      "lastmod": "2024-11-25",
+      "changefreq": "daily",
+      "priority": "0.7"
+    },
+    {
+      "loc": "https://www.macapphq.com/article/monica-for-mac",
+      "lastmod": "2024-11-25",
+      "changefreq": "daily",
+      "priority": "0.7"
+    },
+    {
+      "loc": "https://www.macapphq.com/article/markmark-for-mac",
+      "lastmod": "2024-11-13",
+      "changefreq": "daily",
+      "priority": "0.7"
+    },
+    {
+      "loc": "https://www.macapphq.com/article/wechat-4-0-beta-for-mac",
+      "lastmod": "2024-11-08",
+      "changefreq": "daily",
+      "priority": "0.7"
+    },
+    {
+      "loc": "https://www.macapphq.com/article/appcleaner-for-mac",
+      "lastmod": "2024-11-04",
+      "changefreq": "daily",
+      "priority": "0.7"
+    },
+    {
+      "loc": "https://www.macapphq.com/article/xnip-for-mac",
+      "lastmod": "2026-03-19",
+      "changefreq": "daily",
+      "priority": "0.7"
+    },
+    {
+      "loc": "https://www.macapphq.com/article/CleanShotX-for-mac",
+      "lastmod": "2024-11-01",
+      "changefreq": "daily",
+      "priority": "0.7"
+    },
+    {
+      "loc": "https://www.macapphq.com/article/spark-mail-for-mac",
+      "lastmod": "2026-03-19",
+      "changefreq": "daily",
+      "priority": "0.7"
+    },
+    {
+      "loc": "https://www.macapphq.com/article/Find-Any-File",
+      "lastmod": "2024-11-02",
+      "changefreq": "daily",
+      "priority": "0.7"
+    },
+    {
+      "loc": "https://www.macapphq.com/article/chatgpt-search",
+      "lastmod": "2024-11-02",
+      "changefreq": "daily",
+      "priority": "0.7"
+    },
+    {
+      "loc": "https://www.macapphq.com/article/things3-for-mac",
+      "lastmod": "2024-11-04",
+      "changefreq": "daily",
+      "priority": "0.7"
+    },
+    {
+      "loc": "https://www.macapphq.com/article/Agenda",
+      "lastmod": "2024-11-04",
+      "changefreq": "daily",
+      "priority": "0.7"
+    },
+    {
+      "loc": "https://www.macapphq.com/article/maccy",
+      "lastmod": "2024-12-23",
+      "changefreq": "daily",
+      "priority": "0.7"
+    },
+    {
+      "loc": "https://www.macapphq.com/article/clop",
+      "lastmod": "2026-03-19",
+      "changefreq": "daily",
+      "priority": "0.7"
+    },
+    {
+      "loc": "https://www.macapphq.com/article/Cloud-Document-Converter",
+      "lastmod": "2026-03-19",
+      "changefreq": "daily",
+      "priority": "0.7"
+    },
+    {
+      "loc": "https://www.macapphq.com/article/lenson",
+      "lastmod": "2026-03-19",
+      "changefreq": "daily",
+      "priority": "0.7"
+    },
+    {
+      "loc": "https://www.macapphq.com/article/Language-Reactor",
+      "lastmod": "2024-10-21",
+      "changefreq": "daily",
+      "priority": "0.7"
+    },
+    {
+      "loc": "https://www.macapphq.com/article/cork-app",
+      "lastmod": "2024-10-15",
+      "changefreq": "daily",
+      "priority": "0.7"
+    },
+    {
+      "loc": "https://www.macapphq.com/article/frame0",
+      "lastmod": "2024-10-14",
+      "changefreq": "daily",
+      "priority": "0.7"
+    },
+    {
+      "loc": "https://www.macapphq.com/article/SponsorBlock",
+      "lastmod": "2024-10-11",
+      "changefreq": "daily",
+      "priority": "0.7"
+    },
+    {
+      "loc": "https://www.macapphq.com/article/loom",
+      "lastmod": "2024-10-10",
+      "changefreq": "daily",
+      "priority": "0.7"
+    },
+    {
+      "loc": "https://www.macapphq.com/article/wrap",
+      "lastmod": "2024-10-10",
+      "changefreq": "daily",
+      "priority": "0.7"
+    },
+    {
+      "loc": "https://www.macapphq.com/article/Favioli",
+      "lastmod": "2024-10-10",
+      "changefreq": "daily",
+      "priority": "0.7"
+    },
+    {
+      "loc": "https://www.macapphq.com/article/uBlacklist",
+      "lastmod": "2024-10-10",
+      "changefreq": "daily",
+      "priority": "0.7"
+    },
+    {
+      "loc": "https://www.macapphq.com/article/macbook-air-m3",
+      "lastmod": "2024-10-09",
+      "changefreq": "daily",
+      "priority": "0.7"
+    },
+    {
+      "loc": "https://www.macapphq.com/article/matter",
+      "lastmod": "2024-10-09",
+      "changefreq": "daily",
+      "priority": "0.7"
+    },
+    {
+      "loc": "https://www.macapphq.com/article/the-unrchiver",
+      "lastmod": "2024-10-08",
+      "changefreq": "daily",
+      "priority": "0.7"
+    },
+    {
+      "loc": "https://www.macapphq.com/article/quick-rec",
+      "lastmod": "2024-10-08",
+      "changefreq": "daily",
+      "priority": "0.7"
+    },
+    {
+      "loc": "https://www.macapphq.com/article/craft",
+      "lastmod": "2024-09-30",
+      "changefreq": "daily",
+      "priority": "0.7"
+    },
+    {
+      "loc": "https://www.macapphq.com/article/doubao-extension",
+      "lastmod": "2024-09-30",
+      "changefreq": "daily",
+      "priority": "0.7"
+    },
+    {
+      "loc": "https://www.macapphq.com/article/calibre",
+      "lastmod": "2024-09-26",
+      "changefreq": "daily",
+      "priority": "0.7"
+    },
+    {
+      "loc": "https://www.macapphq.com/article/Baby-Lettering-Book",
+      "lastmod": "2024-09-26",
+      "changefreq": "daily",
+      "priority": "0.7"
+    },
+    {
+      "loc": "https://www.macapphq.com/article/Pixelmator",
+      "lastmod": "2024-09-25",
+      "changefreq": "daily",
+      "priority": "0.7"
+    },
+    {
+      "loc": "https://www.macapphq.com/article/justfocus",
+      "lastmod": "2024-09-25",
+      "changefreq": "daily",
+      "priority": "0.7"
+    },
+    {
+      "loc": "https://www.macapphq.com/article/barbee",
+      "lastmod": "2024-09-25",
+      "changefreq": "daily",
+      "priority": "0.7"
+    },
+    {
+      "loc": "https://www.macapphq.com/article/flow",
+      "lastmod": "2024-09-25",
+      "changefreq": "daily",
+      "priority": "0.7"
+    },
+    {
+      "loc": "https://www.macapphq.com/article/yplayer",
+      "lastmod": "2024-09-24",
+      "changefreq": "daily",
+      "priority": "0.7"
+    },
+    {
+      "loc": "https://www.macapphq.com/article/follow",
+      "lastmod": "2024-09-23",
+      "changefreq": "daily",
+      "priority": "0.7"
+    },
+    {
+      "loc": "https://www.macapphq.com/article/WeChat-Input-Method",
+      "lastmod": "2024-09-21",
+      "changefreq": "daily",
+      "priority": "0.7"
+    },
+    {
+      "loc": "https://www.macapphq.com/article/setapp",
+      "lastmod": "2024-09-20",
+      "changefreq": "daily",
+      "priority": "0.7"
+    },
+    {
+      "loc": "https://www.macapphq.com/article/picsee-v-1-7-3",
+      "lastmod": "2024-09-20",
+      "changefreq": "daily",
+      "priority": "0.7"
+    },
+    {
+      "loc": "https://www.macapphq.com/article/vidhub-v-1-7-8",
+      "lastmod": "2024-09-20",
+      "changefreq": "daily",
+      "priority": "0.7"
+    },
+    {
+      "loc": "https://www.macapphq.com/article/omi",
+      "lastmod": "2024-09-23",
+      "changefreq": "daily",
+      "priority": "0.7"
+    },
+    {
+      "loc": "https://www.macapphq.com/article/pastenow",
+      "lastmod": "2026-03-19",
+      "changefreq": "daily",
+      "priority": "0.7"
+    },
+    {
+      "loc": "https://www.macapphq.com/article/ublock-origin-v-1-59",
+      "lastmod": "2024-09-18",
+      "changefreq": "daily",
+      "priority": "0.7"
+    },
+    {
+      "loc": "https://www.macapphq.com/article/elmo-chat-v-0-3-7",
+      "lastmod": "2024-09-18",
+      "changefreq": "daily",
+      "priority": "0.7"
+    },
+    {
+      "loc": "https://www.macapphq.com/article/immersivetranslate",
+      "lastmod": "2024-09-18",
+      "changefreq": "daily",
+      "priority": "0.7"
+    },
+    {
+      "loc": "https://www.macapphq.com/article/onetab",
+      "lastmod": "2024-09-18",
+      "changefreq": "daily",
+      "priority": "0.7"
+    },
+    {
+      "loc": "https://www.macapphq.com/article/loop",
+      "lastmod": "2024-09-17",
+      "changefreq": "daily",
+      "priority": "0.7"
+    },
+    {
+      "loc": "https://www.macapphq.com/article/rocket-v-1-9-3",
+      "lastmod": "2024-09-16",
+      "changefreq": "daily",
+      "priority": "0.7"
+    },
+    {
+      "loc": "https://www.macapphq.com/article/grab2text-v-1-2-2",
+      "lastmod": "2024-09-16",
+      "changefreq": "daily",
+      "priority": "0.7"
+    },
+    {
+      "loc": "https://www.macapphq.com/article/imageoptim-v-1-9-3",
+      "lastmod": "2024-09-16",
+      "changefreq": "daily",
+      "priority": "0.7"
+    },
+    {
+      "loc": "https://www.macapphq.com/article/onlyswitch-v-2-5-3",
+      "lastmod": "2024-09-16",
+      "changefreq": "daily",
+      "priority": "0.7"
+    },
+    {
+      "loc": "https://www.macapphq.com/article/Transnomino-v-8-6-1",
+      "lastmod": "2024-09-16",
+      "changefreq": "daily",
+      "priority": "0.7"
+    },
+    {
+      "loc": "https://www.macapphq.com/article/tembox",
+      "lastmod": "2024-09-16",
+      "changefreq": "daily",
+      "priority": "0.7"
+    },
+    {
+      "loc": "https://www.macapphq.com/article/alttab-v-6-72-0",
+      "lastmod": "2024-09-16",
+      "changefreq": "daily",
+      "priority": "0.7"
+    },
+    {
+      "loc": "https://www.macapphq.com/article/localsend-v-1-15-4",
+      "lastmod": "2024-09-16",
+      "changefreq": "daily",
+      "priority": "0.7"
+    },
+    {
+      "loc": "https://www.macapphq.com/article/rectangle-v0-82",
+      "lastmod": "2024-09-14",
+      "changefreq": "daily",
+      "priority": "0.7"
+    },
+    {
+      "loc": "https://www.macapphq.com/article/android-studio-2024-09",
+      "lastmod": "2024-09-14",
+      "changefreq": "daily",
+      "priority": "0.7"
+    },
+    {
+      "loc": "https://www.macapphq.com/article/mweb-v4-6-3",
+      "lastmod": "2024-09-14",
+      "changefreq": "daily",
+      "priority": "0.7"
+    },
+    {
+      "loc": "https://www.macapphq.com/article/effie-v4-0-15",
+      "lastmod": "2024-09-14",
+      "changefreq": "daily",
+      "priority": "0.7"
+    },
+    {
+      "loc": "https://www.macapphq.com/article/textmate-v2-0-23",
+      "lastmod": "2024-09-14",
+      "changefreq": "daily",
+      "priority": "0.7"
+    },
+    {
+      "loc": "https://www.macapphq.com/article/typra-v1-9-5",
+      "lastmod": "2024-09-14",
+      "changefreq": "daily",
+      "priority": "0.7"
+    },
+    {
+      "loc": "https://www.macapphq.com/article/Simplenote-v2-22-1",
+      "lastmod": "2024-09-14",
+      "changefreq": "daily",
+      "priority": "0.7"
+    },
+    {
+      "loc": "https://www.macapphq.com/article/aidente-v1-2-8",
+      "lastmod": "2024-09-13",
+      "changefreq": "daily",
+      "priority": "0.7"
+    },
+    {
+      "loc": "https://www.macapphq.com/article/Amazing-AI",
+      "lastmod": "2024-09-13",
+      "changefreq": "daily",
+      "priority": "0.7"
+    },
+    {
+      "loc": "https://www.macapphq.com/article/Aiko-v1-6-0",
+      "lastmod": "2024-09-13",
+      "changefreq": "daily",
+      "priority": "0.7"
+    },
+    {
+      "loc": "https://www.macapphq.com/article/brave-v1-69-168",
+      "lastmod": "2024-09-13",
+      "changefreq": "daily",
+      "priority": "0.7"
+    },
+    {
+      "loc": "https://www.macapphq.com/article/arc-v1-60-0-53678",
+      "lastmod": "2024-09-13",
+      "changefreq": "daily",
+      "priority": "0.7"
+    },
+    {
+      "loc": "https://www.macapphq.com/article/Pearcleaner-for-mac-v3-8-6",
+      "lastmod": "2024-09-12",
+      "changefreq": "daily",
+      "priority": "0.7"
+    },
+    {
+      "loc": "https://www.macapphq.com/article/mac-one-click-cutout",
+      "lastmod": "2024-08-21",
+      "changefreq": "daily",
+      "priority": "0.7"
+    },
+    {
+      "loc": "https://www.macapphq.com/article/draw-io",
+      "lastmod": "2024-08-23",
+      "changefreq": "daily",
+      "priority": "0.7"
+    },
+    {
+      "loc": "https://www.macapphq.com/article/upscayl-for-mac",
+      "lastmod": "2024-08-28",
+      "changefreq": "daily",
+      "priority": "0.7"
+    },
+    {
+      "loc": "https://www.macapphq.com/article/ice-for-mac",
+      "lastmod": "2024-08-29",
+      "changefreq": "daily",
+      "priority": "0.7"
+    },
+    {
+      "loc": "https://www.macapphq.com/article/Pearcleaner-for-mac-v3-8-5",
+      "lastmod": "2024-09-12",
+      "changefreq": "daily",
+      "priority": "0.7"
+    },
+    {
+      "loc": "https://www.macapphq.com/privacy-policy",
+      "lastmod": "2026-03-19",
+      "changefreq": "monthly",
+      "priority": "0.5"
+    },
+    {
+      "loc": "https://www.macapphq.com/Risk-Warning",
+      "lastmod": "2026-03-19",
+      "changefreq": "monthly",
+      "priority": "0.5"
+    },
+    {
+      "loc": "https://www.macapphq.com/thanks",
+      "lastmod": "2026-03-19",
+      "changefreq": "monthly",
+      "priority": "0.5"
+    },
+    {
+      "loc": "https://www.macapphq.com/links",
+      "lastmod": "2022-04-08",
+      "changefreq": "monthly",
+      "priority": "0.5"
+    },
+    {
+      "loc": "https://www.macapphq.com/NotionNext",
+      "lastmod": "2021-03-13",
+      "changefreq": "monthly",
+      "priority": "0.5"
+    },
+    {
+      "loc": "https://www.macapphq.com/category/%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.7"
+    },
+    {
+      "loc": "https://www.macapphq.com/category/%E7%B3%BB%E7%BB%9F%E5%B7%A5%E5%85%B7",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.7"
+    },
+    {
+      "loc": "https://www.macapphq.com/category/AI",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.7"
+    },
+    {
+      "loc": "https://www.macapphq.com/category/%E6%96%87%E6%9C%AC%E7%BC%96%E8%BE%91",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.7"
+    },
+    {
+      "loc": "https://www.macapphq.com/category/%E6%B5%8F%E8%A7%88%E5%99%A8",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.7"
+    },
+    {
+      "loc": "https://www.macapphq.com/category/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%89%A9%E5%B1%95",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.7"
+    },
+    {
+      "loc": "https://www.macapphq.com/category/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.7"
+    },
+    {
+      "loc": "https://www.macapphq.com/category/%E5%88%9B%E6%84%8F%E8%AE%BE%E8%AE%A1",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.7"
+    },
+    {
+      "loc": "https://www.macapphq.com/category/%E7%A1%AC%E4%BB%B6%E4%BD%93%E9%AA%8C",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.7"
+    },
+    {
+      "loc": "https://www.macapphq.com/category/%E6%95%99%E8%82%B2%E5%8F%91%E5%B1%95",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.7"
+    },
+    {
+      "loc": "https://www.macapphq.com/category/%E8%BF%90%E5%8A%A8%E5%81%A5%E5%BA%B7",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.7"
+    },
+    {
+      "loc": "https://www.macapphq.com/category/%E5%BD%B1%E9%9F%B3%E5%A8%B1%E4%B9%90",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.7"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/Launchpad%20%E6%9B%BF%E4%BB%A3",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E4%B8%93%E6%B3%A8%E5%B7%A5%E5%85%B7",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E8%83%8C%E6%99%AF%E9%9F%B3%E4%B9%90",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E5%BD%95%E5%B1%8F%E5%B7%A5%E5%85%B7",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/Mac%E5%A4%87%E5%BF%98%E5%BD%95",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/Markdown%E7%BC%96%E8%BE%91%E5%99%A8",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/Mac%20Dock%E7%BE%8E%E5%8C%96",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/macOS%E4%B8%AA%E6%80%A7%E5%8C%96",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/AI%E7%BF%BB%E8%AF%91%E5%B7%A5%E5%85%B7",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/Mac%E7%BF%BB%E8%AF%91%E8%BD%AF%E4%BB%B6",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E6%A1%8C%E9%9D%A2%E5%B0%8F%E7%BB%84%E4%BB%B6",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E6%A1%8C%E9%9D%A2%E7%BE%8E%E5%8C%96",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E6%A1%8C%E9%9D%A2%E7%AE%A1%E7%90%86",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E6%80%9D%E7%BB%B4%E5%8F%AF%E8%A7%86%E5%8C%96",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E8%84%91%E5%9B%BE%E5%B7%A5%E5%85%B7",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/mac%E5%8D%B8%E8%BD%BD%E5%B7%A5%E5%85%B7",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E5%8D%B8%E8%BD%BD",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/DeepSeek%20R1",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E8%85%BE%E8%AE%AF%E6%B7%B7%E5%85%83%E5%A4%A7%E6%A8%A1%E5%9E%8B",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E8%B7%A8%E5%B9%B3%E5%8F%B0%E5%86%99%E4%BD%9C%E5%B7%A5%E5%85%B7",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/RTF%E5%AF%BC%E5%87%BA%E7%AC%94%E8%AE%B0",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/macOS%E8%8F%9C%E5%8D%95%E6%A0%8F%E7%AC%94%E8%AE%B0",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E5%A4%9A%E7%AA%97%E5%8F%A3%E7%AC%94%E8%AE%B0%E7%AE%A1%E7%90%86",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E5%BC%80%E6%BA%90%E6%96%87%E6%9C%AC%E5%B7%A5%E5%85%B7",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E8%BD%BB%E9%87%8F%E7%BA%A7%E5%86%99%E4%BD%9C%E5%BA%94%E7%94%A8",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/macOS%E8%8F%9C%E5%8D%95%E6%A0%8F%E6%B5%8F%E8%A7%88%E5%99%A8",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E7%BD%91%E9%A1%B5%E5%BA%94%E7%94%A8%E7%BD%AE%E9%A1%B6",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/B%E7%AB%99%E6%8A%96%E9%9F%B3%E4%B8%8B%E8%BD%BD",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/Downie%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/Mac%E8%A7%86%E9%A2%91%E4%B8%8B%E8%BD%BD%E5%B7%A5%E5%85%B7",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/AI%E5%AF%B9%E8%AF%9D%E5%AE%A2%E6%88%B7%E7%AB%AF",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/AI%E7%9F%A5%E8%AF%86%E5%BA%93",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E6%9C%AC%E5%9C%B0%E9%83%A8%E7%BD%B2",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E5%9B%BE%E7%89%87%E5%A4%84%E7%90%86",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E5%9B%BE%E7%89%87%E8%B6%85%E5%88%86%E8%BE%A8%E7%8E%87",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/Mac%E5%BA%94%E7%94%A8%E5%8D%B8%E8%BD%BD",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/Mac%E7%A8%8B%E5%BA%8F%E5%9D%9E",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/macOS%E7%AA%97%E5%8F%A3%E7%AE%A1%E7%90%86",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E8%8B%B9%E6%9E%9C%E8%80%B3%E6%9C%BA%E5%B7%A5%E5%85%B7",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/Finder%20%E9%9B%86%E6%88%90",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E5%8F%B3%E9%94%AE%E8%8F%9C%E5%8D%95",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/Mac%E5%89%AA%E8%B4%B4%E6%9D%BF",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E5%89%AA%E8%B4%B4%E6%9D%BF%E7%AE%A1%E7%90%86%E5%99%A8",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E6%96%87%E4%BB%B6%E4%B8%B4%E6%97%B6%E5%AD%98%E6%94%BE",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/Mac%E6%88%AA%E5%9B%BE%E5%B7%A5%E5%85%B7",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/OCR",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/PixPin",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E5%8A%9E%E5%85%AC%E6%95%88%E7%8E%87",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/AI%E6%B5%8F%E8%A7%88%E5%99%A8",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/Arc%E6%B5%8F%E8%A7%88%E5%99%A8",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/Dia%E6%B5%8F%E8%A7%88%E5%99%A8",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/Deta%20Surf",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E6%9C%AA%E6%9D%A5%E6%B5%8F%E8%A7%88%E5%99%A8",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/BiRead",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E5%8F%8C%E8%AF%AD%E9%98%85%E8%AF%BB",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/Mac%E5%9B%BE%E7%89%87%E5%8E%8B%E7%BC%A9",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/Zipic",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/macOS%E5%9B%BE%E7%89%87%E5%B7%A5%E5%85%B7",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E5%89%AA%E8%B4%B4%E6%9D%BF%E5%B7%A5%E5%85%B7",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/landrop",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E6%96%87%E4%BB%B6%E4%BC%A0%E8%BE%93",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E6%97%A0%E6%8D%9F%E4%BC%A0%E8%BE%93",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/Monica%20AI",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E5%86%99%E4%BD%9C%E8%BE%85%E5%8A%A9",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E7%BC%96%E7%A8%8B%E5%8D%8F%E5%8A%A9",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/MarkMark",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E7%A8%8D%E5%90%8E%E8%AF%BB%E5%BA%94%E7%94%A8",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E7%BD%91%E7%BB%9C%E4%B9%A6%E7%AD%BE",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E5%86%85%E6%B5%8B%E7%89%88%E6%9C%AC",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E6%B7%B1%E8%89%B2%E6%A8%A1%E5%BC%8F",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/AppCleaner",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E5%85%8D%E8%B4%B9%E6%B8%85%E7%90%86%E5%B7%A5%E5%85%B7",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E7%A3%81%E7%9B%98%E6%B8%85%E7%90%86%E5%B7%A5%E5%85%B7",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E8%BD%AF%E4%BB%B6%E5%8D%B8%E8%BD%BD%E7%AE%A1%E7%90%86",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E6%A0%87%E6%B3%A8%E5%B7%A5%E5%85%B7",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E6%BB%9A%E5%8A%A8%E6%88%AA%E5%9B%BE",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E5%B1%8F%E5%B9%95%E5%BD%95%E5%88%B6",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E6%88%AA%E5%9B%BE%E4%B8%8E%E6%A0%87%E6%B3%A8",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/AI%E9%82%AE%E4%BB%B6%E5%8A%A9%E6%89%8B",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E8%B7%A8%E5%B9%B3%E5%8F%B0%E9%82%AE%E4%BB%B6",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E9%82%AE%E4%BB%B6%E5%AE%A2%E6%88%B7%E7%AB%AF",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/Mac%20%E6%96%87%E4%BB%B6%E6%90%9C%E7%B4%A2%E5%B7%A5%E5%85%B7",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E6%96%87%E4%BB%B6%E6%90%9C%E7%B4%A2",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E6%96%87%E4%BB%B6%E6%95%B4%E7%90%86%E5%B7%A5%E5%85%B7",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/ChatGPT%20Search",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E5%AF%B9%E8%AF%9D%E5%BC%8F%E6%90%9C%E7%B4%A2",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/GTD%E5%B7%A5%E5%85%B7",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E4%BB%BB%E5%8A%A1%E7%AE%A1%E7%90%86",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E7%94%9F%E4%BA%A7%E5%8A%9B%E5%B7%A5%E5%85%B7",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E6%95%B0%E5%AD%97%E7%AC%94%E8%AE%B0",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E6%97%A5%E7%A8%8B%E7%AE%A1%E7%90%86",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E7%AC%94%E8%AE%B0%E5%BA%94%E7%94%A8",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E5%89%AA%E8%B4%B4%E6%9D%BF%E4%BC%98%E5%8C%96",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E5%9B%BE%E7%89%87%E5%8E%8B%E7%BC%A9",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E9%A3%9E%E4%B9%A6%E6%96%87%E6%A1%A3%E6%A0%BC%E5%BC%8F%E8%BD%AC%E6%8D%A2%E6%8F%92%E4%BB%B6",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E9%A3%9E%E4%B9%A6%E6%96%87%E6%A1%A3%E8%BD%AC%E6%8D%A2%E5%B7%A5%E5%85%B7",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E9%A3%9E%E4%B9%A6%E8%BD%ACMarkdown%E5%B7%A5%E5%85%B7",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E6%96%87%E4%BB%B6%E6%95%B4%E7%90%86",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E6%99%BA%E8%83%BD%E6%96%87%E4%BB%B6%E5%88%86%E7%B1%BB",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E8%87%AA%E5%8A%A8%E9%87%8D%E5%91%BD%E5%90%8D",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E7%BF%BB%E8%AF%91",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E5%B7%A5%E5%85%B7",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/Homebrew",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E5%8C%85%E7%AE%A1%E7%90%86%E5%99%A8",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E4%BA%A7%E5%93%81%E8%8D%89%E5%9B%BE",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E7%BA%BF%E6%A1%86%E5%9B%BE",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E8%AE%BE%E8%AE%A1%E5%B7%A5%E5%85%B7",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E5%8E%BB%E5%B9%BF%E5%91%8A%E6%8F%92%E4%BB%B6",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E8%B7%B3%E8%BF%87%E5%B9%BF%E5%91%8A",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E8%A7%86%E9%A2%91%E4%BC%9A%E8%AE%AE",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E8%A7%86%E9%A2%91%E7%BC%96%E8%BE%91",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E4%BA%A7%E5%93%81%E6%BC%94%E7%A4%BA",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E5%88%86%E4%BA%AB%E5%9B%BE%E7%89%87",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E5%9B%BE%E7%89%87",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E4%B8%AA%E6%80%A7%E5%8C%96%E6%B5%8F%E8%A7%88%E5%99%A8",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E6%A0%87%E7%AD%BE%E9%A1%B5%E7%AE%A1%E7%90%86",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E8%87%AA%E5%AE%9A%E4%B9%89%20favicon",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E5%B1%8F%E8%94%BD%E6%8C%87%E5%AE%9A%E7%BD%91%E7%AB%99",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E9%BB%91%E5%90%8D%E5%8D%95",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E8%BF%87%E6%BB%A4%E6%90%9C%E7%B4%A2%E7%BB%93%E6%9E%9C",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/MacBook",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E7%A8%8D%E5%90%8E%E9%98%85%E8%AF%BB",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E7%BD%91%E9%A1%B5%E4%BF%9D%E5%AD%98%E9%98%85%E8%AF%BB",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E8%A7%A3%E5%8E%8B%E7%BC%A9%E5%B7%A5%E5%85%B7",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/Mac%E5%8A%9E%E5%85%AC",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E7%B2%BE%E9%80%89%E8%BD%AF%E4%BB%B6",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/AI%E6%90%9C",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/AI%E9%98%85%E8%AF%BB%E6%80%BB%E7%BB%93",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/Kindle",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E7%94%B5%E5%AD%90%E4%B9%A6%E7%AE%A1%E7%90%86",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E5%86%99%E5%AD%97%E7%BB%83%E4%B9%A0",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E5%AD%97%E5%B8%96%E6%89%93%E5%8D%B0",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E7%8B%AC%E7%AB%8B%E5%BC%80%E5%8F%91%E8%80%85App",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/Photoshop",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E4%BF%AE%E5%9B%BE",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/Mac%E4%BC%91%E6%81%AF%E6%8F%90%E9%86%92",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E4%B8%93%E6%B3%A8%E5%8A%9B%E6%8F%90%E5%8D%87",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E5%B9%B3%E6%9B%BF%E8%BD%AF%E4%BB%B6",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E8%8F%9C%E5%8D%95%E6%A0%8F%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E6%8F%90%E5%8D%87%E4%B8%93%E6%B3%A8%E5%8A%9B",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E7%95%AA%E8%8C%84%E6%97%B6%E9%92%9F",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E5%AE%9E%E6%97%B6%E5%AD%97%E5%B9%95",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/RSS%E8%81%9A%E5%90%88",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/Web3%E7%94%A8%E6%88%B7",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E8%B7%A8%E5%B9%B3%E5%8F%B0%E4%BF%A1%E6%81%AF%E8%81%9A%E5%90%88%E5%B7%A5%E5%85%B7",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/Mac%E8%BE%93%E5%85%A5%E6%B3%95%E5%8D%B8%E8%BD%BD",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E6%99%BA%E8%83%BD%E8%BE%93%E5%85%A5%E6%B3%95",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E8%BE%93%E5%85%A5%E6%B3%95",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E8%BE%93%E5%85%A5%E6%B3%95%E9%9A%90%E7%A7%81%E5%AE%89%E5%85%A8",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E5%BA%94%E7%94%A8%E4%B8%8B%E8%BD%BD",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E5%9B%BE%E7%89%87%E7%AE%A1%E7%90%86",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E7%B4%A0%E6%9D%90%E5%BA%93",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/AppleTV",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/Infuse",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/tvOS",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E8%A7%86%E9%A2%91%E6%92%AD%E6%94%BE%E5%99%A8",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E5%B9%BF%E5%91%8A%E6%8B%A6%E6%88%AA%E5%99%A8",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E4%B8%93%E5%B1%9E%E4%BB%98%E8%B4%B9%E4%BC%98%E6%83%A0",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E8%A1%A8%E6%83%85%E5%8C%85%E5%BF%AB%E6%8D%B7%E5%B7%A5%E5%85%B7",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E8%A1%A8%E6%83%85%E5%BF%AB%E6%8D%B7%E9%94%AEmacbook",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/ORC",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E5%9B%BE%E7%89%87%E6%96%87%E6%9C%AC%E6%8F%90%E5%8F%96",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E6%95%88%E7%8E%87%E6%8F%90%E5%8D%87",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E6%96%87%E4%BB%B6%E6%89%B9%E9%87%8F%E5%91%BD%E5%90%8D",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E4%B8%B4%E6%97%B6%E9%82%AE%E7%AE%B1",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E7%AA%97%E5%8F%A3%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E6%96%87%E4%BB%B6%E5%88%86%E4%BA%AB",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E8%B7%A8%E5%B9%B3%E5%8F%B0%E4%BC%A0%E8%BE%93",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E5%BF%AB%E6%8D%B7%E9%94%AE",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E4%BB%A3%E7%A0%81%E7%BC%96%E8%BE%91",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E5%BC%80%E5%8F%91%E8%80%85%E5%B7%A5%E5%85%B7",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E5%86%99%E4%BD%9C%E8%BD%AF%E4%BB%B6",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E5%8D%9A%E5%AE%A2%E7%94%9F%E6%88%90",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E6%96%87%E5%AD%97",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/AI%E5%86%99%E4%BD%9C",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E5%86%99%E4%BD%9C%E5%B7%A5%E5%85%B7",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E6%B2%89%E6%B5%B8%E5%BC%8F%E5%86%99%E4%BD%9C",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/Markdown",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E7%AC%94%E8%AE%B0%E8%AE%B0%E5%BD%95",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/Aldente",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E5%BB%B6%E9%95%BF%E7%94%B5%E6%B1%A0%E5%AF%BF%E5%91%BD",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/AI%E7%BB%98%E7%94%BB",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/Stable%20Diffusion",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E5%9B%BE%E7%89%87%E7%94%9F%E6%88%90",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E6%95%B0%E5%AD%97%E8%89%BA%E6%9C%AF",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E4%BC%9A%E8%AE%AE%E7%BA%AA%E8%A6%81%E6%95%B4%E7%90%86",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E8%AF%AD%E9%9F%B3%E8%BD%AC%E6%96%87%E5%AD%97",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E8%AF%BE%E5%A0%82%E7%AC%94%E8%AE%B0%E6%95%B4%E7%90%86",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E9%9A%90%E7%A7%81%E4%BF%9D%E6%8A%A4",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E5%9B%BE%E7%89%87%E5%8E%BB%E8%83%8C%E6%99%AF",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E5%B7%A5%E5%85%B7",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E6%B5%81%E7%A8%8B%E5%9B%BE",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/AI%E7%85%A7%E7%89%87%E6%B8%85%E6%99%B0%E5%BA%A6",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E6%8F%90%E5%8D%87%E7%85%A7%E7%89%87%E6%B8%85%E6%99%B0%E5%BA%A6",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/Bartender%E6%9B%BF%E4%BB%A3",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/mac%E8%8F%9C%E5%8D%95%E6%A0%8F%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E8%8F%9C%E5%8D%95%E6%A0%8F%E5%A4%96%E8%A7%82%E8%AE%BE%E7%BD%AE",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/macOS%E6%B8%85%E7%90%86%E5%B7%A5%E5%85%B7",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    },
+    {
+      "loc": "https://www.macapphq.com/tag/%E5%BC%80%E6%BA%90%E7%94%B5%E8%84%91%E6%B8%85%E7%90%86%E5%B7%A5%E5%85%B7",
+      "lastmod": "2026-03-19",
+      "changefreq": "weekly",
+      "priority": "0.6"
+    }
+  ]
+}

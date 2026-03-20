@@ -1,0 +1,22 @@
+---
+type Props = {
+  current: number;
+  total: number;
+  hrefFor: (page: number) => string;
+};
+
+const { current, total, hrefFor } = Astro.props;
+const prev = current > 1 ? hrefFor(current - 1) : null;
+const next = current < total ? hrefFor(current + 1) : null;
+---
+
+<nav class="pager" aria-label="Pagination">
+  <div>
+    {prev ? <a class="pill" href={prev}>← 上一页</a> : <span></span>}
+  </div>
+  <div class="meta">第 {current} / {total} 页</div>
+  <div>
+    {next ? <a class="pill" href={next}>下一页 →</a> : <span></span>}
+  </div>
+</nav>
+

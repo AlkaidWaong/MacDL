@@ -1,0 +1,28 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+  // Reserved route segments that are handled by their own pages/* entrypoints.
+  const RESERVED = new Set(["article", "category", "rss", "feed", "links", "_astro"]);
+  const pages = await getCollection("pages", ({ data }) => !data.draft);
+  return pages
+    .filter((p) => !RESERVED.has(p.data.urlSlug))
+    .map((p) => ({ params: { slug: p.data.urlSlug }, props: { page: p } }));
+}
+
+const { page } = Astro.props;
+const { Content } = await page.render();
+const canonical = `https://www.macapphq.com/${page.data.urlSlug}`;
+---
+
+<BaseLayout
+  title={`${page.data.title} | MacAppHQ`}
+  description={page.data.description}
+  canonical={canonical}
+>
+  <section class="glass content">
+    <h1>{page.data.title}</h1>
+    <Content />
+  </section>
+</BaseLayout>

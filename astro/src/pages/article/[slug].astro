@@ -1,0 +1,82 @@
+---
+import { getCollection } from "astro:content";
+import ArticleLayout from "../../layouts/ArticleLayout.astro";
+import { pickFirstBodyImage, toAbsoluteUrl } from "../../lib/cover";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("posts", ({ data }) => !data.draft);
+  return posts.map((post) => ({
+    params: { slug: post.data.urlSlug },
+    props: { post }
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+const canonical = `https://www.macapphq.com/article/${post.data.urlSlug}`;
+const site = Astro.site ?? new URL("https://www.macapphq.com");
+const body = (post as unknown as { body?: string }).body ?? "";
+const heroSrc =
+  post.data.heroImage?.trim() ||
+  post.data.cover?.trim() ||
+  pickFirstBodyImage(body) ||
+  "";
+const ogImage = heroSrc ? toAbsoluteUrl(heroSrc, site) : undefined;
+const category = post.data.categories?.[0];
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: post.data.title,
+  description: post.data.description ?? "",
+  datePublished: post.data.date.toISOString(),
+  dateModified: post.data.date.toISOString(),
+  inLanguage: "zh-CN",
+  mainEntityOfPage: canonical,
+  image: ogImage ? [ogImage] : undefined,
+  articleSection: category || undefined,
+  publisher: {
+    "@type": "Organization",
+    name: "MacAppHQ",
+    url: "https://www.macapphq.com",
+    logo: {
+      "@type": "ImageObject",
+      url: "https://www.macapphq.com/favicon.ico"
+    }
+  }
+};
+const breadcrumbItems = [
+  { name: "首页", item: "https://www.macapphq.com/" },
+  ...(category
+    ? [
+        {
+          name: category,
+          item: `https://www.macapphq.com/category/${encodeURIComponent(category)}`
+        }
+      ]
+    : []),
+  { name: post.data.title, item: canonical }
+];
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: breadcrumbItems.map((entry, index) => ({
+    "@type": "ListItem",
+    position: index + 1,
+    name: entry.name,
+    item: entry.item
+  }))
+};
+---
+
+<ArticleLayout
+  title={post.data.title}
+  description={post.data.description}
+  date={post.data.date}
+  categories={post.data.categories}
+  canonical={canonical}
+  image={ogImage}
+  structuredData={[articleSchema, breadcrumbSchema]}
+  heroImage={heroSrc || undefined}
+>
+  <Content />
+</ArticleLayout>

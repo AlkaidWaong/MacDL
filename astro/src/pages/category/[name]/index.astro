@@ -1,0 +1,71 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import PostCard from "../../../components/PostCard.astro";
+import Pagination from "../../../components/Pagination.astro";
+import { getCollection } from "astro:content";
+
+const PAGE_SIZE = 12;
+export async function getStaticPaths() {
+  const posts = await getCollection("posts", ({ data }) => !data.draft);
+  const categorySet = new Set();
+  for (const post of posts) {
+    for (const c of post.data.categories ?? []) {
+      categorySet.add(c);
+    }
+  }
+  return Array.from(categorySet).map((categoryName) => ({
+    params: { name: categoryName }
+  }));
+}
+
+const nameParam = Astro.params.name ?? "";
+let categoryName = nameParam;
+try {
+  categoryName = decodeURIComponent(nameParam);
+} catch {}
+
+const all = await getCollection("posts", ({ data }) => !data.draft);
+const filtered = all
+  .filter((p) => (p.data.categories ?? []).includes(categoryName))
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+
+const totalPages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
+const posts = filtered.slice(0, PAGE_SIZE);
+
+const canonical = `https://www.macapphq.com/category/${encodeURIComponent(
+  categoryName
+)}`;
+---
+
+<BaseLayout
+  title={`${categoryName} Mac 应用推荐与评测 | MacAppHQ`}
+  description={`浏览 ${categoryName} 分类下的 Mac 应用推荐、使用体验与效率工作流文章。`}
+  canonical={canonical}
+>
+  <section class="glass page-head">
+    <div class="page-crumb">
+      <a href="/">首页</a>
+      <span>/</span>
+      <a href="/category">分类</a>
+      <span>/</span>
+      <span>{categoryName}</span>
+    </div>
+    <p>共 {filtered.length} 篇文章</p>
+  </section>
+
+  <section class="grid" aria-label="Category posts">
+    {posts.map((post) => (
+      <PostCard post={post} />
+    ))}
+  </section>
+
+  <Pagination
+    current={1}
+    total={totalPages}
+    hrefFor={(page) =>
+      page === 1
+        ? `/category/${encodeURIComponent(categoryName)}`
+        : `/category/${encodeURIComponent(categoryName)}/page/${page}`
+    }
+  />
+</BaseLayout>

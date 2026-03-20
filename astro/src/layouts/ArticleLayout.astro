@@ -1,0 +1,42 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+
+type Props = {
+  title: string;
+  description?: string;
+  date: Date;
+  categories?: string[];
+  canonical?: string;
+  image?: string;
+  heroImage?: string;
+  structuredData?: Record<string, unknown> | Record<string, unknown>[];
+};
+
+const { title, description, date, categories = [], canonical, image, heroImage, structuredData } = Astro.props;
+---
+<BaseLayout
+  title={`${title} | MacAppHQ`}
+  description={description}
+  canonical={canonical}
+  image={image}
+  structuredData={structuredData}
+  ogType="article"
+>
+  <section class="glass content article-shell">
+    {heroImage ? (
+      <figure class="article-hero">
+        <img src={heroImage} alt={title} loading="eager" decoding="async" />
+      </figure>
+    ) : null}
+    <h1>{title}</h1>
+    <div class="meta article-meta">
+      <time datetime={date.toISOString()}>{date.toISOString().slice(0, 10)}</time>
+      {categories.map((c) => (
+        <a class="pill" href={`/category/${encodeURIComponent(c)}`}>{c}</a>
+      ))}
+    </div>
+    <article class="article-prose">
+      <slot />
+    </article>
+  </section>
+</BaseLayout>
