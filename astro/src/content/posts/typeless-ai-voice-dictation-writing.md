@@ -15,7 +15,6 @@ featured: true
 heroImage: "/media/typeless-ai-voice-dictation-writing/hero.png"
 ---
 
-# 当打字开始拖慢思考：Typeless 想把写作这件事，交还给你的大脑
 
 你一定有过这种时刻：
 
