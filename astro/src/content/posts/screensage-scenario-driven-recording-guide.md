@@ -137,7 +137,7 @@ ScreenSage 的核心价值不是“多一个录屏软件”，而是把表达这
 ---
 
 参考：
-- [ScreenSage 官网](https://screensage.pro/)
+- [ScreenSage 官网](https://screensage.theaffs.com/HmjIPLXD)
 - [ScreenSage 文档](https://guide.screensage.pro/docs)
 
 ## 相关文章
