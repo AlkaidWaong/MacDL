@@ -76,6 +76,13 @@ const jsonLdGraph = {
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     {image ? <meta name="twitter:image" content={image} /> : null}
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-N7QEYTRRV6"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {dataLayer.push(arguments);}
+      gtag("js", new Date());
+      gtag("config", "G-N7QEYTRRV6");
+    </script>
     <script type="application/ld+json" set:html={JSON.stringify(jsonLdGraph)} />
   </head>
   <body>
