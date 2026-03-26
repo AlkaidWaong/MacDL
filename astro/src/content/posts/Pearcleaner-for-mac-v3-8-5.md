@@ -74,7 +74,7 @@ Pearcleaner承诺提供定期更新，从GitHub自动提取说明和最新二进
 
 # 其他版本
 
-1. [Pearcleaner v 3.8.6](Pearcleaner%20%E5%BC%BA%E6%95%88macOS%E6%B8%85%E7%90%86%E5%B7%A5%E5%85%B7%20eb54a6ad53bb45929a31aa1581050db2.md)
+1. [Pearcleaner v 3.8.6](/article/Pearcleaner-for-mac-v3-8-6)
 
 # FAQ
 

@@ -19,6 +19,6 @@ draft: false
 
 ### 用户反馈渠道
 
-📧邮件： alkaid.waong@foxmail.com
+📧邮件： alkaid.waong [at] foxmail [dot] com
 
 微信：AlkaidWaong

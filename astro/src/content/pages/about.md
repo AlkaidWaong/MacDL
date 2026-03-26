@@ -38,4 +38,4 @@ MacAppHQ 专注于 **Mac 软件与工作流**。
 - 独立开发者产品收录
 - 商务合作与内容共创
 
-联系邮箱：`alkaid.waong@foxmail.com`
+联系邮箱：`alkaid.waong [at] foxmail [dot] com`

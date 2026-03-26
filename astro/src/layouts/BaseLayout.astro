@@ -25,6 +25,20 @@ const {
   robots = "index,follow"
 } = Astro.props;
 
+const SITE_URL = "https://www.macapphq.com";
+const DEFAULT_OG_IMAGE = "/indie.png";
+
+const toAbsoluteUrl = (value: string) => {
+  if (value.startsWith("http://") || value.startsWith("https://")) return value;
+  return new URL(value, SITE_URL).toString();
+};
+
+const pageCanonical = canonical
+  ? toAbsoluteUrl(canonical)
+  : new URL(Astro.url.pathname + Astro.url.search, SITE_URL).toString();
+
+const pageImage = image ? toAbsoluteUrl(image) : toAbsoluteUrl(DEFAULT_OG_IMAGE);
+
 const siteSchema = {
   "@type": "WebSite",
   name: "MacAppHQ",
@@ -63,19 +77,19 @@ const jsonLdGraph = {
     <meta name="description" content={description} />
     {keywords ? <meta name="keywords" content={keywords} /> : null}
     <meta name="robots" content={robots} />
-    {canonical ? <link rel="canonical" href={canonical} /> : null}
+    <link rel="canonical" href={pageCanonical} />
 
     <meta property="og:site_name" content="MacAppHQ" />
     <meta property="og:type" content={ogType} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    {canonical ? <meta property="og:url" content={canonical} /> : null}
-    {image ? <meta property="og:image" content={image} /> : null}
+    <meta property="og:url" content={pageCanonical} />
+    <meta property="og:image" content={pageImage} />
 
-    <meta name="twitter:card" content={image ? "summary_large_image" : "summary"} />
+    <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    {image ? <meta name="twitter:image" content={image} /> : null}
+    <meta name="twitter:image" content={pageImage} />
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-N7QEYTRRV6"></script>
     <script is:inline>
       window.dataLayer = window.dataLayer || [];

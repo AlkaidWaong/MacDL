@@ -73,7 +73,7 @@ heroImage: "/media/Amazing-AI/hero.png"
 
 ![输入prompt](/media/Amazing-AI/image.png)
 
-![生成设置](/media/Amazing-AI/image-1.png)
+![生成设置](/media/Amazing-AI/image-1.webp)
 
 ![生成图片结果展示](/media/Amazing-AI/image-2.png)
 

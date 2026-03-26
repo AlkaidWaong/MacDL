@@ -70,7 +70,7 @@ TextMate是一款功能强大、高度可定制的文本编辑器，非常适合
 
 # 截图
 
-![image.png](/media/textmate-v2-0-23/image.png)
+![image.png](/media/textmate-v2-0-23/image.webp)
 
 ![image.png](/media/textmate-v2-0-23/image-1.png)
 

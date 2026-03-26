@@ -69,7 +69,7 @@ heroImage: "/media/Pearcleaner-for-mac-v3-8-6/hero.png"
 
 # 其他版本下载
 
-1. [**Pearcleaner v3.8.5 下载**](Pearcleaner%20%E5%85%8D%E8%B4%B9%E5%BC%80%E6%BA%90%E7%9A%84macOS%E6%B8%85%E7%90%86%E5%B7%A5%E5%85%B7%EF%BC%8C%E7%AB%8B%E5%88%BB%E4%B8%8B%E8%BD%BD%EF%BC%81%204dc0e5ca8ac340528d96d674abd48148.md)
+1. [**Pearcleaner v3.8.5 下载**](/article/Pearcleaner-for-mac-v3-8-5)
 
 # 其他推荐
 

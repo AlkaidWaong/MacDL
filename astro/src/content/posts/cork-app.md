@@ -59,11 +59,11 @@ Cork 是一款非常优秀的 Homebrew GUI 应用程序，它不仅为 Homebrew 
 
 # 截图
 
-![Cork主界面](/media/cork-app/image.png)
+![Cork主界面](/media/cork-app/image.webp)
 
 Cork主界面
 
-![安装包](/media/cork-app/image-1.png)
+![安装包](/media/cork-app/image-1.webp)
 
 安装包
 

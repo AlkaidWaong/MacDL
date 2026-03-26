@@ -77,9 +77,9 @@ Craft是一款值得推荐的笔记应用，它不仅是一款工具，更是一
 
 # 截图
 
-![使用Caft来制定计划](/media/craft/CleanShot_2024-09-30_at-16-211.212x.png)
+![使用Caft来制定计划](/media/craft/CleanShot_2024-09-30_at-16-211.212x.webp)
 
-![Craft丰富简洁的模板库](/media/craft/CleanShot_2024-09-30_at-16-213.302x.png)
+![Craft丰富简洁的模板库](/media/craft/CleanShot_2024-09-30_at-16-213.302x.webp)
 
 # ⚠️说明
 

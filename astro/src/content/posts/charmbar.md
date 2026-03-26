@@ -10,7 +10,7 @@ tags:
   - "macOS个性化"
 aliases: []
 draft: false
-heroImage: "/media/charmbar/hero.png"
+heroImage: "/media/charmbar/hero.webp"
 ---
 
 ![CharmBar](/media/charmbar/charmbar_logo.png)
@@ -103,7 +103,7 @@ Dock中的应用图标不会删除应用本身。如果你从Dock中删除图标
 
 <aside>
 
-![charmbar.png](/media/charmbar/charmbar.png)
+![charmbar.png](/media/charmbar/charmbar.webp)
 
 **软件信息**
 

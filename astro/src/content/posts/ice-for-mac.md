@@ -81,7 +81,7 @@ Ice for Mac设计简洁直观，用户无需复杂设置，便能快速掌握各
 
 ![337269729-e256575b-880c-49ee-90a1-b6eabd4a7868.png](/media/ice-for-mac/337269729-e256575b-880c-49ee-90a1-b6eabd4a7868.png)
 
-![Ice menu bar.png](/media/ice-for-mac/Ice_menu_bar.png)
+![Ice menu bar.png](/media/ice-for-mac/Ice_menu_bar.webp)
 
 # FAQ
 

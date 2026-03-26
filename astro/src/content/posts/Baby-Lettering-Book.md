@@ -69,11 +69,11 @@ heroImage: "/media/Baby-Lettering-Book/hero.png"
 
 ![宝宝字帖生成器-设置字帖样式](/media/Baby-Lettering-Book/image.png)
 
-![字帖生成器设置](/media/Baby-Lettering-Book/image-1.png)
+![字帖生成器设置](/media/Baby-Lettering-Book/image-1.webp)
 
-![加减法运算字帖](/media/Baby-Lettering-Book/image-2.png)
+![加减法运算字帖](/media/Baby-Lettering-Book/image-2.webp)
 
-![英文字母字帖](/media/Baby-Lettering-Book/image-3.png)
+![英文字母字帖](/media/Baby-Lettering-Book/image-3.webp)
 
 # ⚠️说明
 

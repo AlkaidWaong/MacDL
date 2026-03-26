@@ -36,6 +36,6 @@ draft: false
 
 **7. 联系我们**
 
-如果您对本隐私政策有任何疑问，请通过[alkaid.waong@foxmail.com]与我们联系。
+如果您对本隐私政策有任何疑问，请通过 `alkaid.waong [at] foxmail [dot] com` 与我们联系。
 
 **免责声明：** 本隐私政策仅适用于本站，不适用于任何第三方链接的网站。

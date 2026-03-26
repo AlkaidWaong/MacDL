@@ -67,7 +67,7 @@ QuickRec是一款非常实用的Mac录屏软件，它解决了Mac用户在录屏
 
 # 截图
 
-![QuickRec开启屏幕录制](/media/quick-rec/CleanShot_2024-10-08_at-08-234.432x.png)
+![QuickRec开启屏幕录制](/media/quick-rec/CleanShot_2024-10-08_at-08-234.432x.webp)
 
 # ⚠️说明
 

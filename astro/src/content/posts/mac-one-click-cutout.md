@@ -34,12 +34,12 @@ draft: false
 
 ### 设置方法2
 
-![开启显示预览](/media/mac-one-click-cutout/CleanShot_2024-08-13_at-12-247.512x.png)
+![开启显示预览](/media/mac-one-click-cutout/CleanShot_2024-08-13_at-12-247.512x.webp)
 
 1️⃣ 访达 - 显示 - 开启显示预览
 2️⃣ 预览栏底部选更多 - 将移除背景长按拖移排序到前面
 
-![选中图片，点击移除背景](/media/mac-one-click-cutout/CleanShot_2024-08-13_at-12-248.302x.png)
+![选中图片，点击移除背景](/media/mac-one-click-cutout/CleanShot_2024-08-13_at-12-248.302x.webp)
 
 3️⃣ 每次选择图片点击「移除背景」就好啦！
 

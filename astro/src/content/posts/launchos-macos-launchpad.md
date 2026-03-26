@@ -30,7 +30,7 @@ heroImage: "/media/launchos-macos-launchpad/hero.png"
 
 ## 🧠 LaunchOS 是什么？
 
-![Preview with device.png](/media/launchos-macos-launchpad/Preview_with_device.png)
+![Preview with device.png](/media/launchos-macos-launchpad/Preview_with_device.webp)
 
 **LaunchOS 是 macOS 26 Tahoe 的最佳 Launchpad 替代工具** ——
 

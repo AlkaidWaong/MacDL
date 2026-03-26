@@ -92,11 +92,11 @@ Follow是一款具有创新性的信息聚合平台，它将AI技术、社区互
 
 # 截图
 
-![订阅文章](/media/follow/image.png)
+![订阅文章](/media/follow/image.webp)
 
-![社媒订阅](/media/follow/image-1.png)
+![社媒订阅](/media/follow/image-1.webp)
 
-![收藏图片](/media/follow/image-2.png)
+![收藏图片](/media/follow/image-2.webp)
 
 # FAQ
 
