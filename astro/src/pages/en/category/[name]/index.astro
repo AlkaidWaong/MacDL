@@ -1,4 +1,15 @@
 ---
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("posts", ({ data }) => !data.draft);
+  const categorySet = new Set<string>();
+  for (const post of posts) {
+    for (const c of post.data.categories ?? []) categorySet.add(c);
+  }
+  return Array.from(categorySet).map((name) => ({ params: { name } }));
+}
+
 const name = Astro.params.name ?? "";
 return Astro.redirect(`/category/${encodeURIComponent(name)}`, 301);
 ---

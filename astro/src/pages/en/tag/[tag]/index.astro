@@ -1,4 +1,15 @@
 ---
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("posts", ({ data }) => !data.draft);
+  const tagSet = new Set<string>();
+  for (const post of posts) {
+    for (const t of post.data.tags ?? []) tagSet.add(t);
+  }
+  return Array.from(tagSet).map((tag) => ({ params: { tag } }));
+}
+
 const tag = Astro.params.tag ?? "";
 return Astro.redirect(`/tag/${encodeURIComponent(tag)}`, 301);
 ---

@@ -1,4 +1,25 @@
 ---
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+  const PAGE_SIZE = 12;
+  const posts = await getCollection("posts", ({ data }) => !data.draft);
+  const tagSet = new Set<string>();
+  for (const post of posts) {
+    for (const t of post.data.tags ?? []) tagSet.add(t);
+  }
+
+  const paths = [];
+  for (const tag of tagSet) {
+    const count = posts.filter((p) => (p.data.tags ?? []).includes(tag)).length;
+    const totalPages = Math.max(1, Math.ceil(count / PAGE_SIZE));
+    for (let page = 2; page <= totalPages; page++) {
+      paths.push({ params: { tag, page: String(page) } });
+    }
+  }
+  return paths;
+}
+
 const tag = Astro.params.tag ?? "";
 const page = Astro.params.page ?? "";
 return Astro.redirect(`/tag/${encodeURIComponent(tag)}/page/${encodeURIComponent(page)}`, 301);
