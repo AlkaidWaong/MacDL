@@ -1,0 +1,4 @@
+---
+const name = Astro.params.name ?? "";
+return Astro.redirect(`/category/${encodeURIComponent(name)}`, 301);
+---

@@ -1,0 +1,5 @@
+---
+const tag = Astro.params.tag ?? "";
+const page = Astro.params.page ?? "";
+return Astro.redirect(`/tag/${encodeURIComponent(tag)}/page/${encodeURIComponent(page)}`, 301);
+---

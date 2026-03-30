@@ -1,0 +1,4 @@
+---
+const tag = Astro.params.tag ?? "";
+return Astro.redirect(`/tag/${encodeURIComponent(tag)}`, 301);
+---

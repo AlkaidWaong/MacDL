@@ -1,0 +1,5 @@
+---
+const name = Astro.params.name ?? "";
+const page = Astro.params.page ?? "";
+return Astro.redirect(`/category/${encodeURIComponent(name)}/page/${encodeURIComponent(page)}`, 301);
+---
