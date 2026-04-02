@@ -11,7 +11,7 @@ tags:
   - "提升照片清晰度"
 aliases: []
 draft: false
-featured: true
+featured: false
 
 heroImage: "/media/upscayl-for-mac/hero.png"
 ---

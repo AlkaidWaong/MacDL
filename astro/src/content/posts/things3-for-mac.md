@@ -11,7 +11,7 @@ tags:
   - "生产力工具"
 aliases: []
 draft: false
-featured: true
+featured: false
 
 heroImage: "/media/things3-for-mac/hero.png"
 ---

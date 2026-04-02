@@ -12,7 +12,7 @@ tags:
   - "办公效率"
 aliases: []
 draft: false
-featured: true
+featured: false
 
 heroImage: "/media/pixpin-for-mac/hero.png"
 ---
