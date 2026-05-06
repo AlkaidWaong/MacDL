@@ -481,9 +481,16 @@ a:hover {
 }
 
 .article-meta {
+  align-items: center;
   margin: 0 0 18px;
   padding-bottom: 12px;
   border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+.article-meta time {
+  display: inline-flex;
+  align-items: center;
+  line-height: 1;
 }
 
 .article-prose {
