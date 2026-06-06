@@ -15,17 +15,15 @@ const categories = Array.from(categoryCount.entries()).sort((a, b) =>
 const canonical = "https://www.macapphq.com/category";
 ---
 
-<BaseLayout title="分类 | MacAppHQ" description="按分类浏览文章" canonical={canonical}>
-  <section class="glass page-head">
-    <div class="page-crumb">
-      <a href="/">首页</a>
-      <span>/</span>
-      <span>分类</span>
-    </div>
-    <p>分类索引 · 共 {categories.length} 个分类</p>
-  </section>
+<BaseLayout
+  title="Mac 应用分类入口与专题导航 | MacAppHQ"
+  description="按分类浏览 Mac 应用评测、效率工具、开发工具与影音娱乐等专题内容，快速进入更符合你需求的文章集合。"
+  canonical={canonical}
+>
+  <h1 class="sr-only">分类</h1>
 
   <section class="glass content" style="margin: 16px 0 36px;">
+    <p class="meta" style="margin: 0 0 14px;">共 {categories.length} 个分类</p>
     <div class="meta" style="gap: 12px;">
       {categories.map(([name, count]) => (
         <a class="pill" href={`/category/${encodeURIComponent(name)}`}>

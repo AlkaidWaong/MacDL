@@ -20,6 +20,7 @@ const canonical = `https://www.macapphq.com/${page.data.urlSlug}`;
   title={`${page.data.title} | MacAppHQ`}
   description={page.data.description}
   canonical={canonical}
+  robots={page.data.noindex ? "noindex,follow" : undefined}
 >
   <section class="glass content">
     <h1>{page.data.title}</h1>

@@ -14,6 +14,7 @@ const url = `/article/${post.data.urlSlug}`;
 const categories = post.data.categories ?? [];
 const title = post.data.title ?? "";
 const primary = categories[0] ?? "";
+const preview = post.data.quickTake?.trim() || post.data.description?.trim() || "";
 const body = (post as unknown as { body?: string }).body ?? "";
 
 const coverSrc =
@@ -48,7 +49,8 @@ const [g1, g2] = palettes[hashCode(post.data.urlSlug) % palettes.length];
     </div>
     <div class="post-card__body">
       {showMeta ? (
-        <div class="meta">
+        <div class="meta post-card__meta">
+          {primary ? <span class="post-card__eyebrow">{primary}</span> : null}
           <time datetime={post.data.date.toISOString()}>
             {post.data.date.toISOString().slice(0, 10)}
           </time>
@@ -56,8 +58,8 @@ const [g1, g2] = palettes[hashCode(post.data.urlSlug) % palettes.length];
       ) : null}
       <h2 class="post-card__title">{title}</h2>
       {showDescription ? (
-        post.data.description ? (
-          <p class="post-card__desc">{post.data.description}</p>
+        preview ? (
+          <p class="post-card__desc">{preview}</p>
         ) : (
           <p class="post-card__desc"> </p>
         )

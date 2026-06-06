@@ -2,7 +2,12 @@
 urlSlug: "vidhub-v-1-7-8"
 title: "我把影视库从“文件夹地狱”救出来了：VidHub 真实使用手记（含 vidhub windows 版说明）"
 date: "2026-03-25"
-description: "这篇是我真实用了一段时间后的感受：VidHub 在 NAS/网盘/本地混合片库下到底好不好用，以及 vidhub windows 版现状。"
+description: "VidHub 是一款适合管理 NAS、本地和网盘混合片源的播放器。这篇体验文重点聊聊它怎么把“找片、接着看、管理进度”这件事变顺，以及 vidhub windows 版现在到底有没有。"
+quickTake: "它最打动我的不是单次播放能力，而是终于把“找资源”这件事从文件夹层级，变成了更轻松的片库视角。"
+bestFor:
+  - "家里有 NAS 或混合片源的人"
+  - "想减少找片和续播成本的人"
+officialUrl: "https://zh.okaapps.com/product/1659622164"
 categories:
   - "影音娱乐"
 tags:
@@ -82,6 +87,24 @@ VidHub 把分季分集、进度、下一集衔接做得比较自然，
 
 - 官网：<https://okaapps.com/product/1659622164>
 - 中文页：<https://zh.okaapps.com/product/1659622164>
+
+## FAQ
+
+### VidHub 最适合什么人？
+
+最适合片源不止一个地方的人，比如 NAS、本地硬盘、网盘混着用。它解决的重点不是“能不能播”，而是“找片和续播能不能更省事”。
+
+### VidHub 的优势主要体现在哪？
+
+主要体现在海报墙、进度管理、分季分集整理，以及把混合片源尽量收进一个统一视角里。
+
+### vidhub windows 版现在有官网吗？
+
+截至 2026-03-25，我在官方支持列表里没有看到 Windows 客户端。想找 `vidhub windows 版` 的话，建议直接看官网更新，不要优先信第三方下载页。
+
+### 如果文件命名比较乱，VidHub 还好用吗？
+
+能用，但体验会打折。它这类工具对识别和刮削比较依赖命名规范，文件越乱，整理成本通常越高。
 
 # 说明
 

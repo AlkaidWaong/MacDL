@@ -4,18 +4,10 @@ import PostCard from "../components/PostCard.astro";
 import { getCollection } from "astro:content";
 
 const all = await getCollection("posts", ({ data }) => !data.draft);
-const featuredAll = all.filter((post) => post.data.featured);
-
-function shuffle<T>(items: T[]): T[] {
-  const arr = items.slice();
-  for (let i = arr.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [arr[i], arr[j]] = [arr[j], arr[i]];
-  }
-  return arr;
-}
-
-const featured = shuffle(featuredAll).slice(0, 4);
+const featured = all
+  .filter((post) => post.data.featured)
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+  .slice(0, 4);
 const posts = all.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 const fixedTagEntries = [
   {
@@ -39,6 +31,8 @@ const fixedTagEntries = [
   keywords="Mac应用推荐,Mac效率工具,macOS软件,独立开发者App,平替软件,工作流"
   canonical="https://www.macapphq.com/"
 >
+  <h1 class="sr-only">Mac 应用评测、效率工具与开发工作流</h1>
+
   {featured.length ? (
     <>
       <div class="section-head">

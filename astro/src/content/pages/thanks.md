@@ -1,6 +1,7 @@
 ---
 urlSlug: "thanks"
 title: "鸣谢(*ゝω・)ﾉThanks!"
+noindex: true
 aliases: []
 draft: false
 ---

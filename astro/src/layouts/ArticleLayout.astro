@@ -6,13 +6,33 @@ type Props = {
   description?: string;
   date: Date;
   categories?: string[];
+  quickTake?: string;
   canonical?: string;
   image?: string;
   heroImage?: string;
   structuredData?: Record<string, unknown> | Record<string, unknown>[];
+  relatedPosts?: Array<{
+    title: string;
+    url: string;
+    date: string;
+    category?: string;
+    note?: string;
+  }>;
 };
 
-const { title, description, date, categories = [], canonical, image, heroImage, structuredData } = Astro.props;
+const {
+  title,
+  description,
+  date,
+  categories = [],
+  quickTake,
+  canonical,
+  image,
+  heroImage,
+  structuredData,
+  relatedPosts = []
+} = Astro.props;
+const introLine = quickTake?.trim() || description?.trim();
 ---
 <BaseLayout
   title={`${title} | MacAppHQ`}
@@ -35,8 +55,32 @@ const { title, description, date, categories = [], canonical, image, heroImage, 
         <a class="pill" href={`/category/${encodeURIComponent(c)}`}>{c}</a>
       ))}
     </div>
+    {introLine ? (
+      <section class="article-intro" aria-label="文章导语">
+        <p>{introLine}</p>
+      </section>
+    ) : null}
     <article class="article-prose">
       <slot />
     </article>
   </section>
+  {relatedPosts.length ? (
+    <section class="glass article-related-block" aria-label="相关文章">
+      <section class="article-related">
+        <h2>相关文章</h2>
+        <div class="article-related__list">
+          {relatedPosts.map((post) => (
+            <a class="article-related__item" href={post.url}>
+              <div class="article-related__meta">
+                {post.category ? <span>{post.category}</span> : null}
+                <time datetime={post.date}>{post.date.slice(0, 10)}</time>
+              </div>
+              <h3>{post.title}</h3>
+              {post.note ? <p>{post.note}</p> : null}
+            </a>
+          ))}
+        </div>
+      </section>
+    </section>
+  ) : null}
 </BaseLayout>

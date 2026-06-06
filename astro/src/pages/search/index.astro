@@ -5,14 +5,11 @@ const canonical = "https://www.macapphq.com/search";
 
 <BaseLayout
   title="搜索 | MacAppHQ"
-  description="站内搜索"
+  description="搜索 MacAppHQ 里的应用测评、工具体验与工作流文章。"
   canonical={canonical}
   robots="noindex,follow"
 >
-  <section class="glass hero">
-    <h1>搜索</h1>
-    <p>本地静态搜索，不依赖第三方服务。</p>
-  </section>
+  <h1 class="sr-only">搜索</h1>
 
   <section class="glass content" style="margin: 16px 0 36px;">
     <label class="meta" for="q" style="display:block; margin-bottom: 10px;">
@@ -24,12 +21,13 @@ const canonical = "https://www.macapphq.com/search";
       placeholder="例如：AI、邮件、剪贴板…"
       style="width: 100%; padding: 12px 12px; border-radius: 12px; border: 1px solid var(--border); background: rgba(255,255,255,.7); outline: none;"
     />
-    <div id="result" style="margin-top: 14px;"></div>
+    <div id="result" class="search-results" style="margin-top: 14px;"></div>
   </section>
 
   <script is:inline>
     const el = document.getElementById("q");
     const out = document.getElementById("result");
+    const url = new URL(window.location.href);
     let data = null;
     async function load() {
       if (data) return data;
@@ -39,16 +37,20 @@ const canonical = "https://www.macapphq.com/search";
     }
     function render(items) {
       if (!items.length) {
-        out.innerHTML = '<p style="color: var(--muted); margin: 0;">没有匹配结果</p>';
+        out.innerHTML = '<p class="search-results__empty">没有匹配结果</p>';
         return;
       }
       out.innerHTML =
-        '<div class="meta" style="flex-direction: column; gap: 10px;">' +
+        '<div class="search-results__list">' +
         items
           .slice(0, 30)
           .map(
             (it) =>
-              `<a class="pill" style="justify-content: space-between;" href="${it.url}"><span>${it.title}</span><span style="opacity:.55">${it.date || ""}</span></a>`
+              `<a class="search-result" href="${it.url}">
+                <div class="search-result__meta">${it.date || ""}</div>
+                <div class="search-result__title">${it.title}</div>
+                <p class="search-result__desc">${it.description || ""}</p>
+              </a>`
           )
           .join("") +
         "</div>";
@@ -59,8 +61,14 @@ const canonical = "https://www.macapphq.com/search";
     }
     async function onInput() {
       const q = (el.value || "").trim().toLowerCase();
+      if (q) {
+        url.searchParams.set("q", q);
+      } else {
+        url.searchParams.delete("q");
+      }
+      window.history.replaceState({}, "", url);
       if (!q) {
-        out.innerHTML = '<p style="color: var(--muted); margin: 0;">输入关键词开始搜索</p>';
+        out.innerHTML = '<p class="search-results__empty">输入关键词开始搜索</p>';
         return;
       }
       const items = await load();
@@ -70,7 +78,10 @@ const canonical = "https://www.macapphq.com/search";
         .map((x) => x.it);
       render(matched);
     }
-    out.innerHTML = '<p style="color: var(--muted); margin: 0;">输入关键词开始搜索</p>';
+    const initialQuery = (url.searchParams.get("q") || "").trim();
+    el.value = initialQuery;
+    out.innerHTML = '<p class="search-results__empty">输入关键词开始搜索</p>';
     el.addEventListener("input", onInput, { passive: true });
+    if (initialQuery) onInput();
   </script>
 </BaseLayout>

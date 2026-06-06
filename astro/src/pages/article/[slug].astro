@@ -23,13 +23,46 @@ const heroSrc =
   "";
 const ogImage = heroSrc ? toAbsoluteUrl(heroSrc, site) : undefined;
 const category = post.data.categories?.[0];
+const allPosts = await getCollection("posts", ({ data }) => !data.draft);
+const relatedPosts = allPosts
+  .filter((entry) => entry.id !== post.id)
+  .map((entry) => {
+    const sameCategory = (entry.data.categories ?? []).filter((c) =>
+      (post.data.categories ?? []).includes(c)
+    );
+    const sameTags = (entry.data.tags ?? []).filter((t) => (post.data.tags ?? []).includes(t));
+    return {
+      entry,
+      score: sameCategory.length * 3 + sameTags.length,
+      note:
+        sameCategory[0]
+          ? `同属「${sameCategory[0]}」分类`
+          : sameTags[0]
+            ? `关联标签：${sameTags[0]}`
+            : ""
+    };
+  })
+  .filter((item) => item.score > 0)
+  .sort(
+    (a, b) =>
+      b.score - a.score ||
+      b.entry.data.date.getTime() - a.entry.data.date.getTime()
+  )
+  .slice(0, 3)
+  .map(({ entry, note }) => ({
+    title: entry.data.title,
+    url: `/article/${entry.data.urlSlug}`,
+    date: entry.data.date.toISOString(),
+    category: entry.data.categories?.[0],
+    note
+  }));
 const articleSchema = {
   "@context": "https://schema.org",
   "@type": "Article",
   headline: post.data.title,
   description: post.data.description ?? "",
   datePublished: post.data.date.toISOString(),
-  dateModified: post.data.date.toISOString(),
+  dateModified: post.data.updatedAt?.toISOString(),
   inLanguage: "zh-CN",
   mainEntityOfPage: canonical,
   image: ogImage ? [ogImage] : undefined,
@@ -73,10 +106,12 @@ const breadcrumbSchema = {
   description={post.data.description}
   date={post.data.date}
   categories={post.data.categories}
+  quickTake={post.data.quickTake}
   canonical={canonical}
   image={ogImage}
   structuredData={[articleSchema, breadcrumbSchema]}
   heroImage={heroSrc || undefined}
+  relatedPosts={relatedPosts}
 >
   <Content />
 </ArticleLayout>

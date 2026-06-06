@@ -15,12 +15,14 @@ export async function getStaticPaths() {
   const posts = await getCollection("posts", ({ data }) => !data.draft);
   const tagSet = new Set();
   for (const post of posts) {
-    for (const t of post.data.tags ?? []) tagSet.add(t);
+    for (const t of post.data.tags ?? []) tagSet.add(normalizeTag(t));
   }
 
   const paths = [];
   for (const tag of tagSet) {
-    const count = posts.filter((p) => (p.data.tags ?? []).includes(tag)).length;
+    const count = posts.filter((p) =>
+      (p.data.tags ?? []).map((t) => normalizeTag(t)).includes(tag)
+    ).length;
     const totalPages = Math.max(1, Math.ceil(count / PAGE_SIZE));
     for (let page = 2; page <= totalPages; page++) {
       paths.push({ params: { tag, page: String(page) } });
@@ -30,6 +32,7 @@ export async function getStaticPaths() {
 }
 
 const PAGE_SIZE = 12;
+const MIN_INDEXABLE_TAG_POSTS = 3;
 const tagParam = Astro.params.tag ?? "";
 const pageParam = parsePositiveInt(Astro.params.page);
 let tagName = tagParam;
@@ -62,27 +65,16 @@ const pagePosts = posts.slice(start, start + PAGE_SIZE);
 const canonical = `https://www.macapphq.com/tag/${encodeURIComponent(
   canonicalTag
 )}/page/${page}`;
+const robots = posts.length >= MIN_INDEXABLE_TAG_POSTS ? "index,follow" : "noindex,follow";
 ---
 
 <BaseLayout
   title={`${canonicalTag} 相关文章（第 ${page} 页） | MacAppHQ`}
   description={`浏览标签「${canonicalTag}」下的 Mac 工具推荐与实测内容，第 ${page} 页。`}
   canonical={canonical}
+  robots={robots}
 >
-  <section class="glass page-head">
-    <div class="page-crumb">
-      <a href="/">首页</a>
-      <span>/</span>
-      <a href="/tag">标签</a>
-      <span>/</span>
-      <a href={`/tag/${encodeURIComponent(canonicalTag)}`}>{canonicalTag}</a>
-      <span>/</span>
-      <span>第 {page} 页</span>
-    </div>
-    <p>
-      共 {posts.length} 篇文章
-    </p>
-  </section>
+  <h1 class="sr-only">{canonicalTag} 第 {page} 页</h1>
 
   <section class="grid" aria-label="Tag posts">
     {pagePosts.map((post) => (

@@ -6,12 +6,13 @@ import { getCollection } from "astro:content";
 import { normalizeTag } from "../../../lib/tags";
 
 const PAGE_SIZE = 12;
+const MIN_INDEXABLE_TAG_POSTS = 3;
 
 export async function getStaticPaths() {
   const posts = await getCollection("posts", ({ data }) => !data.draft);
   const tagSet = new Set();
   for (const post of posts) {
-    for (const t of post.data.tags ?? []) tagSet.add(t);
+    for (const t of post.data.tags ?? []) tagSet.add(normalizeTag(t));
   }
   return Array.from(tagSet).map((tag) => ({ params: { tag } }));
 }
@@ -34,23 +35,16 @@ const posts = (await getCollection("posts", ({ data }) => !data.draft))
 const totalPages = Math.max(1, Math.ceil(posts.length / PAGE_SIZE));
 const pagePosts = posts.slice(0, PAGE_SIZE);
 const canonical = `https://www.macapphq.com/tag/${encodeURIComponent(canonicalTag)}`;
+const robots = posts.length >= MIN_INDEXABLE_TAG_POSTS ? "index,follow" : "noindex,follow";
 ---
 
 <BaseLayout
   title={`${canonicalTag} 相关文章与工具推荐 | MacAppHQ`}
   description={`浏览标签「${canonicalTag}」下的 Mac 工具推荐、实测体验与工作流文章。`}
   canonical={canonical}
+  robots={robots}
 >
-  <section class="glass page-head">
-    <div class="page-crumb">
-      <a href="/">首页</a>
-      <span>/</span>
-      <a href="/tag">标签</a>
-      <span>/</span>
-      <span>{canonicalTag}</span>
-    </div>
-    <p>共 {posts.length} 篇文章</p>
-  </section>
+  <h1 class="sr-only">{canonicalTag}</h1>
 
   <section class="grid" aria-label="Tag posts">
     {pagePosts.map((post) => (

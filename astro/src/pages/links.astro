@@ -19,6 +19,7 @@ const links = (friendlinksData?.links ?? []) as Array<{
   title={`${page?.data.title ?? "友链"} | MacAppHQ`}
   description={page?.data.description}
   canonical={canonical}
+  robots="noindex,follow"
 >
   <section class="glass content">
     <h1>{page?.data.title ?? "友链"}</h1>
@@ -53,4 +54,3 @@ const links = (friendlinksData?.links ?? []) as Array<{
     </section>
   </div>
 </BaseLayout>
-

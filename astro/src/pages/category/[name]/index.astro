@@ -5,6 +5,54 @@ import Pagination from "../../../components/Pagination.astro";
 import { getCollection } from "astro:content";
 
 const PAGE_SIZE = 12;
+const MIN_INDEXABLE_CATEGORY_POSTS = 3;
+const CATEGORY_COPY: Record<string, { title: string; description: string; intro: string }> = {
+  "AI": {
+    title: "Mac AI 工具推荐与真实体验 | MacAppHQ",
+    description: "浏览 Mac 上的 AI 工具推荐、对话客户端、AI 搜索、AI 写作与实际使用体验，帮助你判断哪些工具真能进工作流。",
+    intro: "AI 工具最容易让人一时兴奋、装完吃灰。这个分类更关注它们在真实场景里能不能省时间、提质量，或者减少重复劳动。"
+  },
+  "浏览器扩展": {
+    title: "Mac 浏览器扩展推荐与使用场景 | MacAppHQ",
+    description: "浏览值得安装的 Mac 浏览器扩展，涵盖广告拦截、翻译、搜索优化、阅读增强与效率类插件实测。",
+    intro: "浏览器扩展的价值不在“功能多”，而在它是否真的能减少网页上的摩擦。这里更强调高频使用场景下的留存价值。"
+  },
+  "效率工具": {
+    title: "Mac 效率工具推荐与使用体验 | MacAppHQ",
+    description: "浏览值得长期使用的 Mac 效率工具，涵盖剪贴板、笔记、任务管理、输入与专注等真实使用场景。",
+    intro: "这一类内容更偏日常高频使用：不是单纯列功能，而是看它能不能真的帮你少切换、少重复、少分心。"
+  },
+  "开发工具": {
+    title: "Mac 开发工具推荐与实测文章 | MacAppHQ",
+    description: "浏览 Mac 开发工具推荐、CLI 工作流、AI 编程工具与真实实测体验，帮助你更快找到适合自己的开发环境。",
+    intro: "这里聚合的是更贴近日常开发的工具体验：包括编码、调试、工作流编排，以及 AI 参与开发后的新协作方式。"
+  },
+  "系统工具": {
+    title: "Mac 系统工具推荐与使用场景 | MacAppHQ",
+    description: "浏览 Mac 系统工具推荐、清理、窗口管理、菜单栏与文件整理等实用工具评测。",
+    intro: "系统工具最容易掉进“装了很多，真正留下来的很少”。这个分类更关注哪些工具能长期留在你的 Mac 里。"
+  },
+  "影音娱乐": {
+    title: "Mac 影音娱乐应用推荐与体验 | MacAppHQ",
+    description: "浏览 Mac 上的影音娱乐、播放器、内容消费与观影体验相关文章，按真实使用场景筛选更合适的应用。",
+    intro: "这类文章更关注观影、听音、内容消费时的真实体验，而不是只比较参数或平台列表。"
+  },
+  "文本编辑": {
+    title: "Mac 文本编辑与 Markdown 工具推荐 | MacAppHQ",
+    description: "浏览 Mac 文本编辑器、Markdown 工具与写作应用推荐，结合真实写作和记录场景判断哪类工具更适合长期使用。",
+    intro: "文本工具看上去都差不多，真正拉开差距的是输入手感、界面负担和长期写作时会不会打断思路。"
+  },
+  "浏览器": {
+    title: "Mac 浏览器推荐与使用体验 | MacAppHQ",
+    description: "浏览 Mac 浏览器推荐、个性化浏览器、AI 浏览器与日常浏览体验文章，帮助你判断哪一类浏览器更适合自己的工作流。",
+    intro: "浏览器不是只看速度和标签页数量，更重要的是它怎么影响你的阅读、搜索、分心和多任务习惯。"
+  },
+  "创意设计": {
+    title: "Mac 创意设计工具推荐与体验 | MacAppHQ",
+    description: "浏览 Mac 创意设计、图片处理、原型与视觉表达相关工具评测，按真实创作场景筛选更合适的软件。",
+    intro: "创意工具的差异，往往不在功能表，而在工作流是否顺手、是否能让你更快进入表达状态。"
+  }
+};
 export async function getStaticPaths() {
   const posts = await getCollection("posts", ({ data }) => !data.draft);
   const categorySet = new Set();
@@ -31,6 +79,13 @@ const filtered = all
 
 const totalPages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
 const posts = filtered.slice(0, PAGE_SIZE);
+const featuredPosts = filtered.slice(0, 3);
+const copy = CATEGORY_COPY[categoryName] ?? {
+  title: `${categoryName} Mac 应用推荐与评测 | MacAppHQ`,
+  description: `浏览 ${categoryName} 分类下的 Mac 应用推荐、使用体验与效率工作流文章。`,
+  intro: `这里收录的是 ${categoryName} 相关的应用体验、工具推荐和实际使用场景，方便你从同一主题下连续阅读。`
+};
+const robots = filtered.length >= MIN_INDEXABLE_CATEGORY_POSTS ? "index,follow" : "noindex,follow";
 
 const canonical = `https://www.macapphq.com/category/${encodeURIComponent(
   categoryName
@@ -38,20 +93,12 @@ const canonical = `https://www.macapphq.com/category/${encodeURIComponent(
 ---
 
 <BaseLayout
-  title={`${categoryName} Mac 应用推荐与评测 | MacAppHQ`}
-  description={`浏览 ${categoryName} 分类下的 Mac 应用推荐、使用体验与效率工作流文章。`}
+  title={copy.title}
+  description={copy.description}
   canonical={canonical}
+  robots={robots}
 >
-  <section class="glass page-head">
-    <div class="page-crumb">
-      <a href="/">首页</a>
-      <span>/</span>
-      <a href="/category">分类</a>
-      <span>/</span>
-      <span>{categoryName}</span>
-    </div>
-    <p>共 {filtered.length} 篇文章</p>
-  </section>
+  <h1 class="sr-only">{categoryName}</h1>
 
   <section class="grid" aria-label="Category posts">
     {posts.map((post) => (
@@ -68,4 +115,21 @@ const canonical = `https://www.macapphq.com/category/${encodeURIComponent(
         : `/category/${encodeURIComponent(categoryName)}/page/${page}`
     }
   />
+
+  {featuredPosts.length ? (
+    <section class="glass category-featured-block">
+      <h2 style="margin: 0 0 10px;">先看这几篇</h2>
+      <div class="search-results__list">
+        {featuredPosts.map((post) => (
+          <a class="search-result" href={`/article/${post.data.urlSlug}`}>
+            <div class="search-result__meta">{post.data.date.toISOString().slice(0, 10)}</div>
+            <div class="search-result__title">{post.data.title}</div>
+            <p class="search-result__desc">
+              {post.data.quickTake?.trim() || post.data.description?.trim() || "从这篇开始，更快判断这个分类下的工具是否适合你。"}
+            </p>
+          </a>
+        ))}
+      </div>
+    </section>
+  ) : null}
 </BaseLayout>
