@@ -1,11 +1,11 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { getCollection } from "astro:content";
+import { getCollection, render } from "astro:content";
 import friendlinksData from "../data/friendlinks.json";
 
 const pages = await getCollection("pages", ({ data }) => !data.draft);
 const page = pages.find((p) => p.data.urlSlug === "links") ?? null;
-const { Content } = page ? await page.render() : { Content: null };
+const { Content } = page ? await render(page) : { Content: null };
 
 const canonical = `https://www.macapphq.com/links`;
 const links = (friendlinksData?.links ?? []) as Array<{
