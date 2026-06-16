@@ -99,6 +99,20 @@ const breadcrumbSchema = {
     item: entry.item
   }))
 };
+const faqSchema = post.data.faqs?.length
+  ? {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: post.data.faqs.map((item) => ({
+        "@type": "Question",
+        name: item.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: item.answer
+        }
+      }))
+    }
+  : undefined;
 ---
 
 <ArticleLayout
@@ -109,7 +123,7 @@ const breadcrumbSchema = {
   quickTake={post.data.quickTake}
   canonical={canonical}
   image={ogImage}
-  structuredData={[articleSchema, breadcrumbSchema]}
+  structuredData={[articleSchema, breadcrumbSchema, faqSchema].filter(Boolean)}
   heroImage={heroSrc || undefined}
   relatedPosts={relatedPosts}
 >

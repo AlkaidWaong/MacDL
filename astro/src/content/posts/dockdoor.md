@@ -54,6 +54,8 @@ DockDoor提供了丰富的预览窗口个性化定制功能，如自定义窗口
 
 如果你喜欢AltTab的话，那么你可能会喜欢DockDoor的窗口切换器。窗口期切换器的功能类似于 Microsoft Windows 的 Alt + Tab 键的功能，可以帮你在不同软件窗口之间快速切换。
 
+如果你需要的不是窗口预览，而是把一整套项目桌面状态按 stage 切回来，可以再看看 [BetterStage：更像 Mac 工作区管理器的窗口工具](https://www.macapphq.com/article/betterstage-for-mac)。
+
 ## **👥 最适合谁？**
 
 DockDoor的功能来看，对需要工作中需要在多个软件之间频繁切换，多线程工作的用户非常的友好。

@@ -67,6 +67,7 @@ Rectangle是一款专为macOS用户打造的窗口管理工具。它通过简单
 
 - [**AltTab：自定义macOS窗口切换工具下载**](https://www.macapphq.com/article/alttab-v-6-72-0)
 - [**DockDoor：探索Mac程序坞的全新交互形式**](https://www.macapphq.com/article/dockdoor)
+- [**BetterStage：更像 Mac 工作区管理器的窗口工具**](https://www.macapphq.com/article/betterstage-for-mac)
 
 # ⚠️说明
 

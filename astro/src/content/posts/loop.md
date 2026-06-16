@@ -63,6 +63,7 @@ heroImage: "/media/loop/hero.png"
 
 - [**DockDoor：探索Mac程序坞的全新交互形式**](https://www.macapphq.com/article/dockdoor)
 - [**Rectangle：高效的macOS窗口管理工具**](https://www.macapphq.com/article/rectangle-v0-82)
+- [**BetterStage：更偏多项目工作区管理的 Mac 工具**](https://www.macapphq.com/article/betterstage-for-mac)
 
 ## 总结
 

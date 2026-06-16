@@ -16,6 +16,14 @@ const posts = defineCollection({
     quickTake: z.string().optional(),
     bestFor: z.array(z.string().min(1)).optional(),
     officialUrl: z.string().url().optional(),
+    faqs: z
+      .array(
+        z.object({
+          question: z.string().min(1),
+          answer: z.string().min(1)
+        })
+      )
+      .optional(),
     categories: z.array(z.string().min(1)).default([]),
     tags: z.array(z.string().min(1)).default([]),
     featured: z.boolean().optional(),

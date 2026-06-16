@@ -1,0 +1,48 @@
+name: IndexNow Submit
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "astro/src/content/posts/**"
+      - "astro/public/*.txt"
+      - "astro/scripts/indexnow.mjs"
+      - "astro/package.json"
+  workflow_dispatch:
+
+jobs:
+  submit:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'workflow_dispatch' || github.event.before != '0000000000000000000000000000000000000000'
+    defaults:
+      run:
+        working-directory: astro
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Submit changed URLs to IndexNow
+        env:
+          INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY }}
+        run: |
+          if [ -z "$INDEXNOW_KEY" ]; then
+            echo "Missing INDEXNOW_KEY secret"
+            exit 1
+          fi
+
+          BASE_REF="${{ github.event.before }}"
+          HEAD_REF="${{ github.sha }}"
+
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            npm run indexnow:changed
+          else
+            node scripts/indexnow.mjs --changed "$BASE_REF" "$HEAD_REF"
+          fi
