@@ -203,7 +203,7 @@ a:hover {
   margin: 18px 0 8px;
 }
 
-.section-head h2 {
+.section-head :is(h1, h2) {
   margin: 0;
   font-family: var(--display);
   font-weight: 800;
@@ -574,6 +574,10 @@ a:hover {
   padding: 24px 28px 30px;
 }
 
+.article-crumb {
+  margin: 0 0 14px;
+}
+
 .article-shell > h1 {
   margin: 0 0 10px;
   font-size: clamp(30px, 4vw, 46px);
@@ -610,6 +614,41 @@ a:hover {
   color: rgba(15, 23, 42, 0.72);
   font-size: clamp(16px, 2vw, 18px);
   line-height: 1.8;
+}
+
+.category-intro {
+  margin: 0 0 18px;
+  padding: 18px 22px;
+}
+
+.category-intro p {
+  margin: 0;
+  max-width: 52em;
+  color: rgba(15, 23, 42, 0.72);
+  font-size: 15px;
+  line-height: 1.85;
+}
+
+.article-topics {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin: 0 0 22px;
+  padding: 0 0 16px;
+  border-bottom: 1px solid rgba(15, 23, 42, 0.06);
+}
+
+.article-topics__label {
+  flex: 0 0 auto;
+  color: rgba(15, 23, 42, 0.52);
+  font-size: 13px;
+  line-height: 2.2;
+}
+
+.article-topics__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
 }
 
 .article-hero {
@@ -934,6 +973,41 @@ a:hover {
   padding: 22px 18px 14px;
 }
 
+.footer-priority {
+  margin: 0 auto 18px;
+  max-width: 1120px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+.footer-priority h3 {
+  margin: 0 0 12px;
+  color: var(--ink);
+  font-size: 17px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+}
+
+.footer-priority__list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px 20px;
+}
+
+.footer-priority__list a {
+  display: block;
+  line-height: 1.4;
+  font-size: 14px;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 120ms ease;
+}
+
+.footer-priority__list a:hover {
+  color: var(--ink);
+}
+
 .footer-grid {
   display: grid;
   grid-template-columns: 1fr 1.25fr 1fr 1fr;
@@ -1092,6 +1166,26 @@ a:hover {
 
   .footer-panel {
     padding: 16px 14px 12px;
+  }
+
+  .footer-priority {
+    margin-bottom: 14px;
+    padding-bottom: 12px;
+  }
+
+  .footer-priority h3 {
+    margin-bottom: 8px;
+    font-size: 16px;
+  }
+
+  .footer-priority__list {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .footer-priority__list a {
+    font-size: 13px;
+    line-height: 1.4;
   }
 
   .footer-grid {

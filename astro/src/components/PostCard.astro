@@ -7,15 +7,23 @@ type Props = {
   showDescription?: boolean;
   showMeta?: boolean;
   showBadge?: boolean;
+  headingTag?: "h2" | "h3";
 };
 
-const { post, showDescription = true, showMeta = true, showBadge = true } = Astro.props;
+const {
+  post,
+  showDescription = true,
+  showMeta = true,
+  showBadge = true,
+  headingTag = "h2"
+} = Astro.props;
 const url = `/article/${post.data.urlSlug}`;
 const categories = post.data.categories ?? [];
 const title = post.data.title ?? "";
 const primary = categories[0] ?? "";
 const preview = post.data.quickTake?.trim() || post.data.description?.trim() || "";
 const body = (post as unknown as { body?: string }).body ?? "";
+const TitleTag = headingTag;
 
 const coverSrc =
   post.data.heroImage?.trim() ||
@@ -56,7 +64,7 @@ const [g1, g2] = palettes[hashCode(post.data.urlSlug) % palettes.length];
           </time>
         </div>
       ) : null}
-      <h2 class="post-card__title">{title}</h2>
+      <TitleTag class="post-card__title">{title}</TitleTag>
       {showDescription ? (
         preview ? (
           <p class="post-card__desc">{preview}</p>

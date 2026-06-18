@@ -1,3 +1,5 @@
+import type { CollectionEntry } from "astro:content";
+
 export function pickFirstBodyImage(markdown: string): string | null {
   if (!markdown) return null;
 
@@ -15,6 +17,29 @@ export function pickFirstBodyImage(markdown: string): string | null {
   while ((match = pattern.exec(markdown))) {
     const url = (match[1] || match[2] || match[3] || "").trim();
     if (!skip(url)) return url;
+  }
+
+  return null;
+}
+
+export function pickEntryImage(post: CollectionEntry<"posts"> | null | undefined): string | null {
+  if (!post) return null;
+  const body = (post as unknown as { body?: string }).body ?? "";
+
+  return (
+    post.data.heroImage?.trim() ||
+    post.data.cover?.trim() ||
+    pickFirstBodyImage(body) ||
+    null
+  );
+}
+
+export function pickFirstAvailableEntryImage(
+  posts: CollectionEntry<"posts">[]
+): string | null {
+  for (const post of posts) {
+    const image = pickEntryImage(post);
+    if (image) return image;
   }
 
   return null;

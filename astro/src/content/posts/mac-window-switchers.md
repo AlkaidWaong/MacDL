@@ -30,6 +30,7 @@ tags:
   - "多窗口管理"
 aliases: []
 draft: false
+heroImage: "/media/mac-window-switchers/hero.svg"
 ---
 
 # Mac 窗口切换工具怎么选：原生切窗不难用，但为什么总觉得不顺

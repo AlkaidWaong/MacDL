@@ -3,6 +3,7 @@ import BaseLayout from "../../../layouts/BaseLayout.astro";
 import PostCard from "../../../components/PostCard.astro";
 import Pagination from "../../../components/Pagination.astro";
 import { getCollection } from "astro:content";
+import { pickFirstAvailableEntryImage } from "../../../lib/cover";
 
 const PAGE_SIZE = 12;
 const MIN_INDEXABLE_CATEGORY_POSTS = 3;
@@ -80,6 +81,7 @@ const filtered = all
 const totalPages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
 const posts = filtered.slice(0, PAGE_SIZE);
 const featuredPosts = filtered.slice(0, 3);
+const categoryOgImage = pickFirstAvailableEntryImage(filtered);
 const copy = CATEGORY_COPY[categoryName] ?? {
   title: `${categoryName} Mac 应用推荐与评测 | MacAppHQ`,
   description: `浏览 ${categoryName} 分类下的 Mac 应用推荐、使用体验与效率工作流文章。`,
@@ -90,6 +92,49 @@ const robots = filtered.length >= MIN_INDEXABLE_CATEGORY_POSTS ? "index,follow" 
 const canonical = `https://www.macapphq.com/category/${encodeURIComponent(
   categoryName
 )}`;
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "首页",
+      item: "https://www.macapphq.com/"
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "分类",
+      item: "https://www.macapphq.com/category"
+    },
+    {
+      "@type": "ListItem",
+      position: 3,
+      name: categoryName,
+      item: canonical
+    }
+  ]
+};
+const collectionSchema = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  name: copy.title.replace(" | MacAppHQ", ""),
+  description: copy.description,
+  url: canonical,
+  inLanguage: "zh-CN",
+  about: categoryName,
+  numberOfItems: filtered.length,
+  mainEntity: {
+    "@type": "ItemList",
+    itemListElement: posts.slice(0, 10).map((post, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      url: `https://www.macapphq.com/article/${post.data.urlSlug}`,
+      name: post.data.title
+    }))
+  }
+};
 ---
 
 <BaseLayout
@@ -97,8 +142,17 @@ const canonical = `https://www.macapphq.com/category/${encodeURIComponent(
   description={copy.description}
   canonical={canonical}
   robots={robots}
+  image={categoryOgImage || undefined}
+  structuredData={[breadcrumbSchema, collectionSchema]}
 >
-  <h1 class="sr-only">{categoryName}</h1>
+  <div class="section-head">
+    <h1>{categoryName}</h1>
+    <p class="section-note">共 {filtered.length} 篇</p>
+  </div>
+
+  <section class="glass content category-intro">
+    <p>{copy.intro}</p>
+  </section>
 
   <section class="grid" aria-label="Category posts">
     {posts.map((post) => (

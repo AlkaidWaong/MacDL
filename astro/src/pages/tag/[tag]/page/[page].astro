@@ -3,6 +3,7 @@ import BaseLayout from "../../../../layouts/BaseLayout.astro";
 import PostCard from "../../../../components/PostCard.astro";
 import Pagination from "../../../../components/Pagination.astro";
 import { getCollection } from "astro:content";
+import { pickFirstAvailableEntryImage } from "../../../../lib/cover";
 import { normalizeTag } from "../../../../lib/tags";
 
 function parsePositiveInt(value) {
@@ -32,7 +33,6 @@ export async function getStaticPaths() {
 }
 
 const PAGE_SIZE = 12;
-const MIN_INDEXABLE_TAG_POSTS = 3;
 const tagParam = Astro.params.tag ?? "";
 const pageParam = parsePositiveInt(Astro.params.page);
 let tagName = tagParam;
@@ -61,20 +61,24 @@ const totalPages = Math.max(1, Math.ceil(posts.length / PAGE_SIZE));
 const page = Math.min(pageParam ?? 2, totalPages);
 const start = PAGE_SIZE * (page - 1);
 const pagePosts = posts.slice(start, start + PAGE_SIZE);
+const tagOgImage = pickFirstAvailableEntryImage(posts.slice(start));
 
 const canonical = `https://www.macapphq.com/tag/${encodeURIComponent(
   canonicalTag
 )}/page/${page}`;
-const robots = posts.length >= MIN_INDEXABLE_TAG_POSTS ? "index,follow" : "noindex,follow";
 ---
 
 <BaseLayout
   title={`${canonicalTag} 相关文章（第 ${page} 页） | MacAppHQ`}
   description={`浏览标签「${canonicalTag}」下的 Mac 工具推荐与实测内容，第 ${page} 页。`}
   canonical={canonical}
-  robots={robots}
+  robots="noindex,follow"
+  image={tagOgImage || undefined}
 >
-  <h1 class="sr-only">{canonicalTag} 第 {page} 页</h1>
+  <div class="section-head">
+    <h1>{canonicalTag}</h1>
+    <p class="section-note">第 {page} / {totalPages} 页</p>
+  </div>
 
   <section class="grid" aria-label="Tag posts">
     {pagePosts.map((post) => (

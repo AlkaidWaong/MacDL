@@ -2,6 +2,7 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import PostCard from "../components/PostCard.astro";
 import { getCollection } from "astro:content";
+import { pickFirstAvailableEntryImage } from "../lib/cover";
 
 const all = await getCollection("posts", ({ data }) => !data.draft);
 const featured = all
@@ -9,6 +10,7 @@ const featured = all
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
   .slice(0, 4);
 const posts = all.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+const homeOgImage = pickFirstAvailableEntryImage(featured.length ? featured : posts);
 const fixedTagEntries = [
   {
     href: `/tag/${encodeURIComponent("独立开发者App")}`,
@@ -23,35 +25,62 @@ const fixedTagEntries = [
     image: "/altertive.png"
   }
 ];
+const priorityReads = [
+  {
+    href: "/article/betterstage-for-mac",
+    title: "BetterStage：Mac 工作区管理工具怎么选，从这篇开始更快",
+    note: "适合多项目、多窗口、双屏或多屏用户",
+    description: "如果你真正烦的是每切一个项目都要重拼桌面，BetterStage 这一类工作区管理工具会比普通分屏工具更对路。"
+  },
+  {
+    href: "/article/cc-switch-for-mac",
+    title: "CC Switch：多 CLI、多供应商配置终于不用手改来回切",
+    note: "适合 Claude Code、Codex、Gemini CLI 混用用户",
+    description: "把多套 CLI 配置、API 供应商切换和用量观察收口到一个入口，更适合重度 AI Coding 工作流。"
+  },
+  {
+    href: "/article/codexbar-for-mac",
+    title: "CodexBar：每天被 Token 焦虑追着跑时，它真能省脑力",
+    note: "适合多会话、多 provider 并行开发者",
+    description: "把额度状态放进菜单栏之后，你会更早知道该继续跑、该切窗口，还是该把预算留给别的任务。"
+  },
+  {
+    href: "/article/vidhub-v-1-7-8",
+    title: "VidHub：如果你想把片源从文件夹视角，切到片库视角",
+    note: "适合 NAS、本地和网盘混合片源用户",
+    description: "它最有价值的不是单次播放，而是把找片、续播和整理这条路径顺下来。"
+  }
+];
 ---
 
 <BaseLayout
-  title="MacAppHQ - Mac 应用推荐、效率工具与工作流指南"
-  description="MacAppHQ 持续更新 Mac 应用推荐、效率工具评测、独立开发者 App 与平替软件清单，帮你更快选到真正好用的工具。"
+  title="Mac 应用推荐与评测：效率工具、开发工具、工作流指南 | MacAppHQ"
+  description="MacAppHQ 持续更新 Mac 应用推荐、效率工具评测、开发工具体验、独立开发者 App 与平替软件清单，帮你更快找到真正值得长期使用的工具。"
   keywords="Mac应用推荐,Mac效率工具,macOS软件,独立开发者App,平替软件,工作流"
   canonical="https://www.macapphq.com/"
+  image={homeOgImage || undefined}
 >
   <h1 class="sr-only">Mac 应用评测、效率工具与开发工作流</h1>
 
   {featured.length ? (
     <>
       <div class="section-head">
-        <h2>精选推荐</h2>
+        <h2>编辑精选</h2>
       </div>
       <section class="featured-grid" aria-label="Featured Posts">
         <div class="featured-col featured-col--left">
           {featured.slice(0, 2).map((post) => (
-            <PostCard post={post} showDescription={false} showMeta={false} showBadge={false} />
+            <PostCard post={post} showDescription={false} showMeta={false} showBadge={false} headingTag="h3" />
           ))}
         </div>
         <div class="featured-col featured-col--center">
           {featured.slice(2, 3).map((post) => (
-            <PostCard post={post} showDescription={false} showMeta={false} showBadge={false} />
+            <PostCard post={post} showDescription={false} showMeta={false} showBadge={false} headingTag="h3" />
           ))}
         </div>
         <div class="featured-col featured-col--right">
           {featured.slice(3, 4).map((post) => (
-            <PostCard post={post} showDescription={false} showMeta={false} showBadge={false} />
+            <PostCard post={post} showDescription={false} showMeta={false} showBadge={false} headingTag="h3" />
           ))}
           {fixedTagEntries.map((entry) => (
             <article class="card post-card topic-card">
@@ -60,7 +89,7 @@ const fixedTagEntries = [
                   <img class="post-card__img" src={entry.image} alt="" loading="lazy" decoding="async" />
                 </div>
                 <div class="post-card__body">
-                  <h2 class="post-card__title">{entry.title}</h2>
+                  <h3 class="post-card__title">{entry.title}</h3>
                   <p class="topic-card__desc">{entry.description}</p>
                 </div>
               </a>
@@ -70,6 +99,22 @@ const fixedTagEntries = [
       </section>
     </>
   ) : null}
+
+  <section class="glass category-featured-block" aria-label="Priority reads">
+    <div class="section-head">
+      <h2>第一次来，先看这几篇</h2>
+      <p class="section-note">都是更容易快速看出产品值不值得装、值不值得继续深挖的内容</p>
+    </div>
+    <div class="search-results__list">
+      {priorityReads.map((item) => (
+        <a class="search-result" href={item.href}>
+          <div class="search-result__meta">{item.note}</div>
+          <div class="search-result__title">{item.title}</div>
+          <p class="search-result__desc">{item.description}</p>
+        </a>
+      ))}
+    </div>
+  </section>
 
   <div class="section-head">
     <h2>最新更新</h2>

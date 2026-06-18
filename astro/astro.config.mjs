@@ -2,6 +2,7 @@ import { defineConfig } from "astro/config";
 import fs from "node:fs";
 import path from "node:path";
 import mdx from "@astrojs/mdx";
+import { unified } from "@astrojs/markdown-remark";
 import sitemap from "@astrojs/sitemap";
 import yaml from "js-yaml";
 import remarkGfm from "remark-gfm";
@@ -52,6 +53,24 @@ function collectTaxonomyCounts() {
   return { tagCount, categoryCount };
 }
 
+function rehypeDemoteBodyH1() {
+  const visit = (node) => {
+    if (!node || typeof node !== "object") return;
+
+    if (node.type === "element" && node.tagName === "h1") {
+      node.tagName = "h2";
+    }
+
+    if (Array.isArray(node.children)) {
+      for (const child of node.children) visit(child);
+    }
+  };
+
+  return (tree) => {
+    visit(tree);
+  };
+}
+
 const { tagCount, categoryCount } = collectTaxonomyCounts();
 const noindexTagPaths = new Set(
   [...tagCount.entries()]
@@ -67,10 +86,11 @@ const noindexCategoryPaths = new Set(
 export default defineConfig({
   site: "https://www.macapphq.com",
   trailingSlash: "never",
-  integrations: [
-    mdx({
+  markdown: {
+    processor: unified({
       remarkPlugins: [remarkGfm],
       rehypePlugins: [
+        rehypeDemoteBodyH1,
         [
           rehypePrettyCode,
           {
@@ -79,7 +99,10 @@ export default defineConfig({
           }
         ]
       ]
-    }),
+    })
+  },
+  integrations: [
+    mdx(),
     sitemap({
       filter(page) {
         const pathname = new URL(page).pathname.replace(/\/$/, "") || "/";

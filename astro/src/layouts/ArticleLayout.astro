@@ -6,11 +6,16 @@ type Props = {
   description?: string;
   date: Date;
   categories?: string[];
+  tags?: string[];
   quickTake?: string;
   canonical?: string;
   image?: string;
   heroImage?: string;
   structuredData?: Record<string, unknown> | Record<string, unknown>[];
+  breadcrumbs?: Array<{
+    name: string;
+    url?: string;
+  }>;
   relatedPosts?: Array<{
     title: string;
     url: string;
@@ -25,11 +30,13 @@ const {
   description,
   date,
   categories = [],
+  tags = [],
   quickTake,
   canonical,
   image,
   heroImage,
   structuredData,
+  breadcrumbs = [],
   relatedPosts = []
 } = Astro.props;
 const introLine = quickTake?.trim() || description?.trim();
@@ -43,6 +50,16 @@ const introLine = quickTake?.trim() || description?.trim();
   ogType="article"
 >
   <section class="glass content article-shell">
+    {breadcrumbs.length ? (
+      <nav class="page-crumb article-crumb" aria-label="Breadcrumb">
+        {breadcrumbs.map((item, index) => (
+          <>
+            {index > 0 ? <span aria-hidden="true">/</span> : null}
+            {item.url ? <a href={item.url}>{item.name}</a> : <span>{item.name}</span>}
+          </>
+        ))}
+      </nav>
+    ) : null}
     {heroImage ? (
       <figure class="article-hero">
         <img src={heroImage} alt={title} loading="eager" decoding="async" />
@@ -58,6 +75,16 @@ const introLine = quickTake?.trim() || description?.trim();
     {introLine ? (
       <section class="article-intro" aria-label="文章导语">
         <p>{introLine}</p>
+      </section>
+    ) : null}
+    {tags.length ? (
+      <section class="article-topics" aria-label="相关主题">
+        <span class="article-topics__label">相关主题</span>
+        <div class="article-topics__list">
+          {tags.map((tag) => (
+            <a class="pill" href={`/tag/${encodeURIComponent(tag)}`}>{tag}</a>
+          ))}
+        </div>
       </section>
     ) : null}
     <article class="article-prose">

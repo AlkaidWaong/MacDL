@@ -30,6 +30,7 @@ tags:
   - "桌面管理"
 aliases: []
 draft: false
+heroImage: "/media/mac-multi-window-management/hero.svg"
 ---
 
 # Mac 多窗口管理怎么做才不乱：先别想着少开窗口，先把问题拆开

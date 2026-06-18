@@ -3,6 +3,7 @@ import BaseLayout from "../../../layouts/BaseLayout.astro";
 import PostCard from "../../../components/PostCard.astro";
 import Pagination from "../../../components/Pagination.astro";
 import { getCollection } from "astro:content";
+import { pickFirstAvailableEntryImage } from "../../../lib/cover";
 import { normalizeTag } from "../../../lib/tags";
 
 const PAGE_SIZE = 12;
@@ -34,17 +35,79 @@ const posts = (await getCollection("posts", ({ data }) => !data.draft))
 
 const totalPages = Math.max(1, Math.ceil(posts.length / PAGE_SIZE));
 const pagePosts = posts.slice(0, PAGE_SIZE);
+const tagOgImage = pickFirstAvailableEntryImage(posts);
 const canonical = `https://www.macapphq.com/tag/${encodeURIComponent(canonicalTag)}`;
 const robots = posts.length >= MIN_INDEXABLE_TAG_POSTS ? "index,follow" : "noindex,follow";
+const relatedCategories = [...new Set(posts.flatMap((post) => post.data.categories ?? []))].slice(0, 3);
+const tagIntro =
+  posts.length > 0
+    ? `这个标签下收录的是和「${canonicalTag}」相关的 Mac 工具体验、使用场景和工作流文章。${
+        relatedCategories.length
+          ? `内容主要分布在 ${relatedCategories.join("、")} 等方向，更适合想围绕单一主题连续阅读的人。`
+          : "如果你是顺着某个具体需求找工具，这里通常会比大而全的软件榜单更好用。"
+      }`
+    : `这里会持续收录和「${canonicalTag}」相关的 Mac 工具体验与使用场景文章。`;
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "首页",
+      item: "https://www.macapphq.com/"
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "标签",
+      item: "https://www.macapphq.com/tag"
+    },
+    {
+      "@type": "ListItem",
+      position: 3,
+      name: canonicalTag,
+      item: canonical
+    }
+  ]
+};
+const collectionSchema = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  name: `${canonicalTag}：Mac 工具推荐、使用场景与相关文章`,
+  description: `浏览标签「${canonicalTag}」下的 Mac 工具推荐、真实体验与工作流文章，快速找到更贴近具体场景的内容。`,
+  url: canonical,
+  inLanguage: "zh-CN",
+  about: canonicalTag,
+  numberOfItems: posts.length,
+  mainEntity: {
+    "@type": "ItemList",
+    itemListElement: pagePosts.slice(0, 10).map((post, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      url: `https://www.macapphq.com/article/${post.data.urlSlug}`,
+      name: post.data.title
+    }))
+  }
+};
 ---
 
 <BaseLayout
-  title={`${canonicalTag} 相关文章与工具推荐 | MacAppHQ`}
-  description={`浏览标签「${canonicalTag}」下的 Mac 工具推荐、实测体验与工作流文章。`}
+  title={`${canonicalTag}：Mac 工具推荐、使用场景与相关文章 | MacAppHQ`}
+  description={`浏览标签「${canonicalTag}」下的 Mac 工具推荐、真实体验与工作流文章，快速找到更贴近具体场景的内容。`}
   canonical={canonical}
   robots={robots}
+  image={tagOgImage || undefined}
+  structuredData={[breadcrumbSchema, collectionSchema]}
 >
-  <h1 class="sr-only">{canonicalTag}</h1>
+  <div class="section-head">
+    <h1>{canonicalTag}</h1>
+    <p class="section-note">共 {posts.length} 篇</p>
+  </div>
+
+  <section class="glass content category-intro">
+    <p>{tagIntro}</p>
+  </section>
 
   <section class="grid" aria-label="Tag posts">
     {pagePosts.map((post) => (

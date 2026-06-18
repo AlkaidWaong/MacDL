@@ -33,11 +33,26 @@ const coreTopics = [...topicCounter.entries()]
   .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0], "zh-Hans-CN"))
   .slice(0, 8)
   .map(([name, count]) => ({ name, count }));
+const priorityReads = [
+  { title: "BetterStage：Mac 工作区管理工具怎么选", href: "/article/betterstage-for-mac" },
+  { title: "CC Switch：多 CLI 与供应商管理", href: "/article/cc-switch-for-mac" },
+  { title: "CodexBar：Token 焦虑与菜单栏额度监控", href: "/article/codexbar-for-mac" },
+  { title: "VidHub：片库视角为什么比文件夹更省心", href: "/article/vidhub-v-1-7-8" }
+];
 ---
 
 <footer class="footer">
   <div class="wrap">
     <section class="glass footer-panel">
+      <section class="footer-priority">
+        <h3>重点文章</h3>
+        <div class="footer-priority__list">
+          {priorityReads.map((item) => (
+            <a href={item.href}>{item.title}</a>
+          ))}
+        </div>
+      </section>
+
       <div class="footer-grid">
         <section>
           <h3>分类入口</h3>

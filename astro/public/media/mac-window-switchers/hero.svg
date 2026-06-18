@@ -1,0 +1,36 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FAFAF9"/>
+      <stop offset="1" stop-color="#F3F4F6"/>
+    </linearGradient>
+    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M32 0H0V32" stroke="#E7E5E4" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" rx="36" fill="url(#bg)"/>
+  <rect width="1200" height="630" rx="36" fill="url(#grid)" opacity="0.7"/>
+  <rect x="62" y="58" width="1076" height="514" rx="28" fill="#FFFFFF" stroke="#E7E5E4" stroke-width="2"/>
+
+  <text x="102" y="172" fill="#111827" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="64" font-weight="800">窗口切换工具怎么选</text>
+  <text x="104" y="224" fill="#6B7280" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="28" font-weight="500">原生不难用，但为什么总觉得不顺</text>
+
+  <rect x="104" y="286" width="420" height="158" rx="24" fill="#F8FAFC" stroke="#CBD5E1"/>
+  <rect x="144" y="326" width="92" height="76" rx="18" fill="#FFFFFF" stroke="#CBD5E1"/>
+  <rect x="252" y="326" width="92" height="76" rx="18" fill="#FFFFFF" stroke="#CBD5E1"/>
+  <rect x="360" y="326" width="92" height="76" rx="18" fill="#FFFFFF" stroke="#CBD5E1"/>
+  <text x="176" y="375" fill="#111827" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="28" font-weight="700">⌘</text>
+  <text x="280" y="375" fill="#111827" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="28" font-weight="700">Tab</text>
+  <text x="146" y="424" fill="#6B7280" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="18" font-weight="600">应用</text>
+  <text x="256" y="424" fill="#6B7280" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="18" font-weight="600">窗口</text>
+  <text x="362" y="424" fill="#6B7280" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="18" font-weight="600">预览</text>
+
+  <rect x="602" y="286" width="162" height="126" rx="22" fill="#EEF2FF" stroke="#C7D2FE"/>
+  <rect x="720" y="252" width="162" height="126" rx="22" fill="#F5F3FF" stroke="#DDD6FE"/>
+  <rect x="838" y="218" width="162" height="126" rx="22" fill="#ECFDF5" stroke="#A7F3D0"/>
+  <rect x="804" y="410" width="236" height="54" rx="27" fill="#111827"/>
+  <text x="848" y="445" fill="#FFFFFF" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="24" font-weight="700">AltTab / DockDoor</text>
+
+  <line x1="104" y1="492" x2="1096" y2="492" stroke="#E5E7EB" stroke-width="2"/>
+  <text x="104" y="540" fill="#4B5563" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="24" font-weight="600">Mac 切窗路径梳理</text>
+</svg>

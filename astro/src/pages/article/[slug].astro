@@ -2,6 +2,7 @@
 import { getCollection, render } from "astro:content";
 import ArticleLayout from "../../layouts/ArticleLayout.astro";
 import { pickFirstBodyImage, toAbsoluteUrl } from "../../lib/cover";
+import { normalizeTag } from "../../lib/tags";
 
 export async function getStaticPaths() {
   const posts = await getCollection("posts", ({ data }) => !data.draft);
@@ -23,6 +24,7 @@ const heroSrc =
   "";
 const ogImage = heroSrc ? toAbsoluteUrl(heroSrc, site) : undefined;
 const category = post.data.categories?.[0];
+const topicTags = [...new Set((post.data.tags ?? []).map((tag) => normalizeTag(tag)))].slice(0, 6);
 const allPosts = await getCollection("posts", ({ data }) => !data.draft);
 const relatedPosts = allPosts
   .filter((entry) => entry.id !== post.id)
@@ -89,6 +91,13 @@ const breadcrumbItems = [
     : []),
   { name: post.data.title, item: canonical }
 ];
+const breadcrumbLinks = [
+  { name: "首页", url: "/" },
+  ...(category
+    ? [{ name: category, url: `/category/${encodeURIComponent(category)}` }]
+    : []),
+  { name: post.data.title }
+];
 const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
@@ -120,11 +129,13 @@ const faqSchema = post.data.faqs?.length
   description={post.data.description}
   date={post.data.date}
   categories={post.data.categories}
+  tags={topicTags}
   quickTake={post.data.quickTake}
   canonical={canonical}
   image={ogImage}
   structuredData={[articleSchema, breadcrumbSchema, faqSchema].filter(Boolean)}
   heroImage={heroSrc || undefined}
+  breadcrumbs={breadcrumbLinks}
   relatedPosts={relatedPosts}
 >
   <Content />

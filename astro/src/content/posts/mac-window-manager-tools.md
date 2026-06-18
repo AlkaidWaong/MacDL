@@ -30,6 +30,7 @@ tags:
   - "工作流"
 aliases: []
 draft: false
+heroImage: "/media/mac-window-manager-tools/hero.svg"
 ---
 
 # Mac 窗口管理工具怎么选：先别急着装，先搞清楚你到底烦什么

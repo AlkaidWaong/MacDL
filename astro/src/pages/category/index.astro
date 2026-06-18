@@ -13,6 +13,32 @@ const categories = Array.from(categoryCount.entries()).sort((a, b) =>
   a[0].localeCompare(b[0], "zh-Hans-CN")
 );
 const canonical = "https://www.macapphq.com/category";
+const priorityReads = [
+  {
+    href: "/article/betterstage-for-mac",
+    title: "BetterStage：Mac 工作区管理工具怎么选？",
+    note: "效率工具 / 开发工具",
+    description: "如果你经常在多个项目和多块屏幕之间切换，这篇会比单纯窗口工具盘点更快帮你判断需求。"
+  },
+  {
+    href: "/article/cc-switch-for-mac",
+    title: "CC Switch：多 API 供应商和多 CLI 配置怎么统一管理",
+    note: "开发工具 / AI",
+    description: "适合正在 Claude Code、Codex、Gemini CLI 之间来回切换的人，重点看真实开发里的管理摩擦。"
+  },
+  {
+    href: "/article/codexbar-for-mac",
+    title: "CodexBar：Token 焦虑到底值不值得单独解决",
+    note: "开发工具 / AI",
+    description: "如果你已经进入多会话并行阶段，这篇更适合作为额度管理和前台决策的切入口。"
+  },
+  {
+    href: "/article/vidhub-v-1-7-8",
+    title: "VidHub：把影视库从文件夹地狱救出来之后，看片顺了很多",
+    note: "影音娱乐",
+    description: "如果你的片源分散在 NAS、本地和网盘里，这篇更适合作为片库型播放器的起点。"
+  }
+];
 ---
 
 <BaseLayout
@@ -28,6 +54,19 @@ const canonical = "https://www.macapphq.com/category";
       {categories.map(([name, count]) => (
         <a class="pill" href={`/category/${encodeURIComponent(name)}`}>
           {name} <span style="opacity: .55;">({count})</span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="glass category-featured-block" aria-label="Priority reads">
+    <h2 style="margin: 0 0 10px;">推荐先看</h2>
+    <div class="search-results__list">
+      {priorityReads.map((item) => (
+        <a class="search-result" href={item.href}>
+          <div class="search-result__meta">{item.note}</div>
+          <div class="search-result__title">{item.title}</div>
+          <p class="search-result__desc">{item.description}</p>
         </a>
       ))}
     </div>

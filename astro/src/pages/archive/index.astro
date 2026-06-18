@@ -22,10 +22,7 @@ const canonical = "https://www.macapphq.com/archive";
   canonical={canonical}
   robots="noindex,follow"
 >
-  <section class="glass hero">
-    <h1>归档</h1>
-    <p>按时间回看历史文章，适合站内翻阅，不作为主要搜索入口。当前共 {posts.length} 篇文章。</p>
-  </section>
+  <h1 class="sr-only">归档</h1>
 
   <section class="glass content" style="margin: 16px 0 36px;">
     {years.map((y) => (

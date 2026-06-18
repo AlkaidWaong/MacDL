@@ -1,6 +1,6 @@
 ---
 urlSlug: "vidhub-v-1-7-8"
-title: "VidHub 体验：我把影视库从“文件夹地狱”救出来了，也顺手搞清了 vidhub windows 版有没有"
+title: "VidHub 体验：我把影视库从“文件夹地狱”救出来了，也顺手搞清了 vidhub windows 版到底有没有"
 date: "2026-03-25"
 updatedAt: "2026-06-16"
 description: "VidHub 是一款适合管理 NAS、本地和网盘混合片源的播放器。这篇体验文重点聊聊它怎么把“找片、接着看、管理进度”这件事变顺，以及 vidhub windows 版现在到底有没有。"
@@ -63,6 +63,7 @@ VidHub 是我这次迁移里，用得最久也最顺手的播放器。
 - 如果你最烦的是“资源分散，追剧还要记进度”：很适合
 - 如果你主要在 Apple 设备和 Android 设备之间切换：体验会更完整
 - 如果你现在核心需求就是找 `vidhub windows 版`：先看下面这节，别急着下第三方包
+- 如果你只是想找一个单纯的本地播放器，而不是做片库：可以顺手看看 [YPlayer：值得试试的本地视频播放器](https://www.macapphq.com/article/yplayer)
 - 官方入口：<https://zh.okaapps.com/product/1659622164>
 
 > **想先看官方支持列表**  
@@ -153,6 +154,12 @@ VidHub 把分季分集、进度、下一集衔接做得比较自然，
 
 这样做的好处是，你能先判断它对你有没有价值，而不是一上来把所有乱文件都扔进去，然后误以为是产品不好用。
 
+如果你现在还在“普通播放器”和“片库型播放器”之间犹豫，我会这样分：
+
+- 你最常做的是临时打开一个本地视频：普通播放器更直接
+- 你经常要在 NAS、本地、网盘之间找片：VidHub 这类片库工具更省事
+- 你最在意的是跨设备续播和海报墙管理：VidHub 的优势会更明显
+
 ## 我会推荐给谁
 
 - 家里有 NAS，片源又分散在多个位置的人
@@ -165,6 +172,11 @@ VidHub 把分季分集、进度、下一集衔接做得比较自然，
 > VidHub 依然很值得试一轮；但如果你的核心诉求是 Windows 主力观看，现在先不要被关键词带偏。  
 >
 > 👉 [查看 VidHub 中文官网与下载入口](https://zh.okaapps.com/product/1659622164?utm_source=macapphq&utm_medium=organic&utm_campaign=seo-vidhub-v-1-7-8)
+
+如果你想先把“片库工具”和“本地播放器”这两个方向分清楚，再决定装什么，也可以顺手读：
+
+- [YPlayer：值得试试的本地视频播放器](https://www.macapphq.com/article/yplayer)
+- [Omi录屏专家 - 免费录屏软件推荐](https://www.macapphq.com/article/omi)
 
 ## 官方入口
 
