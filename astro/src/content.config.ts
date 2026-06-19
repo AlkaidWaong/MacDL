@@ -13,6 +13,7 @@ const posts = defineCollection({
     // first image in markdown body (see PostCard).
     // New preferred hero image for article page + cards.
     heroImage: z.string().optional(),
+    socialImage: z.string().optional(),
     cover: z.string().optional(),
     description: z.string().optional(),
     quickTake: z.string().optional(),

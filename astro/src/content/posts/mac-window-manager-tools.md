@@ -31,6 +31,7 @@ tags:
 aliases: []
 draft: false
 heroImage: "/media/mac-window-manager-tools/hero.svg"
+socialImage: "/media/mac-window-manager-tools/hero.png"
 ---
 
 # Mac 窗口管理工具怎么选：先别急着装，先搞清楚你到底烦什么
@@ -210,6 +211,12 @@ heroImage: "/media/mac-window-manager-tools/hero.svg"
 
 这比一开始就装最复杂的工具更稳，也更符合真实使用习惯。
 
+## 不太适合什么人
+
+- 只是偶尔并排放两个窗口，几乎没有多窗口压力的人
+- 希望“一篇看完就找到唯一标准答案”的人
+- 当前问题更偏文件整理、任务管理，而不是窗口本身的人
+
 ## 一个常见误区：把所有窗口问题都交给同一种工具
 
 很多人会默认认为“窗口管理工具应该一把梭”。
@@ -244,6 +251,15 @@ heroImage: "/media/mac-window-manager-tools/hero.svg"
 - 项目上下文太容易散
 
 一旦你把这一层想清楚，选工具这件事会简单很多。
+
+## 下一步看什么
+
+如果你已经知道自己最烦的是哪一层，可以直接跳到对应文章：
+
+1. 分屏摆窗： [Rectangle 体验：如果你只是想找一款 Mac 分屏工具，它为什么仍然最值得先装](https://www.macapphq.com/article/rectangle-v0-82)
+2. 窗口切换： [AltTab：自定义 macOS 窗口切换工具下载](https://www.macapphq.com/article/alttab-v-6-72-0)
+3. 窗口预览： [DockDoor 体验：如果你总在一堆窗口里找来找去，这款 Mac 窗口预览工具会很上头](https://www.macapphq.com/article/dockdoor)
+4. 工作区切换： [Mac 工作区管理工具怎么选？BetterStage 让我第一次不想再手动整理桌面](https://www.macapphq.com/article/betterstage-for-mac)
 
 ## FAQ
 

@@ -22,9 +22,24 @@ const heroSrc =
   post.data.cover?.trim() ||
   pickFirstBodyImage(body) ||
   "";
-const ogImage = heroSrc ? toAbsoluteUrl(heroSrc, site) : undefined;
-const category = post.data.categories?.[0];
+const socialSrc = post.data.socialImage?.trim() || heroSrc;
+const ogImage = socialSrc ? toAbsoluteUrl(socialSrc, site) : undefined;
+const categories = post.data.categories ?? [];
+const category = categories[0];
 const topicTags = [...new Set((post.data.tags ?? []).map((tag) => normalizeTag(tag)))].slice(0, 6);
+const articleTopics = [...new Set([...(categories ?? []), ...topicTags])].slice(0, 10);
+const topicHubs = [
+  ...categories.map((name) => ({
+    title: `${name} 分类入口`,
+    href: `/category/${encodeURIComponent(name)}`,
+    note: `如果你想继续沿着「${name}」这个方向找工具，这里比单篇文章更适合连续阅读。`
+  })),
+  ...topicTags.slice(0, 3).map((tag) => ({
+    title: `${tag} 专题入口`,
+    href: `/tag/${encodeURIComponent(tag)}`,
+    note: `如果你关心的是「${tag}」这类更具体的场景，这个专题页会更快把相关文章串起来。`
+  }))
+].slice(0, 4);
 const allPosts = await getCollection("posts", ({ data }) => !data.draft);
 const relatedPosts = allPosts
   .filter((entry) => entry.id !== post.id)
@@ -64,11 +79,21 @@ const articleSchema = {
   headline: post.data.title,
   description: post.data.description ?? "",
   datePublished: post.data.date.toISOString(),
-  dateModified: post.data.updatedAt?.toISOString(),
+  dateModified: post.data.updatedAt?.toISOString() ?? post.data.date.toISOString(),
   inLanguage: "zh-CN",
   mainEntityOfPage: canonical,
   image: ogImage ? [ogImage] : undefined,
   articleSection: category || undefined,
+  keywords: articleTopics.length ? articleTopics.join(",") : undefined,
+  about: articleTopics.map((topic) => ({
+    "@type": "Thing",
+    name: topic
+  })),
+  author: {
+    "@type": "Organization",
+    name: "MacAppHQ",
+    url: "https://www.macapphq.com/about"
+  },
   publisher: {
     "@type": "Organization",
     name: "MacAppHQ",
@@ -136,6 +161,7 @@ const faqSchema = post.data.faqs?.length
   structuredData={[articleSchema, breadcrumbSchema, faqSchema].filter(Boolean)}
   heroImage={heroSrc || undefined}
   breadcrumbs={breadcrumbLinks}
+  topicHubs={topicHubs}
   relatedPosts={relatedPosts}
 >
   <Content />

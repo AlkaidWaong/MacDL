@@ -4,53 +4,75 @@ import PostCard from "../components/PostCard.astro";
 import { getCollection } from "astro:content";
 import { pickFirstAvailableEntryImage } from "../lib/cover";
 
+const RECENT_POSTS_LIMIT = 12;
+
 const all = await getCollection("posts", ({ data }) => !data.draft);
 const featured = all
   .filter((post) => post.data.featured)
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
   .slice(0, 4);
 const posts = all.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+const recentPosts = posts.slice(0, RECENT_POSTS_LIMIT);
 const homeOgImage = pickFirstAvailableEntryImage(featured.length ? featured : posts);
 const fixedTagEntries = [
   {
     href: `/tag/${encodeURIComponent("独立开发者App")}`,
-    title: "独立开发者的 App",
-    description: "发现值得长期支持的小而美产品，优先看到真正解决问题的创新工具。",
+    title: "想找值得长期留下来的小产品，从这里进",
+    description: "优先看那些用过之后，真的容易留下来的独立开发者产品。",
     image: "/indie.png"
   },
   {
     href: `/tag/${encodeURIComponent("平替软件")}`,
-    title: "付费软件平替",
-    description: "用更低成本达到接近体验，快速找到高性价比替代方案。",
+    title: "不想一上来就花钱，可以先看这些平替",
+    description: "先找价格更轻、体验又没差太远的替代方案。",
     image: "/altertive.png"
   }
 ];
 const priorityReads = [
   {
     href: "/article/betterstage-for-mac",
-    title: "BetterStage：Mac 工作区管理工具怎么选，从这篇开始更快",
-    note: "适合多项目、多窗口、双屏或多屏用户",
-    description: "如果你真正烦的是每切一个项目都要重拼桌面，BetterStage 这一类工作区管理工具会比普通分屏工具更对路。"
+    title: "BetterStage：每次切项目都要重摆桌面，就先看这篇",
+    note: "每天切多个项目，还在双屏来回摆窗",
+    description: "重点不是分屏，而是切项目时能不能把那套工作区一起带回来。"
   },
   {
     href: "/article/cc-switch-for-mac",
-    title: "CC Switch：多 CLI、多供应商配置终于不用手改来回切",
-    note: "适合 Claude Code、Codex、Gemini CLI 混用用户",
-    description: "把多套 CLI 配置、API 供应商切换和用量观察收口到一个入口，更适合重度 AI Coding 工作流。"
+    title: "CC Switch：Claude Code、Codex 来回切久了，很需要这种统一入口",
+    note: "已经在多套 CLI 和多家供应商之间切换",
+    description: "如果你已经混用多套 CLI 和多家供应商，这篇会很快说明统一管理为什么省事。"
   },
   {
     href: "/article/codexbar-for-mac",
-    title: "CodexBar：每天被 Token 焦虑追着跑时，它真能省脑力",
-    note: "适合多会话、多 provider 并行开发者",
-    description: "把额度状态放进菜单栏之后，你会更早知道该继续跑、该切窗口，还是该把预算留给别的任务。"
+    title: "CodexBar：如果你也总惦记 Token 还剩多少，这篇会很有代入感",
+    note: "同时挂着多个 Agent 会话，总怕额度见底",
+    description: "它解决的不是好不好看，而是任务跑着跑着总惦记额度的分心感。"
   },
   {
     href: "/article/vidhub-v-1-7-8",
-    title: "VidHub：如果你想把片源从文件夹视角，切到片库视角",
-    note: "适合 NAS、本地和网盘混合片源用户",
-    description: "它最有价值的不是单次播放，而是把找片、续播和整理这条路径顺下来。"
+    title: "VidHub：如果你受够了文件夹找片，这篇更容易看懂它的价值",
+    note: "片源散在 NAS、本地硬盘和网盘里",
+    description: "它最打动人的地方，不是功能多，而是看片这条路径终于没那么碎了。"
   }
 ];
+const homeCollectionSchema = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  name: "Mac 应用推荐与评测：效率工具、开发工具、工作流指南",
+  description:
+    "MacAppHQ 持续更新 Mac 应用推荐、效率工具评测、开发工具体验、独立开发者 App 与平替软件清单，帮你更快找到真正值得长期使用的工具。",
+  url: "https://www.macapphq.com/",
+  inLanguage: "zh-CN",
+  about: ["Mac 应用推荐", "Mac 效率工具", "Mac 开发工具", "工作流"],
+  mainEntity: {
+    "@type": "ItemList",
+    itemListElement: recentPosts.map((post, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      url: `https://www.macapphq.com/article/${post.data.urlSlug}`,
+      name: post.data.title
+    }))
+  }
+};
 ---
 
 <BaseLayout
@@ -59,8 +81,12 @@ const priorityReads = [
   keywords="Mac应用推荐,Mac效率工具,macOS软件,独立开发者App,平替软件,工作流"
   canonical="https://www.macapphq.com/"
   image={homeOgImage || undefined}
+  structuredData={homeCollectionSchema}
 >
-  <h1 class="sr-only">Mac 应用评测、效率工具与开发工作流</h1>
+  <section class="section-head section-head--hero">
+    <h1>Mac 应用推荐、效率工具与开发工作流</h1>
+    <p class="section-note">这里持续更新真正能留下来的 Mac 软件体验、工作流心得和开发工具判断，重点不是堆功能，而是帮你更快找到值得长期使用的工具。</p>
+  </section>
 
   {featured.length ? (
     <>
@@ -102,8 +128,8 @@ const priorityReads = [
 
   <section class="glass category-featured-block" aria-label="Priority reads">
     <div class="section-head">
-      <h2>第一次来，先看这几篇</h2>
-      <p class="section-note">都是更容易快速看出产品值不值得装、值不值得继续深挖的内容</p>
+      <h2>如果你第一次来，先看这几篇</h2>
+      <p class="section-note">这几篇更容易先看出工具到底解决什么问题，也能更快判断值不值得装。</p>
     </div>
     <div class="search-results__list">
       {priorityReads.map((item) => (
@@ -118,9 +144,10 @@ const priorityReads = [
 
   <div class="section-head">
     <h2>最新更新</h2>
+    <p class="section-note">先看最近更新的 12 篇；如果你想系统翻，可以再进归档或分类页继续找。</p>
   </div>
-  <section class="grid" aria-label="Posts">
-    {posts.map((post) => (
+  <section class="grid" aria-label="Recent posts">
+    {recentPosts.map((post) => (
       <PostCard post={post} />
     ))}
   </section>

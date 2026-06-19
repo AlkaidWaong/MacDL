@@ -16,6 +16,11 @@ type Props = {
     name: string;
     url?: string;
   }>;
+  topicHubs?: Array<{
+    title: string;
+    href: string;
+    note: string;
+  }>;
   relatedPosts?: Array<{
     title: string;
     url: string;
@@ -37,6 +42,7 @@ const {
   heroImage,
   structuredData,
   breadcrumbs = [],
+  topicHubs = [],
   relatedPosts = []
 } = Astro.props;
 const introLine = quickTake?.trim() || description?.trim();
@@ -83,6 +89,23 @@ const introLine = quickTake?.trim() || description?.trim();
         <div class="article-topics__list">
           {tags.map((tag) => (
             <a class="pill" href={`/tag/${encodeURIComponent(tag)}`}>{tag}</a>
+          ))}
+        </div>
+      </section>
+    ) : null}
+    {topicHubs.length ? (
+      <section class="article-hubs" aria-label="继续按主题阅读">
+        <div class="section-head">
+          <h2>继续按主题往下看</h2>
+          <p class="section-note">如果这篇文章已经对上你的问题，下一步更适合回到对应分类或专题继续看。</p>
+        </div>
+        <div class="search-results__list">
+          {topicHubs.map((hub) => (
+            <a class="search-result" href={hub.href}>
+              <div class="search-result__meta">主题入口</div>
+              <div class="search-result__title">{hub.title}</div>
+              <p class="search-result__desc">{hub.note}</p>
+            </a>
           ))}
         </div>
       </section>

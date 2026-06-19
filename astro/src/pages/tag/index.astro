@@ -13,6 +13,42 @@ for (const post of posts) {
 }
 const tags = Array.from(tagCount.entries()).sort((a, b) => b[1] - a[1]);
 const canonical = "https://www.macapphq.com/tag";
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "首页",
+      item: "https://www.macapphq.com/"
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "标签",
+      item: canonical
+    }
+  ]
+};
+const collectionSchema = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  name: "Mac 工具标签索引与主题入口",
+  description: "按标签浏览 Mac 工具专题，快速发现对应场景的推荐应用与实测文章。",
+  url: canonical,
+  inLanguage: "zh-CN",
+  about: tags.slice(0, 20).map(([name]) => name),
+  mainEntity: {
+    "@type": "ItemList",
+    itemListElement: tags.slice(0, 30).map(([name, count], index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      url: `https://www.macapphq.com/tag/${encodeURIComponent(name)}`,
+      name: `${name} (${count})`
+    }))
+  }
+};
 ---
 
 <BaseLayout
@@ -20,8 +56,12 @@ const canonical = "https://www.macapphq.com/tag";
   description="按标签浏览 Mac 工具专题，快速发现对应场景的推荐应用与实测文章。"
   canonical={canonical}
   robots="noindex,follow"
+  structuredData={[breadcrumbSchema, collectionSchema]}
 >
-  <h1 class="sr-only">标签</h1>
+  <section class="section-head section-head--hero">
+    <h1>Mac 工具标签入口</h1>
+    <p class="section-note">如果你是沿着更具体的需求在找内容，比如窗口管理、剪贴板、录屏、卸载工具，这里会比大分类更快一些。</p>
+  </section>
 
   <section class="glass content" style="margin: 16px 0 36px;">
     <p class="meta" style="margin: 0 0 14px;">共 {tags.length} 个标签</p>

@@ -189,6 +189,12 @@ AppCleaner 的优点和边界，其实是同一件事。
 
 如果你追求的是一个“全能系统助手”，它不是这类产品。它更像一把专门解决“应用卸载残留”问题的小刀。
 
+## 不太适合什么人
+
+- 想找一套全能系统优化工具的人
+- 希望一个工具顺手处理性能、磁盘、后台监控的人
+- 平时几乎不装也不删软件的人
+
 ## 最终评价
 
 AppCleaner 到现在仍然值得装，不是因为它有多新，而是因为它把自己的边界守得很清楚。
@@ -198,6 +204,14 @@ AppCleaner 到现在仍然值得装，不是因为它有多新，而是因为它
 **卸载一个应用时，能不能删得更干净，而且过程还足够简单。**
 
 如果你正在找一款 Mac 应用卸载工具，我会很自然地建议你先从 AppCleaner 开始试。不是因为它最花哨，而是因为它通常最省心。
+
+## 下一步看什么
+
+如果你还在卸载工具和“CleanMyMac 平替”之间犹豫，可以继续看：
+
+1. [免费 CleanMyMac 替代怎么选：如果你主要想卸载 App，我会先看这 2 个](https://www.macapphq.com/article/free-cleanmymac-alternative)
+2. [Pearcleaner：强效 macOS 清理工具](https://www.macapphq.com/article/Pearcleaner-for-mac-v3-8-6)
+3. [Mac 微信输入法安装与卸载：值不值得装，删的时候要注意什么](https://www.macapphq.com/article/WeChat-Input-Method)
 
 > **试试 AppCleaner**  
 > 如果你只想解决“卸载干净”这一个问题，那 AppCleaner 很适合做你的第一选择。  

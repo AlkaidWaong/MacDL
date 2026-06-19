@@ -57,6 +57,24 @@ heroImage: "/media/Pearcleaner-for-mac-v3-8-6/hero.png"
 15. 能排除特定文件/文件夹不被搜索。
 16. 自定义自动更新从 GitHub 提取说明和二进制文件，应从“/Applications”文件夹运行避免权限问题。
 
+## 先看结论：什么人更适合先试 Pearcleaner
+
+- 如果你想找 `AppCleaner 替代`，但希望功能更丰富一点：Pearcleaner 值得看
+- 如果你不只想拖进去卸载，还想要右键卸载、废纸篓监控、更多自定义：Pearcleaner 更有吸引力
+- 如果你只想要最稳定、最克制的卸载体验：先看 [AppCleaner 体验：想找 Mac 应用卸载工具时，它为什么仍然是最省心的那个](https://www.macapphq.com/article/appcleaner-for-mac)
+
+## 如果你在 Pearcleaner、AppCleaner、CleanMyMac 平替之间犹豫
+
+- 你只想稳定卸载 App：先看 AppCleaner
+- 你想要更多功能、更强控制感：再看 Pearcleaner
+- 你其实在找的是“免费 CleanMyMac 替代”这一整类路线：直接看 [免费 CleanMyMac 替代怎么选：如果你主要想卸载 App，我会先看这 2 个](https://www.macapphq.com/article/free-cleanmymac-alternative)
+
+## 不太适合什么人
+
+- 只想找最简单卸载工具，不想研究额外功能的人
+- 对项目维护状态和来源判断比较敏感的人
+- 想找系统优化全家桶，而不只是卸载清理工具的人
+
 # 截图
 
 ![Pearcleaner 首页](/media/Pearcleaner-for-mac-v3-8-6/image.png)
@@ -77,6 +95,14 @@ heroImage: "/media/Pearcleaner-for-mac-v3-8-6/hero.png"
 - [**Ice**](https://www.macapphq.com/article/ice-for-mac.html):【免费】Mac菜单栏管理工具Bartender的最佳平替
 - [**LocalSend**](https://www.macapphq.com/article/localsend-v-1-15-4.html):【免费】比隔空投送更强的手机电脑无线传输文件、照片工具
 - [**Xnip**:](https://www.macapphq.com/article/xnip-for-mac.html)【免费】集截图、标注、打码与滚动截屏于一体的截图工具
+
+## 下一步看什么
+
+如果你已经确认自己主要需求是“卸载 App + 清理残留”，建议继续看：
+
+1. [AppCleaner 体验：想找 Mac 应用卸载工具时，它为什么仍然是最省心的那个](https://www.macapphq.com/article/appcleaner-for-mac)
+2. [免费 CleanMyMac 替代怎么选：如果你主要想卸载 App，我会先看这 2 个](https://www.macapphq.com/article/free-cleanmymac-alternative)
+3. [Mac 微信输入法安装与卸载：值不值得装，删的时候要注意什么](https://www.macapphq.com/article/WeChat-Input-Method)
 
 # FAQ
 

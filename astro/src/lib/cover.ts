@@ -27,6 +27,7 @@ export function pickEntryImage(post: CollectionEntry<"posts"> | null | undefined
   const body = (post as unknown as { body?: string }).body ?? "";
 
   return (
+    post.data.socialImage?.trim() ||
     post.data.heroImage?.trim() ||
     post.data.cover?.trim() ||
     pickFirstBodyImage(body) ||

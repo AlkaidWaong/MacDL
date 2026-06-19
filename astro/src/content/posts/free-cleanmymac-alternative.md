@@ -227,6 +227,20 @@ AppCleaner 更像“干净卸载工具”，不是“系统打理平台”。
 - 不会一上来把清理工具搞复杂
 - 更容易判断自己到底缺的是“卸载能力”还是“更完整的系统管理”
 
+## 这篇更适合谁，不太适合谁
+
+更适合：
+
+- 你想找的是 `免费 CleanMyMac 替代`
+- 你最高频的需求其实就是删 App 和清残留
+- 你不想为了一个小需求装很重的系统工具
+
+不太适合：
+
+- 你想要的是完整系统优化、监控、清理全家桶
+- 你希望一个工具覆盖性能维护、磁盘分析、菜单栏监控等更多功能
+- 你想找的是“和 CleanMyMac 完全一模一样”的替代品
+
 ## 最终结论
 
 如果一定要给一句很短的答案，我会这样说：
@@ -239,6 +253,14 @@ AppCleaner 更像“干净卸载工具”，不是“系统打理平台”。
 - 需要更丰富功能时再看 Pearcleaner
 
 这条路线更自然，也更安全。
+
+## 下一步看什么
+
+如果你已经确认自己最常做的是“卸载 App”，可以继续把这条线看深一点：
+
+1. [AppCleaner 体验：想找 Mac 应用卸载工具时，它为什么仍然是最省心的那个](https://www.macapphq.com/article/appcleaner-for-mac)
+2. [Pearcleaner：强效 macOS 清理工具](https://www.macapphq.com/article/Pearcleaner-for-mac-v3-8-6)
+3. [Mac 微信输入法安装与卸载：值不值得装，删的时候要注意什么](https://www.macapphq.com/article/WeChat-Input-Method)
 
 ## FAQ
 

@@ -31,6 +31,7 @@ tags:
 aliases: []
 draft: false
 heroImage: "/media/mac-multi-window-management/hero.svg"
+socialImage: "/media/mac-multi-window-management/hero.png"
 ---
 
 # Mac 多窗口管理怎么做才不乱：先别想着少开窗口，先把问题拆开
@@ -174,6 +175,15 @@ heroImage: "/media/mac-multi-window-management/hero.svg"
 **关键不是逼自己少开窗口，而是把不同类型的窗口摩擦拆开处理。**
 
 只要你把“摆窗、切窗、找窗、切项目”这四层分清楚，很多原本混乱的感觉会立刻变得清晰。
+
+## 下一步怎么选更省时间
+
+如果你读到这里，还是不确定第一步该装什么，可以直接按这个路径继续看：
+
+1. 你最烦分屏和摆放：先读 [Rectangle 体验：如果你只是想找一款 Mac 分屏工具，它为什么仍然最值得先装](https://www.macapphq.com/article/rectangle-v0-82)
+2. 你最烦切窗效率：先读 [AltTab 体验：如果你受不了 macOS 原生切窗，这款 Mac 窗口切换工具会很对味](https://www.macapphq.com/article/alttab-v-6-72-0)
+3. 你最烦找不到窗口：先读 [DockDoor 体验：如果你总在一堆窗口里找来找去，这款 Mac 窗口预览工具会很上头](https://www.macapphq.com/article/dockdoor)
+4. 你最烦切项目就要重拼桌面：先读 [BetterStage 体验：每切一个项目都要重拼桌面后，我开始认真看 Mac 工作区管理工具](https://www.macapphq.com/article/betterstage-for-mac)
 
 ## FAQ
 

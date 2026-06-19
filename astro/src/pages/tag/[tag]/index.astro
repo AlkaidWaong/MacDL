@@ -7,7 +7,7 @@ import { pickFirstAvailableEntryImage } from "../../../lib/cover";
 import { normalizeTag } from "../../../lib/tags";
 
 const PAGE_SIZE = 12;
-const MIN_INDEXABLE_TAG_POSTS = 3;
+const MIN_INDEXABLE_TAG_POSTS = 4;
 
 export async function getStaticPaths() {
   const posts = await getCollection("posts", ({ data }) => !data.draft);
@@ -38,7 +38,7 @@ const pagePosts = posts.slice(0, PAGE_SIZE);
 const tagOgImage = pickFirstAvailableEntryImage(posts);
 const canonical = `https://www.macapphq.com/tag/${encodeURIComponent(canonicalTag)}`;
 const robots = posts.length >= MIN_INDEXABLE_TAG_POSTS ? "index,follow" : "noindex,follow";
-const relatedCategories = [...new Set(posts.flatMap((post) => post.data.categories ?? []))].slice(0, 3);
+const relatedCategories = [...new Set(posts.flatMap((post) => post.data.categories ?? []))].slice(0, 4);
 const tagIntro =
   posts.length > 0
     ? `这个标签下收录的是和「${canonicalTag}」相关的 Mac 工具体验、使用场景和工作流文章。${
@@ -51,24 +51,9 @@ const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
-    {
-      "@type": "ListItem",
-      position: 1,
-      name: "首页",
-      item: "https://www.macapphq.com/"
-    },
-    {
-      "@type": "ListItem",
-      position: 2,
-      name: "标签",
-      item: "https://www.macapphq.com/tag"
-    },
-    {
-      "@type": "ListItem",
-      position: 3,
-      name: canonicalTag,
-      item: canonical
-    }
+    { "@type": "ListItem", position: 1, name: "首页", item: "https://www.macapphq.com/" },
+    { "@type": "ListItem", position: 2, name: "标签", item: "https://www.macapphq.com/tag" },
+    { "@type": "ListItem", position: 3, name: canonicalTag, item: canonical }
   ]
 };
 const collectionSchema = {
@@ -108,6 +93,20 @@ const collectionSchema = {
   <section class="glass content category-intro">
     <p>{tagIntro}</p>
   </section>
+
+  {relatedCategories.length ? (
+    <section class="glass topic-hub-block" aria-label="Tag related categories">
+      <div class="section-head">
+        <h2>这个专题常落在这些分类里</h2>
+        <p class="section-note">如果你想把同类工具继续系统地看下去，可以直接回到相关分类页。</p>
+      </div>
+      <div class="topic-hub-pills">
+        {relatedCategories.map((category) => (
+          <a class="pill" href={`/category/${encodeURIComponent(category)}`}>{category}</a>
+        ))}
+      </div>
+    </section>
+  ) : null}
 
   <section class="grid" aria-label="Tag posts">
     {pagePosts.map((post) => (

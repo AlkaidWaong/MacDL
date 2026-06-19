@@ -9,30 +9,33 @@
     </pattern>
   </defs>
   <rect width="1200" height="630" rx="36" fill="url(#bg)"/>
-  <rect width="1200" height="630" rx="36" fill="url(#grid)" opacity="0.72"/>
+  <rect width="1200" height="630" rx="36" fill="url(#grid)" opacity="0.7"/>
   <rect x="62" y="58" width="1076" height="514" rx="28" fill="#FFFFFF" stroke="#E7E5E4" stroke-width="2"/>
 
-  <text x="102" y="178" fill="#111827" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="64" font-weight="800">窗口管理工具怎么选</text>
-  <text x="104" y="228" fill="#6B7280" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="28" font-weight="500">先分清你缺的是分屏、切换、预览，还是工作区</text>
+  <rect x="100" y="94" width="138" height="36" rx="18" fill="#F5F5F4" stroke="#D6D3D1"/>
+  <text x="128" y="118" fill="#57534E" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="18" font-weight="700">专题导览</text>
 
-  <rect x="102" y="292" width="176" height="146" rx="22" fill="#EEF2FF" stroke="#C7D2FE"/>
-  <rect x="302" y="292" width="176" height="146" rx="22" fill="#F5F3FF" stroke="#DDD6FE"/>
-  <rect x="502" y="292" width="176" height="146" rx="22" fill="#ECFDF5" stroke="#A7F3D0"/>
-  <rect x="702" y="292" width="176" height="146" rx="22" fill="#FFF7ED" stroke="#FED7AA"/>
-  <rect x="902" y="292" width="176" height="146" rx="22" fill="#FEF2F2" stroke="#FECACA"/>
+  <text x="100" y="190" fill="#111827" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="62" font-weight="800">窗口管理工具怎么选</text>
+  <text x="100" y="242" fill="#6B7280" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="28" font-weight="500">5 类方案，先判断自己缺的是哪一层</text>
 
-  <text x="132" y="346" fill="#3730A3" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="24" font-weight="700">工作区</text>
-  <text x="332" y="346" fill="#6D28D9" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="24" font-weight="700">分屏</text>
-  <text x="532" y="346" fill="#047857" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="24" font-weight="700">预览</text>
-  <text x="732" y="346" fill="#C2410C" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="24" font-weight="700">切换</text>
-  <text x="932" y="346" fill="#BE123C" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="24" font-weight="700">轻量上手</text>
+  <rect x="100" y="306" width="178" height="154" rx="22" fill="#EEF2FF" stroke="#C7D2FE"/>
+  <rect x="296" y="306" width="178" height="154" rx="22" fill="#F5F3FF" stroke="#DDD6FE"/>
+  <rect x="492" y="306" width="178" height="154" rx="22" fill="#ECFDF5" stroke="#A7F3D0"/>
+  <rect x="688" y="306" width="178" height="154" rx="22" fill="#FFF7ED" stroke="#FED7AA"/>
+  <rect x="884" y="306" width="216" height="154" rx="22" fill="#FEF2F2" stroke="#FECACA"/>
 
-  <text x="132" y="398" fill="#111827" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="34" font-weight="800">BetterStage</text>
-  <text x="332" y="398" fill="#111827" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="34" font-weight="800">Rectangle</text>
-  <text x="532" y="398" fill="#111827" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="34" font-weight="800">DockDoor</text>
-  <text x="732" y="398" fill="#111827" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="34" font-weight="800">AltTab</text>
-  <text x="932" y="398" fill="#111827" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="34" font-weight="800">Loop</text>
+  <text x="128" y="360" fill="#3730A3" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="22" font-weight="700">工作区</text>
+  <text x="324" y="360" fill="#6D28D9" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="22" font-weight="700">分屏</text>
+  <text x="520" y="360" fill="#047857" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="22" font-weight="700">预览</text>
+  <text x="716" y="360" fill="#C2410C" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="22" font-weight="700">切换</text>
+  <text x="912" y="360" fill="#BE123C" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="22" font-weight="700">轻量上手</text>
 
-  <line x1="104" y1="486" x2="1096" y2="486" stroke="#E5E7EB" stroke-width="2"/>
-  <text x="104" y="534" fill="#4B5563" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="24" font-weight="600">Mac 窗口管理专题导览</text>
+  <text x="128" y="410" fill="#111827" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="32" font-weight="800">BetterStage</text>
+  <text x="324" y="410" fill="#111827" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="32" font-weight="800">Rectangle</text>
+  <text x="520" y="410" fill="#111827" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="32" font-weight="800">DockDoor</text>
+  <text x="716" y="410" fill="#111827" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="32" font-weight="800">AltTab</text>
+  <text x="912" y="410" fill="#111827" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="32" font-weight="800">Loop</text>
+
+  <line x1="100" y1="498" x2="1100" y2="498" stroke="#E5E7EB" stroke-width="2"/>
+  <text x="100" y="542" fill="#4B5563" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="24" font-weight="600">Mac 窗口工具决策图</text>
 </svg>

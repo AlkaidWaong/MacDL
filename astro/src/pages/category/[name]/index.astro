@@ -4,6 +4,7 @@ import PostCard from "../../../components/PostCard.astro";
 import Pagination from "../../../components/Pagination.astro";
 import { getCollection } from "astro:content";
 import { pickFirstAvailableEntryImage } from "../../../lib/cover";
+import { normalizeTag } from "../../../lib/tags";
 
 const PAGE_SIZE = 12;
 const MIN_INDEXABLE_CATEGORY_POSTS = 3;
@@ -81,6 +82,15 @@ const filtered = all
 const totalPages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
 const posts = filtered.slice(0, PAGE_SIZE);
 const featuredPosts = filtered.slice(0, 3);
+const categoryTags = [...new Map(filtered
+  .flatMap((post) => post.data.tags ?? [])
+  .map((tag) => normalizeTag(tag))
+  .map((tag) => [tag, filtered.filter((post) => (post.data.tags ?? []).map((item) => normalizeTag(item)).includes(tag)).length]))
+  .entries()]
+  .filter(([, count]) => count >= 2)
+  .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0], "zh-Hans-CN"))
+  .slice(0, 6)
+  .map(([name, count]) => ({ name, count }));
 const categoryOgImage = pickFirstAvailableEntryImage(filtered);
 const copy = CATEGORY_COPY[categoryName] ?? {
   title: `${categoryName} Mac 应用推荐与评测 | MacAppHQ`,
@@ -89,31 +99,14 @@ const copy = CATEGORY_COPY[categoryName] ?? {
 };
 const robots = filtered.length >= MIN_INDEXABLE_CATEGORY_POSTS ? "index,follow" : "noindex,follow";
 
-const canonical = `https://www.macapphq.com/category/${encodeURIComponent(
-  categoryName
-)}`;
+const canonical = `https://www.macapphq.com/category/${encodeURIComponent(categoryName)}`;
 const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
-    {
-      "@type": "ListItem",
-      position: 1,
-      name: "首页",
-      item: "https://www.macapphq.com/"
-    },
-    {
-      "@type": "ListItem",
-      position: 2,
-      name: "分类",
-      item: "https://www.macapphq.com/category"
-    },
-    {
-      "@type": "ListItem",
-      position: 3,
-      name: categoryName,
-      item: canonical
-    }
+    { "@type": "ListItem", position: 1, name: "首页", item: "https://www.macapphq.com/" },
+    { "@type": "ListItem", position: 2, name: "分类", item: "https://www.macapphq.com/category" },
+    { "@type": "ListItem", position: 3, name: categoryName, item: canonical }
   ]
 };
 const collectionSchema = {
@@ -154,6 +147,40 @@ const collectionSchema = {
     <p>{copy.intro}</p>
   </section>
 
+  {categoryTags.length ? (
+    <section class="glass topic-hub-block" aria-label="Category topic hubs">
+      <div class="section-head">
+        <h2>这个分类里常一起看的主题</h2>
+        <p class="section-note">如果你已经确认大方向没错，可以直接切到更具体的专题页继续筛。</p>
+      </div>
+      <div class="topic-hub-pills">
+        {categoryTags.map((tag) => (
+          <a class="pill" href={`/tag/${encodeURIComponent(tag.name)}`}>
+            {tag.name} <span>({tag.count})</span>
+          </a>
+        ))}
+      </div>
+    </section>
+  ) : null}
+
+  {featuredPosts.length ? (
+    <section class="glass category-featured-block">
+      <div class="section-head">
+        <h2>如果你想先快速建立判断，先看这几篇</h2>
+        <p class="section-note">它们更像这个分类里的起点文，能先帮你把问题和工具类型分清楚。</p>
+      </div>
+      <div class="search-results__list">
+        {featuredPosts.map((post) => (
+          <a class="search-result" href={`/article/${post.data.urlSlug}`}>
+            <div class="search-result__meta">{post.data.date.toISOString().slice(0, 10)}</div>
+            <div class="search-result__title">{post.data.title}</div>
+            <p class="search-result__desc">{post.data.quickTake?.trim() || post.data.description?.trim() || "从这篇开始，更快判断这个分类下的工具是否适合你。"}</p>
+          </a>
+        ))}
+      </div>
+    </section>
+  ) : null}
+
   <section class="grid" aria-label="Category posts">
     {posts.map((post) => (
       <PostCard post={post} />
@@ -169,21 +196,4 @@ const collectionSchema = {
         : `/category/${encodeURIComponent(categoryName)}/page/${page}`
     }
   />
-
-  {featuredPosts.length ? (
-    <section class="glass category-featured-block">
-      <h2 style="margin: 0 0 10px;">先看这几篇</h2>
-      <div class="search-results__list">
-        {featuredPosts.map((post) => (
-          <a class="search-result" href={`/article/${post.data.urlSlug}`}>
-            <div class="search-result__meta">{post.data.date.toISOString().slice(0, 10)}</div>
-            <div class="search-result__title">{post.data.title}</div>
-            <p class="search-result__desc">
-              {post.data.quickTake?.trim() || post.data.description?.trim() || "从这篇开始，更快判断这个分类下的工具是否适合你。"}
-            </p>
-          </a>
-        ))}
-      </div>
-    </section>
-  ) : null}
 </BaseLayout>

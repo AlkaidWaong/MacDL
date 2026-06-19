@@ -353,6 +353,12 @@ a:hover {
   filter: saturate(1.06) contrast(1.02);
 }
 
+.post-card__img[src$=".svg"] {
+  object-fit: contain;
+  background: #f8f8f7;
+  filter: none;
+}
+
 .post-card__media::after {
   content: "";
   position: absolute;
@@ -450,12 +456,12 @@ a:hover {
 
 .search-results__list {
   display: grid;
-  gap: 10px;
+  gap: 8px;
 }
 
 .search-result {
   display: block;
-  padding: 14px 16px;
+  padding: 12px 14px;
   border-radius: 14px;
   border: 1px solid rgba(15, 23, 42, 0.08);
   background: rgba(255, 255, 255, 0.72);
@@ -466,29 +472,34 @@ a:hover {
 
 .search-result:hover {
   transform: translateY(-1px);
-  border-color: rgba(37, 99, 235, 0.22);
-  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
+  border-color: rgba(37, 99, 235, 0.20);
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.05);
 }
 
 .search-result__meta {
-  color: rgba(15, 23, 42, 0.46);
-  font-size: 12px;
+  color: rgba(15, 23, 42, 0.42);
+  font-size: 11.5px;
+  line-height: 1.4;
 }
 
 .search-result__title {
-  margin-top: 5px;
+  margin-top: 4px;
   font-family: var(--display);
-  font-size: 17px;
+  font-size: 16px;
   font-weight: 740;
-  line-height: 1.35;
+  line-height: 1.32;
   letter-spacing: -0.01em;
 }
 
 .search-result__desc {
-  margin: 7px 0 0;
+  margin: 5px 0 0;
   color: var(--muted);
-  font-size: 14px;
-  line-height: 1.58;
+  font-size: 13.5px;
+  line-height: 1.52;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 @media screen and (min-width: 981px) {
@@ -810,6 +821,26 @@ a:hover {
   padding: 20px 18px 26px;
 }
 
+
+.article-hubs {
+  margin: 0 0 26px;
+  padding: 18px 22px 20px;
+  border: 1px solid rgba(15, 23, 42, 0.06);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.62);
+}
+
+.topic-hub-block {
+  margin: 0 0 18px;
+  padding: 18px 22px 20px;
+}
+
+.topic-hub-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
 .article-related-block {
   margin-top: 18px;
   margin-bottom: 36px;
@@ -941,7 +972,27 @@ a:hover {
     padding: 18px 16px 22px;
   }
 
-  .article-related-block {
+  
+.article-hubs {
+  margin: 0 0 26px;
+  padding: 18px 22px 20px;
+  border: 1px solid rgba(15, 23, 42, 0.06);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.62);
+}
+
+.topic-hub-block {
+  margin: 0 0 18px;
+  padding: 18px 22px 20px;
+}
+
+.topic-hub-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.article-related-block {
     padding: 20px 18px 24px;
   }
 

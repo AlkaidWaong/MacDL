@@ -55,15 +55,41 @@ heroImage: "/media/quick-rec/hero.png"
 - **自定义设置：** 提供丰富的自定义选项，用户可以根据自己的需要调整录制区域、音频输入源、输出格式等。
 - **剪辑编辑：** 内置简单的视频编辑功能，方便用户对录制好的视频进行剪辑和处理。
 
+## 先看结论：什么情况下该先试 QuickRec
+
+- 如果你搜的是 `Mac录屏内录声音`、`Mac录屏怎么录系统声音`：QuickRec 这类工具更对症
+- 如果你最烦的是系统自带录屏把画面录下来了，但声音没进去：很适合先试
+- 如果你要的是完整截图、标注、分享工作流：CleanShot X 会更完整
+
+## 如果你在 QuickRec、Omi、CleanShot X 之间犹豫
+
+- 你最优先解决“内录系统声音”：先试 QuickRec
+- 你想找免费、好上手、覆盖更广的录屏入口：再看 [Omi录屏专家 - 免费录屏软件推荐](https://www.macapphq.com/article/omi)
+- 你还要截图、标注、云分享一整套流程：再看 [CleanShot X怎么样？2024年最全面的Mac截图工具测评](https://www.macapphq.com/article/CleanShotX-for-mac)
+
 ## 适合人群
 
 - **教师、职场人士：** 录制在线课程，方便反复观看和学习。
 - **职场人士：** 记录重要的会议内容，随时回放。
 - **软件演示：** 制作软件教程或演示视频。
 
+## 不太适合什么人
+
+- 主要做直播、复杂场景导播的人
+- 不需要系统声音内录，只是偶尔截个屏的人
+- 更想要截图、标注、录屏放在一个工具里的人
+
 ## 总结
 
 QuickRec是一款非常实用的Mac录屏软件，它解决了Mac用户在录屏时遇到的常见问题，操作简单，功能实用。无论是新手还是专业用户，都能轻松上手。如果你正在寻找一款能够录制系统内部声音的录屏软件，QuickRec绝对值得一试。
+
+## 下一步看什么
+
+如果你已经确认自己有录屏需求，但还没想清楚具体该选哪类工具，可以继续看：
+
+1. [Omi录屏专家 - 免费录屏软件推荐](https://www.macapphq.com/article/omi)
+2. [ScreenSage 评测：5 大录屏场景实战，帮你把录制效率和表达清晰度同时拉满](https://www.macapphq.com/article/screensage-scenario-driven-recording-guide)
+3. [CleanShot X怎么样？2024年最全面的Mac截图工具测评](https://www.macapphq.com/article/CleanShotX-for-mac)
 
 # 截图
 

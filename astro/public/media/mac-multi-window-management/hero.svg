@@ -12,18 +12,27 @@
   <rect width="1200" height="630" rx="36" fill="url(#grid)" opacity="0.7"/>
   <rect x="62" y="58" width="1076" height="514" rx="28" fill="#FFFFFF" stroke="#E7E5E4" stroke-width="2"/>
 
-  <rect x="104" y="102" width="208" height="168" rx="24" fill="#EEF2FF" stroke="#C7D2FE"/>
-  <rect x="334" y="102" width="250" height="76" rx="20" fill="#FEF2F2" stroke="#FECACA"/>
-  <rect x="334" y="194" width="250" height="76" rx="20" fill="#ECFDF5" stroke="#A7F3D0"/>
-  <rect x="606" y="102" width="252" height="168" rx="24" fill="#F8FAFC" stroke="#CBD5E1"/>
-  <rect x="640" y="138" width="184" height="10" rx="5" fill="#CBD5E1"/>
-  <rect x="640" y="168" width="156" height="10" rx="5" fill="#E2E8F0"/>
-  <rect x="640" y="198" width="126" height="10" rx="5" fill="#E2E8F0"/>
-  <rect x="640" y="228" width="92" height="28" rx="14" fill="#2563EB" opacity="0.14"/>
+  <rect x="100" y="94" width="138" height="36" rx="18" fill="#F5F5F4" stroke="#D6D3D1"/>
+  <text x="128" y="118" fill="#57534E" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="18" font-weight="700">专题导览</text>
 
-  <text x="104" y="378" fill="#111827" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="66" font-weight="800">多窗口管理</text>
-  <text x="104" y="434" fill="#6B7280" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="28" font-weight="500">把摆窗、切窗、找窗、切项目拆开看</text>
+  <text x="100" y="204" fill="#111827" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="68" font-weight="800">多窗口管理</text>
+  <text x="100" y="258" fill="#6B7280" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="28" font-weight="500">先别急着减少窗口，先拆开每一种摩擦</text>
 
-  <line x1="104" y1="480" x2="1096" y2="480" stroke="#E5E7EB" stroke-width="2"/>
-  <text x="104" y="530" fill="#4B5563" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="24" font-weight="600">Mac 效率工作流专题</text>
+  <rect x="100" y="316" width="232" height="148" rx="24" fill="#EEF2FF" stroke="#C7D2FE"/>
+  <rect x="356" y="316" width="232" height="148" rx="24" fill="#FEF2F2" stroke="#FECACA"/>
+  <rect x="612" y="316" width="232" height="148" rx="24" fill="#ECFDF5" stroke="#A7F3D0"/>
+  <rect x="868" y="316" width="170" height="148" rx="24" fill="#F8FAFC" stroke="#CBD5E1"/>
+
+  <text x="132" y="372" fill="#3730A3" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="24" font-weight="700">摆窗</text>
+  <text x="388" y="372" fill="#B91C1C" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="24" font-weight="700">切窗</text>
+  <text x="644" y="372" fill="#047857" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="24" font-weight="700">找窗</text>
+  <text x="900" y="372" fill="#334155" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="24" font-weight="700">切项目</text>
+
+  <text x="132" y="420" fill="#111827" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="34" font-weight="800">分屏与布局</text>
+  <text x="388" y="420" fill="#111827" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="34" font-weight="800">高频切换</text>
+  <text x="644" y="420" fill="#111827" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="34" font-weight="800">目标定位</text>
+  <text x="900" y="420" fill="#111827" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="34" font-weight="800">上下文回到位</text>
+
+  <line x1="100" y1="500" x2="1100" y2="500" stroke="#E5E7EB" stroke-width="2"/>
+  <text x="100" y="544" fill="#4B5563" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="24" font-weight="600">Mac 窗口工作流专题</text>
 </svg>

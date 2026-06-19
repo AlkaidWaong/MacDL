@@ -31,6 +31,7 @@ tags:
 aliases: []
 draft: false
 heroImage: "/media/mac-window-switchers/hero.svg"
+socialImage: "/media/mac-window-switchers/hero.png"
 ---
 
 # Mac 窗口切换工具怎么选：原生切窗不难用，但为什么总觉得不顺
