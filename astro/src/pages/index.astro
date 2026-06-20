@@ -10,7 +10,7 @@ const all = await getCollection("posts", ({ data }) => !data.draft);
 const featured = all
   .filter((post) => post.data.featured)
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
-  .slice(0, 4);
+  .slice(0, 5);
 const posts = all.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 const recentPosts = posts.slice(0, RECENT_POSTS_LIMIT);
 const homeOgImage = pickFirstAvailableEntryImage(featured.length ? featured : posts);
@@ -83,44 +83,48 @@ const homeCollectionSchema = {
   image={homeOgImage || undefined}
   structuredData={homeCollectionSchema}
 >
-  <section class="section-head section-head--hero">
-    <h1>Mac 应用推荐、效率工具与开发工作流</h1>
-    <p class="section-note">这里持续更新真正能留下来的 Mac 软件体验、工作流心得和开发工具判断，重点不是堆功能，而是帮你更快找到值得长期使用的工具。</p>
-  </section>
-
   {featured.length ? (
     <>
-      <div class="section-head">
-        <h2>编辑精选</h2>
+      <div class="section-head section-head--stack-sm">
+        <h2>先从这里开始看</h2>
+        <p class="section-note">左边 4 篇更适合先建立判断，右边 3 个入口再帮你按场景继续往下找。</p>
       </div>
       <section class="featured-grid" aria-label="Featured Posts">
-        <div class="featured-col featured-col--left">
-          {featured.slice(0, 2).map((post) => (
-            <PostCard post={post} showDescription={false} showMeta={false} showBadge={false} headingTag="h3" />
+        <div class="featured-main">
+          {featured.slice(0, 4).map((post, index) => (
+            <div class={`featured-main__item featured-main__item--${index + 1}`}>
+              <PostCard post={post} showDescription={true} showMeta={false} showBadge={false} headingTag="h3" />
+            </div>
           ))}
         </div>
-        <div class="featured-col featured-col--center">
-          {featured.slice(2, 3).map((post) => (
-            <PostCard post={post} showDescription={false} showMeta={false} showBadge={false} headingTag="h3" />
-          ))}
-        </div>
-        <div class="featured-col featured-col--right">
-          {featured.slice(3, 4).map((post) => (
-            <PostCard post={post} showDescription={false} showMeta={false} showBadge={false} headingTag="h3" />
-          ))}
-          {fixedTagEntries.map((entry) => (
-            <article class="card post-card topic-card">
-              <a class="post-card__link" href={entry.href} aria-label={entry.title} style="text-decoration:none;">
-                <div class="post-card__media has-img" aria-hidden="true">
-                  <img class="post-card__img" src={entry.image} alt="" loading="lazy" decoding="async" />
-                </div>
-                <div class="post-card__body">
-                  <h3 class="post-card__title">{entry.title}</h3>
-                  <p class="topic-card__desc">{entry.description}</p>
-                </div>
-              </a>
-            </article>
-          ))}
+        <div class="featured-side">
+          <div class="featured-side__top">
+            {featured.slice(4, 5).map((post) => (
+              <PostCard
+                post={post}
+                showDescription={true}
+                showMeta={false}
+                showBadge={false}
+                headingTag="h3"
+                compact={true}
+              />
+            ))}
+          </div>
+          <div class="featured-side__bottom">
+            {fixedTagEntries.map((entry) => (
+              <article class="card post-card topic-card topic-card--compact">
+                <a class="post-card__link" href={entry.href} aria-label={entry.title} style="text-decoration:none;">
+                  <div class="post-card__media has-img" aria-hidden="true">
+                    <img class="post-card__img" src={entry.image} alt="" loading="lazy" decoding="async" />
+                  </div>
+                  <div class="post-card__body">
+                    <h3 class="post-card__title">{entry.title}</h3>
+                    <p class="topic-card__desc">{entry.description}</p>
+                  </div>
+                </a>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
     </>
@@ -144,11 +148,17 @@ const homeCollectionSchema = {
 
   <div class="section-head">
     <h2>最新更新</h2>
-    <p class="section-note">先看最近更新的 12 篇；如果你想系统翻，可以再进归档或分类页继续找。</p>
+    <div class="section-head__actions">
+      <p class="section-note">先看最近更新的 12 篇；如果你想系统翻，可以再进归档继续找。</p>
+      <a class="section-more" href="/archive">查看全部更新</a>
+    </div>
   </div>
   <section class="grid" aria-label="Recent posts">
     {recentPosts.map((post) => (
       <PostCard post={post} />
     ))}
   </section>
+  <div class="section-cta">
+    <a class="section-cta__button" href="/category">查看全部</a>
+  </div>
 </BaseLayout>

@@ -100,8 +100,8 @@ heroImage: "/media/free-cleanmymac-alternative/hero.png"
 
 如果你想看更单独、更细的体验文，也可以直接继续读：
 
-- [AppCleaner 体验：想找 Mac 应用卸载工具时，它为什么仍然是最省心的那个](https://www.macapphq.com/article/appcleaner-for-mac)
-- [Pearcleaner：强效 macOS 清理工具](https://www.macapphq.com/article/Pearcleaner-for-mac-v3-8-6)
+- [AppCleaner 官网下载与使用体验：Mac 应用卸载工具为什么还值得装](https://www.macapphq.com/article/appcleaner-for-mac)
+- [Pearcleaner 体验：免费 Mac 卸载工具好不好用，能不能替代 AppCleaner](https://www.macapphq.com/article/Pearcleaner-for-mac-v3-8-6)
 
 ## 方案 1：AppCleaner
 
@@ -258,8 +258,8 @@ AppCleaner 更像“干净卸载工具”，不是“系统打理平台”。
 
 如果你已经确认自己最常做的是“卸载 App”，可以继续把这条线看深一点：
 
-1. [AppCleaner 体验：想找 Mac 应用卸载工具时，它为什么仍然是最省心的那个](https://www.macapphq.com/article/appcleaner-for-mac)
-2. [Pearcleaner：强效 macOS 清理工具](https://www.macapphq.com/article/Pearcleaner-for-mac-v3-8-6)
+1. [AppCleaner 官网下载与使用体验：Mac 应用卸载工具为什么还值得装](https://www.macapphq.com/article/appcleaner-for-mac)
+2. [Pearcleaner 体验：免费 Mac 卸载工具好不好用，能不能替代 AppCleaner](https://www.macapphq.com/article/Pearcleaner-for-mac-v3-8-6)
 3. [Mac 微信输入法安装与卸载：值不值得装，删的时候要注意什么](https://www.macapphq.com/article/WeChat-Input-Method)
 
 ## FAQ

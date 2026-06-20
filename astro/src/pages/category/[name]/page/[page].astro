@@ -53,6 +53,15 @@ const all = await getCollection("posts", ({ data }) => !data.draft);
 const filtered = all
   .filter((p) => (p.data.categories ?? []).includes(categoryName))
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+const categoryCount = new Map<string, number>();
+for (const post of all) {
+  for (const c of post.data.categories ?? []) {
+    categoryCount.set(c, (categoryCount.get(c) ?? 0) + 1);
+  }
+}
+const categoryTabs = Array.from(categoryCount.entries())
+  .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0], "zh-Hans-CN"))
+  .map(([name, count]) => ({ name, count }));
 
 const PAGE_SIZE = 12;
 const totalPages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
@@ -76,6 +85,29 @@ const canonical = `https://www.macapphq.com/category/${encodeURIComponent(
     <h1>{categoryName}</h1>
     <p class="section-note">第 {page} / {totalPages} 页</p>
   </div>
+
+  <section class="glass category-overview">
+    <div class="category-overview__intro">
+      <p>当前是 {categoryName} 分类的分页内容。如果你想回到全站内容流，或切到别的分类，可以直接在下面切换。</p>
+    </div>
+    <div class="category-overview__topics">
+      <div class="category-overview__head">
+        <p class="category-overview__label">按分类切换</p>
+        <p class="section-note">保持当前分类继续翻页，或者直接切到别的分类。</p>
+      </div>
+      <div class="topic-hub-pills category-tabs">
+        <a class="pill" href="/category">全部 <span>({all.length})</span></a>
+        {categoryTabs.map((category) => (
+          <a
+            class={`pill${category.name === categoryName ? " pill--active" : ""}`}
+            href={`/category/${encodeURIComponent(category.name)}`}
+          >
+            {category.name} <span>({category.count})</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
 
   <section class="grid" aria-label="Category posts">
     {posts.map((post) => (

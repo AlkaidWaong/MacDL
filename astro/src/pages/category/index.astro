@@ -1,44 +1,30 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import PostCard from "../../components/PostCard.astro";
+import Pagination from "../../components/Pagination.astro";
 import { getCollection } from "astro:content";
 
-const posts = await getCollection("posts", ({ data }) => !data.draft);
-const categoryCount = new Map();
-for (const post of posts) {
+const PAGE_SIZE = 12;
+
+const allPosts = (await getCollection("posts", ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.date.getTime() - a.data.date.getTime()
+);
+
+const categoryCount = new Map<string, number>();
+for (const post of allPosts) {
   for (const c of post.data.categories ?? []) {
     categoryCount.set(c, (categoryCount.get(c) ?? 0) + 1);
   }
 }
-const categories = Array.from(categoryCount.entries()).sort((a, b) =>
-  a[0].localeCompare(b[0], "zh-Hans-CN")
-);
+
+const categories = Array.from(categoryCount.entries())
+  .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0], "zh-Hans-CN"))
+  .map(([name, count]) => ({ name, count }));
+
+const totalPages = Math.max(1, Math.ceil(allPosts.length / PAGE_SIZE));
+const posts = allPosts.slice(0, PAGE_SIZE);
 const canonical = "https://www.macapphq.com/category";
-const priorityReads = [
-  {
-    href: "/article/betterstage-for-mac",
-    title: "BetterStage：每次切项目都要重摆桌面，就先看这篇",
-    note: "每天切多个项目，桌面总要重新拼一次",
-    description: "如果你烦的不是窗口多，而是每切一次项目都要重新拼桌面，这篇会更快对上你的问题。"
-  },
-  {
-    href: "/article/cc-switch-for-mac",
-    title: "CC Switch：Claude Code、Codex 来回切久了，很需要这种统一入口",
-    note: "多套 CLI 和多家 API 供应商已经开始把你绕晕",
-    description: "如果你已经在 Claude Code、Codex、Gemini CLI 之间来回切，这篇更容易看懂问题到底卡在哪。"
-  },
-  {
-    href: "/article/codexbar-for-mac",
-    title: "CodexBar：如果你也总惦记 Token 还剩多少，这篇会很有代入感",
-    note: "同时挂着多个 Agent 会话，脑子里一直留着额度这根弦",
-    description: "如果你已经开始多会话并行，这篇更像是在解决那种一直悬着的额度焦虑。"
-  },
-  {
-    href: "/article/vidhub-v-1-7-8",
-    title: "VidHub：如果你受够了文件夹找片，这篇更容易看懂它的价值",
-    note: "片源到处分散，每次找片都像翻仓库",
-    description: "如果你的片源散在 NAS、本地和网盘里，这篇更容易让你判断片库型播放器值不值得换。"
-  }
-];
+
 const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
@@ -52,66 +38,69 @@ const breadcrumbSchema = {
     {
       "@type": "ListItem",
       position: 2,
-      name: "分类",
+      name: "全部分类",
       item: canonical
     }
   ]
 };
+
 const collectionSchema = {
   "@context": "https://schema.org",
   "@type": "CollectionPage",
-  name: "Mac 应用分类入口与专题导航",
-  description: "按分类浏览 Mac 应用评测、效率工具、开发工具与影音娱乐等专题内容，快速进入更符合你需求的文章集合。",
+  name: "Mac 应用全部内容与分类导航",
+  description:
+    "浏览 MacAppHQ 全部文章内容，支持按分类切换，快速进入效率工具、开发工具、系统工具与影音娱乐等主题。",
   url: canonical,
   inLanguage: "zh-CN",
-  about: categories.map(([name]) => name),
+  about: categories.map((item) => item.name),
+  numberOfItems: allPosts.length,
   mainEntity: {
     "@type": "ItemList",
-    itemListElement: categories.map(([name, count], index) => ({
+    itemListElement: posts.map((post, index) => ({
       "@type": "ListItem",
       position: index + 1,
-      url: `https://www.macapphq.com/category/${encodeURIComponent(name)}`,
-      name: `${name} (${count})`
+      url: `https://www.macapphq.com/article/${post.data.urlSlug}`,
+      name: post.data.title
     }))
   }
 };
 ---
 
 <BaseLayout
-  title="Mac 应用分类入口与专题导航 | MacAppHQ"
-  description="按分类浏览 Mac 应用评测、效率工具、开发工具与影音娱乐等专题内容，快速进入更符合你需求的文章集合。"
+  title="Mac 应用全部内容与分类导航 | MacAppHQ"
+  description="浏览 MacAppHQ 全部文章内容，支持按分类切换，快速进入效率工具、开发工具、系统工具与影音娱乐等主题。"
   canonical={canonical}
   structuredData={[breadcrumbSchema, collectionSchema]}
 >
-  <section class="section-head section-head--hero">
-    <h1>Mac 应用分类入口</h1>
-    <p class="section-note">如果你已经知道自己想解决哪类问题，这里比首页更高效。你可以直接按效率工具、开发工具、系统工具、影音娱乐等专题继续往下找。</p>
+  <div class="section-head">
+    <h1>全部内容</h1>
+  </div>
+
+  <section class="glass index-overview index-overview--plain">
+    <div class="index-overview__group">
+      <div class="index-overview__head">
+        <p class="index-overview__label">按分类切换</p>
+      </div>
+      <div class="index-overview__pills category-tabs">
+        <a class="pill pill--active" href="/category">全部 <span>({allPosts.length})</span></a>
+        {categories.map((category) => (
+          <a class="pill" href={`/category/${encodeURIComponent(category.name)}`}>
+            {category.name} <span>({category.count})</span>
+          </a>
+        ))}
+      </div>
+    </div>
   </section>
 
-  <section class="glass content" style="margin: 16px 0 36px;">
-    <p class="meta" style="margin: 0 0 14px;">共 {categories.length} 个分类</p>
-    <div class="meta" style="gap: 12px;">
-      {categories.map(([name, count]) => (
-        <a class="pill" href={`/category/${encodeURIComponent(name)}`}>
-          {name} <span style="opacity: .55;">({count})</span>
-        </a>
-      ))}
-    </div>
+  <section class="grid" aria-label="All category posts">
+    {posts.map((post) => (
+      <PostCard post={post} />
+    ))}
   </section>
 
-  <section class="glass category-featured-block" aria-label="Priority reads">
-    <div class="section-head">
-      <h2>如果你还不知道从哪开始，先看这几篇</h2>
-      <p class="section-note">先把高频问题看明白，再回头按分类挑工具，会更省时间。</p>
-    </div>
-    <div class="search-results__list">
-      {priorityReads.map((item) => (
-        <a class="search-result" href={item.href}>
-          <div class="search-result__meta">{item.note}</div>
-          <div class="search-result__title">{item.title}</div>
-          <p class="search-result__desc">{item.description}</p>
-        </a>
-      ))}
-    </div>
-  </section>
+  <Pagination
+    current={1}
+    total={totalPages}
+    hrefFor={(page) => (page === 1 ? "/category" : `/category/page/${page}`)}
+  />
 </BaseLayout>

@@ -1,9 +1,9 @@
 ---
 urlSlug: "dockdoor"
-title: "DockDoor 体验：如果你总在一堆窗口里找来找去，这款 Mac 窗口预览工具会很上头"
+title: "DockDoor 体验：这款 Mac 窗口预览工具适合谁装，和 AltTab 有什么区别"
 date: "2025-01-03"
 updatedAt: "2026-06-17"
-description: "DockDoor 是一款免费开源的 Mac 窗口预览工具，适合经常开很多窗口、又不想频繁在 Mission Control 和 Dock 之间来回切的人。这篇文章从真实使用场景出发，聊聊 DockDoor 为什么会让多窗口切换这件事轻松很多。"
+description: "DockDoor 是一款免费开源的 Mac 窗口预览工具。这篇重点讲它适合谁装、能解决什么问题，以及它和 AltTab、Rectangle、BetterStage 的区别。"
 quickTake: "如果你真正烦的是“同一个 App 开了很多窗口，但每次都要靠猜”，DockDoor 这类 Mac 窗口预览工具会比传统分屏工具更能直接解决问题。"
 bestFor:
   - "经常同时开很多窗口的 Mac 用户"
@@ -33,7 +33,7 @@ draft: false
 heroImage: "/media/dockdoor/hero.png"
 ---
 
-# DockDoor 体验：它不是分屏工具，而是把 Mac 的窗口切换补完整了
+# DockDoor 体验：它更像是给原生 Dock 补上一层窗口预览
 
 先说结论：**如果你经常开很多窗口，真正让人烦的往往不是“窗口怎么摆”，而是“这个窗口到底藏哪了”。**
 
@@ -68,6 +68,12 @@ heroImage: "/media/dockdoor/hero.png"
 - 如果你在 AltTab 和原生 Dock 之间，总觉得少了点什么：很适合
 - 如果你真正缺的是把窗口快速左右摆好：先看 [Rectangle 体验：如果你只是想找一款 Mac 分屏工具，它为什么仍然最值得先装](https://www.macapphq.com/article/rectangle-v0-82)
 - 如果你真正缺的是按项目切回整套桌面：先看 [BetterStage：更像 Mac 工作区管理器的窗口工具](https://www.macapphq.com/article/betterstage-for-mac)
+
+## 不太适合什么人
+
+- 主要痛点是分屏摆窗，而不是找窗口的人
+- 几乎不保留多个同类窗口的人
+- 更习惯纯键盘切换，而不依赖 Dock 的人
 
 > **如果你现在最烦的是“窗口太多，找起来很乱”**  
 > DockDoor 很值得直接装起来试两天。  
@@ -241,6 +247,10 @@ AltTab 更像把 Windows 那套窗口切换方式搬到 Mac；DockDoor 则是在
 ### DockDoor 能替代 Rectangle 或 BetterStage 吗？
 
 不能完全替代。DockDoor 更偏窗口预览和切换效率；Rectangle 更偏分屏摆窗；BetterStage 更偏项目级工作区管理。
+
+### DockDoor 适合什么人装？
+
+最适合经常同时开很多窗口，又想保留原生 Dock 的人。尤其是浏览器、Finder、编辑器和聊天工具长期并行开的用户。
 
 ## 截图
 

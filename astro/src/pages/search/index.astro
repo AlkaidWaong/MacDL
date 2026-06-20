@@ -11,17 +11,19 @@ const canonical = "https://www.macapphq.com/search";
 >
   <h1 class="sr-only">搜索</h1>
 
-  <section class="glass content" style="margin: 16px 0 36px;">
-    <label class="meta" for="q" style="display:block; margin-bottom: 10px;">
+  <section class="search-page">
+    <div class="glass search-panel">
+      <label class="search-panel__label meta" for="q">
       输入关键词（标题/摘要/标签）
-    </label>
-    <input
-      id="q"
-      type="search"
-      placeholder="例如：AI、邮件、剪贴板…"
-      style="width: 100%; padding: 12px 12px; border-radius: 12px; border: 1px solid var(--border); background: rgba(255,255,255,.7); outline: none;"
-    />
-    <div id="result" class="search-results" style="margin-top: 14px;"></div>
+      </label>
+      <input
+        id="q"
+        class="search-panel__input"
+        type="search"
+        placeholder="例如：AI、邮件、剪贴板…"
+      />
+      <div id="result" class="search-results search-panel__results"></div>
+    </div>
   </section>
 
   <script is:inline>

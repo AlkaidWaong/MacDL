@@ -1,0 +1,88 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import PostCard from "../../../components/PostCard.astro";
+import Pagination from "../../../components/Pagination.astro";
+import { getCollection } from "astro:content";
+
+const PAGE_SIZE = 12;
+
+function parsePositiveInt(value: unknown) {
+  const n = Number.parseInt(String(value), 10);
+  return Number.isFinite(n) && n > 0 ? n : null;
+}
+
+export async function getStaticPaths() {
+  const pageSize = 12;
+  const posts = await getCollection("posts", ({ data }) => !data.draft);
+  const totalPages = Math.max(1, Math.ceil(posts.length / pageSize));
+
+  return Array.from({ length: Math.max(0, totalPages - 1) }, (_, index) => ({
+    params: { page: String(index + 2) }
+  }));
+}
+
+const pageParam = parsePositiveInt(Astro.params.page);
+if (!pageParam || pageParam <= 1) {
+  return Astro.redirect("/category", 301);
+}
+
+const allPosts = (await getCollection("posts", ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.date.getTime() - a.data.date.getTime()
+);
+
+const categoryCount = new Map<string, number>();
+for (const post of allPosts) {
+  for (const c of post.data.categories ?? []) {
+    categoryCount.set(c, (categoryCount.get(c) ?? 0) + 1);
+  }
+}
+
+const categories = Array.from(categoryCount.entries())
+  .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0], "zh-Hans-CN"))
+  .map(([name, count]) => ({ name, count }));
+
+const totalPages = Math.max(1, Math.ceil(allPosts.length / PAGE_SIZE));
+const page = Math.min(pageParam, totalPages);
+const start = PAGE_SIZE * (page - 1);
+const posts = allPosts.slice(start, start + PAGE_SIZE);
+const canonical = `https://www.macapphq.com/category/page/${page}`;
+---
+
+<BaseLayout
+  title={`Mac 应用全部内容（第 ${page} 页） | MacAppHQ`}
+  description={`浏览 MacAppHQ 全部文章内容，第 ${page} 页。支持按分类切换，继续筛选你关心的主题。`}
+  canonical={canonical}
+  robots="noindex,follow"
+>
+  <div class="section-head">
+    <h1>全部内容</h1>
+  </div>
+
+  <section class="glass index-overview index-overview--plain">
+    <div class="index-overview__group">
+      <div class="index-overview__head">
+        <p class="index-overview__label">按分类切换</p>
+      </div>
+      <div class="index-overview__pills category-tabs">
+        <a class="pill pill--active" href="/category">全部 <span>({allPosts.length})</span></a>
+        {categories.map((category) => (
+          <a class="pill" href={`/category/${encodeURIComponent(category.name)}`}>
+            {category.name} <span>({category.count})</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="grid" aria-label="All category posts">
+    {posts.map((post) => (
+      <PostCard post={post} />
+    ))}
+  </section>
+
+  <Pagination
+    current={page}
+    total={totalPages}
+    hrefFor={(p) => (p === 1 ? "/category" : `/category/page/${p}`)}
+  />
+</BaseLayout>

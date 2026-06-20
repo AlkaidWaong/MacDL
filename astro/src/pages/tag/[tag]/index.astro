@@ -85,28 +85,30 @@ const collectionSchema = {
   image={tagOgImage || undefined}
   structuredData={[breadcrumbSchema, collectionSchema]}
 >
-  <div class="section-head">
-    <h1>{canonicalTag}</h1>
-    <p class="section-note">共 {posts.length} 篇</p>
-  </div>
+  <section class="glass tag-overview" aria-label="Tag overview">
+    <div class="section-head section-head--stack-sm">
+      <h1>{canonicalTag}</h1>
+      <p class="section-note">共 {posts.length} 篇</p>
+    </div>
 
-  <section class="glass content category-intro">
-    <p>{tagIntro}</p>
+    <div class="category-intro tag-overview__intro">
+      <p>{tagIntro}</p>
+    </div>
+
+    {relatedCategories.length ? (
+      <div class="tag-overview__related">
+        <div class="tag-overview__related-head">
+          <p class="tag-overview__label">常见分类</p>
+          <p class="section-note">如果你想把同类工具继续系统地看下去，可以直接回到相关分类页。</p>
+        </div>
+        <div class="topic-hub-pills">
+          {relatedCategories.map((category) => (
+            <a class="pill" href={`/category/${encodeURIComponent(category)}`}>{category}</a>
+          ))}
+        </div>
+      </div>
+    ) : null}
   </section>
-
-  {relatedCategories.length ? (
-    <section class="glass topic-hub-block" aria-label="Tag related categories">
-      <div class="section-head">
-        <h2>这个专题常落在这些分类里</h2>
-        <p class="section-note">如果你想把同类工具继续系统地看下去，可以直接回到相关分类页。</p>
-      </div>
-      <div class="topic-hub-pills">
-        {relatedCategories.map((category) => (
-          <a class="pill" href={`/category/${encodeURIComponent(category)}`}>{category}</a>
-        ))}
-      </div>
-    </section>
-  ) : null}
 
   <section class="grid" aria-label="Tag posts">
     {pagePosts.map((post) => (

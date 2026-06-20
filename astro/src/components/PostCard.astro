@@ -8,6 +8,7 @@ type Props = {
   showMeta?: boolean;
   showBadge?: boolean;
   headingTag?: "h2" | "h3";
+  compact?: boolean;
 };
 
 const {
@@ -15,7 +16,8 @@ const {
   showDescription = true,
   showMeta = true,
   showBadge = true,
-  headingTag = "h2"
+  headingTag = "h2",
+  compact = false
 } = Astro.props;
 const url = `/article/${post.data.urlSlug}`;
 const categories = post.data.categories ?? [];
@@ -30,24 +32,9 @@ const coverSrc =
   post.data.cover?.trim() ||
   pickFirstBodyImage(body) ||
   "";
-
-function hashCode(s: string): number {
-  let h = 0;
-  for (let i = 0; i < s.length; i++) h = (h * 31 + s.charCodeAt(i)) | 0;
-  return Math.abs(h);
-}
-
-const palettes = [
-  ["#2563eb", "#0ea5e9"], // blue
-  ["#e11d48", "#fb7185"], // red
-  ["#7c3aed", "#a78bfa"], // violet
-  ["#059669", "#34d399"], // green
-  ["#f97316", "#fbbf24"]  // orange
-];
-const [g1, g2] = palettes[hashCode(post.data.urlSlug) % palettes.length];
 ---
 
-<article class="card post-card" style={`--g1:${g1};--g2:${g2};`}>
+<article class:list={["card", "post-card", compact && "post-card--compact"]}>
   <a class="post-card__link" href={url} aria-label={title} style="text-decoration:none;">
     <div class:list={["post-card__media", coverSrc ? "has-img" : ""]} aria-hidden="true">
       {coverSrc ? (

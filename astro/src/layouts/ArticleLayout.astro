@@ -83,19 +83,29 @@ const introLine = quickTake?.trim() || description?.trim();
         <p>{introLine}</p>
       </section>
     ) : null}
-    {tags.length ? (
-      <section class="article-topics" aria-label="相关主题">
-        <span class="article-topics__label">相关主题</span>
+    <article class="article-prose">
+      <slot />
+    </article>
+  </section>
+  {tags.length ? (
+    <section class="glass article-extension-block" aria-label="相关主题">
+      <div class="article-topics">
+        <div class="article-extension-head">
+          <h2>相关主题</h2>
+          <p class="section-note">如果你想沿着同一个问题继续看，可以从这些主题继续往下读。</p>
+        </div>
         <div class="article-topics__list">
           {tags.map((tag) => (
             <a class="pill" href={`/tag/${encodeURIComponent(tag)}`}>{tag}</a>
           ))}
         </div>
-      </section>
-    ) : null}
-    {topicHubs.length ? (
-      <section class="article-hubs" aria-label="继续按主题阅读">
-        <div class="section-head">
+      </div>
+    </section>
+  ) : null}
+  {topicHubs.length ? (
+    <section class="glass article-extension-block" aria-label="继续按主题阅读">
+      <section class="article-hubs">
+        <div class="article-extension-head">
           <h2>继续按主题往下看</h2>
           <p class="section-note">如果这篇文章已经对上你的问题，下一步更适合回到对应分类或专题继续看。</p>
         </div>
@@ -109,15 +119,15 @@ const introLine = quickTake?.trim() || description?.trim();
           ))}
         </div>
       </section>
-    ) : null}
-    <article class="article-prose">
-      <slot />
-    </article>
-  </section>
+    </section>
+  ) : null}
   {relatedPosts.length ? (
     <section class="glass article-related-block" aria-label="相关文章">
       <section class="article-related">
-        <h2>相关文章</h2>
+        <div class="article-extension-head">
+          <h2>相关文章</h2>
+          <p class="section-note">如果你已经对这个方向感兴趣，下面这几篇通常更值得顺着读下去。</p>
+        </div>
         <div class="article-related__list">
           {relatedPosts.map((post) => (
             <a class="article-related__item" href={post.url}>

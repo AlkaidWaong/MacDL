@@ -12,12 +12,7 @@ for (const post of posts) {
 const categories = [...catCounter.entries()]
   .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0], "zh-Hans-CN"))
   .map(([name, count]) => ({ name, count }));
-const topCategories = categories.slice(0, 8);
-
-const featuredSoftware = posts
-  .filter((post) => (post.data.tags ?? []).includes("精选软件"))
-  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
-  .slice(0, 8);
+const topCategories = categories.slice(0, 5);
 
 const topicCounter = new Map<string, number>();
 for (const post of posts) {
@@ -31,31 +26,22 @@ for (const post of posts) {
 const coreTopics = [...topicCounter.entries()]
   .filter(([, count]) => count >= 3)
   .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0], "zh-Hans-CN"))
-  .slice(0, 8)
+  .slice(0, 4)
   .map(([name, count]) => ({ name, count }));
-const priorityReads = [
-  { title: "BetterStage：每次切项目都要重摆桌面，就先看这篇", href: "/article/betterstage-for-mac" },
-  { title: "CC Switch：Claude Code、Codex 来回切久了，很需要这种统一入口", href: "/article/cc-switch-for-mac" },
-  { title: "CodexBar：如果你也总惦记 Token 还剩多少，这篇会很有代入感", href: "/article/codexbar-for-mac" },
-  { title: "VidHub：如果你受够了文件夹找片，这篇更容易看懂它的价值", href: "/article/vidhub-v-1-7-8" }
+
+const curatedTopics = [
+  { name: "精选软件", href: `/tag/${encodeURIComponent("精选软件")}` },
+  { name: "独立开发者App", href: `/tag/${encodeURIComponent("独立开发者App")}` },
+  { name: "平替软件", href: `/tag/${encodeURIComponent("平替软件")}` }
 ];
 ---
 
 <footer class="footer">
   <div class="wrap">
     <section class="glass footer-panel">
-      <section class="footer-priority">
-        <h3>重点文章</h3>
-        <div class="footer-priority__list">
-          {priorityReads.map((item) => (
-            <a href={item.href}>{item.title}</a>
-          ))}
-        </div>
-      </section>
-
       <div class="footer-grid">
         <section>
-          <h3>分类入口</h3>
+          <h3>常用分类</h3>
           <div class="footer-cats">
             {topCategories.map((cat) => (
               <a href={`/category/${encodeURIComponent(cat.name)}`}>
@@ -67,20 +53,13 @@ const priorityReads = [
         </section>
 
         <section>
-          <h3>精选软件</h3>
+          <h3>先看这些专题</h3>
           <ul>
-            {featuredSoftware.map((post) => (
+            {curatedTopics.map((topic) => (
               <li>
-                <a href={`/article/${post.data.urlSlug}`}>{post.data.title}</a>
+                <a href={topic.href}>{topic.name}</a>
               </li>
             ))}
-            <li><a class="footer-more" href={`/tag/${encodeURIComponent("精选软件")}`}>查看更多精选软件</a></li>
-          </ul>
-        </section>
-
-        <section>
-          <h3>核心专题</h3>
-          <ul>
             {coreTopics.map((topic) => (
               <li>
                 <a href={`/tag/${encodeURIComponent(topic.name)}`}>
@@ -88,12 +67,12 @@ const priorityReads = [
                 </a>
               </li>
             ))}
-            <li><a class="footer-more" href="/category">查看更多专题分类</a></li>
+            <li><a class="footer-more" href="/tag">查看全部专题</a></li>
           </ul>
         </section>
 
-        <section>
-          <h3>About</h3>
+        <section class="footer-about">
+          <h3>关于站点</h3>
           <ul>
             <li><a href="/about">关于我们</a></li>
             <li><a href="/privacy-policy">隐私政策</a></li>

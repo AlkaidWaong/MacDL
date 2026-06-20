@@ -1,20 +1,31 @@
 ---
 urlSlug: "Pearcleaner-for-mac-v3-8-5"
-title: "Pearcleaner: 免费开源的macOS清理工具，立刻下载！"
+title: "Pearcleaner 3.8.5 历史版本存档：旧版信息保留，当前建议看新版体验"
 date: "2024-09-12"
-description: "Pearcleaner是一款免费的macOS系统清理工具，快速卸载应用并清理残留文件，支持多种功能和个性化设置。"
+updatedAt: "2026-06-19"
+description: "这是 Pearcleaner 3.8.5 的历史版本信息页，保留旧版截图和基础资料。当前如果你想了解 Pearcleaner 是否值得装，建议优先看新版体验页。"
 categories:
   - "系统工具"
 tags:
+  - "Pearcleaner"
+  - "历史版本"
   - "Mac应用卸载"
-  - "macOS清理工具"
-  - "开源电脑清理工具"
-  - "精选软件"
 aliases: []
 draft: false
 ---
 
-# 简介
+# Pearcleaner 3.8.5 历史版本存档
+
+这篇页面主要保留 `Pearcleaner 3.8.5` 的旧版信息、截图和版本记录。  
+如果你现在真正想确认的是：
+
+- Pearcleaner 适合谁
+- 它和 AppCleaner 有什么区别
+- 现在还值不值得装
+
+建议优先看新版主页面：
+
+> 👉 [Pearcleaner 体验：免费 Mac 卸载工具好不好用，能不能替代 AppCleaner](https://www.macapphq.com/article/Pearcleaner-for-mac-v3-8-6)
 
 这是一款免费、开源且遵循公平代码许可的 Mac 应用清理工具，其灵感来源于 Freemacsoft 的 AppCleaner 以及 Sun Knudsen 在他的应用清理脚本隐私指南文章。
 
@@ -24,7 +35,7 @@ draft: false
 
 **版本：v 3.8.5(官方版)**
 
-**软件官网：**[https://github.com/alienator88/Pearcleaner](http://www.ifoz.net)
+**软件官网：**[https://github.com/alienator88/Pearcleaner](https://github.com/alienator88/Pearcleaner)
 
 **系统要求：macOS 14及以上**
 
@@ -36,7 +47,13 @@ draft: false
 
 ✅ Windows
 
-# 功能介绍
+## 为什么这个旧版本页还保留
+
+- 有些用户会专门找旧版信息
+- 旧截图和旧版本记录对比仍然有参考价值
+- 但从当前 SEO 和用户体验角度，主推荐页应该集中到新版体验文
+
+## 功能介绍
 
 ### 完全免费与开源
 
@@ -72,7 +89,13 @@ Pearcleaner承诺提供定期更新，从GitHub自动提取说明和最新二进
 
 ![垃圾文件查找](/media/Pearcleaner-for-mac-v3-8-5/image-3.png)
 
-# 其他版本
+## 当前建议阅读顺序
+
+1. 先看 [Pearcleaner 体验：免费 Mac 卸载工具好不好用，能不能替代 AppCleaner](https://www.macapphq.com/article/Pearcleaner-for-mac-v3-8-6)
+2. 如果你只是找免费卸载工具路线，再看 [免费 CleanMyMac 替代怎么选：如果你主要想卸载 App，我会先看这 2 个](https://www.macapphq.com/article/free-cleanmymac-alternative)
+3. 如果你想看更经典、克制的路线，再看 [AppCleaner 官网下载与使用体验：Mac 应用卸载工具为什么还值得装](https://www.macapphq.com/article/appcleaner-for-mac)
+
+## 其他版本
 
 1. [Pearcleaner v 3.8.6](/article/Pearcleaner-for-mac-v3-8-6)
 

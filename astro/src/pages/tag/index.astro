@@ -58,19 +58,27 @@ const collectionSchema = {
   robots="noindex,follow"
   structuredData={[breadcrumbSchema, collectionSchema]}
 >
-  <section class="section-head section-head--hero">
+  <div class="section-head">
     <h1>Mac 工具标签入口</h1>
-    <p class="section-note">如果你是沿着更具体的需求在找内容，比如窗口管理、剪贴板、录屏、卸载工具，这里会比大分类更快一些。</p>
-  </section>
+    <p class="section-note">共 {tags.length} 个标签</p>
+  </div>
 
-  <section class="glass content" style="margin: 16px 0 36px;">
-    <p class="meta" style="margin: 0 0 14px;">共 {tags.length} 个标签</p>
-    <div class="meta" style="gap: 12px;">
+  <section class="glass index-overview">
+    <div class="index-overview__intro">
+      <p>如果你是沿着更具体的需求在找内容，比如窗口管理、剪贴板、录屏、卸载工具，这里通常会比大分类更快一些。</p>
+    </div>
+    <div class="index-overview__group">
+      <div class="index-overview__head">
+        <p class="index-overview__label">标签列表</p>
+        <p class="section-note">标签更接近问题场景，适合你已经知道自己在找什么的时候直接进入。</p>
+      </div>
+      <div class="index-overview__pills">
       {tags.map(([name, count]) => (
         <a class="pill" href={`/tag/${encodeURIComponent(name)}`}>
-          {name} <span style="opacity: .55;">({count})</span>
+          {name} <span>({count})</span>
         </a>
       ))}
+      </div>
     </div>
   </section>
 </BaseLayout>

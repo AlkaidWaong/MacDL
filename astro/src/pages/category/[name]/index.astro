@@ -78,6 +78,15 @@ const all = await getCollection("posts", ({ data }) => !data.draft);
 const filtered = all
   .filter((p) => (p.data.categories ?? []).includes(categoryName))
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+const categoryCount = new Map<string, number>();
+for (const post of all) {
+  for (const c of post.data.categories ?? []) {
+    categoryCount.set(c, (categoryCount.get(c) ?? 0) + 1);
+  }
+}
+const categoryTabs = Array.from(categoryCount.entries())
+  .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0], "zh-Hans-CN"))
+  .map(([name, count]) => ({ name, count }));
 
 const totalPages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
 const posts = filtered.slice(0, PAGE_SIZE);
@@ -143,43 +152,63 @@ const collectionSchema = {
     <p class="section-note">共 {filtered.length} 篇</p>
   </div>
 
-  <section class="glass content category-intro">
-    <p>{copy.intro}</p>
+  <section class="glass category-overview">
+    <div class="category-overview__intro">
+      <p>{copy.intro}</p>
+    </div>
+
+    <div class="category-overview__topics">
+      <div class="category-overview__head">
+        <p class="category-overview__label">按分类切换</p>
+        <p class="section-note">想回到全站内容流，就看“全部”；想继续细看，就留在当前分类。</p>
+      </div>
+      <div class="topic-hub-pills category-tabs">
+        <a class="pill" href="/category">全部 <span>({all.length})</span></a>
+        {categoryTabs.map((category) => (
+          <a
+            class={`pill${category.name === categoryName ? " pill--active" : ""}`}
+            href={`/category/${encodeURIComponent(category.name)}`}
+          >
+            {category.name} <span>({category.count})</span>
+          </a>
+        ))}
+      </div>
+    </div>
+
+    {categoryTags.length ? (
+      <div class="category-overview__topics">
+        <div class="category-overview__head">
+          <p class="category-overview__label">常一起看的专题</p>
+          <p class="section-note">想继续往下筛，可以直接跳到更具体的专题页。</p>
+        </div>
+        <div class="topic-hub-pills">
+          {categoryTags.map((tag) => (
+            <a class="pill" href={`/tag/${encodeURIComponent(tag.name)}`}>
+              {tag.name} <span>({tag.count})</span>
+            </a>
+          ))}
+        </div>
+      </div>
+    ) : null}
+
+    {featuredPosts.length ? (
+      <div class="category-overview__featured">
+        <div class="category-overview__head">
+          <h2>先看这几篇，更容易建立判断</h2>
+          <p class="section-note">把它们当成起点文，更容易先分清问题和工具类型。</p>
+        </div>
+        <div class="search-results__list">
+          {featuredPosts.map((post) => (
+            <a class="search-result" href={`/article/${post.data.urlSlug}`}>
+              <div class="search-result__meta">{post.data.date.toISOString().slice(0, 10)}</div>
+              <div class="search-result__title">{post.data.title}</div>
+              <p class="search-result__desc">{post.data.quickTake?.trim() || post.data.description?.trim() || "从这篇开始，更快判断这个分类下的工具是否适合你。"}</p>
+            </a>
+          ))}
+        </div>
+      </div>
+    ) : null}
   </section>
-
-  {categoryTags.length ? (
-    <section class="glass topic-hub-block" aria-label="Category topic hubs">
-      <div class="section-head">
-        <h2>这个分类里常一起看的主题</h2>
-        <p class="section-note">如果你已经确认大方向没错，可以直接切到更具体的专题页继续筛。</p>
-      </div>
-      <div class="topic-hub-pills">
-        {categoryTags.map((tag) => (
-          <a class="pill" href={`/tag/${encodeURIComponent(tag.name)}`}>
-            {tag.name} <span>({tag.count})</span>
-          </a>
-        ))}
-      </div>
-    </section>
-  ) : null}
-
-  {featuredPosts.length ? (
-    <section class="glass category-featured-block">
-      <div class="section-head">
-        <h2>如果你想先快速建立判断，先看这几篇</h2>
-        <p class="section-note">它们更像这个分类里的起点文，能先帮你把问题和工具类型分清楚。</p>
-      </div>
-      <div class="search-results__list">
-        {featuredPosts.map((post) => (
-          <a class="search-result" href={`/article/${post.data.urlSlug}`}>
-            <div class="search-result__meta">{post.data.date.toISOString().slice(0, 10)}</div>
-            <div class="search-result__title">{post.data.title}</div>
-            <p class="search-result__desc">{post.data.quickTake?.trim() || post.data.description?.trim() || "从这篇开始，更快判断这个分类下的工具是否适合你。"}</p>
-          </a>
-        ))}
-      </div>
-    </section>
-  ) : null}
 
   <section class="grid" aria-label="Category posts">
     {posts.map((post) => (
