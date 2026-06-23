@@ -39,3 +39,4 @@ MacAppHQ 专注于 **Mac 软件与工作流**。
 - 商务合作与内容共创
 
 联系邮箱：`alkaid.waong [at] foxmail [dot] com`
+Wechat: AlkaidWaong(请备注macapphq,反馈比邮箱更快)
