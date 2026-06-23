@@ -109,6 +109,7 @@ export default defineConfig({
         if (pathname === "/search" || pathname === "/archive" || pathname === "/tag") return false;
         if (pathname === "/thanks" || pathname === "/links") return false;
         if (pathname.startsWith("/en/")) return false;
+        if (/^\/category\/page\/\d+$/.test(pathname)) return false;
         if (/^\/tag\/.+\/page\/\d+$/.test(pathname)) return false;
         if (/^\/category\/.+\/page\/\d+$/.test(pathname)) return false;
         if (noindexTagPaths.has(pathname)) return false;

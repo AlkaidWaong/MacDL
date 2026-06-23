@@ -1,9 +1,9 @@
 ---
 urlSlug: "dockdoor"
-title: "DockDoor 体验：这款 Mac 窗口预览工具适合谁装，和 AltTab 有什么区别"
+title: "DockDoor 是什么？这款 Mac 窗口预览工具值不值得装，和 AltTab 有什么区别"
 date: "2025-01-03"
 updatedAt: "2026-06-17"
-description: "DockDoor 是一款免费开源的 Mac 窗口预览工具。这篇重点讲它适合谁装、能解决什么问题，以及它和 AltTab、Rectangle、BetterStage 的区别。"
+description: "想知道 DockDoor 是什么、值不值得装？这篇直接讲它能解决什么问题、适合谁，以及它和 AltTab、Rectangle、BetterStage 的区别。"
 quickTake: "如果你真正烦的是“同一个 App 开了很多窗口，但每次都要靠猜”，DockDoor 这类 Mac 窗口预览工具会比传统分屏工具更能直接解决问题。"
 bestFor:
   - "经常同时开很多窗口的 Mac 用户"
@@ -33,7 +33,7 @@ draft: false
 heroImage: "/media/dockdoor/hero.png"
 ---
 
-# DockDoor 体验：它更像是给原生 Dock 补上一层窗口预览
+# DockDoor 是什么：它更像是给原生 Dock 补上一层窗口预览
 
 先说结论：**如果你经常开很多窗口，真正让人烦的往往不是“窗口怎么摆”，而是“这个窗口到底藏哪了”。**
 
