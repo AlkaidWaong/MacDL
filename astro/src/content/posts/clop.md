@@ -1,94 +1,119 @@
 ---
 urlSlug: "clop"
-title: "Clop: 复制图片并自动压缩图片大小的提效神器"
-date: "1970-01-01"
-description: "Clop 是一款 macOS 剪贴板优化工具，自动压缩图片和视频，提升文件分享效率，节省存储空间。"
+title: "Clop：免费开源的 Mac 剪贴板压缩工具，复制图片视频自动优化大小"
+date: "2024-10-17"
+updatedAt: "2026-06-26"
+description: "Clop 是一款 macOS 剪贴板优化工具，自动压缩图片、视频、PDF 文件大小。官网定位：Copy large, paste small, send fast。免费开源，Pro 版 €15。"
+quickTake: "Clop 官网一句话说清自己的价值：Copy large, paste small, send fast。它不是剪贴板管理器，不负责帮你找历史记录。它的任务更简单：你复制一张截图或一段视频，它自动压缩文件大小，让你粘贴出去时更快。"
+bestFor:
+  - "经常分享截图和视频到邮件/社媒的人"
+  - "在意文件大小和上传速度的人"
+  - "想要免费开源方案的用户（Pro €15）"
+officialUrl: "https://lowtechguys.com/clop/"
+faqs:
+  - question: "Clop 和剪贴板管理器有什么区别？"
+    answer: "Clop 不是剪贴板管理器（不记录复制历史），而是剪贴板优化器。你复制图片/视频后它自动压缩大小。和 Maccy/CleanClip 互补，可以一起装。"
+  - question: "Clop 压缩后图片质量会下降吗？"
+    answer: "「质量损失极小甚至没有。」可以自定义压缩参数。Clop 使用开源且经过长期验证的编码器。"
+  - question: "Clop Pro 多少钱？"
+    answer: "Clop Pro €15 终身授权。免费版（GPLv3）也够用。"
+  - question: "Clop 安全/隐私吗？"
+    answer: "官网强调：一切发生在你的设备上。不使用云服务，不发送文件数据到互联网。"
+  - question: "Clop 支持哪些格式？"
+    answer: "图片、视频、PDF。自动转换不兼容格式（HEIC→JPG, MOV→MP4）。"
+  - question: "Clop 怎么安装？"
+    answer: "可以直接从官网下载，也可以 brew install clop（Homebrew 已支持）。macOS 13.0+。"
 categories:
   - "效率工具"
 tags:
-  - "剪贴板优化"
   - "图片压缩"
+  - "剪贴板优化"
+  - "Clop"
+  - "开源"
 aliases: []
 draft: false
 heroImage: "/media/clop/hero.png"
 ---
 
-![clop-icon.png](/media/clop/clop-icon.png)
+# Clop：复制图片视频自动压缩，分享更快
 
-**Clop for Mac**
+Clop 官网定位：**「Image, video, PDF and clipboard optimiser. Copy large, paste small, send fast.」**
 
-*复制并自动优化图片大小*
+**版本：2.6.3** | **价格：免费（GPLv3）/ Pro €15 终身**
 
-*version 2.6.3*
+**软件官网：**[https://lowtechguys.com/clop/](https://lowtechguys.com/clop/)
 
----
+**系统要求：macOS 13.0+（Ventura 及以上）**
 
-# Clop 概览
-
-Clop 是一款专为 macOS 设计的剪贴板优化工具，它能够自动压缩图片、视频等文件，使其在保持质量的同时大大减小文件体积，从而方便用户在各种场景下快速分享和传输文件。无论是需要在邮件中发送高清图片，还是在社交媒体上分享动图，Clop 都能为你提供高效的解决方案。
-
-### 核心功能
-
-- **智能优化：** Clop 能够自动识别并优化剪贴板中的图片、视频、PDF 等文件，使其更适合网络传输。
-- **自定义设置：** 用户可以自定义优化参数，如图片质量、视频分辨率等，以满足不同需求。
-- **批量处理：** Clop 支持批量处理多个文件，提高工作效率。
-- **快捷键操作：** 用户可以通过自定义快捷键快速调用 Clop 的优化功能。
-- **与其他应用集成：** Clop 可以与 Dropshare 等应用集成，方便用户将优化后的文件直接上传到云端。
-- **开源：** Clop 的源代码在 GitHub 上开源，用户可以查看和修改代码。
-
-### 优点
-
-- **高效：** Clop 能够快速优化文件，节省用户时间。
-- **易用：** Clop 的界面简洁直观，操作简单。
-- **功能强大：** Clop 支持多种文件格式的优化，并提供了丰富的自定义选项。
-- **开源：** Clop 的开源特性使其具有良好的扩展性。
-
-### 适用人群
-
-- **经常需要处理图片、视频等文件的用户：** 设计师、摄影师、博主等。
-- **需要频繁发送大文件的用户：** 销售人员、市场营销人员等。
-- **对文件大小敏感的用户：** 希望减小文件体积以节省存储空间的用户。
-
-### 其他图片压缩工具
-
-- [**Zipic Mac图片压缩工具深度测评：是否值得购买？**](https://www.macapphq.com/article/zipic-for-mac)
-
-### 总结
-
-Clop 是一款非常实用的 macOS 剪贴板优化工具，它能够帮助用户快速处理文件，提高工作效率。无论是专业人士还是普通用户，都可以从 Clop 中受益。如果你经常需要处理各种类型的文件，那么 Clop 绝对值得一试。
-
-<aside>
-
-**软件信息**
-
-[https://lowtechguys.com/static/video/screenshot-downscale-in-email.mp4](https://lowtechguys.com/static/video/screenshot-downscale-in-email.mp4)
-
-*更新时间*
-
-2024/10/17
-
-*安装包大小*
-
-**90MB**
-
-*兼容性*
-
-**Intel 64**
-
-**Apple Silicon**
-
-*系统版本*
-
-**macOS 13 以上**
-
-[Go to developer’s website](https://lowtechguys.com/clop/)
-
-</aside>
+**安装：官网下载 或 $ brew install clop**
 
 ---
 
-![clop-icon.png](/media/clop/clop-icon-1.png)
+## 核心功能详解
 
-**Clop for Mac**
+### 复制即优化
+「只要 Clop 在运行，每次复制图片到剪贴板，Clop 都会将其优化到尽可能小的尺寸。质量损失极小甚至没有，随时可以在任何应用中粘贴。」
 
-*复制并自动优化图片大小*
+### 屏幕录制优化
+「发送屏幕录制变快 10 倍。Clop 会在你停止录制后立即优化视频。」
+
+支持的操作：
+- 裁剪视频到任意尺寸或比例
+- 转换为 GIF
+- 加速/减速
+- 静音或移除音频
+- 编码为兼容格式（如 MP4）
+
+**Apple Silicon 优化**：使用专用媒体引擎，实现低功耗视频编码。
+
+### 缩放（Downscale in a pinch）
+通过快捷键或浮动按钮将图片/视频缩放到任意分辨率。快捷键支持增量缩小（90%→10%）。
+
+### 拖放优化
+将文件拖到 Clop 浮窗即可原地优化。URL 会自动下载后再优化。
+
+### 预设区域（Preset Zones）
+通过 Shortcuts 设置特定操作，例如：
+- 缩放 50% + 转换为 webp
+- 用 Dropshare 上传并复制 Markdown 链接
+- 加水印
+- 裁剪成 16:9 并加入笔记
+
+### Dropshare 集成
+优化后直接上传到各类服务。
+
+### Yoink / Dockside 集成
+优化后加入文件搁架，方便后续使用。
+
+### 格式转换
+自动将 HEIC、tiff、mov 等不兼容格式转换为通用格式。转换完全可配置，原始文件保留在备份文件夹中。
+
+---
+
+## 隐私
+
+官网强调：**「一切都发生在你的设备上。Clop 不使用任何云服务，不发送任何文件数据到互联网。使用的编码器是开源的，经过数十年的实战验证。」**
+
+---
+
+## 适合什么人
+
+- 经常分享截图到邮件、Slack、社媒的人
+- 上传视频前希望自动缩小体积的人
+- 对文件大小敏感的用户
+- 想要免费开源方案的人（Pro €15 解锁完整功能）
+
+---
+
+## 总结
+
+Clop 不是必需品，但在适合的场景下非常好用。如果你经常截图分享，和任意一款剪贴板管理器一起装，体验互补。
+
+> **试试 Clop** —— 免费开源，brew install clop 就装好了。和 Maccy 或 CleanClip 一起装不冲突。
+
+### 延伸阅读
+- [Mac 剪贴板工具横评](/article/mac-clipboard-tools-comparison)
+- [Maccy 详细体验](/article/maccy)
+- [CleanClip 详细体验](/article/cleanclip-for-mac)
+
+*最后更新：2026-06-26*

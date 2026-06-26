@@ -1,72 +1,58 @@
 ---
 urlSlug: "opencat"
-title: "OpenCat：灵活订阅，满足多样需求的AI助手"
+title: "OpenCat 体验：在 Mac 上管理多个 AI 模型的客户端"
 date: "2024-09-18"
-description: "OpenCat 是支持多模型与灵活订阅的 AI 助手，适合希望在一处管理 Chat 工作流的 Mac 用户与独立开发者。"
+updatedAt: "2026-06-26"
+description: "OpenCat 是一款 Mac AI 对话客户端，支持接入 ChatGPT、Claude 等多模型，适合想在一个地方管理多个 AI 服务的人。"
+quickTake: "OpenCat 解决的不是「哪个 AI 更好」，而是「我不想在十个网页之间切来切去」。一个客户端管理多个模型。"
+bestFor:
+  - "同时使用 ChatGPT、Claude 等多家 AI 服务的人"
+  - "想要统一管理 AI 对话历史的人"
+  - "独立开发者/技术用户"
+faqs:
+  - question: "OpenCat 是什么？"
+    answer: "OpenCat 是一款 Mac AI 对话客户端，支持接入多个大语言模型 API，统一管理对话。"
+  - question: "OpenCat 和直接网页打开 ChatGPT 有什么区别？"
+    answer: "OpenCat 可以接入多个模型的 API，不需要在各个网页之间切换。但也需要自己配置 API key。"
+  - question: "OpenCat 价格多少？"
+    answer: "OpenCat 本身是付费软件。AI 模型按 API 用量另行计费。建议先确认自己是否需要同时使用多个模型再考虑购买。"
 categories:
   - "AI"
 tags:
-  - "独立开发者App"
+  - "AI客户端"
+  - "OpenCat"
+  - "多模型"
 aliases: []
-draft: true
+draft: false
+heroImage: ""
 ---
 
-# 简介
+# OpenCat：在 Mac 上管理多个 AI 模型
 
-<aside>
-😀 这里写文章的前言：
-一个简单的开头,简述这篇文章讨论的问题、目标、人物、背景是什么？并简述你给出的答案。
+如果你同时用 ChatGPT、Claude、Perplexity 等多家 AI 服务，OpenCat 能把它们统一到一个界面里。
 
-可以说说你的故事：阻碍、努力、结果成果，意外与转折。
+**价格：付费** | **平台：macOS**
 
-</aside>
+---
 
-**更新时间： 2023-02-06**
+## 核心功能
 
-**软件大小：**
+- 接入多个 AI 模型 API（ChatGPT、Claude 等）
+- 统一对话管理
+- 自定义预设提示词
 
-**版本：v xxx(官方版)**
+---
 
-**软件官网：[www.ifoz.net](http://www.ifoz.net)**
+## 适合什么人
 
-**系统要求：macOS 14及以上**
+- 同时使用多个 AI 模型的人
+- 想要集中管理对话历史的人
+- 愿意配置 API key 的技术用户
 
-### 支持平台
+---
 
-✅ MacOS 苹果芯片
+## 总结
 
-✅ MacOS Intel芯片
+OpenCat 适合场景明确的人：你在多个 AI 模型之间切换频繁，需要一个统一的客户端。如果不是，直接网页使用更方便。
 
-✅ Windows
-
-✅ Linux
-
-# 下载
-
-# 功能介绍
-
-## 为什么选择xxx?
-
-## 核心功能一览
-
-## 适合人群
-
-## 常见问题解答
-
-# 版本说明
-
-# 截图
-
-[](https://www.notion.so)
-
-# 其他版本下载
-
-1. [macos v 1.0 下载](OpenCat%EF%BC%9A%E7%81%B5%E6%B4%BB%E8%AE%A2%E9%98%85%EF%BC%8C%E6%BB%A1%E8%B6%B3%E5%A4%9A%E6%A0%B7%E9%9C%80%E6%B1%82%E7%9A%84AI%E5%8A%A9%E6%89%8B%201055e585942f80d68dc0df3339841591.md)
-2. 
-
-# ⚠️说明
-
-<aside>
-💡 本下载站致力于提供免费、开源软件资源（不破解，尽可能从官方渠道获取软件包），但仍可能存在部分未经完全授权的软件混入的情况。若你下载了此类软件，可能会面临软件著作权人的法律追究，导致潜在的经济赔偿和法律责任。下载软件前，请务必了解可能存在的风险。为了你的信息安全和合法权益，花几分钟阅读[风险提示](https://www.macapphq.com/Risk-Warning)很有必要哦
-
-</aside>
+*最后更新：2026-06-26*

@@ -1,80 +1,59 @@
 ---
 urlSlug: "Cloud-Document-Converter"
-title: "Cloud Document Converter：飞书转Markdown工具"
-date: "1970-01-01"
-description: "使用Cloud Document Converter轻松将飞书文档转换为Markdown格式，提升写作效率，操作简单，效果显著。"
+title: "Cloud Document Converter：飞书文档转 Markdown 的免费工具"
+date: "2025-01-15"
+updatedAt: "2026-06-26"
+description: "Cloud Document Converter 是一款免费工具，能把飞书文档转换为 Markdown 格式。适合需要把飞书内容迁移到 Notion、Obsidian 等工具的人。"
+quickTake: "如果你从飞书迁移到 Markdown 生态（Notion/Obsidian/GitHub），Cloud Document Converter 是免费的快速通道。"
+bestFor:
+  - "从飞书迁移到 Markdown 生态的用户"
+  - "需要批量导出飞书文档到本地的人"
+  - "内容创作者和技术写作者"
+officialUrl: "https://clouddocumentconverter.com/"
+faqs:
+  - question: "Cloud Document Converter 能做什么？"
+    answer: "主要功能是把飞书文档转换为 Markdown 格式，方便迁移到其他支持 Markdown 的工具。"
+  - question: "Cloud Document Converter 是免费的吗？"
+    answer: "是的，它是一个免费工具。"
+  - question: "转换后的格式准确吗？"
+    answer: "基本格式（标题、列表、代码块、图片）转换效果良好，复杂排版可能需要微调。"
 categories:
   - "浏览器扩展"
 tags:
-  - "飞书文档格式转换插件"
-  - "飞书文档转换工具"
-  - "飞书转Markdown工具"
+  - "飞书"
+  - "Markdown"
+  - "文档转换"
 aliases: []
 draft: false
 heroImage: "/media/Cloud-Document-Converter/hero.png"
 ---
 
-![logo.png](/media/Cloud-Document-Converter/logo.png)
+# Cloud Document Converter：飞书文档转 Markdown
 
-**Cloud Document Converter**
+如果你从飞书迁移到 Markdown 生态（Obsidian / Notion / GitHub），这个工具是免费的快速通道。
 
-*自动下载页面图片、音频、视频，改成本地引用，最大限度保证排版。*
-
-*version 1.6.1*
+**价格：免费**
 
 ---
 
-# **Cloud Document Converter** 概览
+## 核心功能
 
-Cloud Document Converter是一款专注于将飞书文档转换为Markdown格式的Chrome扩展程序。作为一个开源项目，它在GitHub上已获得近300个星标，显示出较高的用户认可度。
+- 飞书文档 → Markdown 格式转换
+- 保留基本排版结构（标题、列表、代码块、图片）
+- 免费使用，无需注册
 
-## Cloud Document Converter的核心功能
+---
 
-- 支持分隔线、标题、代码块等基础元素
-- 完整支持引用、列表、任务清单等结构化内容
-- 可处理表格、图片、数学公式等复杂元素
-- 一键下载转换后的文档
-- 支持复制转换内容到剪贴板
-- 清晰的操作界面
+## 适合什么人
 
-## Cloud Document Converter的优势
+- 飞书用户迁移到其他平台
+- 需要本地存档飞书文档
+- 内容创作者批量导出
 
-- 兼容性强
-- 转化效果好
-
-## 适合人群
-
-- 经常使用飞书进行文档写作的用户
-- 需要将飞书文档转换为Markdown格式的内容创作者
-- 重视文档格式转换效率的团队协作者
-- 偏好使用Markdown进行写作的技术人员
+---
 
 ## 总结
 
-Cloud Document Converter作为一款专业的文档转换工具，以其强大的功能性和良好的可用性，很好地解决了飞书文档向Markdown格式转换的需求。虽然在一些特殊元素的支持上还有提升空间，但其开源特性和活跃的更新维护，使其成为一个值得推荐的效率工具。
+简单直接的工具，解决一个非常具体的迁移问题。免费，转换质量对得起定价。
 
-<aside>
-
-**软件信息**
-
-![](https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb)
-
-*更新时间*
-
-**2024/10/28**
-
-*安装包大小*
-
-180kb
-
-[Go to developer’s website](https://github.com/whale4113/cloud-document-converter?tab=readme-ov-file)
-
-</aside>
-
----
-
-![logo.png](/media/Cloud-Document-Converter/logo-1.png)
-
-**Cloud Document Converter**
-
-*自动下载页面图片、音频、视频，改成本地引用，最大限度保证排版。*
+*最后更新：2026-06-26*
