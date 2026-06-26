@@ -1,0 +1,238 @@
+{
+  "generatedAt": "2026-06-26",
+  "period": {
+    "start": "2026-05-27",
+    "end": "2026-06-26"
+  },
+  "headline": {
+    "top10": 18,
+    "top3": 2,
+    "totalKeywords": 20
+  },
+  "totals": {
+    "impressions": 2318,
+    "clicks": 85,
+    "ctr": "3.7"
+  },
+  "queries": [
+    {
+      "keyword": "vidhub windows",
+      "impressions": 401,
+      "clicks": 20,
+      "ctr": "5.0",
+      "position": 6
+    },
+    {
+      "keyword": "dockdoor",
+      "impressions": 679,
+      "clicks": 11,
+      "ctr": "1.6",
+      "position": 7
+    },
+    {
+      "keyword": "vidhub windows 版",
+      "impressions": 116,
+      "clicks": 6,
+      "ctr": "5.2",
+      "position": 3
+    },
+    {
+      "keyword": "loop mac",
+      "impressions": 29,
+      "clicks": 5,
+      "ctr": "17.2",
+      "position": 7
+    },
+    {
+      "keyword": "omi录屏专家",
+      "impressions": 70,
+      "clicks": 5,
+      "ctr": "7.1",
+      "position": 7
+    },
+    {
+      "keyword": "demoget",
+      "impressions": 58,
+      "clicks": 4,
+      "ctr": "6.9",
+      "position": 6
+    },
+    {
+      "keyword": "gstack 最 佳 实践",
+      "impressions": 14,
+      "clicks": 4,
+      "ctr": "28.6",
+      "position": 8
+    },
+    {
+      "keyword": "微信输入法 mac",
+      "impressions": 361,
+      "clicks": 4,
+      "ctr": "1.1",
+      "position": 6
+    },
+    {
+      "keyword": "桌面整理大师",
+      "impressions": 56,
+      "clicks": 4,
+      "ctr": "7.1",
+      "position": 5
+    },
+    {
+      "keyword": "barbee",
+      "impressions": 46,
+      "clicks": 2,
+      "ctr": "4.3",
+      "position": 11
+    },
+    {
+      "keyword": "mac 桌面整理",
+      "impressions": 8,
+      "clicks": 2,
+      "ctr": "25.0",
+      "position": 8
+    },
+    {
+      "keyword": "pixpin mac",
+      "impressions": 46,
+      "clicks": 2,
+      "ctr": "4.3",
+      "position": 6
+    },
+    {
+      "keyword": "pronotes",
+      "impressions": 39,
+      "clicks": 2,
+      "ctr": "5.1",
+      "position": 7
+    },
+    {
+      "keyword": "quickrec",
+      "impressions": 84,
+      "clicks": 2,
+      "ctr": "2.4",
+      "position": 7
+    },
+    {
+      "keyword": "tempbox waseem",
+      "impressions": 3,
+      "clicks": 2,
+      "ctr": "66.7",
+      "position": 30
+    },
+    {
+      "keyword": "vibe island 是 什么",
+      "impressions": 11,
+      "clicks": 2,
+      "ctr": "18.2",
+      "position": 2
+    },
+    {
+      "keyword": "vibeisland",
+      "impressions": 90,
+      "clicks": 2,
+      "ctr": "2.2",
+      "position": 4
+    },
+    {
+      "keyword": "vidhub windows 下载",
+      "impressions": 102,
+      "clicks": 2,
+      "ctr": "2.0",
+      "position": 5
+    },
+    {
+      "keyword": "vidhub 电脑 版",
+      "impressions": 38,
+      "clicks": 2,
+      "ctr": "5.3",
+      "position": 4
+    },
+    {
+      "keyword": "微信输入法mac",
+      "impressions": 67,
+      "clicks": 2,
+      "ctr": "3.0",
+      "position": 6
+    }
+  ],
+  "pages": [
+    {
+      "page": "https://www.macapphq.com/article/vidhub-v-1-7-8",
+      "impressions": 1009,
+      "clicks": 45
+    },
+    {
+      "page": "https://www.macapphq.com/article/WeChat-Input-Method",
+      "impressions": 2038,
+      "clicks": 25
+    },
+    {
+      "page": "https://www.macapphq.com/article/dockdoor",
+      "impressions": 888,
+      "clicks": 16
+    },
+    {
+      "page": "https://www.macapphq.com/article/vibe-island-for-mac",
+      "impressions": 764,
+      "clicks": 16
+    },
+    {
+      "page": "https://www.macapphq.com/article/mac-zhuomian-zhengli-dasui",
+      "impressions": 364,
+      "clicks": 15
+    },
+    {
+      "page": "https://www.macapphq.com/article/pronotes",
+      "impressions": 111,
+      "clicks": 11
+    },
+    {
+      "page": "https://www.macapphq.com/article/demoget",
+      "impressions": 124,
+      "clicks": 10
+    },
+    {
+      "page": "https://www.macapphq.com/article/loop",
+      "impressions": 184,
+      "clicks": 9
+    },
+    {
+      "page": "https://www.macapphq.com/article/barbee",
+      "impressions": 93,
+      "clicks": 8
+    },
+    {
+      "page": "https://www.macapphq.com/article/omi",
+      "impressions": 203,
+      "clicks": 8
+    }
+  ],
+  "timeline": [
+    {
+      "date": "2026-06-19",
+      "impressions": 150,
+      "clicks": 7
+    },
+    {
+      "date": "2026-06-20",
+      "impressions": 138,
+      "clicks": 5
+    },
+    {
+      "date": "2026-06-21",
+      "impressions": 156,
+      "clicks": 4
+    },
+    {
+      "date": "2026-06-22",
+      "impressions": 176,
+      "clicks": 4
+    },
+    {
+      "date": "2026-06-23",
+      "impressions": 294,
+      "clicks": 7
+    }
+  ]
+}

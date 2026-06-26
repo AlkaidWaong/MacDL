@@ -56,4 +56,10 @@ CharmBar 做的事不关乎效率，纯属有趣。
 
 纯个性化工具，不影响效率。如果你喜欢让桌面独一无二，值得一试。
 
+
+### 延伸阅读
+- [Barbee Mac 菜单栏管理工具](/article/barbee)
+- [Mac 菜单栏工具 OnlySwitch](/article/onlyswitch-v-2-5-3)
+- [Ice for Mac 开源菜单栏管理](/article/ice-for-mac)
+
 *最后更新：2026-06-26*

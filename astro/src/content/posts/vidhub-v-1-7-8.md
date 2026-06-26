@@ -1,6 +1,6 @@
 ---
 urlSlug: "vidhub-v-1-7-8"
-title: "VidHub 体验：我把影视库从“文件夹地狱”救出来了，也顺手搞清了 vidhub windows 版到底有没有"
+title: "VidHub 播放器 2026：NAS 本地网盘播放器，有 Windows 版吗？"
 date: "2026-03-25"
 updatedAt: "2026-06-16"
 description: "VidHub 是一款适合管理 NAS、本地和网盘混合片源的播放器。这篇体验文重点聊聊它怎么把“找片、接着看、管理进度”这件事变顺，以及 vidhub windows 版现在到底有没有。"

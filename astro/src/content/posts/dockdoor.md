@@ -1,6 +1,6 @@
 ---
 urlSlug: "dockdoor"
-title: "DockDoor 是什么？这款 Mac 窗口预览工具值不值得装，和 AltTab 有什么区别"
+title: "DockDoor Mac 2026：窗口预览+快速切换，比 AltTab 好在哪"
 date: "2025-01-03"
 updatedAt: "2026-06-17"
 description: "想知道 DockDoor 是什么、值不值得装？这篇直接讲它能解决什么问题、适合谁，以及它和 AltTab、Rectangle、BetterStage 的区别。"

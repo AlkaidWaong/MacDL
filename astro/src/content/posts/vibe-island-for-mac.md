@@ -1,6 +1,6 @@
 ---
 urlSlug: "vibe-island-for-mac"
-title: "Vibe Island 体验：多 Agent 一起跑之后，我终于不用来回找终端会话了"
+title: "Vibe Island for Mac 2026：多 Agent 工作流管理，灵动岛实时监控"
 date: "2026-04-02"
 description: "Vibe Island 是一款把多 Agent 状态放进 Mac 灵动岛的工具。这篇体验文从真实 Vibe Coding 场景出发，聊聊它如何减少切终端、审批打断和会话迷失，让多 Agent 工作流更顺。"
 quickTake: "如果你经常同时跑多个 Agent，它最值钱的不是提醒本身，而是提醒之后能把你直接送回正确上下文。"

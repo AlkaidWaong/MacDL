@@ -1,6 +1,6 @@
 ---
 urlSlug: "quick-rec"
-title: "QuickRec 体验：Mac 录屏怎么录系统声音，这款工具值不值得装"
+title: "QuickRec Mac 录屏 2026：系统声音内录怎么设置，和 CleanShot X 怎么选"
 date: "2024-10-08"
 updatedAt: "2026-06-26"
 description: "QuickRec 是一款主打 Mac 录屏内录声音的工具。本文重点讲它适合谁、解决什么痛点，以及和 Omi、CleanShot X 相比该怎么选。"

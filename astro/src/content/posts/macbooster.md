@@ -59,4 +59,10 @@ MacBooster 和 CleanMyMac 是同类产品——帮你清理系统垃圾、卸载
 
 适合想给 Mac 做一次大扫除但不想付 CleanMyMac 价格的人。核心清理功能够用。
 
+
+### 延伸阅读
+- [免费 CleanMyMac 替代怎么选](/article/free-cleanmymac-alternative)
+- [App Cleaner & Uninstaller 体验](/article/App-Cleaner-&-Uninstaller)
+- [AppCleaner 体验](/article/appcleaner-for-mac)
+
 *最后更新：2026-06-26*
