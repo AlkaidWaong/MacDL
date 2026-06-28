@@ -4,74 +4,82 @@ import reportData from "../data/seo-report.json";
 
 const r = reportData;
 
-// 计算趋势
 const kwInTop3 = r.headline?.top3 ?? 0;
 const kwInTop10 = r.headline?.top10 ?? 0;
-const kwTotal = r.queries?.length ?? 0;
-const kwOff100 = kwTotal - kwInTop10 - (r.queries?.filter(q => q.position > 100).length ?? 0);
-
-// 高曝光低CTR（建议优化）
-const lowCtrKws = r.queries?.filter(q => q.impressions >= 50 && q.ctr < 3.0) ?? [];
-
-// 差一步进首页（排名 11-20）
-const nearTop10 = r.queries?.filter(q => q.position >= 11 && q.position <= 20) ?? [];
-
-// 新进/跌出判断（需昨日数据，目前无Δ）
+const kwTotal = r.headline?.totalKeywords ?? r.queries?.length ?? 0;
 const topKws = r.queries?.slice(0, 10) ?? [];
-const trendEmoji = kwInTop10 >= 15 ? "🟢" : kwInTop10 >= 10 ? "🟡" : "🔴";
-const trendText = kwInTop10 >= 15 ? "上升" : kwInTop10 >= 10 ? "持平" : "回撤";
+const actions = r.actions ?? [];
+const ownerTodos = r.ownerTodos ?? [];
+const generatedDate = r.generatedAt ? new Date(r.generatedAt) : null;
+const generatedDateLabel = generatedDate ? generatedDate.toISOString().slice(0, 10) : r.generatedDate || "加载中";
+const staleDays = generatedDate ? Math.floor((Date.now() - generatedDate.getTime()) / 86400000) : null;
+const isStale = staleDays != null && staleDays >= 2;
 
-// 近7天趋势汇总
+function formatDelta(value, suffix = "") {
+  if (value == null || Number.isNaN(value)) return "—";
+  if (value === 0) return `0${suffix}`;
+  return `${value > 0 ? "+" : ""}${value}${suffix}`;
+}
+
+function getTrend(headline) {
+  const deltaTop10 = headline?.deltaTop10;
+  if (deltaTop10 == null) return { emoji: "⚪️", text: "首份日报" };
+  if (deltaTop10 > 0) return { emoji: "🟢", text: "上升" };
+  if (deltaTop10 < 0) return { emoji: "🔴", text: "回撤" };
+  return { emoji: "🟡", text: "持平" };
+}
+
+function movementLabel(query) {
+  if (query.deltaPosition == null) return "新纳入";
+  if (query.deltaPosition > 0) return `↑${query.deltaPosition}`;
+  if (query.deltaPosition < 0) return `↓${Math.abs(query.deltaPosition)}`;
+  return "—";
+}
+
+const trend = getTrend(r.headline);
 const totalImp7d = r.timeline?.reduce((a, d) => a + d.impressions, 0) ?? 0;
-const totalClk7d = r.timeline?.reduce((a, d) => a + d.clicks, 0) ?? 0;
-
-// 生成今日动作
-const actions = [];
-if (lowCtrKws.length > 0) {
-  actions.push(`CTR 优化：${lowCtrKws.slice(0,3).map(k => k.keyword).join('、')} 高曝光低CTR，建议重写标题/描述`);
-}
-if (nearTop10.length > 0) {
-  actions.push(`冲首页：${nearTop10.slice(0,3).map(k => k.keyword).join('、')} 排名 11-20，建议补内链和内容`);
-}
-actions.push(`内链加固：检查集群互链完整性`);
-actions.push(`报告自动生成 & 站点构建`);
 ---
 
 <BaseLayout title={`SEO 日报 | MacAppHQ`} description="Google Search Console 搜索数据日报" canonical={`https://www.macapphq.com/seo-report`}>
   <article style="max-width: 960px; margin: 0 auto; padding: 2rem 1rem; line-height: 1.7; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">
-    
-    <h1 style="font-size: 1.8rem; margin-bottom: 0.25rem;">MacAppHQ SEO 日报 — {r.generatedAt || "加载中"}</h1>
+    <h1 style="font-size: 1.8rem; margin-bottom: 0.25rem;">MacAppHQ SEO 日报 — {generatedDateLabel}</h1>
     <p style="color: #888; margin-top: 0; font-size: 0.9rem;">
       数据源：Google Search Console | 周期：{r.period?.start ?? "-"} ~ {r.period?.end ?? "-"}
     </p>
+
+    {isStale ? (
+      <div style="background:#fff5e8; border:1px solid #f3d19c; border-radius:12px; padding:0.9rem 1rem; margin: 1rem 0;">
+        <strong>⚠️ 报告已过期</strong>
+        <div style="color:#8a5a00; font-size:0.92rem;">最近一次生成时间距今约 {staleDays} 天，说明自动生成链路可能没跑起来。</div>
+      </div>
+    ) : null}
+
     <hr style="margin: 1rem 0;" />
 
     {r.totals ? (
       <>
-        <!-- 🏆 首页战况 — 头条指标 -->
         <h2 style="font-size: 1.4rem;">🏆 首页战况</h2>
         <div style="background: linear-gradient(135deg, #f0f7ff 0%, #e6f0fa 100%); border-radius: 12px; padding: 1.5rem; margin: 0.75rem 0;">
           <p style="font-size: 1.6rem; font-weight: 700; margin: 0 0 0.5rem;">
-            {trendEmoji} <strong>Google 首页关键词数 (Top 10)：{kwInTop10} 个</strong>
+            {trend.emoji} <strong>Google 首页关键词数 (Top 10)：{kwInTop10} 个</strong>
           </p>
           <p style="margin: 0.25rem 0;">
             Top 3：<strong>{kwInTop3}</strong> 个
             | Top 30：<strong>{kwTotal}</strong> 个
-            | 追踪词共计：<strong>{r.queries?.length ?? 0}</strong>
+            | 较昨日：<strong>{formatDelta(r.headline?.deltaTop10, " 个")}</strong>
           </p>
           <p style="margin: 0.25rem 0;">
-            今日趋势：<strong>{trendText}</strong>
+            今日趋势：<strong>{trend.text}</strong>
           </p>
           <hr style="margin: 0.75rem 0; border-color: rgba(0,0,0,0.1);" />
           <div style="display: flex; gap: 2rem; flex-wrap: wrap;">
-            <div><span style="color: #666;">总曝光</span><br/><strong style="font-size: 1.3rem;">{(r.totals.impressions ?? 0).toLocaleString()}</strong></div>
-            <div><span style="color: #666;">总点击</span><br/><strong style="font-size: 1.3rem;">{(r.totals.clicks ?? 0).toLocaleString()}</strong></div>
-            <div><span style="color: #666;">总 CTR</span><br/><strong style="font-size: 1.3rem;">{r.totals.ctr ?? "0"}%</strong></div>
+            <div><span style="color: #666;">总曝光</span><br/><strong style="font-size: 1.3rem;">{(r.totals.impressions ?? 0).toLocaleString()}</strong><br/><span style="color:#777; font-size:0.85rem;">{formatDelta(r.headline?.deltaImpressions)}</span></div>
+            <div><span style="color: #666;">总点击</span><br/><strong style="font-size: 1.3rem;">{(r.totals.clicks ?? 0).toLocaleString()}</strong><br/><span style="color:#777; font-size:0.85rem;">{formatDelta(r.headline?.deltaClicks)}</span></div>
+            <div><span style="color: #666;">总 CTR</span><br/><strong style="font-size: 1.3rem;">{r.totals.ctr ?? 0}%</strong><br/><span style="color:#777; font-size:0.85rem;">{formatDelta(r.headline?.deltaCtr, "%")}</span></div>
             <div><span style="color: #666;">近 7 天曝光</span><br/><strong style="font-size: 1.3rem;">{totalImp7d.toLocaleString()}</strong></div>
           </div>
         </div>
 
-        <!-- 📈 近7天趋势 -->
         {r.timeline && r.timeline.length > 0 ? (
           <>
             <h2 style="font-size: 1.4rem;">📈 近7天趋势</h2>
@@ -91,7 +99,7 @@ actions.push(`报告自动生成 & 站点构建`);
                       <td style="padding:0.5rem; border:1px solid #ddd;">{t.date}</td>
                       <td style="padding:0.5rem; border:1px solid #ddd; text-align:right;">{t.impressions.toLocaleString()}</td>
                       <td style="padding:0.5rem; border:1px solid #ddd; text-align:right;">{t.clicks.toLocaleString()}</td>
-                      <td style="padding:0.5rem; border:1px solid #ddd; text-align:right;">{t.impressions > 0 ? (t.clicks / t.impressions * 100).toFixed(1) : "0"}%</td>
+                      <td style="padding:0.5rem; border:1px solid #ddd; text-align:right;">{t.ctr}%</td>
                     </tr>
                   ))}
                 </tbody>
@@ -100,7 +108,6 @@ actions.push(`报告自动生成 & 站点构建`);
           </>
         ) : <p style="color:#888;">暂无趋势数据</p>}
 
-        <!-- 📋 关键词明细 -->
         <h2 style="font-size: 1.4rem;">📋 关键词明细</h2>
         <div style="overflow-x: auto;">
           <table style="width:100%; border-collapse: collapse; font-size:0.85rem;">
@@ -111,17 +118,19 @@ actions.push(`报告自动生成 & 站点构建`);
                 <th style="padding:0.4rem; border:1px solid #ddd; text-align:right;">曝光</th>
                 <th style="padding:0.4rem; border:1px solid #ddd; text-align:right;">点击</th>
                 <th style="padding:0.4rem; border:1px solid #ddd; text-align:right;">CTR</th>
+                <th style="padding:0.4rem; border:1px solid #ddd; text-align:center;">Δ排名</th>
                 <th style="padding:0.4rem; border:1px solid #ddd; text-align:center;">首页?</th>
               </tr>
             </thead>
             <tbody>
               {r.queries?.slice(0, 20).map(q => (
                 <tr style={q.position <= 10 ? "background: #f6fef6;" : ""}>
-                  <td style="padding:0.4rem; border:1px solid #ddd; text-align:center; font-weight:{q.position <= 3 ? 'bold' : 'normal'};">#{q.position}</td>
+                  <td style="padding:0.4rem; border:1px solid #ddd; text-align:center;">#{q.position}</td>
                   <td style="padding:0.4rem; border:1px solid #ddd;">{q.keyword}</td>
                   <td style="padding:0.4rem; border:1px solid #ddd; text-align:right;">{q.impressions.toLocaleString()}</td>
                   <td style="padding:0.4rem; border:1px solid #ddd; text-align:right;">{q.clicks.toLocaleString()}</td>
                   <td style="padding:0.4rem; border:1px solid #ddd; text-align:right; color:{q.ctr >= 5 ? '#2a6' : q.ctr >= 3 ? '#a80' : '#c44'};">{q.ctr}%</td>
+                  <td style="padding:0.4rem; border:1px solid #ddd; text-align:center;">{movementLabel(q)}</td>
                   <td style="padding:0.4rem; border:1px solid #ddd; text-align:center;">{q.position <= 10 ? "✅" : "❌"}</td>
                 </tr>
               ))}
@@ -130,72 +139,83 @@ actions.push(`报告自动生成 & 站点构建`);
         </div>
         {r.queries && r.queries.length > 20 ? <p style="color:#888; font-size:0.85rem;">仅显示 Top 20，共 {r.queries.length} 个追踪词</p> : null}
 
-        <!-- 📄 Top 落地页 -->
         {r.pages && r.pages.length > 0 ? (
           <>
             <h2 style="font-size: 1.4rem;">📄 Top 落地页</h2>
             <ol style="line-height: 1.8;">
               {r.pages.slice(0, 10).map(p => (
                 <li>
-                  <a href={p.page} style="text-decoration: none;">{p.page.replace(/^\/article\//, '').replace(/-/g, ' ')}</a>
-                  <span style="color:#888; font-size:0.85rem;"> — {p.impressions}次曝光, {p.clicks}次点击</span>
+                  <a href={p.page} style="text-decoration: none;">{p.page.replace(/^https:\/\/www\.macapphq\.com\/article\//, '').replace(/-/g, ' ')}</a>
+                  <span style="color:#888; font-size:0.85rem;"> — {p.impressions} 次曝光, {p.clicks} 次点击, Δ曝光 {formatDelta(p.deltaImpressions)}</span>
                 </li>
               ))}
             </ol>
           </>
         ) : null}
 
-        <!-- 🤖 GEO / AI 搜索战况 -->
         <h2 style="font-size: 1.4rem;">🤖 GEO / AI 搜索战况</h2>
         <div style="background: #f9f6ff; border-radius: 10px; padding: 1rem; border: 1px solid #e8e0f0;">
-          <p><strong>AI Overview 引用：</strong>暂未配置监测（需手动在 ChatGPT/Perplexity/Claude 中抽查目标查询）</p>
-          <p><strong>AI 引流量（GA4）：</strong>暂未配置 AI 来源渠道组（参见 §6.4 regex 配置）</p>
+          <p><strong>AI Overview 引用：</strong>当前仍需人工抽查目标词，暂未接入自动监测。</p>
+          <p><strong>AI 引流量（GA4）：</strong>取决于 GA4 AI 来源渠道组是否已配置。</p>
           <p style="color:#888; font-size:0.85rem; margin-bottom: 0;">
-            📌 建议本周完成两项配置：1) GA4 中建 AI 来源渠道组  2) 人工抽查 Top 5 关键词在 ChatGPT/Claude 中的表现
+            📌 如果这一块长期不变，优先处理下面的负责人待办，而不是继续在页面层改文案。
           </p>
         </div>
 
-        <!-- 📈 转化漏斗 -->
         <h2 style="font-size: 1.4rem;">📈 转化漏斗</h2>
         <div style="background: #fffef5; border-radius: 10px; padding: 1rem; border: 1px solid #f0ecc0;">
-          <p><strong>SEO 自然流量（GA4 organic）：</strong>需在 GA4 中查看</p>
-          <p><strong>CTA 点击 / 注册（utm_medium=organic）：</strong>需配置 CTA 目标页后再追踪</p>
+          <p><strong>SEO 自然流量（GA4 organic）：</strong>当前仍需在 GA4 中查看。</p>
+          <p><strong>CTA 点击 / 注册（utm_medium=organic）：</strong>取决于 CTA 目标页和事件埋点是否统一。</p>
           <p style="color:#888; font-size:0.85rem; margin-bottom: 0;">
-            📌 当前 CTA 指向「试试某工具」，无统一注册/购买页。建议确定 CTA 目标 URL。
+            📌 这块不再写死建议，状态直接交给下方待办和配置文件维护。
           </p>
         </div>
 
-        <!-- 🔧 今日动作 -->
         <h2 style="font-size: 1.4rem;">🔧 今日动作</h2>
-        <ul style="line-height: 1.8;">
-          {actions.map(a => <li>{a}</li>)}
-          {lowCtrKws.length > 0 ? <li>CTR 优化队列：{lowCtrKws.map(k => `${k.keyword}(CTR ${k.ctr}%)`).join('、')}</li> : null}
-          {nearTop10.length > 0 ? <li>冲首页队列：{nearTop10.map(k => `${k.keyword}(#${k.position})`).join('、')}</li> : null}
-        </ul>
+        {actions.length > 0 ? (
+          <div style="display:grid; gap:0.9rem;">
+            {actions.map(action => (
+              <section style="border:1px solid #e7e7e7; border-radius:12px; padding:1rem 1rem 0.9rem;">
+                <div style="font-weight:700; font-size:1rem;">{action.title}</div>
+                <div style="color:#555; margin-top:0.3rem; font-size:0.92rem;">{action.detail}</div>
+                {action.items && action.items.length > 0 ? (
+                  <ul style="margin:0.7rem 0 0; padding-left:1.2rem; color:#666; font-size:0.9rem;">
+                    {action.items.map(item => (
+                      <li>
+                        {item.keyword
+                          ? `${item.keyword} · #${item.position} · CTR ${item.ctr}% · Δ曝光 ${formatDelta(item.deltaImpressions)}`
+                          : `${item.page.split('/').pop()} · ${item.impressions} 曝光 · ${item.clicks} 点击`}
+                      </li>
+                    ))}
+                  </ul>
+                ) : null}
+              </section>
+            ))}
+          </div>
+        ) : <p style="color:#888;">暂无动作建议</p>}
 
-        <!-- 🚩 需要产品负责人处理的 -->
         <h2 style="font-size: 1.4rem;">🚩 需要产品负责人处理的</h2>
         <div style="background: #fff0f0; border-radius: 10px; padding: 1rem; border: 1px solid #fcc;">
-          <ul style="line-height: 1.8; margin: 0;">
-            <li><strong>DataForSEO 充值</strong> — 已注册待充值，补全 Volume/KD 数据</li>
-            <li><strong>Bing Webmaster Tools</strong> — 注册并提交 sitemap</li>
-            <li><strong>CTA 目标页</strong> — 确定统一的注册/购买落地页 URL</li>
-            <li><strong>GA4 AI 来源渠道组</strong> — 配置 §6.4 的 AI 来源 regex</li>
-            <li><strong>IndexNow Key 域名根目录确认</strong> — 确认 key 文件可访问</li>
-          </ul>
+          {ownerTodos.length > 0 ? (
+            <ul style="line-height: 1.8; margin: 0;">
+              {ownerTodos.map(todo => (
+                <li><strong>{todo.title}</strong> — {todo.detail}</li>
+              ))}
+            </ul>
+          ) : <p style="margin:0;">当前没有未完成的负责人待办。</p>}
         </div>
 
         <hr style="margin: 1.5rem 0;" />
         <p style="color: #999; font-size: 0.75rem;">
           数据来源：Google Search Console API（sc-domain:macapphq.com）<br/>
           自动生成：{r.generatedAt ?? "-"} | 周期：{r.period?.start ?? "-"} ~ {r.period?.end ?? "-"}<br/>
-          本页由 <code>scripts/generate-seo-report.js</code> + <code>scripts/gsc-agent.js</code> 驱动。
+          本页由 <code>scripts/generate-seo-report.js</code> 驱动，动作和负责人待办均来自报告 JSON。
         </p>
       </>
     ) : (
       <div style="background: #fff3cd; border-radius: 12px; padding: 2rem; text-align: center;">
         <h2>⏳ 报告尚未生成</h2>
-        <p>请运行 <code>node scripts/generate-seo-report.js</code> 生成首份报告，然后 <code>cd astro && npx astro build</code>。</p>
+        <p>请运行 <code>node scripts/generate-seo-report.js</code> 生成首份报告，然后重新部署。</p>
       </div>
     )}
 

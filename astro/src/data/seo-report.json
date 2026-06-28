@@ -1,18 +1,33 @@
 {
-  "generatedAt": "2026-06-26",
+  "generatedAt": "2026-06-26T00:00:00.000Z",
+  "generatedDate": "2026-06-26",
   "period": {
     "start": "2026-05-27",
     "end": "2026-06-26"
   },
+  "freshness": {
+    "sourceLagDays": 1,
+    "status": "stale"
+  },
   "headline": {
     "top10": 18,
     "top3": 2,
-    "totalKeywords": 20
+    "totalKeywords": 20,
+    "deltaTop10": null,
+    "deltaTop3": null,
+    "previousTop10": null,
+    "previousTop3": null,
+    "deltaImpressions": null,
+    "deltaClicks": null,
+    "deltaCtr": null
   },
   "totals": {
     "impressions": 2318,
     "clicks": 85,
-    "ctr": "3.7"
+    "ctr": 3.7,
+    "previousImpressions": null,
+    "previousClicks": null,
+    "previousCtr": null
   },
   "queries": [
     {
@@ -20,219 +35,607 @@
       "impressions": 401,
       "clicks": 20,
       "ctr": "5.0",
-      "position": 6
+      "position": 6,
+      "isTop10": true,
+      "wasTop10": false,
+      "previousPosition": null,
+      "previousImpressions": 0,
+      "previousCtr": null,
+      "deltaPosition": null,
+      "deltaImpressions": 0,
+      "deltaCtr": null
     },
     {
       "keyword": "dockdoor",
       "impressions": 679,
       "clicks": 11,
       "ctr": "1.6",
-      "position": 7
+      "position": 7,
+      "isTop10": true,
+      "wasTop10": false,
+      "previousPosition": null,
+      "previousImpressions": 0,
+      "previousCtr": null,
+      "deltaPosition": null,
+      "deltaImpressions": 0,
+      "deltaCtr": null
     },
     {
       "keyword": "vidhub windows 版",
       "impressions": 116,
       "clicks": 6,
       "ctr": "5.2",
-      "position": 3
+      "position": 3,
+      "isTop10": true,
+      "wasTop10": false,
+      "previousPosition": null,
+      "previousImpressions": 0,
+      "previousCtr": null,
+      "deltaPosition": null,
+      "deltaImpressions": 0,
+      "deltaCtr": null
     },
     {
       "keyword": "loop mac",
       "impressions": 29,
       "clicks": 5,
       "ctr": "17.2",
-      "position": 7
+      "position": 7,
+      "isTop10": true,
+      "wasTop10": false,
+      "previousPosition": null,
+      "previousImpressions": 0,
+      "previousCtr": null,
+      "deltaPosition": null,
+      "deltaImpressions": 0,
+      "deltaCtr": null
     },
     {
       "keyword": "omi录屏专家",
       "impressions": 70,
       "clicks": 5,
       "ctr": "7.1",
-      "position": 7
+      "position": 7,
+      "isTop10": true,
+      "wasTop10": false,
+      "previousPosition": null,
+      "previousImpressions": 0,
+      "previousCtr": null,
+      "deltaPosition": null,
+      "deltaImpressions": 0,
+      "deltaCtr": null
     },
     {
       "keyword": "demoget",
       "impressions": 58,
       "clicks": 4,
       "ctr": "6.9",
-      "position": 6
+      "position": 6,
+      "isTop10": true,
+      "wasTop10": false,
+      "previousPosition": null,
+      "previousImpressions": 0,
+      "previousCtr": null,
+      "deltaPosition": null,
+      "deltaImpressions": 0,
+      "deltaCtr": null
     },
     {
       "keyword": "gstack 最 佳 实践",
       "impressions": 14,
       "clicks": 4,
       "ctr": "28.6",
-      "position": 8
+      "position": 8,
+      "isTop10": true,
+      "wasTop10": false,
+      "previousPosition": null,
+      "previousImpressions": 0,
+      "previousCtr": null,
+      "deltaPosition": null,
+      "deltaImpressions": 0,
+      "deltaCtr": null
     },
     {
       "keyword": "微信输入法 mac",
       "impressions": 361,
       "clicks": 4,
       "ctr": "1.1",
-      "position": 6
+      "position": 6,
+      "isTop10": true,
+      "wasTop10": false,
+      "previousPosition": null,
+      "previousImpressions": 0,
+      "previousCtr": null,
+      "deltaPosition": null,
+      "deltaImpressions": 0,
+      "deltaCtr": null
     },
     {
       "keyword": "桌面整理大师",
       "impressions": 56,
       "clicks": 4,
       "ctr": "7.1",
-      "position": 5
+      "position": 5,
+      "isTop10": true,
+      "wasTop10": false,
+      "previousPosition": null,
+      "previousImpressions": 0,
+      "previousCtr": null,
+      "deltaPosition": null,
+      "deltaImpressions": 0,
+      "deltaCtr": null
     },
     {
       "keyword": "barbee",
       "impressions": 46,
       "clicks": 2,
       "ctr": "4.3",
-      "position": 11
+      "position": 11,
+      "isTop10": false,
+      "wasTop10": false,
+      "previousPosition": null,
+      "previousImpressions": 0,
+      "previousCtr": null,
+      "deltaPosition": null,
+      "deltaImpressions": 0,
+      "deltaCtr": null
     },
     {
       "keyword": "mac 桌面整理",
       "impressions": 8,
       "clicks": 2,
       "ctr": "25.0",
-      "position": 8
+      "position": 8,
+      "isTop10": true,
+      "wasTop10": false,
+      "previousPosition": null,
+      "previousImpressions": 0,
+      "previousCtr": null,
+      "deltaPosition": null,
+      "deltaImpressions": 0,
+      "deltaCtr": null
     },
     {
       "keyword": "pixpin mac",
       "impressions": 46,
       "clicks": 2,
       "ctr": "4.3",
-      "position": 6
+      "position": 6,
+      "isTop10": true,
+      "wasTop10": false,
+      "previousPosition": null,
+      "previousImpressions": 0,
+      "previousCtr": null,
+      "deltaPosition": null,
+      "deltaImpressions": 0,
+      "deltaCtr": null
     },
     {
       "keyword": "pronotes",
       "impressions": 39,
       "clicks": 2,
       "ctr": "5.1",
-      "position": 7
+      "position": 7,
+      "isTop10": true,
+      "wasTop10": false,
+      "previousPosition": null,
+      "previousImpressions": 0,
+      "previousCtr": null,
+      "deltaPosition": null,
+      "deltaImpressions": 0,
+      "deltaCtr": null
     },
     {
       "keyword": "quickrec",
       "impressions": 84,
       "clicks": 2,
       "ctr": "2.4",
-      "position": 7
+      "position": 7,
+      "isTop10": true,
+      "wasTop10": false,
+      "previousPosition": null,
+      "previousImpressions": 0,
+      "previousCtr": null,
+      "deltaPosition": null,
+      "deltaImpressions": 0,
+      "deltaCtr": null
     },
     {
       "keyword": "tempbox waseem",
       "impressions": 3,
       "clicks": 2,
       "ctr": "66.7",
-      "position": 30
+      "position": 30,
+      "isTop10": false,
+      "wasTop10": false,
+      "previousPosition": null,
+      "previousImpressions": 0,
+      "previousCtr": null,
+      "deltaPosition": null,
+      "deltaImpressions": 0,
+      "deltaCtr": null
     },
     {
       "keyword": "vibe island 是 什么",
       "impressions": 11,
       "clicks": 2,
       "ctr": "18.2",
-      "position": 2
+      "position": 2,
+      "isTop10": true,
+      "wasTop10": false,
+      "previousPosition": null,
+      "previousImpressions": 0,
+      "previousCtr": null,
+      "deltaPosition": null,
+      "deltaImpressions": 0,
+      "deltaCtr": null
     },
     {
       "keyword": "vibeisland",
       "impressions": 90,
       "clicks": 2,
       "ctr": "2.2",
-      "position": 4
+      "position": 4,
+      "isTop10": true,
+      "wasTop10": false,
+      "previousPosition": null,
+      "previousImpressions": 0,
+      "previousCtr": null,
+      "deltaPosition": null,
+      "deltaImpressions": 0,
+      "deltaCtr": null
     },
     {
       "keyword": "vidhub windows 下载",
       "impressions": 102,
       "clicks": 2,
       "ctr": "2.0",
-      "position": 5
+      "position": 5,
+      "isTop10": true,
+      "wasTop10": false,
+      "previousPosition": null,
+      "previousImpressions": 0,
+      "previousCtr": null,
+      "deltaPosition": null,
+      "deltaImpressions": 0,
+      "deltaCtr": null
     },
     {
       "keyword": "vidhub 电脑 版",
       "impressions": 38,
       "clicks": 2,
       "ctr": "5.3",
-      "position": 4
+      "position": 4,
+      "isTop10": true,
+      "wasTop10": false,
+      "previousPosition": null,
+      "previousImpressions": 0,
+      "previousCtr": null,
+      "deltaPosition": null,
+      "deltaImpressions": 0,
+      "deltaCtr": null
     },
     {
       "keyword": "微信输入法mac",
       "impressions": 67,
       "clicks": 2,
       "ctr": "3.0",
-      "position": 6
+      "position": 6,
+      "isTop10": true,
+      "wasTop10": false,
+      "previousPosition": null,
+      "previousImpressions": 0,
+      "previousCtr": null,
+      "deltaPosition": null,
+      "deltaImpressions": 0,
+      "deltaCtr": null
     }
   ],
   "pages": [
     {
       "page": "https://www.macapphq.com/article/vidhub-v-1-7-8",
       "impressions": 1009,
-      "clicks": 45
+      "clicks": 45,
+      "ctr": 4.5,
+      "previousImpressions": 0,
+      "previousClicks": 0,
+      "deltaImpressions": 0,
+      "deltaClicks": 0
     },
     {
       "page": "https://www.macapphq.com/article/WeChat-Input-Method",
       "impressions": 2038,
-      "clicks": 25
+      "clicks": 25,
+      "ctr": 1.2,
+      "previousImpressions": 0,
+      "previousClicks": 0,
+      "deltaImpressions": 0,
+      "deltaClicks": 0
     },
     {
       "page": "https://www.macapphq.com/article/dockdoor",
       "impressions": 888,
-      "clicks": 16
+      "clicks": 16,
+      "ctr": 1.8,
+      "previousImpressions": 0,
+      "previousClicks": 0,
+      "deltaImpressions": 0,
+      "deltaClicks": 0
     },
     {
       "page": "https://www.macapphq.com/article/vibe-island-for-mac",
       "impressions": 764,
-      "clicks": 16
+      "clicks": 16,
+      "ctr": 2.1,
+      "previousImpressions": 0,
+      "previousClicks": 0,
+      "deltaImpressions": 0,
+      "deltaClicks": 0
     },
     {
       "page": "https://www.macapphq.com/article/mac-zhuomian-zhengli-dasui",
       "impressions": 364,
-      "clicks": 15
+      "clicks": 15,
+      "ctr": 4.1,
+      "previousImpressions": 0,
+      "previousClicks": 0,
+      "deltaImpressions": 0,
+      "deltaClicks": 0
     },
     {
       "page": "https://www.macapphq.com/article/pronotes",
       "impressions": 111,
-      "clicks": 11
+      "clicks": 11,
+      "ctr": 9.9,
+      "previousImpressions": 0,
+      "previousClicks": 0,
+      "deltaImpressions": 0,
+      "deltaClicks": 0
     },
     {
       "page": "https://www.macapphq.com/article/demoget",
       "impressions": 124,
-      "clicks": 10
+      "clicks": 10,
+      "ctr": 8.1,
+      "previousImpressions": 0,
+      "previousClicks": 0,
+      "deltaImpressions": 0,
+      "deltaClicks": 0
     },
     {
       "page": "https://www.macapphq.com/article/loop",
       "impressions": 184,
-      "clicks": 9
+      "clicks": 9,
+      "ctr": 4.9,
+      "previousImpressions": 0,
+      "previousClicks": 0,
+      "deltaImpressions": 0,
+      "deltaClicks": 0
     },
     {
       "page": "https://www.macapphq.com/article/barbee",
       "impressions": 93,
-      "clicks": 8
+      "clicks": 8,
+      "ctr": 8.6,
+      "previousImpressions": 0,
+      "previousClicks": 0,
+      "deltaImpressions": 0,
+      "deltaClicks": 0
     },
     {
       "page": "https://www.macapphq.com/article/omi",
       "impressions": 203,
-      "clicks": 8
+      "clicks": 8,
+      "ctr": 3.9,
+      "previousImpressions": 0,
+      "previousClicks": 0,
+      "deltaImpressions": 0,
+      "deltaClicks": 0
     }
   ],
   "timeline": [
     {
       "date": "2026-06-19",
       "impressions": 150,
-      "clicks": 7
+      "clicks": 7,
+      "ctr": 4.7
     },
     {
       "date": "2026-06-20",
       "impressions": 138,
-      "clicks": 5
+      "clicks": 5,
+      "ctr": 3.6
     },
     {
       "date": "2026-06-21",
       "impressions": 156,
-      "clicks": 4
+      "clicks": 4,
+      "ctr": 2.6
     },
     {
       "date": "2026-06-22",
       "impressions": 176,
-      "clicks": 4
+      "clicks": 4,
+      "ctr": 2.3
     },
     {
       "date": "2026-06-23",
       "impressions": 294,
-      "clicks": 7
+      "clicks": 7,
+      "ctr": 2.4
     }
-  ]
+  ],
+  "actions": [
+    {
+      "type": "ctr",
+      "title": "先改 CTR：dockdoor、微信输入法 mac、quickrec",
+      "detail": "这些词已经拿到曝光，但点击吃亏。先重写标题和 description，不要先急着扩内容。",
+      "items": [
+        {
+          "keyword": "dockdoor",
+          "impressions": 679,
+          "clicks": 11,
+          "ctr": "1.6",
+          "position": 7,
+          "isTop10": true,
+          "wasTop10": false,
+          "previousPosition": null,
+          "previousImpressions": 0,
+          "previousCtr": null,
+          "deltaPosition": null,
+          "deltaImpressions": 0,
+          "deltaCtr": null
+        },
+        {
+          "keyword": "微信输入法 mac",
+          "impressions": 361,
+          "clicks": 4,
+          "ctr": "1.1",
+          "position": 6,
+          "isTop10": true,
+          "wasTop10": false,
+          "previousPosition": null,
+          "previousImpressions": 0,
+          "previousCtr": null,
+          "deltaPosition": null,
+          "deltaImpressions": 0,
+          "deltaCtr": null
+        },
+        {
+          "keyword": "quickrec",
+          "impressions": 84,
+          "clicks": 2,
+          "ctr": "2.4",
+          "position": 7,
+          "isTop10": true,
+          "wasTop10": false,
+          "previousPosition": null,
+          "previousImpressions": 0,
+          "previousCtr": null,
+          "deltaPosition": null,
+          "deltaImpressions": 0,
+          "deltaCtr": null
+        },
+        {
+          "keyword": "vibeisland",
+          "impressions": 90,
+          "clicks": 2,
+          "ctr": "2.2",
+          "position": 4,
+          "isTop10": true,
+          "wasTop10": false,
+          "previousPosition": null,
+          "previousImpressions": 0,
+          "previousCtr": null,
+          "deltaPosition": null,
+          "deltaImpressions": 0,
+          "deltaCtr": null
+        },
+        {
+          "keyword": "vidhub windows 下载",
+          "impressions": 102,
+          "clicks": 2,
+          "ctr": "2.0",
+          "position": 5,
+          "isTop10": true,
+          "wasTop10": false,
+          "previousPosition": null,
+          "previousImpressions": 0,
+          "previousCtr": null,
+          "deltaPosition": null,
+          "deltaImpressions": 0,
+          "deltaCtr": null
+        }
+      ]
+    },
+    {
+      "type": "rank",
+      "title": "冲首页：barbee",
+      "detail": "这些词卡在 11-20 名，最适合用补内链、补对比段和更新截图去冲首页。",
+      "items": [
+        {
+          "keyword": "barbee",
+          "impressions": 46,
+          "clicks": 2,
+          "ctr": "4.3",
+          "position": 11,
+          "isTop10": false,
+          "wasTop10": false,
+          "previousPosition": null,
+          "previousImpressions": 0,
+          "previousCtr": null,
+          "deltaPosition": null,
+          "deltaImpressions": 0,
+          "deltaCtr": null
+        }
+      ]
+    },
+    {
+      "type": "page",
+      "title": "补强高曝光弱页面",
+      "detail": "先更新高曝光文章的开头摘要、标题承诺和站内推荐，避免曝光继续空转。",
+      "items": [
+        {
+          "page": "https://www.macapphq.com/article/vidhub-v-1-7-8",
+          "impressions": 1009,
+          "clicks": 45,
+          "ctr": 4.5,
+          "previousImpressions": 0,
+          "previousClicks": 0,
+          "deltaImpressions": 0,
+          "deltaClicks": 0
+        },
+        {
+          "page": "https://www.macapphq.com/article/WeChat-Input-Method",
+          "impressions": 2038,
+          "clicks": 25,
+          "ctr": 1.2,
+          "previousImpressions": 0,
+          "previousClicks": 0,
+          "deltaImpressions": 0,
+          "deltaClicks": 0
+        },
+        {
+          "page": "https://www.macapphq.com/article/dockdoor",
+          "impressions": 888,
+          "clicks": 16,
+          "ctr": 1.8,
+          "previousImpressions": 0,
+          "previousClicks": 0,
+          "deltaImpressions": 0,
+          "deltaClicks": 0
+        }
+      ]
+    }
+  ],
+  "ownerTodos": [
+    {
+      "key": "dataforseo",
+      "title": "DataForSEO 充值",
+      "detail": "补全关键词 Volume / KD / SERP 级别的数据来源。",
+      "done": false
+    },
+    {
+      "key": "bingWebmaster",
+      "title": "Bing Webmaster Tools",
+      "detail": "注册并提交 sitemap，至少把 Bing 侧索引和抓取错误补齐。",
+      "done": false
+    },
+    {
+      "key": "ctaTarget",
+      "title": "统一 CTA 目标页",
+      "detail": "把文章 CTA 收口到统一的注册、下载或购买落地页。",
+      "done": false
+    },
+    {
+      "key": "ga4AiChannel",
+      "title": "GA4 AI 来源渠道组",
+      "detail": "补 AI referrer regex，单独观察 ChatGPT / Perplexity / Claude 来源。",
+      "done": false
+    }
+  ],
+  "metadata": {
+    "site": "sc-domain:macapphq.com",
+    "configPath": "seo-report.config.json"
+  }
 }

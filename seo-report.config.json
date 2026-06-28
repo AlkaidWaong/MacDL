@@ -1,0 +1,29 @@
+{
+  "ownerChecklist": {
+    "dataforseo": {
+      "title": "DataForSEO 充值",
+      "detail": "补全关键词 Volume / KD / SERP 级别的数据来源。",
+      "done": false
+    },
+    "bingWebmaster": {
+      "title": "Bing Webmaster Tools",
+      "detail": "注册并提交 sitemap，至少把 Bing 侧索引和抓取错误补齐。",
+      "done": false
+    },
+    "ctaTarget": {
+      "title": "统一 CTA 目标页",
+      "detail": "把文章 CTA 收口到统一的注册、下载或购买落地页。",
+      "done": false
+    },
+    "ga4AiChannel": {
+      "title": "GA4 AI 来源渠道组",
+      "detail": "补 AI referrer regex，单独观察 ChatGPT / Perplexity / Claude 来源。",
+      "done": false
+    },
+    "indexNowKey": {
+      "title": "IndexNow Key 根目录确认",
+      "detail": "确认 key 文件可访问，并保持 GitHub Actions Secret 已配置。",
+      "done": true
+    }
+  }
+}

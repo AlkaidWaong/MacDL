@@ -14,6 +14,7 @@ on:
 jobs:
   submit:
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     if: github.event_name == 'workflow_dispatch' || github.event.before != '0000000000000000000000000000000000000000'
     defaults:
       run:
@@ -27,7 +28,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
 
       - name: Submit changed URLs to IndexNow
         env:
@@ -41,8 +42,4 @@ jobs:
           BASE_REF="${{ github.event.before }}"
           HEAD_REF="${{ github.sha }}"
 
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
-            npm run indexnow:changed
-          else
-            node scripts/indexnow.mjs --changed "$BASE_REF" "$HEAD_REF"
-          fi
+          node scripts/indexnow.mjs --changed "$BASE_REF" "$HEAD_REF"

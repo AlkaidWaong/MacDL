@@ -1,0 +1,51 @@
+name: SEO Report Daily
+
+on:
+  schedule:
+    - cron: "20 1 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Generate seo-report.json
+        env:
+          GSC_SERVICE_ACCOUNT_JSON: ${{ secrets.GSC_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -z "$GSC_SERVICE_ACCOUNT_JSON" ]; then
+            echo "Missing GSC_SERVICE_ACCOUNT_JSON secret"
+            exit 1
+          fi
+
+          node scripts/generate-seo-report.js
+
+      - name: Commit updated seo-report
+        run: |
+          if git diff --quiet -- astro/src/data/seo-report.json; then
+            echo "No seo-report changes"
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add astro/src/data/seo-report.json
+          git commit -m "chore: update seo-report
+
+Log:
+- 问题描述: SEO 日报数据未每日刷新
+- 复现路径: 打开 /seo-report 发现 generatedAt 停留旧日期，今日动作长期不变
+- 修复思路: 定时拉取 GSC 数据并提交最新 seo-report.json"
+          git push
