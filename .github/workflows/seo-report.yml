@@ -24,13 +24,15 @@ jobs:
       - name: Generate seo-report.json
         env:
           GSC_SERVICE_ACCOUNT_JSON: ${{ secrets.GSC_SERVICE_ACCOUNT_JSON }}
+          GSC_SERVICE_ACCOUNT_BASE64: ${{ secrets.GSC_SERVICE_ACCOUNT_BASE64 }}
         run: |
-          if [ -z "$GSC_SERVICE_ACCOUNT_JSON" ]; then
-            echo "Missing GSC_SERVICE_ACCOUNT_JSON secret"
+          if [ -z "$GSC_SERVICE_ACCOUNT_JSON" ] && [ -z "$GSC_SERVICE_ACCOUNT_BASE64" ]; then
+            echo "Missing GSC_SERVICE_ACCOUNT_JSON or GSC_SERVICE_ACCOUNT_BASE64 secret"
             exit 1
           fi
 
           node scripts/generate-seo-report.js
+          node -e 'const r=require("./astro/src/data/seo-report.json"); const age=Date.now()-Date.parse(r.generatedAt); if (!Number.isFinite(age) || age > 3600000) throw new Error("seo-report.json was not refreshed")'
 
       - name: Commit updated seo-report
         run: |
@@ -42,10 +44,6 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add astro/src/data/seo-report.json
-          git commit -m "chore: update seo-report
-
-Log:
-- 问题描述: SEO 日报数据未每日刷新
-- 复现路径: 打开 /seo-report 发现 generatedAt 停留旧日期，今日动作长期不变
-- 修复思路: 定时拉取 GSC 数据并提交最新 seo-report.json"
+          git commit -m "chore: update seo-report" \
+            -m "修复或实现思路：定时拉取 GSC 数据并提交最新 seo-report.json"
           git push

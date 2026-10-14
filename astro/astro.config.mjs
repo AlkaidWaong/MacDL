@@ -7,6 +7,7 @@ import sitemap from "@astrojs/sitemap";
 import yaml from "js-yaml";
 import remarkGfm from "remark-gfm";
 import rehypePrettyCode from "rehype-pretty-code";
+import { collectArticleLastmods, isSitemapPageAllowed } from "./src/lib/seo-foundation.mjs";
 
 const TAG_ALIAS_TO_CANONICAL = {
   ORC: "OCR",
@@ -72,6 +73,7 @@ function rehypeDemoteBodyH1() {
 }
 
 const { tagCount, categoryCount } = collectTaxonomyCounts();
+const articleLastmods = collectArticleLastmods(path.join(process.cwd(), "src/content/posts"));
 const noindexTagPaths = new Set(
   [...tagCount.entries()]
     .filter(([, count]) => count < MIN_INDEXABLE_TAG_POSTS)
@@ -105,16 +107,12 @@ export default defineConfig({
     mdx(),
     sitemap({
       filter(page) {
-        const pathname = new URL(page).pathname.replace(/\/$/, "") || "/";
-        if (pathname === "/search" || pathname === "/archive" || pathname === "/tag") return false;
-        if (pathname === "/thanks" || pathname === "/links") return false;
-        if (pathname.startsWith("/en/")) return false;
-        if (/^\/category\/page\/\d+$/.test(pathname)) return false;
-        if (/^\/tag\/.+\/page\/\d+$/.test(pathname)) return false;
-        if (/^\/category\/.+\/page\/\d+$/.test(pathname)) return false;
-        if (noindexTagPaths.has(pathname)) return false;
-        if (noindexCategoryPaths.has(pathname)) return false;
-        return true;
+        return isSitemapPageAllowed(page, noindexTagPaths, noindexCategoryPaths);
+      },
+      serialize(item) {
+        const pathname = new URL(item.url).pathname.replace(/\/$/, "") || "/";
+        const lastmod = articleLastmods.get(pathname);
+        return lastmod ? { ...item, lastmod } : item;
       }
     })
   ]

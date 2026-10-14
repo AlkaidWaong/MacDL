@@ -40,7 +40,7 @@ const trend = getTrend(r.headline);
 const totalImp7d = r.timeline?.reduce((a, d) => a + d.impressions, 0) ?? 0;
 ---
 
-<BaseLayout title={`SEO 日报 | MacAppHQ`} description="Google Search Console 搜索数据日报" canonical={`https://www.macapphq.com/seo-report`}>
+<BaseLayout title={`SEO 日报 | MacAppHQ`} description="Google Search Console 搜索数据日报" canonical={`https://www.macapphq.com/seo-report`} robots="noindex,nofollow">
   <article style="max-width: 960px; margin: 0 auto; padding: 2rem 1rem; line-height: 1.7; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">
     <h1 style="font-size: 1.8rem; margin-bottom: 0.25rem;">MacAppHQ SEO 日报 — {generatedDateLabel}</h1>
     <p style="color: #888; margin-top: 0; font-size: 0.9rem;">

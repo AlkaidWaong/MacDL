@@ -1,7 +1,9 @@
 ---
 import { getCollection, render } from "astro:content";
+import { fileURLToPath } from "node:url";
 import ArticleLayout from "../../layouts/ArticleLayout.astro";
 import { pickFirstBodyImage, toAbsoluteUrl } from "../../lib/cover";
+import { getPublicImageMetadata } from "../../lib/seo-foundation.mjs";
 import { normalizeTag } from "../../lib/tags";
 
 export async function getStaticPaths() {
@@ -23,6 +25,12 @@ const heroSrc =
   pickFirstBodyImage(body) ||
   "";
 const socialSrc = post.data.socialImage?.trim() || heroSrc;
+const heroMetadata = heroSrc
+  ? await getPublicImageMetadata(
+      heroSrc,
+      fileURLToPath(new URL("../../../public/", import.meta.url))
+    )
+  : undefined;
 const ogImage = socialSrc ? toAbsoluteUrl(socialSrc, site) : undefined;
 const categories = post.data.categories ?? [];
 const category = categories[0];
@@ -160,6 +168,8 @@ const faqSchema = post.data.faqs?.length
   image={ogImage}
   structuredData={[articleSchema, breadcrumbSchema, faqSchema].filter(Boolean)}
   heroImage={heroSrc || undefined}
+  heroWidth={heroMetadata?.width}
+  heroHeight={heroMetadata?.height}
   breadcrumbs={breadcrumbLinks}
   topicHubs={topicHubs}
   relatedPosts={relatedPosts}
