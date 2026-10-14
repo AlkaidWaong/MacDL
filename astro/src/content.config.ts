@@ -41,6 +41,7 @@ const pages = defineCollection({
     urlSlug: z.string().min(1),
     title: z.string().min(1),
     description: z.string().optional(),
+    updatedAt: z.coerce.date().optional(),
     noindex: z.boolean().optional(),
     aliases: z.array(z.string().min(1)).optional(),
     draft: z.boolean().optional()

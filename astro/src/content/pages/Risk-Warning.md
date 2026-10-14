@@ -2,6 +2,7 @@
 urlSlug: "Risk-Warning"
 title: "风险提示"
 description: "了解下载和使用第三方 Mac 软件时的安全、隐私、系统稳定性与法律风险。"
+updatedAt: "2026-10-14"
 aliases: []
 draft: false
 ---

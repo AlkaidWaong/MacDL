@@ -45,6 +45,60 @@ export function collectArticleLastmods(postsDir) {
   return lastmods;
 }
 
+export function collectSitemapLastmods(postsDir, pagesDir, normalizeTag = (tag) => tag) {
+  const lastmods = new Map();
+
+  const updateLatest = (pathname, date) => {
+    const current = lastmods.get(pathname);
+    if (!current || date > current) lastmods.set(pathname, date);
+  };
+
+  for (const file of fs.readdirSync(postsDir)) {
+    if (!file.endsWith(".md")) continue;
+    const raw = fs.readFileSync(path.join(postsDir, file), "utf8");
+    const match = raw.match(/^---\n([\s\S]*?)\n---/);
+    if (!match) continue;
+
+    const data = yaml.load(match[1]) ?? {};
+    if (data.draft || !data.urlSlug) continue;
+
+    const lastmod = new Date(data.updatedAt ?? data.date);
+    if (Number.isNaN(lastmod.getTime())) continue;
+
+    updateLatest(`/article/${String(data.urlSlug)}`, lastmod);
+    updateLatest("/", lastmod);
+    updateLatest("/category", lastmod);
+
+    for (const category of data.categories ?? []) {
+      updateLatest(`/category/${String(category)}`, lastmod);
+    }
+
+    for (const tag of data.tags ?? []) {
+      updateLatest(`/tag/${normalizeTag(String(tag))}`, lastmod);
+    }
+  }
+
+  for (const file of fs.readdirSync(pagesDir)) {
+    if (!file.endsWith(".md")) continue;
+    const raw = fs.readFileSync(path.join(pagesDir, file), "utf8");
+    const match = raw.match(/^---\n([\s\S]*?)\n---/);
+    if (!match) continue;
+
+    const data = yaml.load(match[1]) ?? {};
+    if (data.draft || !data.urlSlug || !data.updatedAt) continue;
+
+    const lastmod = new Date(data.updatedAt);
+    if (!Number.isNaN(lastmod.getTime())) updateLatest(`/${String(data.urlSlug)}`, lastmod);
+  }
+
+  return lastmods;
+}
+
+export function getSitemapLastmod(page, lastmods) {
+  const pathname = new URL(page).pathname.replace(/\/$/, "") || "/";
+  return lastmods.get(decodeURIComponent(pathname));
+}
+
 export async function getPublicImageMetadata(src, publicDir) {
   if (!src?.startsWith("/") || src.startsWith("//")) return undefined;
 

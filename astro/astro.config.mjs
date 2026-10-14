@@ -9,7 +9,8 @@ import remarkGfm from "remark-gfm";
 import rehypePrettyCode from "rehype-pretty-code";
 import {
   applyPublicImageAttributes,
-  collectArticleLastmods,
+  collectSitemapLastmods,
+  getSitemapLastmod,
   isSitemapPageAllowed
 } from "./src/lib/seo-foundation.mjs";
 
@@ -82,7 +83,11 @@ function rehypeOptimizePublicImages() {
 }
 
 const { tagCount, categoryCount } = collectTaxonomyCounts();
-const articleLastmods = collectArticleLastmods(path.join(process.cwd(), "src/content/posts"));
+const sitemapLastmods = collectSitemapLastmods(
+  path.join(process.cwd(), "src/content/posts"),
+  path.join(process.cwd(), "src/content/pages"),
+  normalizeTag
+);
 const noindexTagPaths = new Set(
   [...tagCount.entries()]
     .filter(([, count]) => count < MIN_INDEXABLE_TAG_POSTS)
@@ -120,8 +125,7 @@ export default defineConfig({
         return isSitemapPageAllowed(page, noindexTagPaths, noindexCategoryPaths);
       },
       serialize(item) {
-        const pathname = new URL(item.url).pathname.replace(/\/$/, "") || "/";
-        const lastmod = articleLastmods.get(pathname);
+        const lastmod = getSitemapLastmod(item.url, sitemapLastmods);
         return lastmod ? { ...item, lastmod } : item;
       }
     })

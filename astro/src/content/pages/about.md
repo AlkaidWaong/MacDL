@@ -2,6 +2,7 @@
 urlSlug: "about"
 title: "关于 MacAppHQ"
 description: "我们如何筛选 Mac 软件、为什么值得读、以及如何和我们合作。"
+updatedAt: "2026-06-23"
 aliases: []
 draft: false
 ---

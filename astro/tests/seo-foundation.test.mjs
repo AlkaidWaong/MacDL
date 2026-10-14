@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 import fs from "node:fs";
+import os from "node:os";
 import path from "node:path";
 import test from "node:test";
 
@@ -22,6 +23,81 @@ test("article sitemap dates prefer updatedAt", () => {
   assert.equal(
     lastmods.get("/article/betterstage-for-mac")?.toISOString().slice(0, 10),
     "2026-09-10"
+  );
+});
+
+test("sitemap dates cover articles, hubs, taxonomies, and static pages", () => {
+  assert.equal(typeof seoFoundation.collectSitemapLastmods, "function");
+
+  const fixtureRoot = fs.mkdtempSync(path.join(os.tmpdir(), "macapphq-sitemap-"));
+  const postsDir = path.join(fixtureRoot, "posts");
+  const pagesDir = path.join(fixtureRoot, "pages");
+  fs.mkdirSync(postsDir);
+  fs.mkdirSync(pagesDir);
+
+  fs.writeFileSync(path.join(postsDir, "one.md"), `---
+urlSlug: "App-Cleaner-&-Uninstaller"
+title: "One"
+date: "2026-01-01"
+updatedAt: "2026-02-03"
+categories: ["效率工具"]
+tags: ["Markdown"]
+---
+`);
+  fs.writeFileSync(path.join(postsDir, "two.md"), `---
+urlSlug: "two"
+title: "Two"
+date: "2026-03-04"
+categories: ["系统工具"]
+tags: ["工作流"]
+---
+`);
+  fs.writeFileSync(path.join(pagesDir, "about.md"), `---
+urlSlug: "about"
+title: "About"
+updatedAt: "2025-12-01"
+---
+`);
+
+  const lastmods = seoFoundation.collectSitemapLastmods(
+    postsDir,
+    pagesDir,
+    (tag) => tag === "Markdown" ? "Markdown编辑器" : tag
+  );
+
+  assert.equal(lastmods.get("/article/App-Cleaner-&-Uninstaller")?.toISOString(), "2026-02-03T00:00:00.000Z");
+  assert.equal(lastmods.get("/")?.toISOString(), "2026-03-04T00:00:00.000Z");
+  assert.equal(lastmods.get("/category")?.toISOString(), "2026-03-04T00:00:00.000Z");
+  assert.equal(lastmods.get("/category/效率工具")?.toISOString(), "2026-02-03T00:00:00.000Z");
+  assert.equal(lastmods.get("/tag/Markdown编辑器")?.toISOString(), "2026-02-03T00:00:00.000Z");
+  assert.equal(lastmods.get("/about")?.toISOString(), "2025-12-01T00:00:00.000Z");
+
+  fs.rmSync(fixtureRoot, { recursive: true, force: true });
+});
+
+test("sitemap URL lookup matches encoded and reserved path characters", () => {
+  assert.equal(typeof seoFoundation.getSitemapLastmod, "function");
+
+  const articleDate = new Date("2026-02-03T00:00:00.000Z");
+  const categoryDate = new Date("2026-03-04T00:00:00.000Z");
+  const lastmods = new Map([
+    ["/article/App-Cleaner-&-Uninstaller", articleDate],
+    ["/category/效率工具", categoryDate]
+  ]);
+
+  assert.equal(
+    seoFoundation.getSitemapLastmod(
+      "https://www.macapphq.com/article/App-Cleaner-%26-Uninstaller",
+      lastmods
+    ),
+    articleDate
+  );
+  assert.equal(
+    seoFoundation.getSitemapLastmod(
+      "https://www.macapphq.com/category/%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7",
+      lastmods
+    ),
+    categoryDate
   );
 });
 

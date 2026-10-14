@@ -2,6 +2,7 @@
 urlSlug: "privacy-policy"
 title: "隐私政策"
 description: "了解 MacAppHQ 如何处理访问日志、评论与其他可能涉及的个人信息。"
+updatedAt: "2026-10-14"
 aliases: []
 draft: false
 ---
