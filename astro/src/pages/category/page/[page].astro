@@ -75,8 +75,8 @@ const canonical = `https://www.macapphq.com/category/page/${page}`;
   </section>
 
   <section class="grid" aria-label="All category posts">
-    {posts.map((post) => (
-      <PostCard post={post} />
+    {posts.map((post, index) => (
+      <PostCard post={post} priority={index === 0} />
     ))}
   </section>
 

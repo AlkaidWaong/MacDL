@@ -1,6 +1,8 @@
 ---
 import type { CollectionEntry } from "astro:content";
+import path from "node:path";
 import { pickFirstBodyImage } from "../lib/cover";
+import { getPublicImageMetadata } from "../lib/seo-foundation.mjs";
 
 type Props = {
   post: CollectionEntry<"posts">;
@@ -9,6 +11,7 @@ type Props = {
   showBadge?: boolean;
   headingTag?: "h2" | "h3";
   compact?: boolean;
+  priority?: boolean;
 };
 
 const {
@@ -17,7 +20,8 @@ const {
   showMeta = true,
   showBadge = true,
   headingTag = "h2",
-  compact = false
+  compact = false,
+  priority = false
 } = Astro.props;
 const url = `/article/${post.data.urlSlug}`;
 const categories = post.data.categories ?? [];
@@ -32,13 +36,28 @@ const coverSrc =
   post.data.cover?.trim() ||
   pickFirstBodyImage(body) ||
   "";
+const coverMetadata = coverSrc
+  ? await getPublicImageMetadata(
+      coverSrc,
+      path.join(process.cwd(), "public")
+    )
+  : undefined;
 ---
 
 <article class:list={["card", "post-card", compact && "post-card--compact"]}>
   <a class="post-card__link" href={url} aria-label={title} style="text-decoration:none;">
     <div class:list={["post-card__media", coverSrc ? "has-img" : ""]} aria-hidden="true">
       {coverSrc ? (
-        <img class="post-card__img" src={coverSrc} alt="" loading="lazy" decoding="async" />
+        <img
+          class="post-card__img"
+          src={coverSrc}
+          alt=""
+          width={coverMetadata?.width}
+          height={coverMetadata?.height}
+          loading={priority ? "eager" : "lazy"}
+          fetchpriority={priority ? "high" : undefined}
+          decoding="async"
+        />
       ) : null}
       {showBadge && primary ? <div class="post-card__badge">{primary}</div> : null}
     </div>

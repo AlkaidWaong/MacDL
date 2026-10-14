@@ -7,7 +7,11 @@ import sitemap from "@astrojs/sitemap";
 import yaml from "js-yaml";
 import remarkGfm from "remark-gfm";
 import rehypePrettyCode from "rehype-pretty-code";
-import { collectArticleLastmods, isSitemapPageAllowed } from "./src/lib/seo-foundation.mjs";
+import {
+  applyPublicImageAttributes,
+  collectArticleLastmods,
+  isSitemapPageAllowed
+} from "./src/lib/seo-foundation.mjs";
 
 const TAG_ALIAS_TO_CANONICAL = {
   ORC: "OCR",
@@ -72,6 +76,11 @@ function rehypeDemoteBodyH1() {
   };
 }
 
+function rehypeOptimizePublicImages() {
+  const publicDir = path.join(process.cwd(), "public");
+  return (tree) => applyPublicImageAttributes(tree, publicDir);
+}
+
 const { tagCount, categoryCount } = collectTaxonomyCounts();
 const articleLastmods = collectArticleLastmods(path.join(process.cwd(), "src/content/posts"));
 const noindexTagPaths = new Set(
@@ -93,6 +102,7 @@ export default defineConfig({
       remarkPlugins: [remarkGfm],
       rehypePlugins: [
         rehypeDemoteBodyH1,
+        rehypeOptimizePublicImages,
         [
           rehypePrettyCode,
           {

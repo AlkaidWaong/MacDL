@@ -111,8 +111,8 @@ const collectionSchema = {
   </section>
 
   <section class="grid" aria-label="Tag posts">
-    {pagePosts.map((post) => (
-      <PostCard post={post} />
+    {pagePosts.map((post, index) => (
+      <PostCard post={post} priority={index === 0} />
     ))}
   </section>
 

@@ -60,3 +60,26 @@ export async function getPublicImageMetadata(src, publicDir) {
     return undefined;
   }
 }
+
+export async function applyPublicImageAttributes(tree, publicDir) {
+  const images = [];
+
+  const visit = (node) => {
+    if (!node || typeof node !== "object") return;
+    if (node.type === "element" && node.tagName === "img") images.push(node);
+    if (Array.isArray(node.children)) node.children.forEach(visit);
+  };
+
+  visit(tree);
+
+  await Promise.all(images.map(async (image) => {
+    image.properties ??= {};
+    image.properties.loading ??= "lazy";
+    image.properties.decoding ??= "async";
+
+    const metadata = await getPublicImageMetadata(image.properties.src, publicDir);
+    if (!metadata) return;
+    image.properties.width ??= metadata.width;
+    image.properties.height ??= metadata.height;
+  }));
+}

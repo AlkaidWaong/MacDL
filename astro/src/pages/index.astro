@@ -93,7 +93,7 @@ const homeCollectionSchema = {
         <div class="featured-main">
           {featured.slice(0, 4).map((post, index) => (
             <div class={`featured-main__item featured-main__item--${index + 1}`}>
-              <PostCard post={post} showDescription={true} showMeta={false} showBadge={false} headingTag="h3" />
+              <PostCard post={post} showDescription={true} showMeta={false} showBadge={false} headingTag="h3" priority={index === 0} />
             </div>
           ))}
         </div>
@@ -115,7 +115,7 @@ const homeCollectionSchema = {
               <article class="card post-card topic-card topic-card--compact">
                 <a class="post-card__link" href={entry.href} aria-label={entry.title} style="text-decoration:none;">
                   <div class="post-card__media has-img" aria-hidden="true">
-                    <img class="post-card__img" src={entry.image} alt="" loading="lazy" decoding="async" />
+                    <img class="post-card__img" src={entry.image} alt="" width="1500" height="630" loading="lazy" decoding="async" />
                   </div>
                   <div class="post-card__body">
                     <h3 class="post-card__title">{entry.title}</h3>

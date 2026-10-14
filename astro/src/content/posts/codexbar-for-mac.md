@@ -40,8 +40,6 @@ heroImage: "/media/codexbar/codexbar.png"
 - Claude 这周窗口是不是快到底了
 - Cursor / Gemini 哪个还能继续跑任务
 
-![](/media/codexbar/codexbar-providers.png)
-
 CodexBar（[GitHub](https://github.com/steipete/codexbar)）做的事情很朴素：
 把这些额度状态放进菜单栏，让你不用反复切网页、切终端去“猜”。
 
