@@ -90,7 +90,7 @@ const categoryTabs = Array.from(categoryCount.entries())
 
 const totalPages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
 const posts = filtered.slice(0, PAGE_SIZE);
-const featuredPosts = filtered.slice(0, 3);
+const continuePosts = filtered.slice(0, 3);
 const categoryTags = [...new Map(filtered
   .flatMap((post) => post.data.tags ?? [])
   .map((tag) => normalizeTag(tag))
@@ -147,20 +147,10 @@ const collectionSchema = {
   image={categoryOgImage || undefined}
   structuredData={[breadcrumbSchema, collectionSchema]}
 >
-  <div class="section-head">
-    <h1>{categoryName}</h1>
-    <p class="section-note">共 {filtered.length} 篇</p>
-  </div>
-
-  <section class="glass category-overview">
-    <div class="category-overview__intro">
-      <p>{copy.intro}</p>
-    </div>
-
+  <section class="glass category-overview category-overview--compact" aria-label="分类筛选">
     <div class="category-overview__topics">
       <div class="category-overview__head">
-        <p class="category-overview__label">按分类切换</p>
-        <p class="section-note">想回到全站内容流，就看“全部”；想继续细看，就留在当前分类。</p>
+        <p class="category-overview__label">分类</p>
       </div>
       <div class="topic-hub-pills category-tabs">
         <a class="pill" href="/category">全部 <span>({all.length})</span></a>
@@ -175,41 +165,12 @@ const collectionSchema = {
         ))}
       </div>
     </div>
-
-    {categoryTags.length ? (
-      <div class="category-overview__topics">
-        <div class="category-overview__head">
-          <p class="category-overview__label">常一起看的专题</p>
-          <p class="section-note">想继续往下筛，可以直接跳到更具体的专题页。</p>
-        </div>
-        <div class="topic-hub-pills">
-          {categoryTags.map((tag) => (
-            <a class="pill" href={`/tag/${encodeURIComponent(tag.name)}`}>
-              {tag.name} <span>({tag.count})</span>
-            </a>
-          ))}
-        </div>
-      </div>
-    ) : null}
-
-    {featuredPosts.length ? (
-      <div class="category-overview__featured">
-        <div class="category-overview__head">
-          <h2>先看这几篇，更容易建立判断</h2>
-          <p class="section-note">把它们当成起点文，更容易先分清问题和工具类型。</p>
-        </div>
-        <div class="search-results__list">
-          {featuredPosts.map((post) => (
-            <a class="search-result" href={`/article/${post.data.urlSlug}`}>
-              <div class="search-result__meta">{post.data.date.toISOString().slice(0, 10).replaceAll("-", ".")}</div>
-              <div class="search-result__title">{post.data.title}</div>
-              <p class="search-result__desc">{post.data.quickTake?.trim() || post.data.description?.trim() || "从这篇开始，更快判断这个分类下的工具是否适合你。"}</p>
-            </a>
-          ))}
-        </div>
-      </div>
-    ) : null}
   </section>
+
+  <div class="section-head category-detail-title">
+    <h1>{categoryName}</h1>
+    <p class="section-note">共 {filtered.length} 篇</p>
+  </div>
 
   <section class="grid" aria-label={`${categoryName}分类文章`}>
     {posts.map((post, index) => (
@@ -226,4 +187,44 @@ const collectionSchema = {
         : `/category/${encodeURIComponent(categoryName)}/page/${page}`
     }
   />
+
+  {continuePosts.length || categoryTags.length ? (
+    <section class="glass article-extension-block category-more-block" aria-label="继续浏览">
+      {continuePosts.length ? (
+        <div class="category-more-section">
+          <div class="article-extension-head">
+            <h2>继续阅读</h2>
+          </div>
+          <div class="category-continue-list">
+            {continuePosts.map((post) => (
+              <a class="article-related__item category-continue-item" href={`/article/${post.data.urlSlug}`}>
+                <div class="article-related__meta">
+                  <time datetime={post.data.date.toISOString()}>{post.data.date.toISOString().slice(0, 10).replaceAll("-", ".")}</time>
+                </div>
+                <h3>{post.data.title}</h3>
+                {post.data.quickTake?.trim() || post.data.description?.trim() ? (
+                  <p>{post.data.quickTake?.trim() || post.data.description?.trim()}</p>
+                ) : null}
+              </a>
+            ))}
+          </div>
+        </div>
+      ) : null}
+
+      {categoryTags.length ? (
+        <div class="category-more-section">
+          <div class="article-extension-head">
+            <h2>继续按专题看</h2>
+          </div>
+          <div class="topic-hub-pills">
+            {categoryTags.map((tag) => (
+              <a class="pill" href={`/tag/${encodeURIComponent(tag.name)}`}>
+                {tag.name} <span>({tag.count})</span>
+              </a>
+            ))}
+          </div>
+        </div>
+      ) : null}
+    </section>
+  ) : null}
 </BaseLayout>

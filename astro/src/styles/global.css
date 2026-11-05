@@ -938,16 +938,26 @@ a:hover {
   padding: 24px;
 }
 
-.category-overview__intro p {
-  margin: 0;
-  max-width: 52em;
-  color: rgba(15, 23, 42, 0.72);
-  font-size: 16px;
-  line-height: 1.75;
+.category-overview--compact {
+  margin-bottom: 20px;
+  padding: 16px 20px;
 }
 
-.category-overview__topics,
-.category-overview__featured {
+.category-detail-title {
+  margin: 0 0 8px;
+}
+
+.category-overview--compact .category-overview__topics {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: 0;
+}
+
+.category-overview--compact .category-overview__head {
+  margin-bottom: 12px;
+}
+
+.category-overview__topics {
   margin-top: 24px;
   padding-top: 24px;
   border-top: 1px solid rgba(15, 23, 42, 0.08);
@@ -1514,6 +1524,36 @@ a:hover {
   line-height: 1.65;
 }
 
+.article-extension-block.category-more-block {
+  margin-top: 32px;
+  margin-bottom: 48px;
+}
+
+.category-more-section + .category-more-section {
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+.category-continue-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.category-continue-item {
+  height: 100%;
+}
+
+.category-continue-item h3,
+.category-continue-item p {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+}
+
 @media (max-width: 720px) {
   .article-shell {
     margin-bottom: 36px;
@@ -1604,6 +1644,10 @@ a:hover {
 
   .category-featured-block {
     padding: 18px 16px 22px;
+  }
+
+  .category-continue-list {
+    grid-template-columns: 1fr;
   }
 
   
@@ -1881,8 +1925,7 @@ a:hover {
     padding: 20px 16px;
   }
 
-  .category-overview__topics,
-  .category-overview__featured {
+  .category-overview__topics {
     margin-top: 20px;
     padding-top: 20px;
   }
@@ -1895,6 +1938,22 @@ a:hover {
 
   .category-overview__head h2 {
     font-size: clamp(20px, 6vw, 24px);
+  }
+
+  .category-overview--compact .category-tabs {
+    flex-wrap: nowrap;
+    padding-bottom: 4px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .category-overview--compact .category-tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .category-overview--compact .category-tabs .pill {
+    flex: 0 0 auto;
   }
 
   .index-overview {

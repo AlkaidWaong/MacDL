@@ -81,19 +81,10 @@ const canonical = `https://www.macapphq.com/category/${encodeURIComponent(
   robots="noindex,follow"
   image={categoryOgImage || undefined}
 >
-  <div class="section-head">
-    <h1>{categoryName}</h1>
-    <p class="section-note">第 {page} / {totalPages} 页</p>
-  </div>
-
-  <section class="glass category-overview">
-    <div class="category-overview__intro">
-      <p>当前是 {categoryName} 分类的分页内容。如果你想回到全站内容流，或切到别的分类，可以直接在下面切换。</p>
-    </div>
+  <section class="glass category-overview category-overview--compact" aria-label="分类筛选">
     <div class="category-overview__topics">
       <div class="category-overview__head">
-        <p class="category-overview__label">按分类切换</p>
-        <p class="section-note">保持当前分类继续翻页，或者直接切到别的分类。</p>
+        <p class="category-overview__label">分类</p>
       </div>
       <div class="topic-hub-pills category-tabs">
         <a class="pill" href="/category">全部 <span>({all.length})</span></a>
@@ -108,6 +99,11 @@ const canonical = `https://www.macapphq.com/category/${encodeURIComponent(
       </div>
     </div>
   </section>
+
+  <div class="section-head category-detail-title">
+    <h1>{categoryName}</h1>
+    <p class="section-note">第 {page} / {totalPages} 页</p>
+  </div>
 
   <section class="grid" aria-label={`${categoryName}分类文章`}>
     {posts.map((post, index) => (
