@@ -70,6 +70,22 @@ const introLine = quickTake?.trim() || description?.trim();
         ))}
       </nav>
     ) : null}
+    <header class="article-header">
+      <h1>{title}</h1>
+      <div class="meta article-meta">
+        <span class="article-meta__date">
+          发布于 <time datetime={date.toISOString()}>{date.toISOString().slice(0, 10).replaceAll("-", ".")}</time>
+        </span>
+        {categories.map((c) => (
+          <a class="pill" href={`/category/${encodeURIComponent(c)}`}>{c}</a>
+        ))}
+      </div>
+    </header>
+    {introLine ? (
+      <section class="article-intro" aria-label="文章导语">
+        <p>{introLine}</p>
+      </section>
+    ) : null}
     {heroImage ? (
       <figure class="article-hero">
         <img
@@ -82,18 +98,6 @@ const introLine = quickTake?.trim() || description?.trim();
           decoding="async"
         />
       </figure>
-    ) : null}
-    <h1>{title}</h1>
-    <div class="meta article-meta">
-      <time datetime={date.toISOString()}>{date.toISOString().slice(0, 10)}</time>
-      {categories.map((c) => (
-        <a class="pill" href={`/category/${encodeURIComponent(c)}`}>{c}</a>
-      ))}
-    </div>
-    {introLine ? (
-      <section class="article-intro" aria-label="文章导语">
-        <p>{introLine}</p>
-      </section>
     ) : null}
     <article class="article-prose">
       <slot />
@@ -145,7 +149,7 @@ const introLine = quickTake?.trim() || description?.trim();
             <a class="article-related__item" href={post.url}>
               <div class="article-related__meta">
                 {post.category ? <span>{post.category}</span> : null}
-                <time datetime={post.date}>{post.date.slice(0, 10)}</time>
+                <time datetime={post.date}>{post.date.slice(0, 10).replaceAll("-", ".")}</time>
               </div>
               <h3>{post.title}</h3>
               {post.note ? <p>{post.note}</p> : null}

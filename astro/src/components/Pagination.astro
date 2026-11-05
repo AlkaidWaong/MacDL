@@ -10,7 +10,7 @@ const prev = current > 1 ? hrefFor(current - 1) : null;
 const next = current < total ? hrefFor(current + 1) : null;
 ---
 
-<nav class="pager" aria-label="Pagination">
+<nav class="pager" aria-label="分页导航">
   <div>
     {prev ? <a class="pill" href={prev}>← 上一页</a> : <span></span>}
   </div>

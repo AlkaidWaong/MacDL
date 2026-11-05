@@ -85,17 +85,22 @@ const homeCollectionSchema = {
 >
   {featured.length ? (
     <>
-      <div class="section-head section-head--stack-sm">
-        <h2>先从这里开始看</h2>
-        <p class="section-note">左边 4 篇更适合先建立判断，右边 3 个入口再帮你按场景继续往下找。</p>
-      </div>
-      <section class="featured-grid" aria-label="Featured Posts">
+      <section class="featured-grid" aria-label="精选文章">
         <div class="featured-main">
-          {featured.slice(0, 4).map((post, index) => (
-            <div class={`featured-main__item featured-main__item--${index + 1}`}>
-              <PostCard post={post} showDescription={true} showMeta={false} showBadge={false} headingTag="h3" priority={index === 0} />
-            </div>
-          ))}
+          <div class="featured-main__row">
+            {featured.slice(0, 2).map((post, index) => (
+              <div class={`featured-main__item featured-main__item--${index + 1}`}>
+                <PostCard post={post} showDescription={true} showMeta={false} showBadge={false} headingTag="h3" priority={index === 0} />
+              </div>
+            ))}
+          </div>
+          <div class="featured-main__row">
+            {featured.slice(2, 4).map((post, index) => (
+              <div class={`featured-main__item featured-main__item--${index + 3}`}>
+                <PostCard post={post} showDescription={true} showMeta={false} showBadge={false} headingTag="h3" />
+              </div>
+            ))}
+          </div>
         </div>
         <div class="featured-side">
           <div class="featured-side__top">
@@ -130,10 +135,30 @@ const homeCollectionSchema = {
     </>
   ) : null}
 
+  <div class="section-head">
+    <h2>最新更新</h2>
+    <div class="section-head__actions">
+      <a class="section-more" href="/archive">
+        全部文章
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M5 12h14"></path>
+          <path d="m12 5 7 7-7 7"></path>
+        </svg>
+      </a>
+    </div>
+  </div>
+  <section class="grid" aria-label="最新文章">
+    {recentPosts.map((post) => (
+      <PostCard post={post} />
+    ))}
+  </section>
+  <div class="section-cta">
+    <a class="section-cta__button" href="/category">查看全部</a>
+  </div>
+
   <section class="glass category-featured-block" aria-label="Priority reads">
     <div class="section-head">
       <h2>如果你第一次来，先看这几篇</h2>
-      <p class="section-note">这几篇更容易先看出工具到底解决什么问题，也能更快判断值不值得装。</p>
     </div>
     <div class="search-results__list">
       {priorityReads.map((item) => (
@@ -145,20 +170,4 @@ const homeCollectionSchema = {
       ))}
     </div>
   </section>
-
-  <div class="section-head">
-    <h2>最新更新</h2>
-    <div class="section-head__actions">
-      <p class="section-note">先看最近更新的 12 篇；如果你想系统翻，可以再进归档继续找。</p>
-      <a class="section-more" href="/archive">查看全部更新</a>
-    </div>
-  </div>
-  <section class="grid" aria-label="Recent posts">
-    {recentPosts.map((post) => (
-      <PostCard post={post} />
-    ))}
-  </section>
-  <div class="section-cta">
-    <a class="section-cta__button" href="/category">查看全部</a>
-  </div>
 </BaseLayout>

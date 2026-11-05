@@ -13,34 +13,86 @@ for (const p of posts) {
   groups.get(y).push(p);
 }
 const years = Array.from(groups.keys()).sort((a, b) => Number(b) - Number(a));
+const yearRange =
+  years.length > 0 ? `${years[years.length - 1]}—${years[0]}` : "";
 const canonical = "https://www.macapphq.com/archive";
 ---
 
 <BaseLayout
-  title="归档 | MacAppHQ"
-  description="按时间浏览站内文章归档。"
+  title="文章归档 | MacAppHQ"
+  description="按发布时间浏览 MacAppHQ 的全部文章，按年份快速定位 Mac 软件评测、工具推荐和工作流内容。"
   canonical={canonical}
   robots="noindex,follow"
 >
-  <h1 class="sr-only">归档</h1>
+  <div class="archive-page">
+    <div class="section-head archive-page__head" id="archive-top">
+      <h1>文章归档</h1>
+      <p class="section-note">共 {posts.length} 篇 · {yearRange} · 按发布时间从新到旧</p>
+    </div>
 
-  <section class="glass content" style="margin: 16px 0 36px;">
-    {years.map((y) => (
-      <div style="margin: 18px 0 22px;">
-        <h2 style="margin: 0 0 10px;">{y}</h2>
-        <div class="meta" style="flex-direction: column; gap: 6px;">
-          {groups.get(y).map((p) => (
-            <a href={`/article/${p.data.urlSlug}`} style="text-decoration: none;">
-              <span style="font-family: var(--serif); color: rgba(17,16,21,.88);">
-                {p.data.title}
-              </span>
-              <span style="margin-left: 10px; color: var(--muted); font-size: 13px;">
-                {p.data.date.toISOString().slice(0, 10)}
-              </span>
+    {years.length > 0 ? (
+      <section class="glass index-overview index-overview--plain archive-overview" aria-label="按年份浏览">
+        <div class="index-overview__head">
+          <p class="index-overview__label">按年份浏览</p>
+          <p class="section-note">选择年份，直接跳到对应的时间段</p>
+        </div>
+        <nav class="index-overview__pills" aria-label="归档年份">
+          {years.map((year) => (
+            <a class="pill" href={`#year-${year}`}>
+              {year} <span>({groups.get(year)?.length ?? 0})</span>
             </a>
           ))}
-        </div>
-      </div>
-    ))}
-  </section>
+        </nav>
+      </section>
+    ) : null}
+
+    <div class="archive-timeline">
+      {years.map((year) => {
+        const yearPosts = groups.get(year) ?? [];
+        return (
+          <section class="archive-year" id={`year-${year}`}>
+            <div class="archive-year__head">
+              <div class="archive-year__title">
+                <h2>{year}</h2>
+                <span>{yearPosts.length} 篇</span>
+              </div>
+              <a class="archive-year__top" href="#archive-top">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="m18 15-6-6-6 6"></path>
+                </svg>
+                回到顶部
+              </a>
+            </div>
+
+            <ol class="glass archive-list">
+              {yearPosts.map((post) => {
+                const category = post.data.categories?.[0];
+                return (
+                  <li>
+                    <a class="archive-item" href={`/article/${post.data.urlSlug}`}>
+                      <time class="archive-item__date" datetime={post.data.date.toISOString().slice(0, 10)}>
+                        {post.data.date.toISOString().slice(5, 10).replace("-", ".")}
+                      </time>
+                      <span class="archive-item__body">
+                        <span class="archive-item__title">{post.data.title}</span>
+                        {category ? (
+                          <span class="archive-item__meta">
+                            <span class="archive-item__category">{category}</span>
+                          </span>
+                        ) : null}
+                      </span>
+                      <svg class="archive-item__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M5 12h14"></path>
+                        <path d="m12 5 7 7-7 7"></path>
+                      </svg>
+                    </a>
+                  </li>
+                );
+              })}
+            </ol>
+          </section>
+        );
+      })}
+    </div>
+  </div>
 </BaseLayout>

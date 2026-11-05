@@ -18,7 +18,7 @@ const {
   post,
   showDescription = true,
   showMeta = true,
-  showBadge = true,
+  showBadge = false,
   headingTag = "h2",
   compact = false,
   priority = false
@@ -45,7 +45,7 @@ const coverMetadata = coverSrc
 ---
 
 <article class:list={["card", "post-card", compact && "post-card--compact"]}>
-  <a class="post-card__link" href={url} aria-label={title} style="text-decoration:none;">
+  <a class="post-card__link" href={url} aria-label={title} title={title}>
     <div class:list={["post-card__media", coverSrc ? "has-img" : ""]} aria-hidden="true">
       {coverSrc ? (
         <img
@@ -64,9 +64,9 @@ const coverMetadata = coverSrc
     <div class="post-card__body">
       {showMeta ? (
         <div class="meta post-card__meta">
-          {primary ? <span class="post-card__eyebrow">{primary}</span> : null}
+          {primary && !showBadge ? <span class="post-card__eyebrow">{primary}</span> : null}
           <time datetime={post.data.date.toISOString()}>
-            {post.data.date.toISOString().slice(0, 10)}
+            {post.data.date.toISOString().slice(0, 10).replaceAll("-", ".")}
           </time>
         </div>
       ) : null}
@@ -74,9 +74,7 @@ const coverMetadata = coverSrc
       {showDescription ? (
         preview ? (
           <p class="post-card__desc">{preview}</p>
-        ) : (
-          <p class="post-card__desc"> </p>
-        )
+        ) : null
       ) : null}
     </div>
   </a>

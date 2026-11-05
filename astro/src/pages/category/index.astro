@@ -74,15 +74,16 @@ const collectionSchema = {
 >
   <div class="section-head">
     <h1>全部内容</h1>
+    <p class="section-note">{allPosts.length} 篇文章 · {categories.length} 个分类</p>
   </div>
 
-  <section class="glass index-overview index-overview--plain">
+  <section class="glass index-overview index-overview--plain" aria-label="按分类筛选文章">
     <div class="index-overview__group">
       <div class="index-overview__head">
         <p class="index-overview__label">按分类切换</p>
       </div>
       <div class="index-overview__pills category-tabs">
-        <a class="pill pill--active" href="/category">全部 <span>({allPosts.length})</span></a>
+        <a class="pill pill--active" href="/category" aria-current="page">全部 <span>({allPosts.length})</span></a>
         {categories.map((category) => (
           <a class="pill" href={`/category/${encodeURIComponent(category.name)}`}>
             {category.name} <span>({category.count})</span>
@@ -92,7 +93,7 @@ const collectionSchema = {
     </div>
   </section>
 
-  <section class="grid" aria-label="All category posts">
+  <section class="grid" aria-label="全部文章">
     {posts.map((post, index) => (
       <PostCard post={post} priority={index === 0} />
     ))}
