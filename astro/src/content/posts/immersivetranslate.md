@@ -1,8 +1,9 @@
 ---
 urlSlug: "immersivetranslate"
 title: "沉浸式翻译：智能识别与精准翻译工具"
+seoTitle: "沉浸式翻译：网页双语对照和 PDF 翻译怎么用"
 date: "2024-09-18"
-description: "沉浸式翻译插件智能识别网页内容，支持多种格式翻译，帮助用户轻松获取全球信息，提升外文阅读体验。"
+description: "沉浸式翻译是一款浏览器扩展，支持网页双语对照、PDF/EPUB 和视频字幕翻译，基础功能免费。本文讲它的功能、适合谁，以及使用前需要注意的地方。"
 categories:
   - "浏览器扩展"
 tags:

@@ -1,9 +1,10 @@
 ---
 urlSlug: "App-Cleaner-&-Uninstaller"
 title: "App Cleaner & Uninstaller 体验：这款 Mac 卸载工具适合谁，和 AppCleaner 有什么区别"
+seoTitle: "App Cleaner & Uninstaller：Mac 卸载工具怎么用"
 date: "2025-02-19"
 updatedAt: "2026-06-19"
-description: "App Cleaner & Uninstaller 是一款偏完整型的 Mac 卸载工具。本文重点讲它适合谁、值不值得装，以及它和 AppCleaner、Pearcleaner 这类轻量方案的区别。"
+description: "App Cleaner & Uninstaller 是一款付费 Mac 卸载工具，除了删除应用，还能管理登录项、浏览器扩展和残留文件。本文讲它的功能和适合人群。"
 quickTake: "如果你不只想卸载 App，还想顺手管理启动项、扩展和残留文件，App Cleaner & Uninstaller 这种更完整的方案会比 AppCleaner 更像一套桌面管理工具。"
 bestFor:
   - "想用一款工具同时处理卸载、残留和启动项管理的人"

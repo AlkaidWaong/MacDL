@@ -1,8 +1,9 @@
 ---
 urlSlug: "SponsorBlock"
-title: "SponsorBlock: 跳过YouTube广告，提升观影体验"
+title: "SponsorBlock：自动跳过 YouTube 赞助片段"
+seoTitle: "SponsorBlock：自动跳过 YouTube 赞助片段"
 date: "2024-10-11"
-description: "SponsorBlock是一款开源浏览器扩展，自动跳过YouTube赞助广告，节省您的观影时间，提升观看体验。"
+description: "SponsorBlock 是一款开源浏览器扩展，可以自动跳过 YouTube 视频里的赞助片段、片头和订阅提醒。本文讲它的功能、适合谁，以及使用前需要注意的地方。"
 categories:
   - "浏览器扩展"
 tags:

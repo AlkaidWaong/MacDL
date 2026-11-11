@@ -1,9 +1,10 @@
 ---
 urlSlug: "dia-broswer"
 title: "Día 浏览器前瞻：The Browser Company 的 AI 浏览器愿景，Arc 团队的下一站"
+seoTitle: "Día 浏览器是什么？Arc 团队的 AI 浏览器，现在能用吗"
 date: "2024-12-05"
 updatedAt: "2026-06-26"
-description: "Día 是 Arc 团队（The Browser Company）正在开发的 AI 原生浏览器。目前还在 preview 阶段，这篇文章帮你理解它在做什么、和 Tabbit 有什么区别。"
+description: "Día 是 Arc 团队正在开发的 AI 原生浏览器，目前仍处于 preview 阶段。本文讲它和 Arc、Tabbit 的区别，以及现在能不能用。"
 quickTake: "Día 的目标不是「给浏览器加 AI 插件」，而是从底层重新设计一个 AI 原生的浏览器。目前还在 preview，没有公开可用版本。想现在就试 AI 浏览器，Tabbit 更实际。"
 bestFor:
   - "对 AI 浏览器的未来方向好奇的人"

@@ -1,8 +1,9 @@
 ---
 urlSlug: "localsend-v-1-15-4"
-title: "LocalSend: 跨平台文件分享工具，取代AirDrop"
+title: "LocalSend：跨平台局域网文件传输工具"
+seoTitle: "LocalSend：跨平台局域网文件传输工具怎么用"
 date: "2024-09-16"
-description: "LocalSend是一个安全、快速、跨平台的文件分享工具，让用户无需网络即可分享文件，告别AirDrop！"
+description: "LocalSend 是一款免费开源的文件传输工具，支持 Windows、macOS、Linux、Android 和 iOS，在同一局域网内直接发送文件。本文讲它的功能和适合人群。"
 categories:
   - "效率工具"
 tags:

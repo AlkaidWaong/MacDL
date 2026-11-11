@@ -1,9 +1,10 @@
 ---
 urlSlug: "things3-for-mac"
 title: "Things 3 体验：极简 GTD 任务管理，把计划真正做完"
+seoTitle: "Things 3：买断制 GTD 任务管理，价格和适合人群"
 date: "2024-11-04"
 updatedAt: "2026-06-26"
-description: "Things 3 是 Mac 上最优雅的 GTD 任务管理工具之一。极简设计、自然操作、专注流程。本文说清楚它适合谁、不适合谁。"
+description: "Things 3 是 Mac 上的买断制 GTD 任务管理工具，支持项目、标签、重复任务和截止日期。本文讲它的功能、价格、适合谁，以及不适合谁。"
 quickTake: "Things 3 最难得的地方，是它在「极简」和「够用」之间找到了一个很少工具能到达的平衡点——界面干净到让人想打开它，功能完整到日常够用。"
 bestFor:
   - "追求 GTD 方法论但不想要复杂配置的人"

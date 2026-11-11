@@ -1,8 +1,9 @@
 ---
 urlSlug: "onlyswitch-v-2-5-3"
 title: "OnlySwitch：开源免费Mac菜单栏工具"
+seoTitle: "OnlySwitch：免费开源的 Mac 菜单栏系统开关工具"
 date: "2024-09-16"
-description: "OnlySwitch 是一款开源免费的 macOS 工具，让你轻松管理系统设置，提升设备效率，尽享个性化体验。"
+description: "OnlySwitch 是一款免费开源的 Mac 菜单栏工具，可以快速切换深色模式、隐藏刘海、管理 AirPods 等系统设置。本文讲它的功能和适合人群。"
 categories:
   - "效率工具"
 tags: []

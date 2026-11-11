@@ -1,9 +1,10 @@
 ---
 urlSlug: "ice-for-mac"
 title: "Ice for Mac 体验：想找 Bartender 替代时，这款免费菜单栏管理工具值不值得装"
+seoTitle: "Ice for Mac：免费菜单栏管理工具，Bartender 替代"
 date: "2024-08-29"
 updatedAt: "2026-06-19"
-description: "Ice for Mac 是一款免费开源的菜单栏管理工具，常被当作 Bartender 替代。本文重点讲它适合谁、好不好用，以及和 Bartender 这类工具相比差在哪。"
+description: "Ice 是一款免费开源的 Mac 菜单栏管理工具，可隐藏和整理菜单栏图标。本文讲它的功能、适合谁，以及和 Bartender 的差距。"
 quickTake: "如果你真正烦的是菜单栏太挤、图标太乱，又不想马上买 Bartender，Ice 是很值得先试的一条路线。"
 bestFor:
   - "想找 Bartender 替代的 Mac 用户"

@@ -1,9 +1,10 @@
 ---
 urlSlug: "xnip-for-mac"
 title: "Xnip 体验：滚动截图和标注它确实顺手，适合什么人不适合什么人（2026）"
+seoTitle: "Xnip Mac：免费截图工具，滚动截图和标注怎么用"
 date: "2024-10-10"
 updatedAt: "2026-06-26"
-description: "Xnip 是一款主打滚动截图、标注和轻量上手的 Mac 截图工具。Mac App Store 免费下载，核心功能免费，高级功能内购。本文重点讲它适合谁。"
+description: "Xnip 是 Mac App Store 上的免费截图工具，支持滚动截图、标注和窗口截图。本文讲它的功能、适合谁，以及和 CleanShot X、PixPin 的区别。"
 quickTake: "Xnip 最值得肯定的地方，是它没有把自己做成一套很重的工作流，却在高频截图细节上给得足够到位。对很多人来说，这种「轻，但不弱」的感觉，反而更容易长期留下来。"
 bestFor:
   - "经常截长网页、长聊记录、需要滚动截图的人"

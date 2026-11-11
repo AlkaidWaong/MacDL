@@ -1,8 +1,9 @@
 ---
 urlSlug: "doubao-extension"
 title: "豆包浏览器AI助手：AI搜索，网页总结，你的浏览器助手"
+seoTitle: "豆包浏览器 AI 助手：网页总结、翻译和 PDF 处理"
 date: "2024-09-30"
-description: "豆包浏览器AI助手，助你高效搜索与总结网页内容，提升浏览体验。适合学生、职场人士与研究者。"
+description: "豆包浏览器 AI 助手可以在网页中总结内容、翻译文字、处理 PDF。本文讲它的核心功能、适合人群，以及使用前需要注意的地方。"
 categories:
   - "浏览器扩展"
 tags:

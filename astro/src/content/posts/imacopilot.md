@@ -1,9 +1,10 @@
 ---
 urlSlug: "imacopilot"
 title: "ima.copilot 体验：腾讯这款 AI 工作台适合谁用，和通用 AI 客户端有什么区别"
+seoTitle: "ima.copilot 是什么？腾讯 AI 工作台的功能和适合人群"
 date: "2025-02-17"
 updatedAt: "2026-06-19"
-description: "ima.copilot 是腾讯推出的 AI 工作台，集成混元与 DeepSeek R1。这篇从真实使用场景出发，聊聊它适合谁、值不值得试。"
+description: "ima.copilot 是腾讯推出的 AI 工作台，重点在资料整理、写作辅助和知识处理。本文讲它和普通 AI 客户端的区别，以及适合谁。"
 quickTake: "如果你想找的不是单纯 AI 对话框，而是更偏写作、整理和知识工作流的入口，ima.copilot 会更有意思。"
 bestFor:
   - "有写作、资料整理和知识管理需求的人"

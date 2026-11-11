@@ -7,6 +7,7 @@ const posts = defineCollection({
   schema: z.object({
     urlSlug: z.string().min(1),
     title: z.string().min(1),
+    seoTitle: z.string().min(1).optional(),
     date: z.coerce.date(),
     updatedAt: z.coerce.date().optional(),
     // Preferred cover image for lists/cards. If missing, we fall back to the

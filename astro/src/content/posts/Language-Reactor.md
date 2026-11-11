@@ -1,8 +1,9 @@
 ---
 urlSlug: "Language-Reactor"
 title: "Language Reactor: 轻松边看视频学外语"
+seoTitle: "Language Reactor：边看视频学外语的 Chrome 扩展"
 date: "2024-10-21"
-description: "下载Language Reactor边看视频边轻松学习外语，享受实时翻译及个性化学习工具，提高语言能力。"
+description: "Language Reactor 是一款 Chrome 扩展，支持 Netflix、YouTube 双语字幕和实时翻译，适合通过看视频学外语的人。本文讲它的功能、适合谁，以及使用限制。"
 categories:
   - "浏览器扩展"
 tags:

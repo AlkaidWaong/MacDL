@@ -1,9 +1,10 @@
 ---
 urlSlug: "appcleaner-for-mac"
 title: "AppCleaner 官网在哪？下载入口、卸载用法和 Pearcleaner 区别"
+seoTitle: "AppCleaner 官网与下载：Mac 卸载工具怎么用"
 date: "2024-11-04"
 updatedAt: "2026-06-16"
-description: "想找 AppCleaner 官网和下载入口？这篇直接讲 AppCleaner 怎么卸载 App 和残留、适合谁，以及它和 Pearcleaner 的区别。"
+description: "AppCleaner 是免费的 Mac 卸载工具，能把应用和残留文件一起删除。本文整理官网下载入口、使用方法，以及和 Pearcleaner 的区别。"
 quickTake: "如果你真正想解决的是“卸载一个 App 后别留一堆残留文件”，AppCleaner 依然是最值得先试的 Mac 应用卸载工具之一。"
 bestFor:
   - "想彻底卸载应用和残留文件的 Mac 用户"

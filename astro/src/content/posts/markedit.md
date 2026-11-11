@@ -1,9 +1,10 @@
 ---
 urlSlug: "markedit"
 title: "MarkEdit 体验：这款开源免费的 macOS 原生 Markdown 编辑器，为什么让我想起 TextEdit"
+seoTitle: "MarkEdit：免费开源的 Mac Markdown 编辑器"
 date: "2025-02-17"
 updatedAt: "2026-06-16"
-description: "MarkEdit 是一款开源免费的 macOS 原生 Markdown 编辑器。这篇体验文不讲空泛参数，只聊它为什么会让轻量写作用户觉得顺手，以及它和 Typora、VS Code 不是一类工具。"
+description: "MarkEdit 是一款开源免费的 macOS Markdown 编辑器，主打轻量、原生和快速打开。本文讲它的功能、适合谁，以及和 Typora、VS Code 的区别。"
 quickTake: "如果你想要的是一个轻、快、原生、不开一堆面板也能安心写 Markdown 的工具，MarkEdit 很容易让人留下来。"
 bestFor:
   - "喜欢原生 macOS 工具质感的人"
