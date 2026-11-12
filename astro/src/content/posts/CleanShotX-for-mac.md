@@ -5,6 +5,8 @@ seoTitle: "CleanShot X 体验：$29 买断的 Mac 截图录屏工具"
 date: "2024-11-01"
 updatedAt: "2026-06-26"
 description: "CleanShot X 把截图、录屏、标注、OCR 和云分享整合在一起，官网价格 $29 买断。本文讲它的功能、适合谁，以及和 Xnip、PixPin 的区别。"
+price: "$29 买断"
+platform: "macOS"
 quickTake: "CleanShot X 不是让你截图更清楚，而是把你从截图到分享的整条工作流压缩进更少的步骤。App Store 类目 4.9 分、10,000+ 评价、50+ 功能，是 Mac 截图录屏领域最接近「一站式终点」的产品。"
 bestFor:
   - "需要截图+录屏+云分享一条龙工作流的人"

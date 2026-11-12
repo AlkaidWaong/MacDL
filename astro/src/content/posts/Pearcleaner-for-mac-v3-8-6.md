@@ -3,6 +3,8 @@ urlSlug: "Pearcleaner-for-mac-v3-8-6"
 title: "Pearcleaner 体验：免费 Mac 卸载工具好不好用，能不能替代 AppCleaner"
 date: "2024-09-12"
 description: "Pearcleaner 是一款免费开源的 Mac 卸载工具，适合想清理残留、又想比 AppCleaner 多一点控制力的人。本文重点讲它适不适合长期使用。"
+price: "免费开源"
+platform: "macOS"
 categories:
   - "系统工具"
 tags:

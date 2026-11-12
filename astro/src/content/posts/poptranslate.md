@@ -4,6 +4,8 @@ title: "PopTranslate：图拉鼎的新作，Mac AI 翻译利器"
 date: "2025-04-02"
 updatedAt: "2026-06-26"
 description: "PopTranslate 是独立开发者图拉鼎（TualatriX）打造的 Mac AI 翻译工具。支持多语言互译，菜单栏常驻，一键翻译。"
+price: "付费"
+platform: "macOS"
 quickTake: "PopTranslate 的定位很明确：一个菜单栏常驻、全局快捷键呼出的 AI 翻译工具。选中文字→快捷键→看翻译结果，三步变一步。"
 bestFor:
   - "经常需要翻译外文资料的人"

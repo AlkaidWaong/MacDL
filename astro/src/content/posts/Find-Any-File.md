@@ -5,6 +5,8 @@ seoTitle: "Find Any File：Mac 文件搜索工具怎么用"
 date: "2024-11-02"
 updatedAt: "2026-06-26"
 description: "Find Any File 是一款付费 Mac 文件搜索工具，可以按名称、日期、大小和类型查找文件，也能搜索 Spotlight 不索引的位置。本文讲它的功能和适合人群。"
+price: "付费"
+platform: "macOS"
 quickTake: "Find Any File 做的事是 Spotlight 做不到的——搜索系统文件、隐藏文件、包内容。当 Spotlight 找不到你要的文件时，它就是Plan B。"
 bestFor:
   - "需要搜索系统/隐藏文件的开发者和高级用户"

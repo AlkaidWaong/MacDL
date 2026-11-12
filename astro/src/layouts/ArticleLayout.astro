@@ -5,6 +5,11 @@ type Props = {
   title: string;
   seoTitle?: string;
   description?: string;
+  price?: string;
+  platform?: string;
+  officialUrl?: string;
+  updatedAt?: Date;
+  faqs?: Array<{ question: string; answer: string }>;
   date: Date;
   categories?: string[];
   tags?: string[];
@@ -37,6 +42,11 @@ const {
   title,
   seoTitle,
   description,
+  price,
+  platform,
+  officialUrl,
+  updatedAt,
+  faqs = [],
   date,
   categories = [],
   tags = [],
@@ -53,6 +63,11 @@ const {
 } = Astro.props;
 const introLine = quickTake?.trim() || description?.trim();
 const metaTitle = seoTitle?.trim() || title;
+const lastUpdated = (updatedAt ?? date).toISOString().slice(0, 10).replaceAll("-", ".");
+const factItems = [
+  price ? { label: "价格", value: price } : null,
+  platform ? { label: "平台", value: platform } : null
+].filter(Boolean) as Array<{ label: string; value: string }>;
 ---
 <BaseLayout
   title={`${metaTitle} | MacAppHQ`}
@@ -79,6 +94,9 @@ const metaTitle = seoTitle?.trim() || title;
         <span class="article-meta__date">
           发布于 <time datetime={date.toISOString()}>{date.toISOString().slice(0, 10).replaceAll("-", ".")}</time>
         </span>
+        <span class="article-meta__author">
+          作者：<a href="/author/">MacAppHQ 编辑部</a>
+        </span>
         {categories.map((c) => (
           <a class="pill" href={`/category/${encodeURIComponent(c)}`}>{c}</a>
         ))}
@@ -102,8 +120,42 @@ const metaTitle = seoTitle?.trim() || title;
         />
       </figure>
     ) : null}
+    {factItems.length ? (
+      <section class="article-facts" aria-labelledby="article-facts-title">
+        <h2 id="article-facts-title">关键信息</h2>
+        <dl class="article-facts__grid">
+          {factItems.map((fact) => (
+            <div class="article-facts__item">
+              <dt>{fact.label}</dt>
+              <dd>{fact.value}</dd>
+            </div>
+          ))}
+          {officialUrl ? (
+            <div class="article-facts__item">
+              <dt>官网</dt>
+              <dd><a href={officialUrl} rel="noopener noreferrer">访问官网</a></dd>
+            </div>
+          ) : null}
+          <div class="article-facts__item">
+            <dt>更新</dt>
+            <dd>{lastUpdated}</dd>
+          </div>
+        </dl>
+      </section>
+    ) : null}
     <article class="article-prose">
       <slot />
+      {faqs.length ? (
+        <section class="article-faq" aria-labelledby="article-faq-title">
+          <h2 id="article-faq-title">常见问题</h2>
+          {faqs.map((item) => (
+            <div class="article-faq__item">
+              <h3>{item.question}</h3>
+              <p>{item.answer}</p>
+            </div>
+          ))}
+        </section>
+      ) : null}
     </article>
   </section>
   {tags.length ? (

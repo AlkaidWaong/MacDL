@@ -4,6 +4,8 @@ title: "JustFocus：Mac 番茄钟+休息提醒，专治久坐"
 date: "2024-09-25"
 updatedAt: "2026-06-26"
 description: "JustFocus 是一款 Mac 专注计时器，番茄工作法+久坐提醒。到时间提醒你休息。"
+price: "免费"
+platform: "macOS"
 quickTake: "JustFocus 做的事：用番茄钟（25分钟工作+5分钟休息）帮你保持专注，同时阻止你连续坐太久不站起来。"
 bestFor:
   - "用番茄工作法工作的人"

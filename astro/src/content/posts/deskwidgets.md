@@ -4,6 +4,8 @@ title: "DeskWidgets：在 Mac 桌面放 30+ 实用小组件"
 date: "2025-02-19"
 updatedAt: "2026-06-26"
 description: "DeskWidgets 提供了 30+ 款 Mac 桌面小组件，包括天气、日历、待办、时钟、系统监控等。免费使用。"
+price: "免费"
+platform: "macOS"
 quickTake: "DeskWidgets 把手机上的小组件体验带到了 Mac 桌面——天气、日历、待办、时钟、系统监控，30+ 种免费组件。"
 bestFor:
   - "想要 Mac 桌面丰富起来但不想装太多扩展的人"

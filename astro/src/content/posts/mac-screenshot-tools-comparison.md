@@ -4,6 +4,8 @@ title: "Mac 截图工具怎么选：CleanShot X、Xnip、PixPin、QuickRec 横�
 date: "2026-06-26"
 updatedAt: "2026-06-26"
 description: "Mac 截图和录屏工具这么多，CleanShot X、Xnip、PixPin、QuickRec 到底有什么区别？这篇从真实使用场景出发，帮你判断自己到底该先试哪一款。"
+price: "免费到 $29"
+platform: "macOS"
 quickTake: "Mac 截图/录屏工具没有绝对最强的，只有最适合的：CleanShot X 适合全套工作流，Xnip 适合滚动截图+标注，PixPin 适合截图+OCR 一步到位，QuickRec 专门解决录系统声音的问题。"
 bestFor:
   - "正在纠结 Mac 截图/录屏工具选哪个的人"

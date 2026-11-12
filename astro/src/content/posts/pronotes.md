@@ -4,6 +4,8 @@ title: "ProNotes：让 Apple 备忘录变身 Markdown+AI 写作工具"
 date: "2025-04-14"
 updatedAt: "2026-06-26"
 description: "ProNotes 是 Apple 备忘录的扩展，添加 Markdown 编辑、AI 写作、快速记录等功能。不需要切换笔记应用。"
+price: "付费"
+platform: "macOS"
 quickTake: "ProNotes 不是独立笔记应用，而是 Apple 备忘录的增强器。如果你已经是 Apple 备忘录用户，它用最低切换成本给备忘录加上 Markdown 和 AI。"
 bestFor:
   - "已经是 Apple 备忘录用户但觉得功能不够的人"

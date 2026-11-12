@@ -17,6 +17,8 @@ const posts = defineCollection({
     socialImage: z.string().optional(),
     cover: z.string().optional(),
     description: z.string().optional(),
+    price: z.string().optional(),
+    platform: z.string().optional(),
     quickTake: z.string().optional(),
     bestFor: z.array(z.string().min(1)).optional(),
     officialUrl: z.string().url().optional(),

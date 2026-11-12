@@ -4,6 +4,8 @@ title: "Quill：Mac 菜单栏里的极简笔记，2.3MB 的碎片记录工具"
 date: "2025-02-17"
 updatedAt: "2026-06-26"
 description: "Quill 是一款藏在 Mac 菜单栏的极简笔记工具。2.3MB，快捷键呼出，快速记录碎片信息。"
+price: "付费"
+platform: "macOS"
 quickTake: "Quill 做的事和 Maccy 对剪贴板的定位很像——不追求功能全，而是让「记一个快速想法」这个动作变得无比轻。"
 bestFor:
   - "经常有碎片想法需要快速记下来的人"

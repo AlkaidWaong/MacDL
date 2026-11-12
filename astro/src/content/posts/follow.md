@@ -4,6 +4,8 @@ title: "Follow是什么-AI驱动的个性化信息聚合与社交平台"
 seoTitle: "Follow 是什么？AI 信息聚合工具的功能和使用场景"
 date: "2024-09-23"
 description: "Follow 是一款 AI 信息聚合工具，可以订阅网站、播客和社交媒体内容，并在一个信息流里阅读。本文讲它的功能、适合谁，以及使用前需要了解的限制。"
+price: "免费"
+platform: "桌面端与网页"
 categories:
   - "效率工具"
 tags:

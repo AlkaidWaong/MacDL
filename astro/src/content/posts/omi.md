@@ -4,6 +4,8 @@ title: "Omi 录屏专家体验：免费 Mac 录屏软件好不好用，适合谁
 seoTitle: "Omi 录屏专家：免费 Mac 录屏软件，适合谁用"
 date: "2024-09-23"
 description: "Omi 录屏专家是一款免费 Mac 录屏软件，支持全屏、区域、窗口和摄像头录制。本文讲它的功能、适合人群，以及和 QuickRec、CleanShot X 的区别。"
+price: "免费"
+platform: "macOS"
 categories:
   - "影音娱乐"
 tags:

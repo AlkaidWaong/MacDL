@@ -4,6 +4,8 @@ title: "Mac 窗口管理工具怎么选：我把 5 款主流方案用下来，�
 date: "2026-06-17"
 updatedAt: "2026-06-17"
 description: "想找 Mac 窗口管理工具，不一定该先装最复杂的那款。这篇文章从真实工作场景出发，对比 BetterStage、Rectangle、Loop、DockDoor、AltTab 这 5 类常见方案，帮你判断自己真正需要的是分屏、切换、预览，还是工作区管理。"
+price: "免费与付费混合"
+platform: "macOS"
 quickTake: "大多数人找 Mac 窗口管理工具，其实不是要更多功能，而是要更少摩擦。先分清你缺的是分屏、切换、预览还是工作区，再选工具，命中率会高很多。"
 bestFor:
   - "正在找第一款 Mac 窗口管理工具的人"

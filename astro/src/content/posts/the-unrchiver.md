@@ -3,6 +3,8 @@ urlSlug: "the-unrchiver"
 title: "The Unarchiver 体验：Mac 解压缩软件为什么很多人最后都会留它"
 date: "2024-10-08"
 description: "The Unarchiver 是一款经典的 Mac 解压缩软件，适合想稳定打开 ZIP、RAR、7z 等常见压缩包的用户。本文重点讲它适合谁，以及值不值得长期留在 Mac 上。"
+price: "免费"
+platform: "macOS"
 categories:
   - "效率工具"
 tags:

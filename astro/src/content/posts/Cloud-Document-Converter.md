@@ -4,6 +4,8 @@ title: "Cloud Document Converter：飞书文档转 Markdown 的免费工具"
 date: "2025-01-15"
 updatedAt: "2026-06-26"
 description: "Cloud Document Converter 是一款免费工具，能把飞书文档转换为 Markdown 格式。适合需要把飞书内容迁移到 Notion、Obsidian 等工具的人。"
+price: "免费"
+platform: "浏览器扩展"
 quickTake: "如果你从飞书迁移到 Markdown 生态（Notion/Obsidian/GitHub），Cloud Document Converter 是免费的快速通道。"
 bestFor:
   - "从飞书迁移到 Markdown 生态的用户"

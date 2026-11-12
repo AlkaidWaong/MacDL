@@ -4,6 +4,8 @@ title: "Mac 剪贴板管理工具怎么选：Maccy、CleanClip、PasteNow、Past
 date: "2026-06-26"
 updatedAt: "2026-06-26"
 description: "Mac 剪贴板管理工具 Maccy、CleanClip、PasteNow、Pastebot、Clop 到底有什么区别？这篇从官方信息出发，帮你判断该先装哪一款。"
+price: "免费到 ¥88"
+platform: "macOS"
 quickTake: "Mac 剪贴板工具没有最全能的，只有最合适的：Maccy 适合免费+键盘流，CleanClip 适合 Paste Stack 顺序粘贴，PasteNow 适合 iCloud 跨设备同步，Pastebot 适合文本深度处理，Clop 负责剪贴板图片/视频自动压缩。"
 bestFor:
   - "正在纠结 Mac 剪贴板管理工具选哪个的人"

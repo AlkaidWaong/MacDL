@@ -41,14 +41,31 @@ const pageImage = image ? toAbsoluteUrl(image) : toAbsoluteUrl(DEFAULT_OG_IMAGE)
 
 const siteSchema = {
   "@type": "WebSite",
+  "@id": "https://www.macapphq.com/#website",
   name: "MacAppHQ",
   url: "https://www.macapphq.com",
   inLanguage: "zh-CN",
+  publisher: {
+    "@id": "https://www.macapphq.com/#organization"
+  },
   potentialAction: {
     "@type": "SearchAction",
     target: "https://www.macapphq.com/search?q={search_term_string}",
     "query-input": "required name=search_term_string"
   }
+};
+
+const organizationSchema = {
+  "@type": "Organization",
+  "@id": "https://www.macapphq.com/#organization",
+  name: "MacAppHQ",
+  url: "https://www.macapphq.com",
+  logo: {
+    "@type": "ImageObject",
+    url: "https://www.macapphq.com/favicon.svg"
+  },
+  description: "MacAppHQ 是中文 Mac 软件评测与工作流指南，覆盖效率工具、AI、开发工具和系统工具。",
+  knowsAbout: ["Mac 软件", "macOS", "效率工具", "AI 工具", "工作流"]
 };
 
 const extraSchemas = Array.isArray(structuredData)
@@ -57,7 +74,7 @@ const extraSchemas = Array.isArray(structuredData)
     ? [structuredData]
     : [];
 
-const graphSchemas = [siteSchema, ...extraSchemas].map((schema) => {
+const graphSchemas = [organizationSchema, siteSchema, ...extraSchemas].map((schema) => {
   const copy = { ...schema } as Record<string, unknown>;
   delete copy["@context"];
   return copy;

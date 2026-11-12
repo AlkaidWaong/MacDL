@@ -19,6 +19,8 @@ const { Content } = await render(post);
 const canonical = `https://www.macapphq.com/article/${post.data.urlSlug}`;
 const site = Astro.site ?? new URL("https://www.macapphq.com");
 const body = (post as unknown as { body?: string }).body ?? "";
+const hasVisibleFaq = /^##\s*(?:FAQ|常见问题)/im.test(body);
+const visibleFaqs = hasVisibleFaq ? [] : (post.data.faqs ?? []);
 const heroSrc =
   post.data.heroImage?.trim() ||
   post.data.cover?.trim() ||
@@ -99,11 +101,13 @@ const articleSchema = {
   })),
   author: {
     "@type": "Organization",
+    "@id": "https://www.macapphq.com/#organization",
     name: "MacAppHQ",
-    url: "https://www.macapphq.com/about"
+    url: "https://www.macapphq.com/author/"
   },
   publisher: {
     "@type": "Organization",
+    "@id": "https://www.macapphq.com/#organization",
     name: "MacAppHQ",
     url: "https://www.macapphq.com",
     logo: {
@@ -141,11 +145,11 @@ const breadcrumbSchema = {
     item: entry.item
   }))
 };
-const faqSchema = post.data.faqs?.length
+const faqSchema = visibleFaqs.length
   ? {
       "@context": "https://schema.org",
       "@type": "FAQPage",
-      mainEntity: post.data.faqs.map((item) => ({
+      mainEntity: visibleFaqs.map((item) => ({
         "@type": "Question",
         name: item.question,
         acceptedAnswer: {
@@ -161,6 +165,11 @@ const faqSchema = post.data.faqs?.length
   title={post.data.title}
   seoTitle={post.data.seoTitle}
   description={post.data.description}
+  price={post.data.price}
+  platform={post.data.platform}
+  officialUrl={post.data.officialUrl}
+  updatedAt={post.data.updatedAt}
+  faqs={visibleFaqs}
   date={post.data.date}
   categories={post.data.categories}
   tags={topicTags}

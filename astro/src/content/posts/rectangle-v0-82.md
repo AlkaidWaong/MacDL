@@ -4,6 +4,8 @@ title: "Rectangle 体验：如果你只是想找一款 Mac 分屏工具，它为
 date: "2024-09-14"
 updatedAt: "2026-06-17"
 description: "Rectangle 是一款免费开源的 Mac 分屏工具，适合想用快捷键快速摆放窗口、又不想折腾复杂配置的人。这篇文章从真实使用场景出发，聊聊它为什么到现在仍然是最值得先试的 macOS 窗口工具之一。"
+price: "免费开源，Pro 付费"
+platform: "macOS"
 quickTake: "如果你真正想解决的是“窗口怎么快速摆好”，而不是“整套工作区怎么切回来”，Rectangle 依然是最直接的 Mac 分屏工具之一。"
 bestFor:
   - "只想找一款轻量 Mac 分屏工具的人"

@@ -4,6 +4,8 @@ title: "Loop 体验：如果你觉得 Rectangle 太直给，这款 Mac 窗口工
 date: "2024-09-17"
 updatedAt: "2026-06-17"
 description: "Loop 是一款免费开源的 macOS 窗口工具，适合想用更直观交互方式管理窗口的人。这篇文章从真实使用场景出发，聊聊它和 Rectangle、BetterStage 的区别，以及什么人更容易喜欢它。"
+price: "免费开源"
+platform: "macOS"
 quickTake: "如果你不只想要“按快捷键把窗口摆好”，而是更喜欢带一点可视化和交互感的窗口操作，Loop 会比 Rectangle 更有吸引力。"
 bestFor:
   - "想要更直观窗口交互的 Mac 用户"

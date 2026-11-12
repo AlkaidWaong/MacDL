@@ -4,6 +4,8 @@ title: "OnlySwitch：开源免费Mac菜单栏工具"
 seoTitle: "OnlySwitch：免费开源的 Mac 菜单栏系统开关工具"
 date: "2024-09-16"
 description: "OnlySwitch 是一款免费开源的 Mac 菜单栏工具，可以快速切换深色模式、隐藏刘海、管理 AirPods 等系统设置。本文讲它的功能和适合人群。"
+price: "免费开源"
+platform: "macOS"
 categories:
   - "效率工具"
 tags: []

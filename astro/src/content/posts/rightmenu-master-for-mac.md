@@ -5,6 +5,8 @@ seoTitle: "RightMenu Master：Mac 右键菜单自定义工具"
 date: "2024-12-26"
 updatedAt: "2026-06-26"
 description: "RightMenu Master 可以把新建文件、复制路径、压缩等常用操作加进 Finder 右键菜单。本文讲它的功能、价格和适合人群。"
+price: "付费"
+platform: "macOS"
 quickTalk: "RightMenu Master 做的事：把 Finder 右键菜单里塞进你想要的操作——新建文件、复制路径、快速压缩、发送到……不用先打开应用再操作。"
 bestFor:
   - "经常在 Finder 里操作文件的人"

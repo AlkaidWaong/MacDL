@@ -4,6 +4,8 @@ title: "BiRead：免费 AI 双语阅读工具，外文阅读不卡壳"
 date: "2024-12-11"
 updatedAt: "2026-06-26"
 description: "BiRead 是一款 AI 双语阅读工具，外文网页自动显示原文+译文对照，支持 100+ 语言。"
+price: "免费"
+platform: "浏览器扩展"
 quickTake: "BiRead 不用你选中文字再翻译——打开外文网页，原文和译文并排显示，扫一眼就能理解。适合大量阅读外文内容的人。"
 bestFor:
   - "经常阅读外文文章/新闻的人"

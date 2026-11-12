@@ -4,6 +4,8 @@ title: "HiPixel：AI 图片模糊变清晰，免费开源的 Mac 工具"
 date: "2025-02-04"
 updatedAt: "2026-06-26"
 description: "HiPixel 是一款免费开源的 AI 图像超分辨率工具，通过 AI 把模糊图片变清晰，支持批量处理。"
+price: "免费开源"
+platform: "macOS"
 quickTake: "HiPixel 做的事：把模糊的小图通过 AI 放大变清晰。免费开源，支持批量处理，和 Upscayl 类似但轻量一些。"
 bestFor:
   - "需要把模糊图片变清晰的人"

@@ -4,6 +4,8 @@ title: "免费 CleanMyMac 替代怎么选：如果你主要想卸载 App，我�
 date: "2026-06-16"
 updatedAt: "2026-06-16"
 description: "如果你不想冒风险找破解版，又觉得 CleanMyMac 太重，这篇就从真实使用需求出发，聊聊免费 CleanMyMac 替代怎么选。重点看 App 卸载、残留清理、上手门槛和长期使用感受。"
+price: "免费"
+platform: "macOS"
 quickTake: "如果你真正想替代的是 CleanMyMac 里最常用的“卸载 App + 清残留”这部分，免费路线里我会先看 AppCleaner，再按需求考虑 Pearcleaner。"
 bestFor:
   - "主要想找免费 CleanMyMac 替代的人"

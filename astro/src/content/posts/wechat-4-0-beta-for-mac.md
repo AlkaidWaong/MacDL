@@ -4,6 +4,8 @@ title: "微信 4.0 for Mac 内测：深色模式来了，还有什么变化"
 date: "2024-11-08"
 updatedAt: "2026-06-26"
 description: "微信 4.0 for Mac 内测版带来深色模式、字号调整、界面重构等更新。本文总结新版本的主要变化。"
+price: "免费"
+platform: "macOS"
 quickTake: "微信 4.0 for Mac 最核心的变化是支持深色模式——之前 Mac 版一直没有，现在终于来了。界面也做了重构。"
 bestFor:
   - "Mac 用户等深色模式等了好几年的人"

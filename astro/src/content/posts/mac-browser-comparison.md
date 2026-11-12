@@ -4,6 +4,8 @@ title: "Mac 浏览器怎么选：Arc、Brave、Edge、Día、Tabbit 横评对比
 date: "2026-06-26"
 updatedAt: "2026-06-26"
 description: "Mac 浏览器这么多，Arc、Brave、Edge、Día、Tabbit 到底有什么区别？这篇从真实使用场景出发，帮你判断哪个更适合你的工作流。"
+price: "免费"
+platform: "macOS"
 quickTake: "Mac 浏览器没有通杀方案：Arc 适合组织型工作流（Spaces+侧栏），Brave 隐私最强（内建广告拦截/Tor），Edge 跨平台最全能（Copilot+睡眠标签页），Día 是 AI 浏览器愿景（preview），Tabbit 是免费 AI 浏览器尝鲜首选。"
 bestFor:
   - "正在纠结 Mac 换什么浏览器的人"

@@ -4,6 +4,8 @@ title: "OpenCat 体验：在 Mac 上管理多个 AI 模型的客户端"
 date: "2024-09-18"
 updatedAt: "2026-06-26"
 description: "OpenCat 是一款 Mac AI 对话客户端，支持接入 ChatGPT、Claude 等多模型，适合想在一个地方管理多个 AI 服务的人。"
+price: "付费"
+platform: "macOS"
 quickTake: "OpenCat 解决的不是「哪个 AI 更好」，而是「我不想在十个网页之间切来切去」。一个客户端管理多个模型。"
 bestFor:
   - "同时使用 ChatGPT、Claude 等多家 AI 服务的人"

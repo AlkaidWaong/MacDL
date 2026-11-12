@@ -5,6 +5,7 @@ seoTitle: "Cherry Studio：接入 20+ AI 服务的 Mac 客户端"
 date: "2025-02-12"
 updatedAt: "2026-06-26"
 description: "Cherry Studio 是一款 AI 对话客户端，支持 ChatGPT、Claude、DeepSeek 等在线模型，也可以通过 Ollama 部署本地模型。本文讲它的功能和适合人群。"
+platform: "macOS"
 quickTake: "Cherry Studio 的特色是既支持在线模型（ChatGPT/Claude/DeepSeek），也支持本地部署（Ollama）。如果你既有云端需求又有本地需求，它是目前选择最完整的客户端之一。"
 bestFor:
   - "同时使用在线 AI 和本地模型（Ollama）的人"
