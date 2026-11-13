@@ -7,6 +7,17 @@ updatedAt: "2026-06-17"
 description: "DockDoor 是一款免费开源的 Mac 窗口预览工具，把 Dock 图标和窗口切换结合起来。本文讲它的功能、适合谁，以及和 AltTab 的区别。"
 price: "免费开源"
 platform: "macOS 13+"
+quotes:
+  - text: "Every window, one hover away."
+    source: "DockDoor GitHub 仓库"
+    url: "https://github.com/ejbills/DockDoor"
+sources:
+  - name: "DockDoor 官网"
+    url: "https://dockdoor.net/"
+    note: "产品说明与下载入口"
+  - name: "DockDoor GitHub 仓库"
+    url: "https://github.com/ejbills/DockDoor"
+    note: "功能说明、隐私说明与版本信息"
 quickTake: "如果你真正烦的是“同一个 App 开了很多窗口，但每次都要靠猜”，DockDoor 这类 Mac 窗口预览工具会比传统分屏工具更能直接解决问题。"
 bestFor:
   - "经常同时开很多窗口的 Mac 用户"

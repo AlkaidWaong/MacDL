@@ -7,6 +7,17 @@ updatedAt: "2026-06-19"
 description: "Ice 是一款免费开源的 Mac 菜单栏管理工具，可隐藏和整理菜单栏图标。本文讲它的功能、适合谁，以及和 Bartender 的差距。"
 price: "免费开源"
 platform: "macOS"
+quotes:
+  - text: "Ice is a powerful menu bar management tool. While its primary function is hiding and showing menu bar items, it aims to cover a wide variety of additional features to make it one of the most versatile menu bar tools available."
+    source: "Ice 官网"
+    url: "https://icemenubar.app/"
+sources:
+  - name: "Ice 官网"
+    url: "https://icemenubar.app/"
+    note: "功能列表与下载入口"
+  - name: "Ice GitHub 仓库"
+    url: "https://github.com/jordanbaird/Ice"
+    note: "开源代码与版本信息"
 quickTake: "如果你真正烦的是菜单栏太挤、图标太乱，又不想马上买 Bartender，Ice 是很值得先试的一条路线。"
 bestFor:
   - "想找 Bartender 替代的 Mac 用户"

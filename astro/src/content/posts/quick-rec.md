@@ -7,6 +7,10 @@ updatedAt: "2026-06-26"
 description: "QuickRec 是一款主打 Mac 录屏内录系统声音的工具。本文讲它的功能、价格、适合谁，以及和 Omi、CleanShot X 的区别。"
 price: "免费下载，内购"
 platform: "macOS"
+sources:
+  - name: "QuickRec 官网"
+    url: "https://quickrec.app/"
+    note: "功能说明与下载入口"
 quickTake: "大多数人找录屏工具的起点很具体：Mac 录屏怎么录系统声音。QuickRec 不做截图、不做标注，就是先把这个最烦的环节变简单。"
 bestFor:
   - "录网课、录会议、录网页视频时需要内录系统声音的人"

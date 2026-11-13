@@ -6,6 +6,10 @@ updatedAt: "2026-06-16"
 description: "VidHub 是一款适合管理 NAS、本地和网盘混合片源的播放器。这篇体验文重点聊聊它怎么把“找片、接着看、管理进度”这件事变顺，以及 vidhub windows 版现在到底有没有。"
 price: "免费下载"
 platform: "macOS / iOS / tvOS / Android"
+sources:
+  - name: "VidHub 中文官网"
+    url: "https://zh.okaapps.com/product/1659622164"
+    note: "支持平台、功能与下载入口"
 quickTake: "它最打动我的不是单次播放能力，而是终于把“找资源”这件事从文件夹层级，变成了更轻松的片库视角。"
 bestFor:
   - "家里有 NAS 或混合片源的人"

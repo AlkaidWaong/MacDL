@@ -6,6 +6,10 @@ updatedAt: "2026-06-24"
 description: "Otty 是一款面向 macOS 的原生命令行工具，主打漂亮、顺手、适合 Agent 时代的终端体验。如果你在找更现代的 Mac 终端工具，这篇会重点讲它适合谁、解决什么问题，以及它为什么不像传统终端那样“能用但不想久用”。"
 price: "免费下载"
 platform: "macOS"
+sources:
+  - name: "Otty 官网"
+    url: "https://otty.sh/"
+    note: "产品说明、平台与下载入口"
 quickTake: "如果你已经不满足于“终端能跑命令就行”，而是开始在里面长期写代码、跑 Agent、盯 Git 和多会话切换，Otty 这种更像现代 App 的命令行工具，会明显更顺手。"
 bestFor:
   - "长时间待在终端里的开发者"

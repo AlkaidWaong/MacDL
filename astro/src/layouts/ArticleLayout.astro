@@ -7,6 +7,8 @@ type Props = {
   description?: string;
   price?: string;
   platform?: string;
+  sources?: Array<{ name: string; url: string; note?: string }>;
+  quotes?: Array<{ text: string; source: string; url: string }>;
   officialUrl?: string;
   updatedAt?: Date;
   faqs?: Array<{ question: string; answer: string }>;
@@ -44,6 +46,8 @@ const {
   description,
   price,
   platform,
+  sources = [],
+  quotes = [],
   officialUrl,
   updatedAt,
   faqs = [],
@@ -104,6 +108,7 @@ const factItems = [
     </header>
     {introLine ? (
       <section class="article-intro" aria-label="文章导语">
+        <h2 class="article-intro__title">这篇评测回答什么？</h2>
         <p>{introLine}</p>
       </section>
     ) : null}
@@ -147,13 +152,36 @@ const factItems = [
       <slot />
       {faqs.length ? (
         <section class="article-faq" aria-labelledby="article-faq-title">
-          <h2 id="article-faq-title">常见问题</h2>
+          <h2 id="article-faq-title">常见问题有哪些？</h2>
           {faqs.map((item) => (
             <div class="article-faq__item">
               <h3>{item.question}</h3>
               <p>{item.answer}</p>
             </div>
           ))}
+        </section>
+      ) : null}
+      {sources.length || quotes.length ? (
+        <section class="article-sources" aria-labelledby="article-sources-title">
+          <h2 id="article-sources-title">资料来源与引用</h2>
+          {quotes.map((quote) => (
+            <figure class="article-quote">
+              <blockquote>{quote.text}</blockquote>
+              <figcaption>
+                — <a href={quote.url} rel="noopener noreferrer">{quote.source}</a>
+              </figcaption>
+            </figure>
+          ))}
+          {sources.length ? (
+            <ul>
+              {sources.map((source) => (
+                <li>
+                  <a href={source.url} rel="noopener noreferrer">{source.name}</a>
+                  {source.note ? `：${source.note}` : null}
+                </li>
+              ))}
+            </ul>
+          ) : null}
         </section>
       ) : null}
     </article>

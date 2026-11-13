@@ -11,15 +11,26 @@ const nav = [
   { href: "/submit", label: "独立产品收录" },
   { href: "/about", label: "关于" }
 ];
+const isHome = Astro.url.pathname === "/" || Astro.url.pathname === "";
 ---
 
 <header class="topbar">
   <div class="wrap">
     <div class="topbar-inner glass">
-      <a class="brand" href="/">
-        <img class="brand-logo" src="/favicon.ico" alt="" width="18" height="18" decoding="async" aria-hidden="true" />
-        <span class="brand-title">MacAppHQ</span>
-      </a>
+      {isHome ? (
+        <h1 class="brand-heading">
+          <a class="brand" href="/">
+            <img class="brand-logo" src="/favicon.ico" alt="" width="18" height="18" decoding="async" aria-hidden="true" />
+            <span class="brand-title">MacAppHQ</span>
+            <span class="sr-only">：Mac 应用推荐与评测、效率工具与工作流指南</span>
+          </a>
+        </h1>
+      ) : (
+        <a class="brand" href="/">
+          <img class="brand-logo" src="/favicon.ico" alt="" width="18" height="18" decoding="async" aria-hidden="true" />
+          <span class="brand-title">MacAppHQ</span>
+        </a>
+      )}
       <nav class="nav" aria-label="Site">
         {nav.map((item) => (
           <a

@@ -7,6 +7,10 @@ updatedAt: "2026-06-17"
 description: "微信输入法 Mac 版怎么下载、安装和卸载？本文整理安装步骤、残留清理方法、适合人群，以及实际输入体验。"
 price: "免费"
 platform: "macOS"
+sources:
+  - name: "微信输入法官网"
+    url: "https://z.weixin.qq.com/"
+    note: "官方下载与功能说明"
 quickTake: "如果你本来就是微信重度用户，它用起来会很顺；但如果你对隐私、残留文件和输入法权限很敏感，安装前最好先想清楚。"
 bestFor:
   - "长期在微信里聊天和办公的人"

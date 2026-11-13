@@ -19,6 +19,24 @@ const posts = defineCollection({
     description: z.string().optional(),
     price: z.string().optional(),
     platform: z.string().optional(),
+    sources: z
+      .array(
+        z.object({
+          name: z.string().min(1),
+          url: z.string().url(),
+          note: z.string().optional()
+        })
+      )
+      .optional(),
+    quotes: z
+      .array(
+        z.object({
+          text: z.string().min(1),
+          source: z.string().min(1),
+          url: z.string().url()
+        })
+      )
+      .optional(),
     quickTake: z.string().optional(),
     bestFor: z.array(z.string().min(1)).optional(),
     officialUrl: z.string().url().optional(),

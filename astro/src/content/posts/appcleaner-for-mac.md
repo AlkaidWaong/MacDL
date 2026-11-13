@@ -7,6 +7,14 @@ updatedAt: "2026-06-16"
 description: "AppCleaner 是免费的 Mac 卸载工具，能把应用和残留文件一起删除。本文整理官网下载入口、使用方法，以及和 Pearcleaner 的区别。"
 price: "免费"
 platform: "macOS"
+quotes:
+  - text: "AppCleaner is a small application which allows you to thoroughly uninstall unwanted apps."
+    source: "FreeMacSoft 官网"
+    url: "https://freemacsoft.net/appcleaner/"
+sources:
+  - name: "FreeMacSoft 官网"
+    url: "https://freemacsoft.net/appcleaner/"
+    note: "产品说明、版本与下载入口"
 quickTake: "如果你真正想解决的是“卸载一个 App 后别留一堆残留文件”，AppCleaner 依然是最值得先试的 Mac 应用卸载工具之一。"
 bestFor:
   - "想彻底卸载应用和残留文件的 Mac 用户"

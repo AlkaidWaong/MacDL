@@ -7,6 +7,10 @@ updatedAt: "2026-06-26"
 description: "PixPin 是一款免费的 Mac 截图工具，支持截图、标注、OCR 文字识别和贴图。本文讲它的核心功能、适合谁，以及和 Xnip 的区别。"
 price: "免费"
 platform: "macOS / Windows"
+sources:
+  - name: "PixPin 官网"
+    url: "https://pixpin.cn/"
+    note: "功能说明与下载入口"
 quickTake: "如果你想要的不只是截图，而是截图之后顺手标注、识别文字、继续处理信息，PixPin 这种路线会更有吸引力。在免费工具中，OCR 和贴图是它的核心差异化能力。"
 bestFor:
   - "经常截图后还要做标注和 OCR 的用户"

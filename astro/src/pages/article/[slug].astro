@@ -95,6 +95,9 @@ const articleSchema = {
   image: ogImage ? [ogImage] : undefined,
   articleSection: category || undefined,
   keywords: articleTopics.length ? articleTopics.join(",") : undefined,
+  citation: post.data.sources?.length
+    ? post.data.sources.map((source) => source.url)
+    : undefined,
   about: articleTopics.map((topic) => ({
     "@type": "Thing",
     name: topic
@@ -167,6 +170,8 @@ const faqSchema = visibleFaqs.length
   description={post.data.description}
   price={post.data.price}
   platform={post.data.platform}
+  sources={post.data.sources}
+  quotes={post.data.quotes}
   officialUrl={post.data.officialUrl}
   updatedAt={post.data.updatedAt}
   faqs={visibleFaqs}
