@@ -19,6 +19,8 @@ const posts = defineCollection({
     description: z.string().optional(),
     price: z.string().optional(),
     platform: z.string().optional(),
+    lizhiUrl: z.string().url().optional(),
+    lizhiName: z.string().optional(),
     sources: z
       .array(
         z.object({

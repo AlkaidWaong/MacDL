@@ -11,6 +11,8 @@ bestFor:
   - "觉得 AppCleaner 太轻、想要更多可视化管理能力的用户"
   - "在 AppCleaner、Pearcleaner 和付费卸载工具之间犹豫的人"
 officialUrl: "https://nektony.com/mac-app-cleaner"
+lizhiUrl: "https://lizhi.shop/products/app-cleaner-uninstaller?cid=j13endai&utm_medium=z6zyprgn"
+lizhiName: "App Cleaner & Uninstaller"
 faqs:
   - question: "App Cleaner & Uninstaller 适合什么人？"
     answer: "适合不只想删 App，还想顺手管理登录项、浏览器扩展和残留文件的人。它比轻量卸载工具更完整，但也更像一款付费桌面管理工具。"

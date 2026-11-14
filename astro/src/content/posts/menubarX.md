@@ -10,6 +10,8 @@ bestFor:
   - "需要常驻查看某些网页（日历、邮件、ChatGPT 等）的人"
   - "多显示器或小屏幕 Mac 用户"
 officialUrl: "https://menubarx.app/"
+lizhiUrl: "https://lizhi.shop/products/menubarx-pro?cid=j13endai&utm_medium=z6zyprgn"
+lizhiName: "MenubarX"
 faqs:
   - question: "MenubarX 和直接开浏览器有什么区别？"
     answer: "MenubarX 的窗口藏在菜单栏，点击即开即关，不占 dock 不占标签栏。适合把常用网页当「浮窗工具」用。"

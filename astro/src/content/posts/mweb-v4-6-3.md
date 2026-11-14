@@ -3,6 +3,9 @@ urlSlug: "mweb-v4-6-3"
 title: "MWeb：高效Markdown写作与博客生成工具"
 date: "2024-09-14"
 description: "MWeb是专为Markdown爱好者设计的写作工具，支持文档管理与静态博客生成，提升你的写作效率。"
+officialUrl: "https://zh.mweb.im/"
+lizhiUrl: "https://lizhi.shop/products/mweb-pro?cid=j13endai&utm_medium=z6zyprgn"
+lizhiName: "MWeb"
 categories:
   - "文本编辑"
 tags:

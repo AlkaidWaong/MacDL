@@ -17,6 +17,8 @@ bestFor:
   - "愿意为效率付费（$29 买断），不想在多工具之间切换的人"
   - "常做教程、Bug 反馈、社媒分享的专业人士"
 officialUrl: "https://cleanshot.com/"
+lizhiUrl: "https://lizhi.shop/products/cleanshot-x?cid=j13endai&utm_medium=z6zyprgn"
+lizhiName: "CleanShot X"
 faqs:
   - question: "CleanShot X 适合什么人？"
     answer: "最适合截图、录屏、标注、分享已经连成一条工作流的人。它不是一个截图工具，而是一个截图+录屏+分享工作空间。"

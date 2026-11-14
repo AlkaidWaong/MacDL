@@ -10,6 +10,8 @@ bestFor:
   - "需要智能分类管理剪贴板内容的人"
   - "不喜欢注册第三方账号、倾向 iCloud 原生同步的人"
 officialUrl: "https://pastenow.app/"
+lizhiUrl: "https://lizhi.shop/products/pastenow?cid=j13endai&utm_medium=z6zyprgn"
+lizhiName: "PasteNow"
 faqs:
   - question: "PasteNow 适合什么人？"
     answer: "最适合同时用 Mac 和 iPhone、需要跨设备同步剪贴板的用户。iCloud 同步是它的核心差异化——用你的 iCloud 账号，不需要注册第三方服务。"

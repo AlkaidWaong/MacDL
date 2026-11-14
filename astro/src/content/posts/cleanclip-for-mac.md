@@ -10,6 +10,8 @@ bestFor:
   - "需要顺序粘贴来批量处理表单/信息的人"
   - "追求极简 UI+丰富功能的剪贴板用户"
 officialUrl: "https://cleanclip.cc/"
+lizhiUrl: "https://lizhi.shop/products/cleanclip?cid=j13endai&utm_medium=z6zyprgn"
+lizhiName: "CleanClip"
 faqs:
   - question: "CleanClip 适合什么人？"
     answer: "最适合复制粘贴是工作流而非零散动作的专业用户。Paste Stack（顺序粘贴）是它的核心差异化功能。"

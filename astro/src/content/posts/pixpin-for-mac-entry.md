@@ -17,6 +17,8 @@ bestFor:
   - "想找一款截图效率工具，而不是只截一张图的人"
   - "在 PixPin、Xnip、CleanShot X 之间犹豫的人"
 officialUrl: "https://pixpin.cn/"
+lizhiUrl: "https://lizhi.shop/products/pixpin?cid=j13endai&utm_medium=z6zyprgn"
+lizhiName: "PixPin"
 faqs:
   - question: "PixPin for Mac 适合什么人？"
     answer: "最适合截图之后还要继续标注、OCR、整理信息的人，而不是只偶尔截一张图的轻度用户。OCR 是它与 Xnip 的最大区别——截完图直接识别文字复制。"

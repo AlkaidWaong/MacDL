@@ -10,6 +10,8 @@ bestFor:
   - "追求极简干净写作界面的人"
   - "需要从思维导图直接转文字的人"
 officialUrl: "https://www.effie.co/"
+lizhiUrl: "https://lizhi.shop/products/effie?cid=j13endai&utm_medium=z6zyprgn"
+lizhiName: "Effie"
 faqs:
   - question: "Effie 是什么？"
     answer: "Effie 是一款极简写作工具，把思维导图和文字编辑器合二为一，支持从大纲到正文的顺畅写作流程。"

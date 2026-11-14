@@ -15,6 +15,8 @@ bestFor:
   - "家里有 NAS 或混合片源的人"
   - "想减少找片和续播成本的人"
 officialUrl: "https://zh.okaapps.com/product/1659622164"
+lizhiUrl: "https://lizhi.shop/products/vidhub?cid=j13endai&utm_medium=z6zyprgn"
+lizhiName: "VidHub"
 faqs:
   - question: "VidHub 最适合什么人？"
     answer: "最适合片源分散在 NAS、本地硬盘、SMB、WebDAV 或网盘里的人。它解决的重点不是单次播放，而是让找片、整理和续播更省事。"

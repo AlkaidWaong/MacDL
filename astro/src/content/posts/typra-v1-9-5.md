@@ -10,6 +10,8 @@ bestFor:
   - "写博客/文档/技术文章的人"
   - "不想在编辑和预览之间来回切换的人"
 officialUrl: "https://typora.io/"
+lizhiUrl: "https://lizhi.shop/products/typora?cid=j13endai&utm_medium=z6zyprgn"
+lizhiName: "Typora"
 faqs:
   - question: "Typora 和 VS Code 写 Markdown 有什么区别？"
     answer: "Typora 是真正的 WYSIWYG（所见即所得），VS Code 需要预览面板。Typora 的写作沉浸感更好。"

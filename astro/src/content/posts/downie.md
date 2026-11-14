@@ -4,6 +4,8 @@ title: "Downie 体验：这款 Mac 视频下载工具适合谁用，值不值得
 date: "2025-02-14"
 updatedAt: "2026-06-19"
 description: "想找 Mac 视频下载工具？这篇从真实使用角度聊聊 Downie 适合谁、能解决什么问题，以及它和普通下载器的差别。"
+lizhiUrl: "https://lizhi.shop/products/downie?cid=j13endai&utm_medium=z6zyprgn"
+lizhiName: "Downie"
 quickTake: "如果你经常需要从不同网站稳定下载视频，Downie 这类 Mac 视频下载工具会比临时网页方案更省心。"
 bestFor:
   - "经常需要下载网页视频的 Mac 用户"
@@ -16,6 +18,10 @@ tags:
   - "Downie使用技巧"
   - "Mac视频下载工具"
 officialUrl: "https://software.charliemonroe.net/downie/"
+sources:
+  - name: "Downie 官方页面"
+    url: "https://software.charliemonroe.net/downie/"
+    note: "功能、版本与下载信息"
 faqs:
   - question: "Downie 适合什么人？"
     answer: "最适合经常需要从多个网站下载视频，而且希望过程稳定、少折腾的 Mac 用户。"
@@ -132,29 +138,3 @@ Downie 这种工具最值钱的地方，不是第一次下载时有多惊艳，�
 Downie 适合的不是“偶尔会下载视频的人”，而是“经常要下载，而且不想每次都重新找办法的人”。
 
 如果你的需求已经从一次性动作，变成稳定工作流，它会比看上去更值。
-
-# FAQ
-
-### Downie 适合什么人？
-
-最适合经常需要从多个网站下载视频，而且希望过程稳定、少折腾的 Mac 用户。
-
-### Downie 值得买吗？
-
-如果你只是偶尔下载一次视频，未必需要；但如果你经常要处理 B 站、抖音、YouTube 或其他网站内容，Downie 更容易长期省时间。
-
-### Downie 和普通网页下载工具有什么区别？
-
-临时网页工具更适合一次性需求；Downie 更像长期主力工具，重点在兼容性、稳定性和工作流连续性。
-
-### Downie 支持哪些网站？
-
-它的定位就是多站点视频下载工具，实际支持范围和解析能力建议以开发者官网当前说明为准。
-
-### Downie 支持 4K 视频下载吗？
-
-如果目标站点本身提供高质量视频源，Downie 通常可以处理对应的下载需求，具体仍以目标站点和当前版本支持情况为准。
-
-## 参考
-
-- [Downie 官方页面](https://software.charliemonroe.net/downie/)

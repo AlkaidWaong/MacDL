@@ -7,6 +7,8 @@ type Props = {
   description?: string;
   price?: string;
   platform?: string;
+  lizhiUrl?: string;
+  lizhiName?: string;
   sources?: Array<{ name: string; url: string; note?: string }>;
   quotes?: Array<{ text: string; source: string; url: string }>;
   officialUrl?: string;
@@ -46,6 +48,8 @@ const {
   description,
   price,
   platform,
+  lizhiUrl,
+  lizhiName,
   sources = [],
   quotes = [],
   officialUrl,
@@ -150,6 +154,40 @@ const factItems = [
     ) : null}
     <article class="article-prose">
       <slot />
+      {lizhiUrl ? (
+        <section class="article-partner" aria-label="正版购买">
+          <a
+            class="article-partner__link"
+            href={lizhiUrl}
+            target="_blank"
+            rel="sponsored noopener noreferrer"
+          >
+            <span class="article-partner__brand">
+              <span class="article-partner__label">正版购买</span>
+              <img
+                class="article-partner__logo"
+                src="/media/partners/lizhi-logo.png"
+                alt="数码荔枝"
+                width="480"
+                height="192"
+                loading="lazy"
+                decoding="async"
+              />
+            </span>
+            <span class="article-partner__copy">
+              <strong>{lizhiName ? `购买 ${lizhiName} 正版授权` : "购买正版授权"}</strong>
+              <span>在数码荔枝查看当前价格与授权活动</span>
+            </span>
+            <span class="article-partner__cta">
+              查看价格
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M5 12h14"></path>
+                <path d="m12 5 7 7-7 7"></path>
+              </svg>
+            </span>
+          </a>
+        </section>
+      ) : null}
       {faqs.length ? (
         <section class="article-faq" aria-labelledby="article-faq-title">
           <h2 id="article-faq-title">常见问题有哪些？</h2>

@@ -10,6 +10,8 @@ bestFor:
   - "在意电池健康、想多用两年的人"
   - "已经经历过电池鼓包或容量衰减的用户"
 officialUrl: "https://apphousekitchen.com/"
+lizhiUrl: "https://lizhi.shop/products/aldente-pro?cid=j13endai&utm_medium=n649haxs"
+lizhiName: "AlDente"
 faqs:
   - question: "Aldente 是什么？"
     answer: "MacBook 电池充电限制工具。设定充电上限（如 80%），到上限后供电不走电池，避免长期满电加速老化。"

@@ -10,6 +10,8 @@ bestFor:
   - "想要 Mac 上也有 AirPods 开盖弹窗的人"
   - "同时使用多副苹果耳机的人"
 officialUrl: "https://airbuddy.app/"
+lizhiUrl: "https://lizhi.shop/products/airbuddy?cid=j13endai&utm_medium=z6zyprgn"
+lizhiName: "AirBuddy"
 faqs:
   - question: "AirBuddy 解决什么问题？"
     answer: "Mac 上没有 AirPods 的开盖弹窗和快捷切换。AirBuddy 把 iPhone 上的 AirPods 体验带到 Mac 上。"

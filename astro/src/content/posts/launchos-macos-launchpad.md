@@ -4,6 +4,9 @@ title: "LaunchOS：让 macOS 找应用不再是「痛苦找钢针」的体验"
 seoTitle: "LaunchOS：macOS Launchpad 替代工具，找应用更快"
 date: "2026-01-15"
 description: "LaunchOS 是一款 macOS Launchpad 替代工具，用全屏网格和文件夹整理应用。本文讲它的功能、免费版和 Pro 版的区别，以及适合谁。"
+officialUrl: "https://launchosapp.com/"
+lizhiUrl: "https://lizhi.shop/products/launchos?cid=j13endai&utm_medium=z6zyprgn"
+lizhiName: "LaunchOS"
 categories:
   - "效率工具"
 tags:
