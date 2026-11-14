@@ -48,7 +48,7 @@ tags:
   - "独立开发者App"
 aliases: []
 draft: false
-heroImage: "/media/window-capture/hero.png"
+heroImage: "/media/window-capture/hero.png?v=20261114"
 ---
 
 macOS 自带录屏工具能用，但它的选项都藏在 `Command + Shift + 5` 的工具栏里。想录一个窗口、带上系统声音和麦克风，再快速剪掉开头结尾，流程还是有点长。
@@ -94,7 +94,7 @@ Window Capture 把系统音频和麦克风做成两个独立开关，录制过�
 
 支持全屏、窗口和区域录制，也支持正方形、竖屏、16:9 等比例。对需要把录屏发到不同平台的人来说，这个选项比后期裁切更省事。
 
-![Window Capture 的录制工具栏](/media/window-capture/window.png)
+![Window Capture 的录制工具栏](/media/window-capture/window.png?v=20261114)
 
 *图：选择照片或视频、窗口/显示器/区域，系统音频和麦克风可以独立开关。*
 
@@ -108,7 +108,7 @@ Mac 内部音频和麦克风可以独立开关。1.0.2 版本把全屏、窗口�
 
 内置前后片段裁剪，不需要为了剪掉几秒空白再打开剪辑软件。录制完成后可以设置是否自动预览，保存位置也会记住。
 
-![Window Capture 的设置界面](/media/window-capture/audio.png)
+![Window Capture 的设置界面](/media/window-capture/audio.png?v=20261114)
 
 *图：设置里可以调整语言、倒计时、预览、外观和启动行为。*
 
