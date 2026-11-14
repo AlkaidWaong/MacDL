@@ -10,6 +10,8 @@ bestFor:
   - "在保持画质的前提下减少文件体积的人"
   - "需要格式转换（PNG→JPG/WebP）的人"
 officialUrl: "https://zipic.app/"
+lizhiUrl: "https://lizhi.shop/products/zipic?cid=j13endai&utm_medium=z6zyprgn"
+lizhiName: "Zipic"
 faqs:
   - question: "Zipic 和 Clop 有什么区别？"
     answer: "Clop 自动压缩复制到剪贴板的图片/视频，适合截图场景；Zipic 是文件级压缩工具，适合批量处理已有图片文件。两者互补。"

@@ -10,6 +10,8 @@ bestFor:
   - "头脑风暴、自由联想型的创作者"
   - "Scrivener 用户（同公司出品，无缝配合）"
 officialUrl: "https://www.literatureandlatte.com/scapple/overview"
+lizhiUrl: "https://lizhi.shop/products/scapple?cid=j13endai&utm_medium=z6zyprgn"
+lizhiName: "Scapple"
 faqs:
   - question: "Scapple 和 XMind / MindNode 有什么区别？"
     answer: "XMind 和 MindNode 是层级树形结构，必须根→分支。Scapple 是自由画布，可以任意摆放和关联卡片。"
