@@ -51,7 +51,7 @@ tags:
   - "Clop"
 aliases: []
 draft: false
-heroImage: ""
+heroImage: "/media/mac-clipboard-tools-comparison/hero.jpg"
 ---
 
 # Mac 剪贴板管理工具怎么选：Maccy、CleanClip、PasteNow、Pastebot、Clop 横评对比

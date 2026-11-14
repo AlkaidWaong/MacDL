@@ -51,7 +51,7 @@ tags:
   - "Tabbit"
 aliases: []
 draft: false
-heroImage: ""
+heroImage: "/media/mac-browser-comparison/hero.jpg"
 ---
 
 # Mac 浏览器怎么选：Arc、Brave、Edge、Día、Tabbit 横评对比

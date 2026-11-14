@@ -35,7 +35,7 @@ tags:
   - "QuickRec"
 aliases: []
 draft: false
-heroImage: ""
+heroImage: "/media/mac-screenshot-tools-comparison/hero.jpg"
 ---
 
 # Mac 截图工具怎么选：CleanShot X、Xnip、PixPin、QuickRec 横评对比
