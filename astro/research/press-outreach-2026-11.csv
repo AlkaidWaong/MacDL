@@ -1,0 +1,31 @@
+priority,product,developer,type,official_url,press_page,contact_route,notes
+P0,MenubarX,6X Studio / hzlzh,简中独立开发者,https://menubarx.app/,https://disk.locklauncher.com/files/670814807e70c/PressKit.zip,MenubarX@gmail.com,有真实 PressKit；页脚标注数码荔枝/少数派有售
+P0,Chat Memo,一泽Eze,简中独立开发者,https://chatmemo.ai/zh-CN/,无,https://chatmemo.ai/feedback,eze@chatmemo.ai；作者页与反馈入口完整
+P0,PasteNow,Tutu Studio / 图拉鼎,简中独立开发者,https://pastenow.app/,无,App Store 支持页,文章明确标注独立开发者，10 年以上经验
+P0,YPlayer,Engineerdraft,简中独立开发者,https://www.engineerdraft.com/yplayer/,无,yplayer@engineerdraft.com,中文支持邮箱与 QQ 群；作者自述
+P0,Zipic,5KM Tech LLC,中文小团队,https://zipic.app/,无,https://zipic.app/contact/,品牌使用中文谚语，团队定位清晰
+P1,CleanClip,南京最美好科技,中国公司,https://cleanclip.cc/,无,https://cleanclip.cc/developer,官网版权主体为公司；不是独立开发者
+P1,PixPin,深圳市深度图景科技,中国公司,https://pixpin.cn/,无,https://pixpin.cn/about/#contact,关于页有公司主体与联系方式
+P1,VidHub,Oka Apps（南京欧米软件）,中国公司,https://zh.okaapps.com/product/1659622164,无,https://zh.okaapps.com/partners,有合作伙伴与支持入口
+P1,Omi,Oka Apps（南京欧米软件）,中国公司,https://zh.okaapps.com/product/1592987853,无,https://zh.okaapps.com/partners,同上
+P1,CrossDriver,CrossDriver 中国团队,中国公司,https://files.crossdriver.com/zh-hans/,无,https://www.crossdriver.com/zh-cn/aboutus,business@crossdriver.com
+P1,Xnip,Xnip 团队,中文团队（独立性待确认）,https://xnipapp.com/,无,App Store 支持页,中文站；开发者身份未公开
+P1,CC Switch,CC Switch 开发者,中文开发者（待确认）,https://ccswitch.io/zh/,无,GitHub / 官方文档,开源项目；可通过 issue 联系
+P1,Otty,appmakes.io / Typora 团队,中文团队（待确认）,https://otty.sh/,无,Contact / Team 页,Typora 开发者新作；中文背景待确认
+P1,Vibe Island,Edward,中文开发者（待确认）,https://vibeisland.app/,无,官网联系入口,开发者署名 Edward；独立身份待确认
+P1,QuickRec,QuickRec 开发者,中文开发者（待确认）,https://quickrec.app/,无,App Store 支持页,官网英文；开发者身份待确认
+P2,CleanShot X,MTW,海外独立开发者,https://cleanshot.com/,https://cleanshot-x.s3.eu-central-1.amazonaws.com/Presskit.zip,官网,有 PressKit；Mac 截图录屏高相关
+P2,Things 3,Cultured Code,海外独立开发者,https://culturedcode.com/things/,https://culturedcode.com/things/press/,官网,有 Press 页面
+P2,NotchNook,lo.cafe,海外独立开发者,https://getnotchnook.com/zh-hans/,https://getnotchnook.com/press,官网,有品牌 Logo/图标 Press 页面
+P2,Ice,Jordan Baird,海外独立开发者,https://icemenubar.app/,无,GitHub,开源菜单栏工具
+P2,DockDoor,ejbills,海外独立开发者,https://dockdoor.net/,无,GitHub,开源窗口预览工具
+P2,Rectangle,Ryan Hanson,海外独立开发者,https://rectangleapp.com/,无,官网,免费开源分屏工具
+P2,Loop,Kai Azim,海外独立开发者,https://github.com/MrKai77/Loop,无,GitHub,开源窗口管理工具
+P2,Maccy,p0deje,海外独立开发者,https://maccy.app/,无,GitHub,开源剪贴板工具
+P2,AltTab,lwouis,海外独立开发者,https://alt-tab.app/,无,GitHub,开源窗口切换工具
+P2,AppCleaner,FreeMacSoft,海外独立开发者,https://freemacsoft.net/appcleaner/,无,官网,免费卸载工具
+P2,Clop,Low Tech Guys,海外独立开发者,https://lowtechguys.com/clop/,无,官网,剪贴板压缩工具
+P2,AirBuddy,Gui Rambo,海外独立开发者,https://airbuddy.app/,无,官网,AirPods 管理工具
+P2,Downie,Charlie Monroe,海外独立开发者,https://software.charliemonroe.net/downie/,无,官网,视频下载工具
+P2,Yoink,Eternal Storms,海外独立开发者,https://www.eternalstorms.at/yoink/,无,官网,拖放暂存工具
+P2,Spark,Readdle,海外公司,https://sparkmailapp.com/,无,官网,邮件客户端

@@ -2,7 +2,22 @@
 urlSlug: "roam-fm-macos-world-radio-background-sound"
 title: "Roam FM 体验：随机全球电台，帮你告别选歌焦虑更快进入专注"
 date: "2026-01-15"
+updatedAt: "2026-11-13"
 description: "Roam FM 是一款 macOS 菜单栏应用，通过随机播放全球电台，帮助你跳过选歌焦虑，避开熟悉语言干扰，打造更专注的工作与放松声音环境。"
+price: "免费下载，Pro 买断"
+platform: "macOS 15+"
+officialUrl: "https://roamfm.app/zh-CN/"
+sources:
+  - name: "Roam FM 官网"
+    url: "https://roamfm.app/zh-CN/"
+    note: "功能、平台与下载入口"
+  - name: "Roam FM 媒体资料页"
+    url: "https://roamfm.app/zh-CN/press/"
+    note: "媒体资料包与媒体联系方式"
+quotes:
+  - text: "Roam FM is a macOS menu bar app that turns 40,000+ live radio stations from 200+ countries and regions into your ambient background sound."
+    source: "Roam FM 媒体资料页"
+    url: "https://roamfm.app/zh-CN/press/"
 categories:
   - "效率工具"
 tags:
