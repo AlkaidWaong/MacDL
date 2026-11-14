@@ -83,6 +83,39 @@ const homeCollectionSchema = {
   image={homeOgImage || undefined}
   structuredData={homeCollectionSchema}
 >
+  <section class="glass partner-strip" aria-label="合作伙伴：数码荔枝">
+    <a
+      class="partner-strip__link"
+      href="https://lizhi.shop/site/search_list/category_id/64?cid=j13endai&utm_medium=n649haxs"
+      target="_blank"
+      rel="sponsored noopener noreferrer"
+    >
+      <span class="partner-strip__brand">
+        <span class="partner-strip__label">合作伙伴</span>
+        <img
+          class="partner-strip__logo"
+          src="/media/partners/lizhi-logo.png"
+          alt="数码荔枝"
+          width="480"
+          height="192"
+          loading="eager"
+          decoding="async"
+        />
+      </span>
+      <span class="partner-strip__copy">
+        <strong>Mac 正版软件活动</strong>
+        <span>正版软件折扣与活动专区</span>
+      </span>
+      <span class="partner-strip__cta">
+        查看活动
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M5 12h14"></path>
+          <path d="m12 5 7 7-7 7"></path>
+        </svg>
+      </span>
+    </a>
+  </section>
+
   {featured.length ? (
     <>
       <section class="featured-grid" aria-label="精选文章">
