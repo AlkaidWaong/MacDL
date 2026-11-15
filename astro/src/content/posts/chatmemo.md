@@ -2,6 +2,8 @@
 urlSlug: "chatmemo"
 title: "Chat Memo 评测：自动保存 ChatGPT、Claude 等对话，换一个 AI 也能接着聊"
 date: "2026-11-06"
+featured: true
+featuredRank: 5
 updatedAt: "2026-11-06"
 description: "Chat Memo 是一款 Chrome 扩展和桌面应用，自动保存 ChatGPT、Gemini、Claude、DeepSeek 等平台的对话，支持本地检索、导出和跨 AI 接续。本文整理官网功能、价格、用户评价和隐私边界。"
 quickTake: "Chat Memo 卖的是可带走的上下文，备份只是入口。免费版解决找回，Pro 版尝试解决换模型后的续聊。"

@@ -19,7 +19,6 @@ tags:
 aliases: []
 draft: false
 heroImage: "/media/vibe-island-for-mac/hero.png"
-featured: true
 ---
 
 # Vibe Island 是什么

@@ -3,6 +3,8 @@ urlSlug: "hazeover"
 title: "HazeOver：调暗背景窗口，只留下正在用的那个"
 seoTitle: "HazeOver 评测：Mac 窗口调光工具，4.99 美元买断"
 date: "2026-11-15"
+featured: true
+featuredRank: 2
 updatedAt: "2026-11-15"
 description: "HazeOver 是一款 Mac 菜单栏工具，通过调暗背景窗口突出当前窗口。本文整理它的工作原理、快捷键、多显示器设置、自动化方式、价格和已知问题。"
 quickTake: "HazeOver 只做一件事：把非活动窗口调暗，让当前窗口跳出来。它不改变窗口位置，也不隐藏任何东西，4.99 美元买断，适合屏幕大、窗口多、经常打错窗口的人。"

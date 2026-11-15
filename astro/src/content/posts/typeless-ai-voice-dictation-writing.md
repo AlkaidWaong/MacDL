@@ -10,7 +10,6 @@ tags:
   - "语音输入"
 aliases: []
 draft: false
-featured: true
 
 heroImage: "/media/typeless-ai-voice-dictation-writing/hero.png"
 ---

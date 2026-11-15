@@ -3,6 +3,8 @@ urlSlug: "volmix"
 title: "VolMix 体验：给 Mac 每个应用单独调音量，补上 Windows 的音量合成器"
 seoTitle: "VolMix：Mac 分应用音量与输出设备控制，免费下载试用"
 date: "2026-11-14"
+featured: true
+featuredRank: 3
 updatedAt: "2026-11-14"
 description: "VolMix 是一款 macOS 菜单栏工具，可以给每个应用单独调音量、静音和指定输出设备，支持场景与全局快捷键。本文整理功能、限制、价格和适合人群。"
 quickTake: "VolMix 补的是 macOS 缺少的系统级音量合成器：每个应用单独调音量、静音，1.5 起还能指定不同输出设备。它不装驱动，走 App Store 沙盒，适合从 Windows 转过来的人。"

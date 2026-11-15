@@ -3,6 +3,8 @@ urlSlug: "mole"
 title: "Mole：把清理、卸载、磁盘分析和系统监控放进一个 Mac 应用"
 seoTitle: "Mole：Mac 清理、卸载、磁盘分析与系统监控工具"
 date: "2026-11-15"
+featured: true
+featuredRank: 1
 updatedAt: "2026-11-15"
 description: "Mole 是一款 macOS 系统优化工具，整合缓存清理、应用卸载、系统维护、磁盘分析和实时状态监控，另有免费开源 CLI。本文整理功能、价格、限制和适合人群。"
 quickTake: "Mole 把以前分散在 CleanMyMac、AppCleaner、DaisyDisk、iStat Menus 里的常用功能放进一个 Mac 应用。它先扫描再确认，Mac 版 19 美元买断，命令行版免费开源。"

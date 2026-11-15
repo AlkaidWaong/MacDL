@@ -11,7 +11,6 @@ tags:
   - "邮件管理"
 aliases: []
 draft: false
-featured: true
 heroImage: "/media/filo-mail-ai-email-to-action-system/hero.png"
 ---
 

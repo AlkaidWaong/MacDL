@@ -26,7 +26,6 @@ tags:
   - "独立开发者App"
 aliases: []
 draft: false
-featured: true
 heroImage: "/media/roam-fm-macos-world-radio-background-sound/hero.png"
 ---
 

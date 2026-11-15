@@ -2,6 +2,8 @@
 urlSlug: "airbuild-ai-ios-app"
 title: "AirBuild：用 AI 开发 iOS 应用，管理 TestFlight 和 App Store 审核"
 date: "2026-11-06"
+featured: true
+featuredRank: 4
 description: "AirBuild 是一款面向 iOS 应用开发和发布的 AI 工具，提供多智能体协作、本地或云端构建、TestFlight 分发及 App Store 审核自动化功能。"
 quickTake: "AirBuild 将产品、设计和工程等 AI 智能体用于 iOS 应用开发，并提供测试分发与 App Store 审核管理功能。"
 officialUrl: "https://air.build/"

@@ -9,7 +9,12 @@ const RECENT_POSTS_LIMIT = 12;
 const all = await getCollection("posts", ({ data }) => !data.draft);
 const featured = all
   .filter((post) => post.data.featured)
-  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+  .sort(
+    (a, b) =>
+      (a.data.featuredRank ?? Number.MAX_SAFE_INTEGER) -
+        (b.data.featuredRank ?? Number.MAX_SAFE_INTEGER) ||
+      b.data.date.getTime() - a.data.date.getTime()
+  )
   .slice(0, 5);
 const posts = all.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 const recentPosts = posts.slice(0, RECENT_POSTS_LIMIT);
@@ -124,14 +129,14 @@ const homeCollectionSchema = {
           <div class="featured-main__row">
             {featured.slice(0, 2).map((post, index) => (
               <div class={`featured-main__item featured-main__item--${index + 1}`}>
-                <PostCard post={post} showDescription={true} showMeta={false} showBadge={false} headingTag="h3" priority={index === 0} />
+                <PostCard post={post} showDescription={true} showMeta={false} showBadge={true} badgeText="精选" headingTag="h3" priority={index === 0} />
               </div>
             ))}
           </div>
           <div class="featured-main__row">
             {featured.slice(2, 4).map((post, index) => (
               <div class={`featured-main__item featured-main__item--${index + 3}`}>
-                <PostCard post={post} showDescription={true} showMeta={false} showBadge={false} headingTag="h3" />
+                <PostCard post={post} showDescription={true} showMeta={false} showBadge={true} badgeText="精选" headingTag="h3" />
               </div>
             ))}
           </div>
@@ -143,7 +148,8 @@ const homeCollectionSchema = {
                 post={post}
                 showDescription={true}
                 showMeta={false}
-                showBadge={false}
+                showBadge={true}
+                badgeText="精选"
                 headingTag="h3"
                 compact={true}
               />

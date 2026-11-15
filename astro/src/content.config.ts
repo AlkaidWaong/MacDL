@@ -53,6 +53,7 @@ const posts = defineCollection({
     categories: z.array(z.string().min(1)).default([]),
     tags: z.array(z.string().min(1)).default([]),
     featured: z.boolean().optional(),
+    featuredRank: z.number().optional(),
     aliases: z.array(z.string().min(1)).optional(),
     draft: z.boolean().optional()
   })

@@ -9,6 +9,7 @@ type Props = {
   showDescription?: boolean;
   showMeta?: boolean;
   showBadge?: boolean;
+  badgeText?: string;
   headingTag?: "h2" | "h3";
   compact?: boolean;
   priority?: boolean;
@@ -19,6 +20,7 @@ const {
   showDescription = true,
   showMeta = true,
   showBadge = false,
+  badgeText,
   headingTag = "h2",
   compact = false,
   priority = false
@@ -59,7 +61,7 @@ const coverMetadata = coverSrc
           decoding="async"
         />
       ) : null}
-      {showBadge && primary ? <div class="post-card__badge">{primary}</div> : null}
+      {showBadge && (badgeText || primary) ? <div class="post-card__badge">{badgeText || primary}</div> : null}
     </div>
     <div class="post-card__body">
       {showMeta ? (

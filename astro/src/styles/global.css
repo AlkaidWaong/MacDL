@@ -478,6 +478,20 @@ a:hover {
   height: auto;
 }
 
+.featured-grid .post-card__badge {
+  left: 16px;
+  top: 16px;
+  padding: 5px 12px;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  color: #fff;
+  background: rgba(17, 24, 39, 0.82);
+  border: 0;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 2px 10px rgba(15, 23, 42, 0.22);
+}
+
 .featured-grid .post-card__title {
   margin-top: 0;
   margin-bottom: 0;
@@ -1029,10 +1043,11 @@ a:hover {
 
 .article-header h1 {
   margin: 0 0 16px;
-  max-width: 18em;
-  font-size: clamp(30px, 3.6vw, 40px);
-  line-height: 1.18;
-  text-wrap: balance;
+  font-size: clamp(28px, 3.2vw, 36px);
+  line-height: 1.2;
+  overflow-wrap: break-word;
+  word-break: auto-phrase;
+  text-wrap: pretty;
 }
 
 .article-meta {

@@ -13,7 +13,6 @@ tags:
 aliases: []
 draft: false
 heroImage: "/media/screensage/screensage.png"
-featured: true
 ---
 
 录屏这件事，很多人以为“能录下来就行”。
