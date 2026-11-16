@@ -1,0 +1,86 @@
+app,article_url,official_url,press_link_found,status
+gstack 体验：我研究了一周后，才理解为什么 Mac 开发工作流开始像一家公司,/article/gstack-ai-software-factory,https://github.com/garrytan/gstack,,ok
+Scapple：打破线性写作的脑图工具，Literature and Latte 出品,/article/Scapple,https://www.literatureandlatte.com/scapple/overview,https://www.literatureandlatte.com/press-kit,ok
+OmniPlayer：Mac 全能播放器，字幕与投屏,/article/omniplayer,https://okaapps.com/product/1470926410,,ok
+Typora：所见即所得的 Markdown 编辑器，写作者首选,/article/typra-v1-9-5,https://typora.io/,https://typora.io/presskit.zip,ok
+MenubarX：把网页放进 Mac 菜单栏，随时用,/article/menubarX,https://menubarx.app/,https://disk.locklauncher.com/files/670814807e70c/PressKit.zip,ok
+VidHub 播放器 2026：NAS 本地网盘播放器，有 Windows 版吗？,/article/vidhub-v-1-7-8,https://zh.okaapps.com/product/1659622164,,ok
+Chat Memo 评测：自动保存 ChatGPT、Claude 等对话，换一个 AI 也能接着聊,/article/chatmemo,https://chatmemo.ai/zh-CN/,,ok
+Edge 浏览器体验：跨平台最全能的 Chromium 浏览器，为什么值得从 Chrome 切换,/article/Edge-Broswer,https://www.microsoft.com/edge,,ok
+App Cleaner & Uninstaller 体验：这款 Mac 卸载工具适合谁，和 AppCleaner 有什么区别,/article/App-Cleaner-&-Uninstaller,https://nektony.com/mac-app-cleaner,,ok
+Yoink 体验：Mac 拖放效率神器，文件临时搁架,/article/yoink-for-mac,https://eternalstorms.at/yoink/,https://eternalstorms.at/press,ok
+Loop 体验：如果你觉得 Rectangle 太直给，这款 Mac 窗口工具会更顺手一点,/article/loop,https://github.com/MrKai77/Loop,,ok
+VolMix 体验：给 Mac 每个应用单独调音量，补上 Windows 的音量合成器,/article/volmix,https://support.kevinlabs.app/volmix/,,ok
+NotchNook for Mac：把刘海变成音乐、日历、文件与 AI 工具入口,/article/notchnook-for-mac,https://getnotchnook.com/zh-hans/,/img/press/the-verge.svg,ok
+AirBuild：用 AI 开发 iOS 应用，管理 TestFlight 和 App Store 审核,/article/airbuild-ai-ios-app,https://air.build/,,ok
+EagleFiler：把网页、邮件和 PDF 收进一个库,/article/eaglefiler,https://c-command.com/eaglefiler/,press,ok
+CleanClip 体验：Mac 剪贴板管理器的 Paste Stack 是真杀手锏（官方定价 ¥55 起）,/article/cleanclip-for-mac,https://cleanclip.cc/,,ok
+Rectangle 体验：如果你只是想找一款 Mac 分屏工具，它为什么仍然最值得先装,/article/rectangle-v0-82,https://rectangleapp.com/,,ok
+Loom 体验：异步视频沟通工具，录屏+分享一键搞定,/article/loom,https://www.loom.com/,,ok
+刚刚提：在工作的间隙做一次提肛，聊聊盆底肌锻炼,/article/interlude,https://interlude.luckylab.tech/,,ok
+Monica AI 体验：浏览器 AI 助手，聊天、搜索、写作全合一,/article/monica-for-mac,https://monica.im/,,ok
+Maccy 体验：开源免费的 Mac 剪贴板管理器，No Fluff 的键盘流首选,/article/maccy,https://maccy.app/,,ok
+ima.copilot 体验：腾讯这款 AI 工作台适合谁用，和通用 AI 客户端有什么区别,/article/imacopilot,https://ima.qq.com/,,ok
+MarkEdit 体验：这款开源免费的 macOS 原生 Markdown 编辑器，为什么让我想起 TextEdit,/article/markedit,https://bit.ly/markedit-app,,ok
+Macs Fan Control：给 Mac 调风扇转速和监控温度，免费版够不够用,/article/macs-fan-control,https://crystalidea.com/macs-fan-control,,ok
+Tidy Up：Mac 重复文件查找与照片清理,/article/tidy-up,https://hyperbolicsoftware.com/TidyUp.html,,ok
+HazeOver：调暗背景窗口，只留下正在用的那个,/article/hazeover,https://hazeover.com/zh_cn/,/presskit.html,ok
+Find Any File：Mac 文件搜索找回神器，比 Spotlight 更深的扫描,/article/Find-Any-File,https://apps.tempel.org/FindAnyFile/,,ok
+DockDoor Mac 2026：窗口预览+快速切换，比 AltTab 好在哪,/article/dockdoor,https://dockdoor.net/,,ok
+Barbee Mac 菜单栏管理 2026：隐藏图标+整理桌面，和 Ice 比怎么选,/article/barbee,https://barbee.app/,,ok
+BetterStage 体验：每切一个项目都要重拼桌面后，我开始认真看 Mac 工作区管理工具,/article/betterstage-for-mac,https://betterstage.app/,,ok
+QuickRec Mac 录屏 2026：系统声音内录怎么设置，和 CleanShot X 怎么选,/article/quick-rec,https://quickrec.app/,,ok
+Aldente：延长 MacBook 电池寿命的充电限制工具,/article/aidente-v1-2-8,https://apphousekitchen.com/,https://apphousekitchen.com/press/,ok
+替换成文章标题：先写结论，再写产品名和核心场景,/article/replace-with-slug,https://example.com,,ok
+微信 4.0 for Mac 内测：深色模式来了，还有什么变化,/article/wechat-4-0-beta-for-mac,https://weixin.qq.com/,,ok
+PopClip：选中文字就弹出工具栏,/article/popclip,https://www.popclip.app/,,ok
+AppCleaner 官网在哪？下载入口、卸载用法和 Pearcleaner 区别,/article/appcleaner-for-mac,https://freemacsoft.net/appcleaner/,,ok
+Things 3 体验：极简 GTD 任务管理，把计划真正做完,/article/things3-for-mac,https://culturedcode.com/things/,/press/,ok
+Clop：免费开源的 Mac 剪贴板压缩工具，复制图片视频自动优化大小,/article/clop,https://lowtechguys.com/clop/,/clop/presskit,ok
+Downie 体验：这款 Mac 视频下载工具适合谁用，值不值得买,/article/downie,https://software.charliemonroe.net/downie/,,ok
+MWeb：高效Markdown写作与博客生成工具,/article/mweb-v4-6-3,https://zh.mweb.im/,,ok
+ChatGPT Search 体验：当 AI 对话有了实时搜索能力,/article/chatgpt-search,https://chatgpt.com/,,ok
+Xnapper：截图自动美化，带隐私打码和文字识别,/article/xnapper,https://xnapper.com/zh-CN,/zh-CN/press_kit,ok
+Orca ADE 评测：当 Claude Code 和 Codex 同时开工，你缺的是一个工作台,/article/orca-ade,https://www.onorca.dev/,,ok
+Zipic 体验：Mac 图片压缩工具，值得买吗？,/article/zipic-for-mac,https://zipic.app/,/blog/how-to-compress-images-on-mac/,ok
+PixPin for Mac 体验：截图、标注、OCR 一起用时，它和 Xnip 有什么区别,/article/pixpin-for-mac,https://pixpin.cn/,,ok
+微信输入法 Mac：下载、安装、卸载与使用体验,/article/WeChat-Input-Method,https://z.weixin.qq.com/,,ok
+免费 CleanMyMac 替代怎么选：如果你主要想卸载 App，我会先看这 2 个,/article/free-cleanmymac-alternative,https://freemacsoft.net/appcleaner/,,ok
+SideNotes：贴在屏幕边缘的速记工具,/article/sidenotes,https://www.apptorium.com/sidenotes,https://www.apptorium.com/press/feed,ok
+Tabbit 浏览器体验：这款免费 AI 浏览器为什么一边让人心动，一边让 Reddit 保持警惕,/article/tabbit-browser,https://www.tabbit.com/?lang=zh,,ok
+Arc 浏览器体验：重新设计浏览器这件事，它做得最彻底（Spaces + 侧栏 + 分屏）,/article/arc-v1-60-0-53678,https://arc.net/,,ok
+QSpace：给 Mac 访达加上多窗格、服务器连接和批量重命名,/article/qspace,https://qspace.awehunt.com/zh-cn/index.html,,ok
+Cloud Document Converter：飞书文档转 Markdown 的免费工具,/article/Cloud-Document-Converter,https://clouddocumentconverter.com/,,error
+CC Switch 体验：Claude Code、Codex 来回切到心累后，我终于把多 API 供应商管理顺了,/article/cc-switch-for-mac,https://www.ccswitch.io/zh/,,ok
+Sensei：Mac 性能监控、清理与硬件状态一体的工具,/article/sensei,https://cindori.com/sensei,#directory-column-section-state-presskits,ok
+Spark Mail 体验：AI 邮件助手，跨平台收件箱管理值得一试,/article/spark-mail-for-mac,https://sparkmailapp.com/,,ok
+Manico：用 Option + 数字键启动和切换 Mac 应用,/article/manico,https://manico.im/,,ok
+Wins：给 Mac 补上 Windows 式窗口管理，分屏、Dock 预览和 Cmd-Tab Plus,/article/wins,https://wins.cool/zh,,ok
+DemoGet 体验：如果你录产品演示和教程，这款 Mac 录屏工具为什么会让后期轻很多,/article/demoget,https://www.demoget.com/,,error
+LaunchOS：让 macOS 找应用不再是「痛苦找钢针」的体验,/article/launchos-macos-launchpad,https://launchosapp.com/,,ok
+Otty 体验：Typora 开发者的新作，为什么这款 Mac 命令行工具让我不想回旧终端,/article/otty-for-mac,https://otty.sh/,,ok
+Ice for Mac 体验：想找 Bartender 替代时，这款免费菜单栏管理工具值不值得装,/article/ice-for-mac,https://icemenubar.app/,,ok
+Frame0：手绘风格线框图工具，免费版和 Solo 版怎么选,/article/frame0,https://frame0.app,,ok
+Vibe Island for Mac 2026：多 Agent 工作流管理，灵动岛实时监控,/article/vibe-island-for-mac,https://vibeisland.app,,ok
+LaunchBar：用一个快捷键管理整个 Mac,/article/launchbar,https://www.obdev.at/products/launchbar/index.html,https://www.obdev.at/press,ok
+Agenda：把笔记和日程放在一起的 Mac 应用,/article/Agenda,https://agenda.com/,https://downloads.agenda.com/presskit.zip,ok
+妙笔 WonderPen：长篇写作的目录、快照和云同步,/article/wonderpen,https://www.tominlab.com/wonderpen,,ok
+PasteNow 体验：iCloud 同步的 Mac 剪贴板管理，独立开发者打造（¥49 买断）,/article/pastenow,https://pastenow.app/,,ok
+Pastebot 体验：有文本处理引擎的 Mac 剪贴板管理器,/article/pastebot-for-mac,https://tapbots.com/pastebot/,,ok
+Fog Mail：把邮件分成来信、待读和通知,/article/fog-mail,https://fog.fehey.com/zh,,ok
+CleanShot X 体验：Mac 截图录屏工具一步到位，但它值不值得买,/article/CleanShotX-for-mac,https://cleanshot.com/,https://cleanshot-x.s3.eu-central-1.amazonaws.com/Presskit.zip,ok
+Little Snitch 6：看清每个 App 连了哪里,/article/little-snitch,https://www.obdev.at/products/littlesnitch/,https://www.obdev.at/press,ok
+CodexBar 体验：每天被 Token 焦虑追着跑后，我开始用菜单栏监控多会话额度,/article/codexbar-for-mac,https://github.com/steipete/codexbar,,ok
+Xnip 体验：滚动截图和标注它确实顺手，适合什么人不适合什么人（2026）,/article/xnip-for-mac,https://xnipapp.com/,,ok
+MarginNote 5：把教材读成脑图和复习卡,/article/marginnote,https://www.marginnote.com.cn/,,ok
+Effie 体验：极简写作工具，把思绪变成文字,/article/effie-v4-0-15,https://www.effie.co/,,ok
+Roam FM 体验：随机全球电台，帮你告别选歌焦虑更快进入专注,/article/roam-fm-macos-world-radio-background-sound,https://roamfm.app/zh-CN/,/zh-CN/press/,ok
+YPlayer 体验：如果你想边看视频边学语言，这款实时字幕播放器值不值得试,/article/yplayer,https://www.engineerdraft.com/yplayer/,,ok
+AltTab 体验：如果你受不了 macOS 原生切窗，这款 Mac 窗口切换工具会很对味,/article/alttab-v-6-72-0,https://alt-tab.app/,,ok
+Mole：把清理、卸载、磁盘分析和系统监控放进一个 Mac 应用,/article/mole,https://mole.fit/zh,,error
+CrossDriver Files for Mac：把 Windows 11 文件资源管理器带到 Mac,/article/crossdriver-files-for-mac,https://files.crossdriver.com/zh-hans/,,ok
+Brave 浏览器体验：隐私是原生能力，不是插件能解决的（Brave Shields + Search + Tor）,/article/brave-v1-69-168,https://brave.com/,mailto:press@brave.com,ok
+Window Capture：Mac 窗口、区域和全屏录屏，免费版每段 3 分钟,/article/window-capture,https://apps.apple.com/app/id6815995037,,ok
+Simplenote：极简笔记，专注记录与同步,/article/Simplenote-v2-22-1,https://simplenote.com/,https://simplenoteblog.wordpress.com/xmlrpc.php?rsd,ok
+Klib：Kindle 书摘管理与导出工具,/article/klib,https://klib.me/cn/,https://s.toolinbox.net/Klib/PressKit_cn.zip,ok
+AirBuddy：在 Mac 上像用 iPhone 一样管理 AirPods,/article/airbuddy,https://airbuddy.app/,,ok
