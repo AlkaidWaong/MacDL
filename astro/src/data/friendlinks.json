@@ -1,7 +1,12 @@
 {
   "generatedFrom": "/Users/wangdong/Downloads/私人与共享/Mac客/友链 dc69-9bab/无标题 240b7c3e9a3145b9be19139a4bd7bfab.csv",
-  "count": 9,
+  "count": 10,
   "links": [
+    {
+      "name": "小鸭计时",
+      "url": "https://apps.apple.com/cn/app/%E5%B0%8F%E9%B8%AD%E8%AE%A1%E6%97%B6-%E5%84%BF%E7%AB%A5%E5%8F%AF%E8%A7%86%E5%8C%96%E8%AE%A1%E6%97%B6%E5%99%A8/id6747744932",
+      "description": "给孩子的可视化计时器，用图形化的方式让时间变得看得见。"
+    },
     {
       "name": "Alkaid`s Blog",
       "url": "https://blog.ifoz.net/",

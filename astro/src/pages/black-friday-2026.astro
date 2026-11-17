@@ -1,0 +1,682 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+type Deal = {
+  name: string;
+  type: string;
+  desc: string;
+  off: string;
+  life?: boolean;
+  code?: string;
+  price?: string;
+  dates: string;
+  url: string;
+  review?: string;
+};
+
+type Section = {
+  id: string;
+  title: string;
+  note?: string;
+  deals: Deal[];
+};
+
+const sections: Section[] = [
+  {
+    id: "productivity",
+    title: "效率工具",
+    note: "剪贴板、日历、书签、任务安排",
+    deals: [
+      {
+        name: "PastePal",
+        type: "剪贴板管理",
+        desc: "Mac、iPhone、iPad 共用一份剪贴板历史，通过 iCloud 同步。",
+        off: "−50%",
+        life: true,
+        code: "INDIEGOODIESBF26",
+        dates: "11.20 – 11.30",
+        url: "https://indiegoodies.com/pastepal"
+      },
+      {
+        name: "CleanClip",
+        type: "剪贴板管理",
+        desc: "原生剪贴板历史，带光标位置弹出菜单、智能列表和 Paste Stack。",
+        off: "−30%",
+        code: "BF2026",
+        dates: "11.4 – 12.15",
+        url: "https://cleanclip.cc",
+        review: "/article/cleanclip-for-mac"
+      },
+      {
+        name: "Shiori",
+        type: "书签管理",
+        desc: "带标签和文件夹的书签工具，Mac、网页和 Chrome 共用。",
+        off: "−50%",
+        life: true,
+        code: "BLACK2026FRIDAY50",
+        dates: "11.12 – 12.1",
+        url: "https://shioriapp.io"
+      },
+      {
+        name: "Overcal",
+        type: "菜单栏日历",
+        desc: "月视图、日程、世界时钟，下一次会议可一键加入。",
+        off: "−50%",
+        life: true,
+        code: "INDIEGOODIESBF26",
+        dates: "11.20 – 11.30",
+        url: "https://indiegoodies.com/overcal"
+      },
+      {
+        name: "SupaSidebar",
+        type: "标签页与书签",
+        desc: "给所有浏览器加一条 Arc 式侧边栏，模糊搜索标签页、书签和本地文件。",
+        off: "−50%",
+        life: true,
+        code: "SIDEBARBF50",
+        dates: "11.9 – 12.7",
+        url: "https://supasidebar.com"
+      },
+      {
+        name: "Starlie",
+        type: "Jira 客户端",
+        desc: "原生 SwiftUI 写的 Jira Cloud 与自建 Jira 客户端，支持 JQL 与冲刺面板。",
+        off: "−50%",
+        life: true,
+        price: "$24.99",
+        dates: "11.24 – 12.1",
+        url: "https://starlie.app/"
+      },
+      {
+        name: "Everlog",
+        type: "日记",
+        desc: "Markdown 日记，支持照片、地点、心情和锻炼记录，iCloud 同步。",
+        off: "−50%",
+        life: true,
+        dates: "11.27 – 12.1",
+        url: "https://apps.apple.com/app/everlog-journal/id1519935634"
+      },
+      {
+        name: "Pretty Progress",
+        type: "倒计时小组件",
+        desc: "自定义倒计时和进度小组件，用来盯截止日期和纪念日。",
+        off: "−50%",
+        life: true,
+        price: "$29.99",
+        dates: "11.20 – 12.1",
+        url: "https://prettyprogress.app/download"
+      },
+      {
+        name: "Forma",
+        type: "任务与项目",
+        desc: "卡片式项目画布，适合把当天任务摊开看，Pro 支持多画板与 iCloud。",
+        off: "−47%",
+        life: true,
+        code: "BLACKFRIDAY50",
+        dates: "11.20 – 12.1",
+        url: "https://useforma.app"
+      }
+    ]
+  },
+  {
+    id: "content",
+    title: "内容创作",
+    note: "录屏、视频、截图与音频",
+    deals: [
+      {
+        name: "ScreenSage Pro",
+        type: "录屏与视频编辑",
+        desc: "录制屏幕、摄像头和麦克风，自动跟随光标缩放，适合做教程和产品演示。",
+        off: "−53%",
+        life: true,
+        code: "BFS2026L",
+        dates: "11.4 – 12.15",
+        url: "https://screensage.pro/bf2026",
+        review: "/article/screensage-scenario-driven-recording-guide"
+      },
+      {
+        name: "Recorder.app",
+        type: "录屏",
+        desc: "屏幕、窗口、摄像头、麦克风和系统声音分别录成同步文件，最高 8K。",
+        off: "−60%",
+        life: true,
+        price: "$17.99",
+        dates: "11.20 – 12.1",
+        url: "https://apps.apple.com/app/apple-store/id6740995613"
+      },
+      {
+        name: "AudioRecorder.app",
+        type: "录音",
+        desc: "一键录系统声音和麦克风，不需要装驱动。",
+        off: "−60%",
+        life: true,
+        price: "$9.99",
+        dates: "11.20 – 12.1",
+        url: "https://apps.apple.com/app/apple-store/id6742782372"
+      },
+      {
+        name: "ScreenSnap Pro",
+        type: "截图与录屏",
+        desc: "截图、滚动捕捉、OCR、内置视频编辑和分享链接，一份授权两台电脑。",
+        off: "−50%",
+        life: true,
+        price: "$19.50",
+        code: "BLACKFRIDAY",
+        dates: "11.10 – 11.30",
+        url: "https://www.screensnap.pro/pricing"
+      },
+      {
+        name: "MatchCut FCP",
+        type: "视频剪辑辅助",
+        desc: "把音频转成带时间码的 SRT，并自动把素材对齐到 Final Cut Pro 时间线。",
+        off: "−40%",
+        life: true,
+        code: "BLACKFRIDAY26",
+        dates: "11.4 – 12.2",
+        url: "https://matchcutfcp.aquaflamingolabs.com"
+      },
+      {
+        name: "AVE AI Video Editor",
+        type: "视频编辑",
+        desc: "按转录文本剪视频，加字幕和可编辑缩放，都在同一个 Mac 编辑器里完成。",
+        off: "−30%",
+        life: true,
+        price: "$69.30",
+        dates: "11.16 – 12.24",
+        url: "https://www.aivideoeditor.app/pro/"
+      }
+    ]
+  },
+  {
+    id: "ai",
+    title: "AI 工具",
+    note: "聊天客户端、写作、文档问答",
+    deals: [
+      {
+        name: "TypingMind",
+        type: "AI 聊天客户端",
+        desc: "把 ChatGPT、Claude、Gemini 等模型放进一个界面，支持 MCP、插件和本地存储。",
+        off: "−60%",
+        life: true,
+        code: "BLACKFRIDAY2026",
+        dates: "11.2 – 12.15",
+        url: "https://www.typingmind.com/"
+      },
+      {
+        name: "BoltAI",
+        type: "AI 工作区",
+        desc: "原生 Mac 应用，聚合云端与本地模型，支持在 Chrome 里浏览、调用已授权的应用。",
+        off: "−40%",
+        life: true,
+        code: "BFCM2026",
+        dates: "11.2 – 12.1",
+        url: "https://boltai.com/pricing"
+      },
+      {
+        name: "Vinaa",
+        type: "AI 聊天",
+        desc: "云端与本地模型都能聊，带项目、文件夹、iCloud 同步和全文搜索。",
+        off: "−45%",
+        life: true,
+        dates: "11.6 – 11.30",
+        url: "https://www.vinaa.ai/pricing/"
+      },
+      {
+        name: "PDF Pals",
+        type: "文档问答",
+        desc: "对 PDF、Word、Excel、EPUB 提问，回答带引用，内置本地模型。",
+        off: "−40%",
+        life: true,
+        dates: "11.2 – 12.1",
+        url: "https://pdfpals.com/buy"
+      },
+      {
+        name: "MeetingDebrief",
+        type: "会议记录",
+        desc: "在本机录音、转写和总结会议，不需要机器人进会议，也不上传内容。",
+        off: "−35%",
+        life: true,
+        code: "BFCM2026",
+        dates: "11.26 – 12.12",
+        url: "https://meetingdebrief.com"
+      },
+      {
+        name: "Fluent 2",
+        type: "AI 助手",
+        desc: "带应用上下文的 Mac AI 助手，支持本地模型、快捷指令和电脑操作。",
+        off: "−25%",
+        life: true,
+        code: "BF2026",
+        dates: "11.1 – 12.1",
+        url: "https://fluentmac.app/"
+      },
+      {
+        name: "TypeBoost",
+        type: "AI 写作",
+        desc: "在任意应用里改写、润色、听写文字，另带 iPhone 键盘。",
+        off: "−50%",
+        code: "TYPEBOOST50",
+        price: "首年 $30",
+        dates: "11.23 – 11.30",
+        url: "https://typeboost.ai/"
+      }
+    ]
+  },
+  {
+    id: "design",
+    title: "设计工具",
+    note: "看图、动效、图片压缩",
+    deals: [
+      {
+        name: "Zipic",
+        type: "图片压缩",
+        desc: "批量压缩、转换和缩放图片，支持文件夹监控与剪贴板自动压缩，本地处理。",
+        off: "−33%",
+        price: "Solo $13.39",
+        code: "BF2026",
+        dates: "11.20 – 12.6",
+        url: "https://zipic.app/black-friday",
+        review: "/article/zipic-for-mac"
+      },
+      {
+        name: "FloatViewer",
+        type: "图片查看",
+        desc: "无边框悬浮看图，支持 RAW、PSD、AVIF、SVG 等 32 种格式，带 EXIF 和直方图。",
+        off: "−50%",
+        life: true,
+        code: "BF2026",
+        dates: "11.26 – 12.1",
+        url: "https://apps.apple.com/app/id6768883420"
+      },
+      {
+        name: "LottieGo",
+        type: "动效压缩",
+        desc: "压缩 Lottie JSON，并导出成 MP4、透明 MOV 或 GIF，全部本地处理。",
+        off: "−50%",
+        life: true,
+        price: "$2.49",
+        dates: "11.20 – 12.6",
+        url: "https://lottiego.com/black-friday"
+      }
+    ]
+  },
+  {
+    id: "system",
+    title: "系统工具",
+    note: "窗口、Dock、文件与显示器",
+    deals: [
+      {
+        name: "Wins",
+        type: "窗口管理",
+        desc: "原生窗口管理，支持贴边分屏、Dock 预览和快捷键。",
+        off: "−40%",
+        life: true,
+        code: "BF_26",
+        dates: "11.11 – 12.1",
+        url: "https://wins.cool/",
+        review: "/article/wins"
+      },
+      {
+        name: "BetterStage",
+        type: "窗口与工作区",
+        desc: "跨显示器的命名 Stage、自动平铺与标签、Stage 感知的 ⌘Tab。",
+        off: "−20%",
+        life: true,
+        price: "$15.99 起",
+        code: "BLACKFRIDAY20",
+        dates: "11.23 – 11.30",
+        url: "https://betterstage.app/pricing",
+        review: "/article/betterstage-for-mac"
+      },
+      {
+        name: "ExtraDock",
+        type: "Dock 扩展",
+        desc: "在任意屏幕、任意位置放无限个浮动 Dock。",
+        off: "−50%",
+        life: true,
+        code: "BLACK2026FRIDAY50",
+        dates: "11.12 – 12.1",
+        url: "https://extradock.app"
+      },
+      {
+        name: "DockFlow",
+        type: "Dock 预设",
+        desc: "保存多套 Dock 布局，按工作场景一键切换。",
+        off: "−50%",
+        life: true,
+        code: "BLACK2026FRIDAY50",
+        dates: "11.12 – 12.1",
+        url: "https://dockflowapp.io"
+      },
+      {
+        name: "CoolDock",
+        type: "Dock 与小组件",
+        desc: "第二个 Dock，带音乐、日历、天气、待办和系统状态小组件。",
+        off: "−50%",
+        life: true,
+        code: "BLACK2026FRIDAY50",
+        dates: "11.12 – 12.1",
+        url: "https://cooldock.app"
+      },
+      {
+        name: "Fileside",
+        type: "文件管理",
+        desc: "按项目组织文件夹布局，做出可以随时切换的工作区。",
+        off: "−50%",
+        life: true,
+        price: "$16.50",
+        code: "BLKFRD26",
+        dates: "11.23 – 11.30",
+        url: "https://www.fileside.app/"
+      },
+      {
+        name: "FileMinutes",
+        type: "文件搜索",
+        desc: "面向 Mac 的文件查找工具，按规则快速定位文件。",
+        off: "−60%",
+        life: true,
+        dates: "11.14 – 11.30",
+        url: "https://www.fileminutes.com/"
+      },
+      {
+        name: "Almighty",
+        type: "系统增强",
+        desc: "把 100 多项隐藏设置和系统工具收进一个原生应用。",
+        off: "−50%",
+        life: true,
+        code: "INDIEGOODIESBF26",
+        dates: "11.20 – 11.30",
+        url: "https://indiegoodies.com/almighty"
+      },
+      {
+        name: "Wishbar",
+        type: "菜单栏小组件",
+        desc: "用一句话让 AI 生成菜单栏实时小组件，比如价格提醒、列车延误。",
+        off: "−50%",
+        price: "$19 起",
+        dates: "11.16 – 12.7",
+        url: "https://wishbar.app/black-friday"
+      },
+      {
+        name: "DisplayBuddy",
+        type: "显示器控制",
+        desc: "在 Mac 上直接调外接显示器的亮度、对比度、音量、输入源和预设。",
+        off: "−33%",
+        life: true,
+        code: "BLACKFRIDAY26",
+        dates: "11.16 – 12.31",
+        url: "https://displaybuddy.app"
+      }
+    ]
+  },
+  {
+    id: "developer",
+    title: "开发工具",
+    note: "ASO、终端历史、AI 代理状态",
+    deals: [
+      {
+        name: "Ascope",
+        type: "ASO 与关键词",
+        desc: "每天跟踪 50 多个国家的 App Store 与 Google Play 关键词排名，附带 MCP 服务。",
+        off: "−63%",
+        life: true,
+        price: "$69",
+        dates: "11.1 – 11.30",
+        url: "https://ascope.app/"
+      },
+      {
+        name: "DevUtils",
+        type: "开发工具箱",
+        desc: "离线的开发者工具箱，格式化、转换、编码等常用工具集中在一处。",
+        off: "−60%",
+        code: "BLACKFRIDAY2026",
+        dates: "11.2 – 12.30",
+        url: "https://devutils.com/"
+      },
+      {
+        name: "SupaYatta",
+        type: "AI 代理监控",
+        desc: "在刘海位置提示 Claude、Cursor 等 AI 代理什么时候需要你介入。",
+        off: "−65%",
+        price: "$6.99",
+        code: "YATTADEAL",
+        dates: "11.9 – 12.7",
+        url: "https://supayatta.com"
+      },
+      {
+        name: "ShellHistory",
+        type: "终端历史",
+        desc: "保存、搜索并在 Mac 与 iPhone 之间同步 zsh、bash、fish 历史。",
+        off: "−60%",
+        price: "$5.59",
+        dates: "11.14 – 12.1",
+        url: "https://loshadki.app/shellhistory/"
+      },
+      {
+        name: "KeygenGo",
+        type: "授权管理客户端",
+        desc: "Keygen.sh 的原生 Mac 客户端，管理产品、策略、许可证和机器。",
+        off: "−50%",
+        life: true,
+        price: "$19.99",
+        dates: "11.20 – 12.6",
+        url: "https://keygengo.5km.tech/black-friday"
+      }
+    ]
+  },
+  {
+    id: "finance",
+    title: "财务",
+    note: "订阅与票据",
+    deals: [
+      {
+        name: "SubManager",
+        type: "订阅管理",
+        desc: "在 iPhone、Mac 和 Vision Pro 上统一记录订阅，续费前提醒。",
+        off: "−50%",
+        life: true,
+        dates: "11.27 – 11.30",
+        url: "https://submanager.app"
+      },
+      {
+        name: "CheckCraft",
+        type: "支票打印",
+        desc: "在 Mac、iPhone、iPad 上批量打印支票，支持作废、副本和打印校准。",
+        off: "−60%",
+        price: "$1.99",
+        dates: "11.14 – 12.1",
+        url: "https://loshadki.app/checkcraft/"
+      }
+    ]
+  }
+];
+
+const total = sections.reduce((sum, section) => sum + section.deals.length, 0);
+
+const submitHref = `mailto:alkaid.waong@foxmail.com?subject=${encodeURIComponent(
+  "2026 黑五折扣提交"
+)}&body=${encodeURIComponent(
+  "应用名称：\n官网 / 购买页：\n折扣力度：\n优惠码（没有请注明）：\n起止日期：\n是否终身授权："
+)}`;
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  name: "2026 黑五 Mac 软件折扣清单",
+  numberOfItems: total,
+  itemListElement: sections.flatMap((section) =>
+    section.deals.map((deal, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: deal.name,
+      url: deal.url
+    }))
+  )
+};
+---
+
+<BaseLayout
+  title="2026 黑五 Mac 软件折扣清单：只挑终身授权和高折扣 | MacAppHQ"
+  description="2026 黑五与网络星期一 Mac 软件折扣清单，按效率、内容创作、AI、设计、系统、开发、财务分类，优先收录终身授权和 50% 以上折扣，已评测的软件附站内链接。"
+  keywords="2026 黑五,Black Friday,Mac 软件折扣,终身授权,Mac App 优惠"
+  canonical="/black-friday-2026"
+  ogType="website"
+  structuredData={structuredData}
+>
+  <div class="wrap">
+    <article class="glass bf-page">
+      <header class="bf-hero">
+        <span class="bf-hero__eyebrow">Black Friday · 2026</span>
+        <h1>2026 黑五 Mac 软件折扣清单</h1>
+        <p class="bf-hero__lead">
+          从公开整理的 Mac App 折扣里挑了 {total} 个，只保留终身授权和折扣力度较大的条目。
+          已经完整评测过的软件，后面附了站内链接。
+          <a class="bf-hero__submit" href="#submit">你是开发者？提交你的黑五折扣 →</a>
+        </p>
+        <div class="bf-hero__meta">
+          <span>最后整理：2026.11.17</span>
+          <span>共 {total} 个折扣</span>
+          <span>
+            来源：
+            <a
+              href="https://github.com/s1ntoneli/Awesome-Black-Friday-Cyber-Monday-for-Mac-Apps"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              GitHub 上的 Awesome Black Friday for Mac Apps
+            </a>
+          </span>
+        </div>
+      </header>
+
+      <aside class="bf-note">
+        <strong>购买前请核对。</strong>
+        折扣、优惠码和起止日期由开发者自行提交，本站没有逐个下单验证。部分活动要等到 11 月下旬才生效，
+        价格、可用地区和授权方式以官网结账页为准。上游清单中含少量赞助条目，本页只按折扣力度和授权类型筛选，未收取费用。
+      </aside>
+
+      <p class="bf-picked">
+        已经写过完整评测的：
+        <a href="/article/screensage-scenario-driven-recording-guide">ScreenSage Pro</a>、
+        <a href="/article/zipic-for-mac">Zipic</a>、
+        <a href="/article/wins">Wins</a>、
+        <a href="/article/betterstage-for-mac">BetterStage</a>、
+        <a href="/article/cleanclip-for-mac">CleanClip</a>。
+      </p>
+
+      <nav class="bf-toc" aria-label="折扣分类">
+        {sections.map((section) => (
+          <a href={`#${section.id}`}>
+            {section.title}
+            <span>{section.deals.length}</span>
+          </a>
+        ))}
+      </nav>
+
+      {sections.map((section) => (
+        <section class="bf-section" id={section.id}>
+          <div class="bf-section__head">
+            <h2>{section.title}</h2>
+            {section.note ? <p>{section.note}</p> : null}
+          </div>
+          <div class="bf-grid">
+            {section.deals.map((deal) => (
+              <article class="bf-card">
+                <div class="bf-card__top">
+                  <span class={`bf-off ${deal.life ? "bf-off--life" : ""}`}>{deal.off}</span>
+                  {deal.life ? <span class="bf-tag">终身授权</span> : null}
+                </div>
+                <h3 class="bf-card__name">
+                  <a href={deal.url} target="_blank" rel="nofollow noopener noreferrer">
+                    {deal.name}
+                  </a>
+                </h3>
+                <p class="bf-card__type">{deal.type}</p>
+                <p class="bf-card__desc">{deal.desc}</p>
+                {deal.code ? (
+                  <div class="bf-code-row">
+                    <div class="bf-code-box">
+                      <span class="bf-code-label">优惠码</span>
+                      <code class="bf-code-value" title={deal.code}>{deal.code}</code>
+                    </div>
+                    <button class="bf-copy" type="button" data-copy={deal.code} aria-label={`复制优惠码 ${deal.code}`}>
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <rect x="9" y="9" width="12" height="12" rx="2"></rect>
+                        <path d="M5 15V5a2 2 0 0 1 2-2h10"></path>
+                      </svg>
+                      <span class="bf-copy__text">复制</span>
+                    </button>
+                  </div>
+                ) : null}
+                {deal.review ? (
+                  <a class="bf-review" href={deal.review}>
+                    看我们的评测 →
+                  </a>
+                ) : null}
+                <div class="bf-card__foot">
+                  {deal.price ? <span class="bf-price">{deal.price}</span> : null}
+                  <span class="bf-dates">{deal.dates}</span>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+      ))}
+
+      <footer class="bf-foot">
+        <h2>怎么用这份清单</h2>
+        <ul>
+          <li>先看「终身授权」标记。订阅制的折扣只影响首年，续费会回到原价。</li>
+          <li>优惠码有时间窗口，收藏本页后在下单前再确认一次日期。</li>
+          <li>同一开发者的多个应用常有统一折扣，比如 Dock 系列共用同一个优惠码。</li>
+          <li>不确定要不要买的，先看站内评测，再决定是否为一个折扣提前付费。</li>
+        </ul>
+
+        <div class="bf-submit" id="submit">
+          <div class="bf-submit__copy">
+            <h3>提交你的黑五折扣</h3>
+            <p>
+              如果你是开发者或发行方，想把折扣放进这份清单，直接发邮件给我们。收录免费，
+              只收 Mac 应用，我们会先核对折扣是否真实有效，再决定是否列出。
+            </p>
+            <ul class="bf-submit__req">
+              <li>应用名称与一句话介绍</li>
+              <li>官网或购买页链接</li>
+              <li>折扣力度与优惠码（没有码请注明）</li>
+              <li>起止日期，以及是否终身授权</li>
+            </ul>
+          </div>
+          <a class="bf-submit__btn" href={submitHref}>发邮件提交</a>
+        </div>
+      </footer>
+    </article>
+  </div>
+<script>
+  document.addEventListener("click", async (event) => {
+    const target = event.target as HTMLElement | null;
+    const button = target?.closest("[data-copy]") as HTMLButtonElement | null;
+    if (!button) return;
+
+    const code = button.dataset.copy ?? "";
+    try {
+      await navigator.clipboard.writeText(code);
+    } catch {
+      const helper = document.createElement("textarea");
+      helper.value = code;
+      document.body.appendChild(helper);
+      helper.select();
+      document.execCommand("copy");
+      helper.remove();
+    }
+
+    const text = button.querySelector(".bf-copy__text");
+    button.classList.add("is-copied");
+    if (text) text.textContent = "已复制";
+    window.setTimeout(() => {
+      button.classList.remove("is-copied");
+      if (text) text.textContent = "复制";
+    }, 1600);
+  });
+</script>
+</BaseLayout>
+

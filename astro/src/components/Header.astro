@@ -1,12 +1,8 @@
 ---
-const nav = [
+const nav: { href: string; label: string; badge?: string }[] = [
   { href: "/", label: "首页" },
   { href: "/category", label: "分类" },
-  {
-    href: "https://apps.apple.com/cn/app/%E5%B0%8F%E9%B8%AD%E8%AE%A1%E6%97%B6-%E5%84%BF%E7%AB%A5%E5%8F%AF%E8%A7%86%E5%8C%96%E8%AE%A1%E6%97%B6%E5%99%A8/id6747744932",
-    label: "小鸭计时"
-  },
-  { href: "https://kidcue.app/", label: "KidCue" },
+  { href: "/black-friday-2026", label: "2026 黑五", badge: "DEAL" },
   { href: "/search", label: "搜索" },
   { href: "/submit", label: "独立产品收录" },
   { href: "/about", label: "关于" }
@@ -35,10 +31,18 @@ const isHome = Astro.url.pathname === "/" || Astro.url.pathname === "";
         {nav.map((item) => (
           <a
             href={item.href}
+            class:list={[
+              {
+                "nav-link--badge": Boolean(item.badge),
+                "is-active": Astro.url.pathname === item.href
+              }
+            ]}
+            aria-current={Astro.url.pathname === item.href ? "page" : undefined}
             target={item.href.startsWith("http") ? "_blank" : undefined}
             rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
           >
             {item.label}
+            {item.badge ? <span class="nav-badge">{item.badge}</span> : null}
           </a>
         ))}
       </nav>
