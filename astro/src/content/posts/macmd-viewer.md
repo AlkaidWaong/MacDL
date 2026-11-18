@@ -61,14 +61,12 @@ tags:
   - "Mac 工具"
 aliases: []
 draft: false
-heroImage: "/media/macmd-viewer/hero.jpg"
+heroImage: "/media/macmd-viewer/hero.png"
 ---
 
 MacMD Viewer 是一款 macOS 上的 Markdown 阅读器，当前版本 1.8.3，需要 macOS 14 或更高版本。
 
 它渲染 `.md` 文件，不修改源文件。没有编辑器，没有文件库，也没有双链。
-
-![MacMD Viewer 的阅读界面，左侧是目录，正文包含代码块和 Mermaid 架构图](/media/macmd-viewer/hero.jpg)
 
 ## MacMD Viewer 是什么？
 
@@ -98,7 +96,7 @@ MacMD Viewer 是一款 macOS 上的 Markdown 阅读器，当前版本 1.8.3，�
 
 用途是找文件时不用先打开应用：在文件夹里翻文档，看标题和结构就能判断是哪一份。
 
-![在访达里按空格，用快速查看直接渲染 README](/media/macmd-viewer/quicklook.webp)
+![在访达里按空格，用快速查看直接渲染整篇需求文档](/media/macmd-viewer/quicklook.jpg)
 
 快速查看同样适用于聚焦搜索和应用的打开对话框。
 
