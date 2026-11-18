@@ -1,149 +1,185 @@
 ---
 urlSlug: "localsend-v-1-15-4"
-title: "LocalSend：跨平台局域网文件传输工具"
-seoTitle: "LocalSend：跨平台局域网文件传输工具怎么用"
+title: "LocalSend 有网页版吗？"
+seoTitle: "LocalSend 有网页版吗？局域网传输与 HTTPS 加密"
 date: "2024-09-16"
-description: "LocalSend 是一款免费开源的文件传输工具，支持 Windows、macOS、Linux、Android 和 iOS，在同一局域网内直接发送文件。本文讲它的功能和适合人群。"
+updatedAt: "2026-11-18"
+description: "LocalSend 有官方网页版 web.localsend.org，可以在浏览器里发送文件。本文说明网页版能做什么、局域网传输和 HTTPS 加密的原理，以及和安装版的区别。"
+quickTake: "LocalSend 有网页版，地址是 web.localsend.org，但它的主要用途是在浏览器里发送文件；接收端仍然需要运行 LocalSend。局域网传输、HTTPS 加密、不经过第三方服务器这三点，网页版和安装版一致。"
+price: "免费开源（Apache 2.0）"
+platform: "Windows、macOS、Linux、Android、iOS，另有网页版"
+officialUrl: "https://localsend.org/"
+sources:
+  - name: "LocalSend 官网"
+    url: "https://localsend.org/"
+    note: "平台支持、安全说明与常见问题"
+  - name: "LocalSend 网页版"
+    url: "https://web.localsend.org/"
+    note: "官方 Web App 入口"
+  - name: "LocalSend GitHub"
+    url: "https://github.com/localsend/localsend"
+    note: "开源协议与技术说明"
+  - name: "LocalSend 更新日志"
+    url: "https://localsend.org/changelog"
+    note: "版本历史，当前 1.18.2"
+quotes:
+  - text: "Share files without the cloud. Fast, private, offline."
+    source: "LocalSend 官网"
+    url: "https://localsend.org/"
+  - text: "All transfers are encrypted using HTTPS. You can also enable PIN verification for extra security."
+    source: "LocalSend 官网常见问题"
+    url: "https://localsend.org/"
+bestFor:
+  - "同一局域网内需要跨平台互传文件的人"
+  - "不想把文件上传到云盘或聊天工具的人"
+  - "在别人的电脑上临时发文件、不想装软件的人"
+  - "需要 Windows、macOS、Android、iOS 之间互传的人"
+faqs:
+  - question: "LocalSend 有网页版吗？"
+    answer: "有。官方网页版地址是 https://web.localsend.org/，可以在浏览器里打开使用。它的主要用途是在未安装 LocalSend 的电脑上发送文件，接收端仍需要运行 LocalSend。"
+  - question: "网页版能接收文件吗？"
+    answer: "浏览器不能像安装版一样在局域网里被发现。接收文件仍由安装版完成；桌面版提供「通过链接接收」，可以生成一个网页，让对方向你发送文件。"
+  - question: "LocalSend 需要联网吗？"
+    answer: "不需要互联网，但需要设备处在同一个局域网内，比如同一个 Wi-Fi 或同一个网段。文件不经过第三方服务器。"
+  - question: "传输安全吗？"
+    answer: "设备之间使用 HTTPS 通信，文件只在局域网内传输。可以开启 PIN 验证，接收方确认后才开始传输。"
+  - question: "支持哪些平台？"
+    answer: "Windows、macOS、Linux、Android、iOS，另有网页版。项目开源，协议为 Apache 2.0。"
+  - question: "和 AirDrop 有什么区别？"
+    answer: "AirDrop 只在苹果设备之间可用；LocalSend 支持 Windows、Android 等平台，只要在同一局域网即可互传。两者都不需要把文件上传到云端。"
+  - question: "传输速度有多少？"
+    answer: "取决于局域网带宽和 Wi-Fi 质量，没有服务器端的带宽限制。千兆有线或较新的 Wi-Fi 环境下，速度通常明显快于网盘上传再下载。"
+  - question: "为什么设备列表里找不到对方？"
+    answer: "常见原因是两台设备不在同一网段、路由器开启了客户端隔离（AP isolation），或者防火墙拦截了 LocalSend 使用的端口。"
 categories:
   - "效率工具"
 tags:
+  - "LocalSend"
+  - "局域网传输"
   - "文件分享"
-  - "精选软件"
   - "跨平台传输"
+  - "开源软件"
 aliases: []
 draft: false
 heroImage: "/media/localsend-v-1-15-4/hero.png"
 ---
 
-# 简介
+LocalSend 有网页版，地址是 [web.localsend.org](https://web.localsend.org/)，由官方提供，不需要注册。
 
-<aside>
-📎 LocalSend 是一款功能强大、使用简单的文件分享工具，它允许你在无需网络的情况下，将文件直接分享给附近的设备。无论是Windows、macOS、Linux、Android 还是 iOS，LocalSend都能无缝兼容。
+不过网页版的作用和安装版不同：它主要解决「发送」，接收文件仍然要靠安装了 LocalSend 的设备。
 
-</aside>
+## 网页版能做什么？
 
-**更新时间： 2023-02-06**
+网页版适合这样的场景：你在别人的电脑或临时设备上，想把文件发给同一局域网里的手机、平板或另一台电脑，但不想为了这一次安装软件。
 
-**软件大小：24.6MB**
+打开网页版，选择文件，找到局域网内的设备并发送即可。
 
-**版本：v 1.15.4(官方版)**
+它的限制也很明确：
 
-**软件官网：**[https://localsend.org/](https://localsend.org/)
+- 浏览器无法像安装版一样在局域网里被其他设备发现，所以不能作为接收端
+- 无法使用安装版的全部设置，比如自定义保存目录、设备别名等
+- 网络环境受限时（例如公司网络隔离了客户端），网页版同样找不到设备
 
-**系统要求：未知**
+如果你需要接收文件，桌面版提供了「通过链接接收」：在本机生成一个网页链接，对方用浏览器打开就能向你发送，不需要安装 LocalSend。
 
-### 支持平台
+## LocalSend 是什么？
 
-✅ MacOS 苹果芯片
+LocalSend 是一款开源的文件传输工具，让同一局域网内的设备直接互传文件，不经过云服务器。
 
-✅ MacOS Intel芯片
+它由 Tien Nam Do 开发，使用 Apache 2.0 协议开源，支持 Windows、macOS、Linux、Android 和 iOS。当前版本为 1.18.2（2026 年 8 月 21 日）。
 
-✅ Windows
+传输流程分三步：
 
-✅ Linux
+1. 两台设备安装 LocalSend，连接到同一个局域网
+2. 打开应用，选择要发送的文件
+3. 在设备列表里点选目标设备，对方确认后开始传输
 
-# 功能介绍
+不需要账号，不需要登录，也不需要把文件先上传到某个服务器。
 
-## 为什么选择LocanSend?
+## 局域网传输是怎么工作的？
 
-- **隐私保护：** 文件传输不经过第三方服务器，保护你的隐私。
-- **速度快：** 直接在设备之间传输，速度快且稳定。
-- **灵活方便：** 无需注册，随时随地分享文件。
-- **开源社区：** 拥有活跃的社区，提供持续的更新和支持。
+LocalSend 通过局域网发现设备：应用向本地网络广播自己的存在，其他设备收到后显示在列表里。
 
-## 核心功能一览
+传输时，发送端和接收端通过 REST API 直接通信，默认使用 53317 端口。文件从一台设备直接写到另一台设备，不经过第三方服务器，所以：
 
-### 跨平台兼容性
+- 断网（没有互联网）也能用，只要路由器还在工作
+- 速度取决于局域网带宽，没有云端限速
+- 文件不会留在第三方服务器上
 
-LocalSend 是一个真正的跨平台文件分享工具，即使在不同操作系统间也能轻松共享文件。从 Windows 到 macOS，再到 Linux、Android 和 iOS，LocalSend 的广泛兼容性让你轻松打破设备间的壁垒，无论何时何地轻松分享文件。
+代价是两端必须在同一个网络里。跨城市、跨网络传输，LocalSend 帮不上忙。
 
-### 安全隐私保护
+## HTTPS 加密和 PIN 验证
 
-使用 LocalSend 进行文件传输，你的隐私得到最大程度的保护。文件直接在设备间传输，无需经过第三方服务器，有效防止信息泄露，让你在分享过程中高枕无忧。安全传输永远是我们的首要目标。
+LocalSend 的设备间通信使用 HTTPS 加密，传输内容在设备之间直接传递。官方常见问题写的是：所有传输都使用 HTTPS 加密，也可以开启 PIN 验证来增加一层保护。
 
-### 快速传输速度
+实际使用中有两点值得注意：
 
-LocalSend 提供极其快速和稳定的文件传输体验。通过点对点传输技术，文件直接在设备间传递，速度远超传统云端服务，从此不再浪费时间等待上传和下载。使用 LocalSend，文件传递只需一瞬。
+- **只在局域网内生效**：HTTPS 保护的是两台设备之间的这段连接，跨网络无法连接，也就没有传输通道。
+- **PIN 是可选的**：开启后，接收方需要输入正确的 PIN 才能接收，适合在公共或共享网络里使用。
 
-### 便捷易用的操作界面
+需要说明的是，HTTPS 保护的是「传输过程」，并不等于文件在接收端也被加密存储。接收方拿到文件后，文件仍然以普通文件形式保存在本地。
 
-LocalSend 的用户界面简洁直观，任何人都能快速上手。无需复杂设置或注册账号，用户只需简单几步就能开始分享文件，让分享变得轻松自如，友好的使用体验让每一次分享都充满乐趣。
+## 怎么用？
 
-### 开源社区支持
+### 安装版
 
-LocalSend 是一个开源项目，拥有活跃的社区支持。用户不仅可以使用软件，还能参与到软件的开发中，与其他用户共同改进和优化。开源带来的不仅是透明性，还有持续的更新和功能扩展，保障用户获得最新体验。
+1. 从官网或应用商店安装 LocalSend
+2. 确保两台设备连接同一个 Wi-Fi 或同一网段
+3. 在发送端选择文件，点选接收设备
+4. 接收端确认（如果开了 PIN，输入 PIN）
+5. 文件默认保存到「下载」目录，可在设置里修改
 
-### 绿色环保的解决方案
+### 网页版
 
-LocalSend 减少对网络的需求，支持离线传输，降低了能源消耗。选择 LocalSend，不仅是为了方便，还有助于保护环境，推动绿色科技应用。让我们在享受高科技的同时，也为地球出一份力。
+1. 在浏览器打开 `https://web.localsend.org/`
+2. 选择文件
+3. 选择局域网内的目标设备并发送
 
-## **LocalSend vs AirDrop：**
+如果找不到设备，先确认接收端已经打开 LocalSend，再检查是不是同一网段。
 
-LocalSend 作为 AirDrop 的跨平台替代品，具有更广泛的兼容性，并且提供了更加安全的文件传输方式。
+## 和 AirDrop 的区别
 
-## 适合人群
+| 对比项 | LocalSend | AirDrop |
+| --- | --- | --- |
+| 平台 | Windows、macOS、Linux、Android、iOS、网页版 | 仅苹果设备 |
+| 网络要求 | 同一局域网 | 蓝牙 + Wi-Fi，苹果设备之间 |
+| 是否经过服务器 | 否 | 否 |
+| 开源 | 是 | 否 |
+| 传输确认 | 接收方确认，可加 PIN | 接收方确认 |
 
-- **注重隐私的用户：** 希望文件传输过程不被第三方监控。
-- **需要跨平台分享的用户：** 在不同操作系统之间共享文件。
-- **喜欢开源软件的用户：** 希望参与到软件的开发和维护中。
+跨平台是 LocalSend 的主要优势。如果两边都是苹果设备，AirDrop 的体验更省事；只要有一台 Windows 或 Android，LocalSend 更直接。
 
-## 总结
+## 有哪些限制？
 
-总的来说，LocalSend 是一款值得推荐的文件分享工具，它为我们提供了一种安全、便捷、高效的文件传输方式。
+- 只能在同一局域网内使用，不能跨网络传输
+- 部分公共 Wi-Fi 或公司网络开启了客户端隔离，设备之间互相不可见
+- 防火墙可能拦截 53317 端口，需要放行
+- 网页版只能发送，不能作为接收端
+- 接收端未确认时不会自动接收文件
+- 大文件传输受 Wi-Fi 稳定性和设备存储空间限制
+- 没有断点续传之外的云端备份能力，传完即结束
 
-# FAQ
+## 适合谁？
 
-### LocalSend是什么？
+适合：
 
-LocalSend是一个文件分享工具，允许用户在没有互联网的情况下，将文件直接发送给身边的设备。它支持多种系统，包括Windows、Mac、Linux、Android和iOS，使用非常简单。
+- 在 Mac、Windows、Android、iPhone 之间互传文件的人
+- 不想把文件上传到网盘或聊天工具的人
+- 经常在会议室、家里、工作室等同一网络环境下传文件的人
+- 需要在临时设备上发文件、又不想安装软件的人（用网页版）
 
-### LocalSend如何保证文件的安全性？
+不适合：
 
-LocalSend采用了端到端加密技术，在文件传输的过程中确保用户的隐私安全。用户的文件不会经过第三方服务器，只有发送和接收设备可以访问这些文件。
+- 需要跨城市、跨网络传文件的人
+- 需要长期共享文件夹、版本管理的人
+- 需要云端备份的人
 
-### 如何在我的设备上使用LocalSend？
+## 最后判断
 
-使用LocalSend非常简单。首先，下载并安装LocalSend应用程序。然后，确保蓝牙和Wi-Fi已开启。打开应用后，你可以选择要发送的文件，并找到附近的设备进行分享。
+回到最初的问题：LocalSend 有网页版，地址是 web.localsend.org，可以在浏览器里直接发文件。
 
-### LocalSend与AirDrop有什么不同？
+但网页版是补充，不是替代。局域网发现、HTTPS 加密、不经过第三方服务器这些核心机制，仍然由安装版承担；网页版解决的是「这台电脑不想装软件」的临时需求。
 
-LocalSend与AirDrop最大的不同在于其跨平台支持。AirDrop只能在苹果设备之间使用，而LocalSend可以在Windows、Mac、Linux等多种系统之间传输文件，更加灵活便利。
+如果你的使用场景是固定的几台设备之间互传，装安装版更省事；如果只是偶尔在别人的电脑上发一次文件，网页版够用。
 
-### 我可以使用LocalSend传输多大的文件？
-
-LocalSend没有严格的文件大小限制，你可以传输相对较大的文件，只受限于设备的存储空间和传输速度。不过在实际使用中，建议避免极大的文件以保证传输的顺利。
-
-### LocalSend是否需要网络连接？
-
-不需要！LocalSend可以在没有互联网连接的情况下进行文件分享。这意味着你可以在任何地方与周围的设备分享文件，不受网络条件的限制。
-
-### LocalSend是免费的吗？
-
-是的，LocalSend是一个开源的软件，用户可以免费使用。它鼓励用户参与软件的开发和维护，同时保证了用户不必支付任何使用费用。
-
-### LocalSend适合哪些人使用？
-
-LocalSend非常适合需要跨平台传输文件的用户，比如在不同设备间分享文件的学生、工作人士和注重隐私的用户。任何希望减少网络依赖的人都会发现它非常实用。
-
-### 如何解决使用LocalSend时的传输问题？
-
-如果在使用LocalSend时遇到传输问题，首先检查蓝牙和Wi-Fi是否开启，并确保两台设备在同一网络环境下。如果问题仍然存在，尝试重启应用程序或设备，再次发起文件传输。
-
-### localsend有网页版吗?
-
-LocalSend 还没有网页版。这是因为 LocalSend 使用本地网络进行设备间的直接传输，需要访问设备的网络和文件系统权限，这些在网页浏览器中会受到安全限制。
-
-目前LocalSend支持多种平台，包括Windows、macOS、Linux、Android和iOS。这意味着无论你使用哪种设备，都可以方便地进行文件分享。
-
-# 截图
-
-![LocalSend主页](/media/localsend-v-1-15-4/image.png)
-
-![LocalSend设置页面](/media/localsend-v-1-15-4/image-1.png)
-
-# ⚠️说明
-
-<aside>
-💡 本下载站致力于提供免费、开源软件资源（不破解，尽可能从官方渠道获取软件包），但仍可能存在部分未经完全授权的软件混入的情况。若你下载了此类软件，可能会面临软件著作权人的法律追究，导致潜在的经济赔偿和法律责任。下载软件前，请务必了解可能存在的风险。为了你的信息安全和合法权益，花几分钟阅读[风险提示](https://www.macapphq.com/Risk-Warning)很有必要哦
-
-</aside>
+封面与界面图片来自 LocalSend 官网。

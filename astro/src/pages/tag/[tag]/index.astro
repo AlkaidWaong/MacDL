@@ -56,25 +56,6 @@ const breadcrumbSchema = {
     { "@type": "ListItem", position: 3, name: canonicalTag, item: canonical }
   ]
 };
-const collectionSchema = {
-  "@context": "https://schema.org",
-  "@type": "CollectionPage",
-  name: `${canonicalTag}：Mac 工具推荐、使用场景与相关文章`,
-  description: `浏览标签「${canonicalTag}」下的 Mac 工具推荐、真实体验与工作流文章，快速找到更贴近具体场景的内容。`,
-  url: canonical,
-  inLanguage: "zh-CN",
-  about: canonicalTag,
-  numberOfItems: posts.length,
-  mainEntity: {
-    "@type": "ItemList",
-    itemListElement: pagePosts.slice(0, 10).map((post, index) => ({
-      "@type": "ListItem",
-      position: index + 1,
-      url: `https://www.macapphq.com/article/${post.data.urlSlug}`,
-      name: post.data.title
-    }))
-  }
-};
 ---
 
 <BaseLayout
@@ -83,7 +64,7 @@ const collectionSchema = {
   canonical={canonical}
   robots={robots}
   image={tagOgImage || undefined}
-  structuredData={[breadcrumbSchema, collectionSchema]}
+  structuredData={[breadcrumbSchema]}
 >
   <section class="glass tag-overview" aria-label="Tag overview">
     <div class="section-head section-head--stack-sm">
@@ -93,6 +74,11 @@ const collectionSchema = {
 
     <div class="category-intro tag-overview__intro">
       <p>{tagIntro}</p>
+      {pagePosts.length ? (
+        <p class="section-note">
+          页面按发布时间从新到旧排列，最近更新的是《{pagePosts[0].data.title}》。每张卡片保留一句话结论，方便先判断值不值得打开。
+        </p>
+      ) : null}
     </div>
 
     {relatedCategories.length ? (

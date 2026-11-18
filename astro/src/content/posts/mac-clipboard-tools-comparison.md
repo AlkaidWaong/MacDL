@@ -1,6 +1,6 @@
 ---
 urlSlug: "mac-clipboard-tools-comparison"
-title: "Mac 剪贴板管理工具怎么选：Maccy、CleanClip、PasteNow、Pastebot、Clop 横评对比 (2026)"
+title: "2026 Mac 剪贴板工具横评：Maccy、CleanClip、PasteNow、Pastebot、Clop"
 date: "2026-06-26"
 updatedAt: "2026-06-26"
 description: "Mac 剪贴板管理工具 Maccy、CleanClip、PasteNow、Pastebot、Clop 到底有什么区别？这篇从官方信息出发，帮你判断该先装哪一款。"

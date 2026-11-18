@@ -27,7 +27,7 @@ tags:
   - "菜单栏工具"
 aliases: []
 draft: false
-heroImage: "/media/codexbar/codexbar.png"
+heroImage: "/media/codexbar/hero.jpg"
 ---
 
 # CodexBar 是什么
@@ -45,8 +45,8 @@ CodexBar（[GitHub](https://github.com/steipete/codexbar)）做的事情很朴�
 
 如果你最近也在把整套 AI 开发工作流一点点收顺，我会建议把另外两个问题一起分开看：
 
-- 如果你更烦的是多供应商切换和多套 CLI 配置，去看 [CC Switch 体验：Claude Code、Codex 来回切到心累后，我终于把多 API 供应商管理顺了](https://www.macapphq.com/article/cc-switch-for-mac)
-- 如果你更烦的是每切一个项目都要把桌面重新拼回去，去看 [BetterStage 体验：每切一个项目都要重拼桌面后，我开始认真看 Mac 工作区管理工具](https://www.macapphq.com/article/betterstage-for-mac)
+- 如果你更烦的是多供应商切换和多套 CLI 配置，去看 [CC Switch 体验](/article/cc-switch-for-mac)
+- 如果你更烦的是每切一个项目都要把桌面重新拼回去，去看 [BetterStage 体验](/article/betterstage-for-mac)
 
 这样看会更清楚：CodexBar 管的是额度信号，不是配置中心，也不是工作区管理器。
 
@@ -55,7 +55,7 @@ CodexBar（[GitHub](https://github.com/steipete/codexbar)）做的事情很朴�
 - 如果你每天并行开多个 AI 会话：很适合
 - 如果你常常被额度、重置时间、周窗口搞乱：很适合
 - 如果你平时只用一个 provider，而且很少碰上限：感知会弱一些
-- 如果你当前更痛的是“切供应商和配环境太麻烦”，而不是额度焦虑：可以先看 [CC Switch 体验：Claude Code、Codex 来回切到心累后，我终于把多 API 供应商管理顺了](https://www.macapphq.com/article/cc-switch-for-mac)
+- 如果你当前更痛的是“切供应商和配环境太麻烦”，而不是额度焦虑：可以先看 [CC Switch 体验](/article/cc-switch-for-mac)
 - 官方仓库：<https://github.com/steipete/codexbar>
 
 ## 为什么我会觉得它有用
@@ -70,7 +70,7 @@ CodexBar（[GitHub](https://github.com/steipete/codexbar)）做的事情很朴�
 
 CodexBar 的价值就在这：它把“后台信息”变成了“抬眼可见的前台信号”。
 
-如果你已经开始把 AI 开发当成一套完整流程来跑，也可以顺手看看 [gstack 体验：我研究了一周后，才理解为什么 Mac 开发工作流开始像一家公司](https://www.macapphq.com/article/gstack-ai-software-factory)。CodexBar 更像额度驾驶舱，gstack 更像流程骨架。
+如果你已经开始把 AI 开发当成一套完整流程来跑，也可以顺手看看 [gstack 体验](/article/gstack-ai-software-factory)。CodexBar 更像额度驾驶舱，gstack 更像流程骨架。
 
 ## 典型使用场景（真实用户视角）
 
@@ -78,6 +78,8 @@ CodexBar 的价值就在这：它把“后台信息”变成了“抬眼可见�
 
 你不用每隔几分钟去后台看一次额度。
 抬眼看菜单栏，大概就知道哪个 provider 还能冲、哪个该收着点。
+
+<img src="/media/codexbar/codexbar.png" alt="CodexBar 的菜单栏面板：上方切换 provider，下面列出 Session、Weekly 和额外用量" style="width:min(340px,100%);margin:1.8em auto 1.6em;" />
 
 这种小反馈，在多线程任务里非常救命。
 
@@ -102,8 +104,8 @@ CodexBar 的价值就在这：它把“后台信息”变成了“抬眼可见�
 
 如果你现在已经不只是“盯额度”，而是整套上下文都变复杂了，这类工具通常会一起出现：
 
-- [BetterStage](https://www.macapphq.com/article/betterstage-for-mac) 负责把不同项目桌面切回来
-- [CC Switch](https://www.macapphq.com/article/cc-switch-for-mac) 负责把不同工具和供应商切顺
+- [BetterStage](/article/betterstage-for-mac) 负责把不同项目桌面切回来
+- [CC Switch](/article/cc-switch-for-mac) 负责把不同工具和供应商切顺
 - CodexBar 负责让你知道“现在哪个窗口还值得继续跑”
 
 ## 一个很典型的使用流程
@@ -204,8 +206,8 @@ CodexBar 不是那种“惊艳演示型”产品，它更像一个会慢慢长�
 这 3 个工具看起来都在服务多 Agent 工作流，但解决的问题并不一样：
 
 - 你最烦的是“额度还剩多少，自己总是后知后觉”：先看 CodexBar
-- 你最烦的是“多供应商和多套配置改起来太乱”：先看 [CC Switch](https://www.macapphq.com/article/cc-switch-for-mac)
-- 你最烦的是“哪个会话在等我，我总要回终端找半天”：先看 [Vibe Island](https://www.macapphq.com/article/vibe-island-for-mac)
+- 你最烦的是“多供应商和多套配置改起来太乱”：先看 [CC Switch](/article/cc-switch-for-mac)
+- 你最烦的是“哪个会话在等我，我总要回终端找半天”：先看 [Vibe Island](/article/vibe-island-for-mac)
 
 更直白一点：
 
@@ -220,8 +222,8 @@ CodexBar 不是那种“惊艳演示型”产品，它更像一个会慢慢长�
 
 如果你准备把这类工具一起看清楚，也建议连着读：
 
-- [CC Switch 体验：Claude Code、Codex 来回切到心累后，我终于把多 API 供应商管理顺了](https://www.macapphq.com/article/cc-switch-for-mac)
-- [Vibe Island 体验评测：把多 Agent 状态搬进 Mac 灵动岛，真的更高效吗？](https://www.macapphq.com/article/vibe-island-for-mac)
+- [CC Switch 体验](/article/cc-switch-for-mac)
+- [Vibe Island 体验](/article/vibe-island-for-mac)
 
 ## 不太适合什么人
 
