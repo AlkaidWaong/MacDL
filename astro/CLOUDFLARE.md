@@ -11,7 +11,7 @@
 | `functions/api/indexnow.js` | IndexNow 推送接口，从 Vercel 函数改写为 Pages Function |
 | `functions/_middleware.js` | 处理 `.html` 旧地址跳转；让 `/article/xxx` 直接返回 `index.html` |
 
-注意：仓库根目录是 `MacDL`，Astro 项目在 `astro/` 子目录。Cloudflare Pages 只从**仓库根目录**读取 `functions/`，所以这两个文件放在根目录，不要放进 `astro/`。
+注意：Cloudflare 的 Root directory 会设为 `astro`，所以 `functions/` 必须放在 `astro/functions/`，与 `public/`、`dist/` 同级。仓库根目录下的旧 Next.js 工程不参与构建。
 
 构建后 `_redirects` 与 `_headers` 会被复制到 `dist/`，Cloudflare 会自动读取。
 
@@ -28,10 +28,15 @@
 
 1. Cloudflare Dashboard → Workers & Pages → Create → Pages → Connect to Git
 2. 选择仓库，然后填写：
-   - Framework preset：`None`（不要选 Astro，否则会把根目录当项目）
-   - Root directory：`/`（仓库根目录 `MacDL`，不要填 `astro`）
-   - Build command：`cd astro && npm ci && npm run build`
-   - Build output directory：`astro/dist`
+   - Framework preset：`Astro`
+   - Root directory：`astro`
+   - Build command：`npm ci && npm run build`
+   - Build output directory：`dist`
+   - Build variable：`SKIP_DEPENDENCY_INSTALL=1`
+
+> 为什么要跳过自动安装：仓库根目录还留着旧 Next.js 工程的 `yarn.lock`，Cloudflare
+> 的构建镜像会先检测到 Yarn 4，再和 `astro/package.json` 的 `packageManager: npm`
+> 冲突，直接失败。设置 `SKIP_DEPENDENCY_INSTALL=1` 后由构建命令自己执行 `npm ci`。
 3. 首次部署完成后，先在 `*.pages.dev` 域名上验证，不要立刻切主域名。
 
 ## 四、上线前验证清单
