@@ -1,0 +1,16 @@
+# 由 astro/vercel.json 迁移而来（Cloudflare Pages _redirects）
+# 语法：from  to  [status]
+
+/en  /  301
+/zh  /  301
+/zh/*  /:splat  301
+/feed  /rss/feed.xml  301
+/oops  /  301
+
+# 旧分类别名（编码与未编码两种写法都保留）
+/category/%E7%B3%BB%E7%BB%9F%E5%AE%89%E5%85%A8  /category/%E7%B3%BB%E7%BB%9F%E5%B7%A5%E5%85%B7  301
+/category/系统安全  /category/系统工具  301
+
+# 旧标签别名
+/tag/ORC  /tag/OCR  301
+/tag/ORC/page/*  /tag/OCR/page/:splat  301
