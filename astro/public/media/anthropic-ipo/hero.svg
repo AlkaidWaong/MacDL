@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="90" y1="48" x2="1515" y2="858" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1C1C24"/>
+      <stop offset=".52" stop-color="#272438"/>
+      <stop offset="1" stop-color="#14151C"/>
+    </linearGradient>
+    <linearGradient id="card" x1="272" y1="258" x2="1282" y2="675" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FCF7F1"/>
+      <stop offset="1" stop-color="#E9E4F4"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-30%" width="140%" height="180%">
+      <feDropShadow dx="0" dy="22" stdDeviation="28" flood-color="#07070B" flood-opacity=".42"/>
+    </filter>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <circle cx="1415" cy="118" r="286" fill="#B56E55" opacity=".16"/>
+  <circle cx="160" cy="810" r="324" fill="#7971A7" opacity=".18"/>
+  <g opacity=".1" stroke="#F8EEE6">
+    <path d="M0 120H1600M0 300H1600M0 480H1600M0 660H1600M0 840H1600"/>
+    <path d="M80 0V900M280 0V900M480 0V900M680 0V900M880 0V900M1080 0V900M1280 0V900M1480 0V900"/>
+  </g>
+  <text x="136" y="146" fill="#E9DCD2" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="26" font-weight="650" letter-spacing="5">ANTHROPIC IPO</text>
+  <text x="136" y="211" fill="white" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="58" font-weight="750">做 Claude 的公司上市了</text>
+  <g filter="url(#shadow)">
+    <rect x="186" y="286" width="1228" height="426" rx="32" fill="url(#card)"/>
+    <rect x="238" y="338" width="366" height="322" rx="24" fill="#27243A"/>
+    <text x="282" y="408" fill="#D8C6B9" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="22" font-weight="650" letter-spacing="3">NASDAQ</text>
+    <text x="278" y="526" fill="white" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="126" font-weight="780">ANT</text>
+    <path d="M282 589H548" stroke="#BC907B" stroke-width="9" stroke-linecap="round"/>
+    <circle cx="282" cy="589" r="10" fill="#E8B59F"/>
+    <g>
+      <text x="676" y="386" fill="#292438" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="28" font-weight="750">从 Claude 到工作流</text>
+      <text x="676" y="438" fill="#625C70" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="23">面向个人、团队、企业与开发者</text>
+      <rect x="676" y="488" width="172" height="78" rx="18" fill="#ECE2D9"/>
+      <text x="716" y="535" fill="#362F3A" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="25" font-weight="700">Claude</text>
+      <rect x="870" y="488" width="201" height="78" rx="18" fill="#DED8EF"/>
+      <text x="907" y="535" fill="#352F49" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="25" font-weight="700">Code</text>
+      <rect x="1093" y="488" width="202" height="78" rx="18" fill="#DCE7E4"/>
+      <text x="1129" y="535" fill="#29443F" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="25" font-weight="700">Platform</text>
+      <path d="M676 610H1292" stroke="#C9C0CC" stroke-width="2"/>
+      <text x="676" y="644" fill="#776F80" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="20">产品、研究、安全与部署</text>
+    </g>
+  </g>
+</svg>
