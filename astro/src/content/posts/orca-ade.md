@@ -247,6 +247,14 @@ Orca 不会让一个不会写代码的人突然能交付项目。它服务的是
 
 所以结论不复杂。如果你今天还在为三个 Agent 抢同一个目录发火，装它。如果你只有一个 Agent，先把时间和钱留给模型订阅。
 
+## 与 OpenCode、T3 Code 的关系
+
+[OpenCode](/article/opencode-go) 是可直接执行编码任务的 Agent，可选择免费模型、自有提供商或 OpenCode Go
+
+[T3 Code](/article/t3-code) 用于集中管理已经安装的多个 Agent、线程、Git 操作和远程访问
+
+Orca 的重点是让并行任务在独立 worktree 中运行和审查。三款工具按执行、调度和隔离层级的对比见 [OpenCode、T3 Code 与 Orca ADE 横评](/article/opencode-t3-code-orca-comparison)
+
 ## 资料来源
 
 - [Orca 官网](https://www.onorca.dev/)
