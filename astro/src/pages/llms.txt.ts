@@ -88,6 +88,7 @@ ${link("关于 MacAppHQ", `${SITE}/about/`, "站点定位、评估方法和适�
 ${link("作者与编辑团队", `${SITE}/author/`, "站点作者、编辑原则和联系方式")}
 ${link("我们如何评测", `${SITE}/how-we-review/`, "资料来源、评估维度、价格核对和更新规则")}
 ${link("提交软件", `${SITE}/submit/`, "向 MacAppHQ 提交 Mac 软件或独立开发者作品")}
+${link("完整文章目录（llms-full.txt）", `${SITE}/llms-full.txt`, `全部 ${posts.length} 篇已发布文章的标题、摘要和链接`)}
 
 ## 分类
 

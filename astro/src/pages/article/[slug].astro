@@ -21,6 +21,45 @@ const site = Astro.site ?? new URL("https://www.macapphq.com");
 const body = (post as unknown as { body?: string }).body ?? "";
 const hasVisibleFaq = /^##\s*(?:FAQ|常见问题)/im.test(body);
 const visibleFaqs = hasVisibleFaq ? [] : (post.data.faqs ?? []);
+type Faq = { question: string; answer: string };
+
+const cleanFaqText = (value: string) =>
+  value
+    .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1")
+    .replace(/[*_`]/g, "")
+    .replace(/\s+/g, " ")
+    .trim();
+
+const extractMarkdownFaqs = (markdown: string): Faq[] => {
+  const headings = [...markdown.matchAll(/^(#{1,6})\s+(.+)$/gm)];
+  const startIndex = headings.findIndex((heading) => /^(?:FAQ|常见问题)/i.test(heading[2].trim()));
+  if (startIndex === -1) return [];
+
+  const start = headings[startIndex];
+  const level = start[1].length;
+  const contentStart = (start.index ?? 0) + start[0].length;
+  const nextHeading = headings.slice(startIndex + 1).find((heading) => heading[1].length <= level);
+  const section = markdown.slice(contentStart, nextHeading?.index);
+  const faqs: Faq[] = [];
+
+  for (const match of section.matchAll(/^#{3,6}\s+(.+?)\n+([\s\S]*?)(?=^#{3,6}\s+|\Z)/gm)) {
+    const question = cleanFaqText(match[1]);
+    const answer = cleanFaqText(match[2]);
+    if (question && answer) faqs.push({ question, answer });
+  }
+
+  for (const match of section.matchAll(/^[-*]\s+\*\*(.+?)\*\*\s+(.+)$/gm)) {
+    const question = cleanFaqText(match[1]);
+    const answer = cleanFaqText(match[2]);
+    if (question && answer) faqs.push({ question, answer });
+  }
+
+  return faqs;
+};
+
+const schemaFaqs = post.data.faqs?.length
+  ? post.data.faqs
+  : extractMarkdownFaqs(body);
 const heroSrc =
   post.data.heroImage?.trim() ||
   post.data.cover?.trim() ||
@@ -148,11 +187,11 @@ const breadcrumbSchema = {
     item: entry.item
   }))
 };
-const faqSchema = visibleFaqs.length
+const faqSchema = schemaFaqs.length
   ? {
       "@context": "https://schema.org",
       "@type": "FAQPage",
-      mainEntity: visibleFaqs.map((item) => ({
+      mainEntity: schemaFaqs.map((item) => ({
         "@type": "Question",
         name: item.question,
         acceptedAnswer: {
