@@ -213,7 +213,7 @@ Otty 很明显是做给后一类人的。
 
 这张图很能说明它的设计取向：
 
-![Otty 的外观与布局设置，比传统终端更像一个现代桌面应用](/media/otty/settings-dark.png)
+![Otty 的外观与布局设置，比传统终端更像一个现代桌面应用](/media/otty/settings-dark.webp)
 
 你会发现，它不是那种要你翻配置文件才能调整体验的工具。
 
@@ -242,7 +242,7 @@ Otty 的感觉则更像：
 
 另一张图其实也很说明问题：
 
-![Otty 的自动补全和本地学习设置，重点是可控，而不是神秘黑箱](/media/otty/autocomplete-dark.png)
+![Otty 的自动补全和本地学习设置，重点是可控，而不是神秘黑箱](/media/otty/autocomplete-dark.webp)
 
 它不是只做一个“会给建议”的补全，而是把这套东西做得比较可理解、可控制：
 

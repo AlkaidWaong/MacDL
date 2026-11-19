@@ -67,7 +67,7 @@ heroImage: "/media/Baby-Lettering-Book/hero.png"
 
 # 截图
 
-![宝宝字帖生成器-设置字帖样式](/media/Baby-Lettering-Book/image.png)
+![宝宝字帖生成器-设置字帖样式](/media/Baby-Lettering-Book/image.webp)
 
 ![字帖生成器设置](/media/Baby-Lettering-Book/image-1.webp)
 

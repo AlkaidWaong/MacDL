@@ -90,7 +90,7 @@ MarginNote 支持四类材料：
 
 脑图支持多画布、分层展开，也可以手写补充。卡片之间可以建立标题链接，正文里出现标题时自动形成反向链接。
 
-![MarginNote 的脑图区域，卡片按层级展开并保留原文出处](/media/marginnote/mindmap.jpg)
+![MarginNote 的脑图区域，卡片按层级展开并保留原文出处](/media/marginnote/mindmap.webp)
 
 ## 场景模板（MN5 新增）
 

@@ -53,7 +53,7 @@ heroImage: "/media/roam-fm-macos-world-radio-background-sound/hero.png"
 
 ## 一句话看懂 Roam FM 是什么
 
-![image.png](/media/roam-fm-macos-world-radio-background-sound/image.png)
+![image.png](/media/roam-fm-macos-world-radio-background-sound/image.webp)
 
 **Roam FM 是一款 macOS 菜单栏应用：**
 
@@ -110,7 +110,7 @@ Roam FM 默认会：
 
 ### 3️⃣ 循环 Lo-fi / 白噪音，反而更容易疲劳
 
-![image.png](/media/roam-fm-macos-world-radio-background-sound/image-1.png)
+![image.png](/media/roam-fm-macos-world-radio-background-sound/image-1.webp)
 
 熟悉的声音 ≠ 放松
 
@@ -151,7 +151,7 @@ Roam FM 的体验，更像是：
 
 ## 核心功能（快速扫一眼）
 
-![image.png](/media/roam-fm-macos-world-radio-background-sound/image-2.png)
+![image.png](/media/roam-fm-macos-world-radio-background-sound/image-2.webp)
 
 - ✅ macOS 菜单栏常驻
 - 🌍 随机播放全球 40,000+ 电台

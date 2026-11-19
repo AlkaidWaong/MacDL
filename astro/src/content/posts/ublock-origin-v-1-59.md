@@ -62,7 +62,7 @@ uBlock Origin 是一款非常优秀的广告拦截器，它能帮助你打造一
 
 # 截图
 
-![uBlock Origin基础设置](/media/ublock-origin-v-1-59/image.png)
+![uBlock Origin基础设置](/media/ublock-origin-v-1-59/image.webp)
 
 # ⚠️说明
 

@@ -69,11 +69,11 @@ Picsee 是一款非常实用的图片管理工具，它能帮助你更好地管�
 
 # 截图
 
-![采集整理图片](/media/picsee-v-1-7-3/image.png)
+![采集整理图片](/media/picsee-v-1-7-3/image.webp)
 
-![截图标记、导入外部资源](/media/picsee-v-1-7-3/image-1.png)
+![截图标记、导入外部资源](/media/picsee-v-1-7-3/image-1.webp)
 
-![标签、智能文件夹整理图片](/media/picsee-v-1-7-3/image-2.png)
+![标签、智能文件夹整理图片](/media/picsee-v-1-7-3/image-2.webp)
 
 # ⚠️说明
 

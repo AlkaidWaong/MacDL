@@ -62,9 +62,9 @@ empbox作为一款专注于隐私保护的即时易失性邮箱客户端，在�
 
 # 截图
 
-![Tembox主界面](/media/tembox/image.png)
+![Tembox主界面](/media/tembox/image.webp)
 
-![自定义临时邮箱](/media/tembox/image-1.png)
+![自定义临时邮箱](/media/tembox/image-1.webp)
 
 # ⚠️说明
 

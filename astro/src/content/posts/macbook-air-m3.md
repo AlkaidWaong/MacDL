@@ -12,7 +12,7 @@ draft: false
 heroImage: "/media/macbook-air-m3/hero.png"
 ---
 
-![IMG_0385.png](/media/macbook-air-m3/IMG-0385-2png)
+![IMG_0385.png](/media/macbook-air-m3/IMG-0385-2png.webp)
 
 ### 购买动机
 
@@ -48,11 +48,11 @@ heroImage: "/media/macbook-air-m3/hero.png"
 
 # 截图
 
-![MacBook Air正面](/media/macbook-air-m3/IMG-0136-2heic)
+![MacBook Air正面](/media/macbook-air-m3/IMG-0136-2heic.webp)
 
-![MacBook Air真轻薄](/media/macbook-air-m3/IMG-0137-2heic)
+![MacBook Air真轻薄](/media/macbook-air-m3/IMG-0137-2heic.webp)
 
-![MacBook Air M3附带的双C口充电器](/media/macbook-air-m3/IMG-0139-2heic)
+![MacBook Air M3附带的双C口充电器](/media/macbook-air-m3/IMG-0139-2heic.webp)
 
 **⚠️说明**
 

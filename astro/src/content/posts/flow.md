@@ -67,7 +67,7 @@ Flow是一款非常优秀的番茄工作法应用，它能帮助用户养成良�
 
 # 截图
 
-![Flow番茄闹钟](/media/flow/image.png)
+![Flow番茄闹钟](/media/flow/image.webp)
 
 # ⚠️说明
 

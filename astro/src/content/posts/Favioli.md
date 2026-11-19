@@ -65,7 +65,7 @@ heroImage: "/media/Favioli/hero.png"
 
 # 截图
 
-![使用Favioli替换网站favicon](/media/Favioli/image.png)
+![使用Favioli替换网站favicon](/media/Favioli/image.webp)
 
 使用Favioli替换网站favicon
 

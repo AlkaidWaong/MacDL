@@ -69,9 +69,9 @@ LuLu 是一款非常实用的防火墙工具，它能帮助你提升 Mac 的安�
 
 # 截图
 
-![Lulu授权设置](/media/lulu-v-2-6-3/image.png)
+![Lulu授权设置](/media/lulu-v-2-6-3/image.webp)
 
-![软件网络权限设置](/media/lulu-v-2-6-3/image-1.png)
+![软件网络权限设置](/media/lulu-v-2-6-3/image-1.webp)
 
 # ⚠️说明
 

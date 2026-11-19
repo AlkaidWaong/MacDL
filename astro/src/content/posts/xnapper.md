@@ -82,7 +82,7 @@ Xnapper 由独立开发者 Tony Dinh 开发，当前版本 1.18.1，发布于 20
 
 界面右侧是参数面板：Padding（留白）、Inset（内缩）、Border Radius（圆角）、Shadow（阴影）、Background（背景）、Ratio（比例）、Watermark（水印）。每一项都是滑块或预设，不需要手动输入数值也能出图。
 
-![Xnapper 的截图预览界面，右侧是留白、圆角、背景和比例设置](/media/xnapper/demo.png)
+![Xnapper 的截图预览界面，右侧是留白、圆角、背景和比例设置](/media/xnapper/demo.webp)
 
 ## 自动居中和背景匹配
 

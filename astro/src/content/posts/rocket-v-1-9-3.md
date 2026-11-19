@@ -68,9 +68,9 @@ Rocket 是一款非常实用的表情输入工具，它能帮助你快速、准�
 
 # 截图
 
-![Rocket系统设置](/media/rocket-v-1-9-3/image.png)
+![Rocket系统设置](/media/rocket-v-1-9-3/image.webp)
 
-![快捷键输入表情](/media/rocket-v-1-9-3/image-1.png)
+![快捷键输入表情](/media/rocket-v-1-9-3/image-1.webp)
 
 # ⚠️说明
 

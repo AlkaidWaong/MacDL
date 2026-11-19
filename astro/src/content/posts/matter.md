@@ -65,11 +65,11 @@ Matter是一款非常优秀的在线阅读工具，它可以帮助你更好地�
 
 # 截图
 
-![Matter阅读](/media/matter/CleanShot_2024-10-09_at-13-249.112x.png)
+![Matter阅读](/media/matter/CleanShot_2024-10-09_at-13-249.112x.webp)
 
-![阅读器演示设置](/media/matter/CleanShot_2024-10-09_at-13-250.282x.png)
+![阅读器演示设置](/media/matter/CleanShot_2024-10-09_at-13-250.282x.webp)
 
-![内容标记高亮](/media/matter/CleanShot_2024-10-09_at-13-251.262x.png)
+![内容标记高亮](/media/matter/CleanShot_2024-10-09_at-13-251.262x.webp)
 
 # ⚠️说明
 

@@ -78,7 +78,7 @@ macOS 原生的方式是 `Command+Tab` 遍历，或者去 Dock、启动台里找
 
 用久了会形成肌肉记忆，这也是官网强调的一点。
 
-![Manico 的启动条，每个图标对应一个数字键](/media/manico/bar.png)
+![Manico 的启动条，每个图标对应一个数字键](/media/manico/bar.webp)
 
 ## 怎么用？
 

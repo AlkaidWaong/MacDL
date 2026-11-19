@@ -132,9 +132,9 @@ Omi 更像一款免费、综合、好上手的录屏工具；QuickRec 更强调 
 
 # 截图
 
-![功能强大的全屏和区域录制](/media/omi/image.png)
+![功能强大的全屏和区域录制](/media/omi/image.webp)
 
-![窗口和指定app录制](/media/omi/image-1.png)
+![窗口和指定app录制](/media/omi/image-1.webp)
 
 # ⚠️说明
 

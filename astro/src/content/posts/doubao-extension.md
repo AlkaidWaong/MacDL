@@ -63,9 +63,9 @@ heroImage: "/media/doubao-extension/hero.png"
 
 # 截图
 
-![豆包AI的能力](/media/doubao-extension/CleanShot_2024-09-30_at-09-224.022x.png)
+![豆包AI的能力](/media/doubao-extension/CleanShot_2024-09-30_at-09-224.022x.webp)
 
-![豆包Ai总结](/media/doubao-extension/CleanShot_2024-09-30_at-09-225.522x.png)
+![豆包Ai总结](/media/doubao-extension/CleanShot_2024-09-30_at-09-225.522x.webp)
 
 # ⚠️说明
 

@@ -238,9 +238,9 @@ Command-Tab 更偏应用级切换，AltTab 更强调窗口级切换，可以更�
 
 ## 截图
 
-![AltTab 外观设置](/media/alttab-v-6-72-0/image.png)
+![AltTab 外观设置](/media/alttab-v-6-72-0/image.webp)
 
-![AltTab 快捷键设置](/media/alttab-v-6-72-0/image-1.png)
+![AltTab 快捷键设置](/media/alttab-v-6-72-0/image-1.webp)
 
 ## 参考
 

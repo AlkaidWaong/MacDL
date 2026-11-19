@@ -21,11 +21,11 @@ heroImage: "/media/draw-io/hero.png"
 
 ### 截图
 
-![超丰富的模版库](/media/draw-io/CleanShot_2024-08-23_at-14-259.442x.png)
+![超丰富的模版库](/media/draw-io/CleanShot_2024-08-23_at-14-259.442x.webp)
 
-![图标模版](/media/draw-io/CleanShot_2024-08-23_at-15-200.232x.png)
+![图标模版](/media/draw-io/CleanShot_2024-08-23_at-15-200.232x.webp)
 
-![草图演示流程图](/media/draw-io/CleanShot_2024-08-23_at-15-200.572x.png)
+![草图演示流程图](/media/draw-io/CleanShot_2024-08-23_at-15-200.572x.webp)
 
 ### draw.io软件的特点：
 

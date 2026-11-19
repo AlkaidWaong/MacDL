@@ -56,7 +56,7 @@ Elmo 是一款非常实用的 AI 阅读工具，它能帮助你更好地理解�
 
 # 截图
 
-![使用Elmochat总结网页信息](/media/elmo-chat-v-0-3-7/image.png)
+![使用Elmochat总结网页信息](/media/elmo-chat-v-0-3-7/image.webp)
 
 # ⚠️说明
 

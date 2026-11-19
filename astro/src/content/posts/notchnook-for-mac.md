@@ -69,7 +69,7 @@ NotchNook Pro 可在 Nook 中排列最多 13 个小组件，官方列出的功�
 
 NotchNook Pro 还能把媒体文件转换为 `MP4`、`GIF`、`M4A`、`MP3` 或 `WAV`。Pocket 则用于在工作过程中暂存文件，需要时再拖到目标位置
 
-![NotchNook Pro 文件托盘可转换 MP4、GIF、M4A、MP3 和 WAV](/media/notchnook-for-mac/files-tray.jpg)
+![NotchNook Pro 文件托盘可转换 MP4、GIF、M4A、MP3 和 WAV](/media/notchnook-for-mac/files-tray.webp)
 
 ## AI 智能体
 
@@ -77,13 +77,13 @@ NotchNook Pro 可以在刘海区域显示 Claude Code、Codex 和 Copilot 等 AI
 
 这项功能需要 NotchNook Pro，Classic 不包含 AI 智能体、终端和相关用量界面
 
-![NotchNook Pro 显示 Claude、Codex 和 Copilot 的状态](/media/notchnook-for-mac/ai-agents.jpg)
+![NotchNook Pro 显示 Claude、Codex 和 Copilot 的状态](/media/notchnook-for-mac/ai-agents.webp)
 
 ## 提词器与实时活动
 
 Pro 版提供位于摄像头下方的提词器，可按固定速度滚动，也可使用语音跟随演讲进度。使用语音模式时需要授予麦克风权限
 
-![NotchNook Pro 的语音跟随提词器](/media/notchnook-for-mac/prompter.jpg)
+![NotchNook Pro 的语音跟随提词器](/media/notchnook-for-mac/prompter.webp)
 
 实时活动可在刘海周围显示 AirPods、电池、浏览器下载、视频下载、文件转换和可用更新等状态
 

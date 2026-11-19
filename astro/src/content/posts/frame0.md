@@ -110,7 +110,7 @@ Frame0 内置桌面、手机、手表和网页的组件：按钮、表单、导�
 
 不少组件带有可切换状态，例如开关的开与关、进度条的数值。画一套交互流程时，可以直接在画布上表现状态变化，不用为每个状态重画一遍。
 
-![Frame0 内置手绘风格组件与状态](/media/frame0/components.png)
+![Frame0 内置手绘风格组件与状态](/media/frame0/components.webp)
 
 ## 图标
 
@@ -127,7 +127,7 @@ Frame0 把 Lucide 图标库转成了手绘风格，共 1500 多个，覆盖常�
 
 这部分用于画用户流程、信息架构和数据模型。官网把这类图表列为高级功能，需要 Solo 及以上授权。
 
-![Frame0 中绘制的 UML 与 ERD 图](/media/frame0/image-1.png)
+![Frame0 中绘制的 UML 与 ERD 图](/media/frame0/image-1.webp)
 
 ## 镜像框架怎么用？
 

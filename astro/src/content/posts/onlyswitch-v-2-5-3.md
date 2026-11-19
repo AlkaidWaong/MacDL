@@ -70,9 +70,9 @@ OnlySwitch 是一款非常值得推荐的 macOS 菜单栏应用程序。它不�
 
 # 截图
 
-![image.png](/media/onlyswitch-v-2-5-3/image.png)
+![image.png](/media/onlyswitch-v-2-5-3/image.webp)
 
-![image.png](/media/onlyswitch-v-2-5-3/image-1.png)
+![image.png](/media/onlyswitch-v-2-5-3/image-1.webp)
 
 # ⚠️说明
 

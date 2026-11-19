@@ -24,7 +24,7 @@ draft: false
 
 ### 设置方法1
 
-![图片移除背景](/media/mac-one-click-cutout/CleanShot_2024-08-13_at-12-237.202x-2-2png)
+![图片移除背景](/media/mac-one-click-cutout/CleanShot_2024-08-13_at-12-237.webp)
 
 图片移除背景
 

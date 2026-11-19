@@ -125,7 +125,7 @@ test("local markdown images reserve space and defer offscreen loading", async ()
   const image = {
     type: "element",
     tagName: "img",
-    properties: { src: "/media/betterstage/tabstack-workspace.png" },
+    properties: { src: "/media/betterstage/betterstage.png" },
     children: []
   };
   const tree = { type: "root", children: [image] };
@@ -136,9 +136,9 @@ test("local markdown images reserve space and defer offscreen loading", async ()
   );
 
   assert.deepEqual(image.properties, {
-    src: "/media/betterstage/tabstack-workspace.png",
-    width: 3840,
-    height: 2160,
+    src: "/media/betterstage/betterstage.png",
+    width: 1536,
+    height: 1024,
     loading: "lazy",
     decoding: "async"
   });

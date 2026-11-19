@@ -54,9 +54,9 @@ Later是一款值得推荐的Mac桌面整理工具，它能够帮助用户快速
 
 # 截图
 
-![启动Later](/media/later/image.png)
+![启动Later](/media/later/image.webp)
 
-![恢复later窗口](/media/later/image-1.png)
+![恢复later窗口](/media/later/image-1.webp)
 
 # ⚠️说明
 

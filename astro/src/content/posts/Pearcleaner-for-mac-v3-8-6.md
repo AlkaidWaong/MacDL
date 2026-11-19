@@ -89,13 +89,13 @@ Pearcleaner 最容易吸引人的点，是它一边保留了 `Mac 卸载工具` 
 
 # 截图
 
-![Pearcleaner 首页](/media/Pearcleaner-for-mac-v3-8-6/image.png)
+![Pearcleaner 首页](/media/Pearcleaner-for-mac-v3-8-6/image.webp)
 
-![软件卸载页面](/media/Pearcleaner-for-mac-v3-8-6/image-1.png)
+![软件卸载页面](/media/Pearcleaner-for-mac-v3-8-6/image-1.webp)
 
-![pearcleaner 设置](/media/Pearcleaner-for-mac-v3-8-6/image-2.png)
+![pearcleaner 设置](/media/Pearcleaner-for-mac-v3-8-6/image-2.webp)
 
-![垃圾文件查找](/media/Pearcleaner-for-mac-v3-8-6/image-3.png)
+![垃圾文件查找](/media/Pearcleaner-for-mac-v3-8-6/image-3.webp)
 
 # 其他版本下载
 

@@ -63,9 +63,9 @@ Grab2Text 是一款非常实用的文本提取工具，它能帮助你轻松地�
 
 # 截图
 
-![image.png](/media/grab2text-v-1-2-2/image.png)
+![image.png](/media/grab2text-v-1-2-2/image.webp)
 
-![image.png](/media/grab2text-v-1-2-2/image-1.png)
+![image.png](/media/grab2text-v-1-2-2/image-1.webp)
 
 # ⚠️说明
 

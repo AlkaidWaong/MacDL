@@ -76,7 +76,7 @@ Setapp 就像是一个包罗万象的应用商店，它不仅提供了丰富的�
 
 # 截图
 
-![Setapp提供的付费订阅软件](/media/setapp/image.png)
+![Setapp提供的付费订阅软件](/media/setapp/image.webp)
 
 # ⚠️说明
 

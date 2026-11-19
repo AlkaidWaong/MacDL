@@ -45,7 +45,7 @@ Android Studio 是 Google 官方推出的一款专为 Android 应用开发而设
 
 # 截图
 
-![image.png](/media/android-studio-2024-09/image.png)
+![image.png](/media/android-studio-2024-09/image.webp)
 
 # ⚠️说明
 

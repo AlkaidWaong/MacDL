@@ -93,7 +93,7 @@ OmniPlayer 是一款本地与网络视频播放器，支持三类来源：
 
 0.1x 到 8x 的范围比系统播放器宽，看课程录像或慢放动作时更灵活。
 
-![OmniPlayer 的播放界面和倍速设置，可输入 0.1 到 8.0](/media/omniplayer/player.png)
+![OmniPlayer 的播放界面和倍速设置，可输入 0.1 到 8.0](/media/omniplayer/player.webp)
 
 ## 字幕
 

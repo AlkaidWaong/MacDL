@@ -98,7 +98,7 @@ Typeless 的逻辑完全相反：
 
 ## 不是更快，而是更轻松
 
-![image.png](/media/typeless-ai-voice-dictation-writing/image.png)
+![image.png](/media/typeless-ai-voice-dictation-writing/image.webp)
 
 在 Product Hunt 的评论区里，Typeless 被反复提到的不是“功能”，而是一种感受：
 

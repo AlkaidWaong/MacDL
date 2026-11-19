@@ -66,11 +66,11 @@ SponsorBlock 是一款非常实用的浏览器扩展，它通过社区的力量�
 
 # 截图
 
-![SponsorBlock设置项](/media/SponsorBlock/Xnip2024-10-11_12-19-57.png)
+![SponsorBlock设置项](/media/SponsorBlock/Xnip2024-10-11_12-19-57.webp)
 
 SponsorBlock设置项
 
-![SponsorBlock自动跳过赞助商广告](/media/SponsorBlock/image.png)
+![SponsorBlock自动跳过赞助商广告](/media/SponsorBlock/image.webp)
 
 SponsorBlock自动跳过赞助商广告
 

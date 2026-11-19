@@ -79,7 +79,7 @@ CodexBar 的价值就在这：它把“后台信息”变成了“抬眼可见�
 你不用每隔几分钟去后台看一次额度。
 抬眼看菜单栏，大概就知道哪个 provider 还能冲、哪个该收着点。
 
-<img src="/media/codexbar/codexbar.png" alt="CodexBar 的菜单栏面板：上方切换 provider，下面列出 Session、Weekly 和额外用量" style="width:min(340px,100%);margin:1.8em auto 1.6em;" />
+<img src="/media/codexbar/codexbar.webp" alt="CodexBar 的菜单栏面板：上方切换 provider，下面列出 Session、Weekly 和额外用量" style="width:min(340px,100%);margin:1.8em auto 1.6em;" />
 
 这种小反馈，在多线程任务里非常救命。
 

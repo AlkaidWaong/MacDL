@@ -106,7 +106,7 @@ The Unarchiver 的优势不是“功能介绍写出来很多”，而是你真�
 
 # 截图
 
-![The Unarchiver解压文件](/media/the-unrchiver/image.png)
+![The Unarchiver解压文件](/media/the-unrchiver/image.webp)
 
 # ⚠️说明
 

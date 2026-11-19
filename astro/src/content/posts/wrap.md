@@ -67,7 +67,7 @@ Wrap 是一款非常实用的工具，它能帮助用户轻松创建出高质量
 
 # 截图
 
-![使用Wrap抓取网页内容](/media/wrap/image.png)
+![使用Wrap抓取网页内容](/media/wrap/image.webp)
 
 使用wrap抓取网页内容：全屏，指定区域和指定元素
 

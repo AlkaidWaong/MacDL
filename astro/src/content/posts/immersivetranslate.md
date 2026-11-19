@@ -76,7 +76,7 @@ heroImage: "/media/immersivetranslate/hero.png"
 
 [https://s.immersivetranslate.com/videos/20240119twitter_zh.mp4](https://s.immersivetranslate.com/videos/20240119twitter_zh.mp4)
 
-![image.png](/media/immersivetranslate/image.png)
+![image.png](/media/immersivetranslate/image.webp)
 
 # ⚠️说明
 

@@ -81,13 +81,13 @@ Pearcleaner承诺提供定期更新，从GitHub自动提取说明和最新二进
 
 # 截图
 
-![Pearcleaner 首页](/media/Pearcleaner-for-mac-v3-8-5/image.png)
+![Pearcleaner 首页](/media/Pearcleaner-for-mac-v3-8-5/image.webp)
 
-![软件卸载页面](/media/Pearcleaner-for-mac-v3-8-5/image-1.png)
+![软件卸载页面](/media/Pearcleaner-for-mac-v3-8-5/image-1.webp)
 
-![pearcleaner 设置](/media/Pearcleaner-for-mac-v3-8-5/image-2.png)
+![pearcleaner 设置](/media/Pearcleaner-for-mac-v3-8-5/image-2.webp)
 
-![垃圾文件查找](/media/Pearcleaner-for-mac-v3-8-5/image-3.png)
+![垃圾文件查找](/media/Pearcleaner-for-mac-v3-8-5/image-3.webp)
 
 ## 当前建议阅读顺序
 

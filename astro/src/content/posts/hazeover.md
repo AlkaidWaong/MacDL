@@ -98,7 +98,7 @@ HazeOver 由独立开发者 Maxim Ananov 开发，第一版发布于 2011 年，
 
 切换效果可以选择即时切换或平滑动画，动画速度可以调。强度越低，背景越接近原样；强度越高，背景越接近纯黑。
 
-![HazeOver 的通用设置，左侧圆盘调整调光强度](/media/hazeover/settings.png)
+![HazeOver 的通用设置，左侧圆盘调整调光强度](/media/hazeover/settings.webp)
 
 ## 有哪些快捷操作？
 
@@ -123,7 +123,7 @@ HazeOver 有两种多屏模式：
 
 也可以在「显示器」菜单里彻底关闭某块屏幕的调光，例如让副屏保持原样，只处理主屏。
 
-![HazeOver 的多显示器选项](/media/hazeover/displays.png)
+![HazeOver 的多显示器选项](/media/hazeover/displays.webp)
 
 ## 深色和浅色外观
 

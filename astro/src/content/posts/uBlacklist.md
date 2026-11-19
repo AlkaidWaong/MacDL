@@ -66,11 +66,11 @@ uBlacklist 是一款非常实用的浏览器扩展，它能帮助用户打造一
 
 # 截图
 
-![搜索结果中屏蔽指定网站](/media/uBlacklist/image.png)
+![搜索结果中屏蔽指定网站](/media/uBlacklist/image.webp)
 
 搜索结果中屏蔽指定网站
 
-![自定义黑名单规则集](/media/uBlacklist/image-1.png)
+![自定义黑名单规则集](/media/uBlacklist/image-1.webp)
 
 自定义黑名单规则集
 

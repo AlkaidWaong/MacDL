@@ -96,7 +96,7 @@ Sensei Monitor 是它最常用的部分。菜单栏上的显示内容可以自�
 
 显示样式也能改：模块可以分组或分开，圆角大小、主题和配色都能调。官网还提供了编辑器，用来配置状态栏和下拉面板里出现哪些模块。
 
-![Sensei Monitor 的下拉面板，逐项显示 CPU、内存、风扇和电池](/media/sensei/panel.png)
+![Sensei Monitor 的下拉面板，逐项显示 CPU、内存、风扇和电池](/media/sensei/panel.webp)
 
 ## 硬件状态面板
 

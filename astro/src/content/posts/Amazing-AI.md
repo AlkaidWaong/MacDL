@@ -71,11 +71,11 @@ heroImage: "/media/Amazing-AI/hero.png"
 
 # 截图
 
-![输入prompt](/media/Amazing-AI/image.png)
+![输入prompt](/media/Amazing-AI/image.webp)
 
 ![生成设置](/media/Amazing-AI/image-1.webp)
 
-![生成图片结果展示](/media/Amazing-AI/image-2.png)
+![生成图片结果展示](/media/Amazing-AI/image-2.webp)
 
 # 其他版本下载
 

@@ -110,7 +110,7 @@ SideNotes 不是纯文本工具，一条笔记里可以放：
 
 折叠和置顶是 1.6 版本加的，对笔记条数多的人比较实用。
 
-![SideNotes 的折叠与置顶，长笔记只显示标题](/media/sidenotes/fold.jpg)
+![SideNotes 的折叠与置顶，长笔记只显示标题](/media/sidenotes/fold.webp)
 
 ## Markdown 怎么用？
 

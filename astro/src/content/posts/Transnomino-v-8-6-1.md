@@ -66,9 +66,9 @@ Transnomino 是一款非常实用的批量重命名工具，它能帮助你轻�
 
 # 截图
 
-![image.png](/media/Transnomino-v-8-6-1/image.png)
+![image.png](/media/Transnomino-v-8-6-1/image.webp)
 
-![image.png](/media/Transnomino-v-8-6-1/image-1.png)
+![image.png](/media/Transnomino-v-8-6-1/image-1.webp)
 
 # ⚠️说明
 

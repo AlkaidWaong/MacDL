@@ -105,7 +105,7 @@ Little Snitch 是一个网络层的过滤工具，控制的是「谁能连出去
 
 ## 规则怎么设？
 
-![Little Snitch 的规则管理窗口，左侧是规则组和配置，右侧是具体规则](/media/little-snitch/management.png)
+![Little Snitch 的规则管理窗口，左侧是规则组和配置，右侧是具体规则](/media/little-snitch/management.webp)
 
 规则可以按多个维度限定：
 

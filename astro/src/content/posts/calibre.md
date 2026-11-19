@@ -78,7 +78,7 @@ Calibre是一款功能强大、灵活且免费的电子书管理软件。它不�
 
 # 截图
 
-![Calibre电子书管理主界面](/media/calibre/image.png)
+![Calibre电子书管理主界面](/media/calibre/image.webp)
 
 ![编辑电子书元数据](/media/calibre/image-1.webp)
 

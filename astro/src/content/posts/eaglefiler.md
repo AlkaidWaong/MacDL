@@ -117,7 +117,7 @@ EagleFiler 的导入方式集中在几个快捷键：
 
 智能文件夹的条件可以任意组合，适合把「未读 + 某个项目 + 最近三个月」这类筛选固定下来。
 
-![EagleFiler 的智能文件夹条件，支持嵌套的任意/全部判断](/media/eaglefiler/smart-folder-conditions.png)
+![EagleFiler 的智能文件夹条件，支持嵌套的任意/全部判断](/media/eaglefiler/smart-folder-conditions.webp)
 
 ## 标签、备注和其他整理方式
 

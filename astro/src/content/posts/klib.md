@@ -122,7 +122,7 @@ Klib 本身不是阅读器，它管理的是「读完之后剩下的东西」。
 
 Klib 的阅读模式会把书摘排成一页，按章节分组，适合从头回看一本书。
 
-![Klib 的阅读模式，按章节整理摘录](/media/klib/reading.png)
+![Klib 的阅读模式，按章节整理摘录](/media/klib/reading.webp)
 
 几个实用细节：
 

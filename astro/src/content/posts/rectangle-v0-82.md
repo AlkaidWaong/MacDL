@@ -211,9 +211,9 @@ Rectangle 更像窗口操作工具，解决的是分屏和摆放；BetterStage �
 
 ## 截图
 
-![Rectangle 主界面](/media/rectangle-v0-82/image.png)
+![Rectangle 主界面](/media/rectangle-v0-82/image.webp)
 
-![Rectangle 分屏与快捷键设置](/media/rectangle-v0-82/image-1.png)
+![Rectangle 分屏与快捷键设置](/media/rectangle-v0-82/image-1.webp)
 
 ## 参考
 

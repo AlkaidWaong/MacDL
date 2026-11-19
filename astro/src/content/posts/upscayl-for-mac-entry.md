@@ -135,7 +135,7 @@ UpScayl使用先进的人工智能技术，能够生成更加自然和清晰的�
 
 # 截图
 
-![Xnip2024-08-28_07-49-07.png](/media/upscayl-for-mac/Xnip2024-08-28_07-49-07.png)
+![Xnip2024-08-28_07-49-07.png](/media/upscayl-for-mac/Xnip2024-08-28_07-49-07.webp)
 
 # ⚠️说明
 

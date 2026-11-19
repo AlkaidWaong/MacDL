@@ -63,9 +63,9 @@ heroImage: "/media/Aiko-v1-6-0/hero.png"
 
 # 截图
 
-![Aiko主页](/media/Aiko-v1-6-0/image.png)
+![Aiko主页](/media/Aiko-v1-6-0/image.webp)
 
-![Aiko录音中](/media/Aiko-v1-6-0/image-1.png)
+![Aiko录音中](/media/Aiko-v1-6-0/image-1.webp)
 
 # 其他版本
 

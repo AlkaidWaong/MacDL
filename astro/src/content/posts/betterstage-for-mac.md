@@ -196,7 +196,7 @@ BetterStage 这种保存 stage 的方式，会比单纯的窗口吸附更贴近�
 
 你可以用自然语言写一份 **Recipe**，并用 `@` 引用 App、窗口、显示器或组。AI 会先提出组织方案，让你检查和修改；只有确认后才应用，必要时还可以撤销。
 
-![BetterStage 中可编辑的 AI Staging Recipe，可引用显示器、TabStack 布局与 Stage](/media/betterstage/ai-staging-recipe.png)
+![BetterStage 中可编辑的 AI Staging Recipe，可引用显示器、TabStack 布局与 Stage](/media/betterstage/ai-staging-recipe.webp)
 
 我觉得这比很多“AI + 窗口管理”的宣传更合理，原因是它没有强行把 AI 放到最终决策位置。
 
@@ -218,7 +218,7 @@ TabStack 会把窗口排成可调整大小的 panes，多出的窗口可在同�
 
 2.0.3 继续补齐了 TabStack 与 Saved Workspace 的细节：可调整 tab 高度和文字颜色，可给指定 Saved Workspace 绑定快捷键，并加入可选的 Clean Load。其中 Clean Load 只会尝试正常退出不在目标 Workspace 内的 App，不会强制结束进程。
 
-![BetterStage TabStack 将多个 App 组织为可调整窗格和标签页](/media/betterstage/tabstack-workspace.png)
+![BetterStage TabStack 将多个 App 组织为可调整窗格和标签页](/media/betterstage/tabstack-workspace.webp)
 
 ## 它有哪些真正有用的功能
 

@@ -272,11 +272,11 @@ heroImage: "/media/WeChat-Input-Method/hero.png"
 
 # 截图
 
-![微信输入法更新](/media/WeChat-Input-Method/image.png)
+![微信输入法更新](/media/WeChat-Input-Method/image.webp)
 
-![快捷键触发问AI功能](/media/WeChat-Input-Method/image-1.png)
+![快捷键触发问AI功能](/media/WeChat-Input-Method/image-1.webp)
 
-![微信输入法 - 跨设备粘贴复制](/media/WeChat-Input-Method/image-2.png)
+![微信输入法 - 跨设备粘贴复制](/media/WeChat-Input-Method/image-2.webp)
 
 # ⚠️说明
 
