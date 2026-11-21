@@ -2,7 +2,7 @@
 urlSlug: "vidhub-v-1-7-8"
 title: "VidHub 播放器 2026：NAS 本地网盘播放器，有 Windows 版吗？"
 date: "2026-03-25"
-updatedAt: "2026-06-16"
+updatedAt: "2026-11-21"
 description: "VidHub 是一款适合管理 NAS、本地和网盘混合片源的播放器。这篇体验文重点聊聊它怎么把“找片、接着看、管理进度”这件事变顺，以及 vidhub windows 版现在到底有没有。"
 price: "免费下载"
 platform: "macOS / iOS / tvOS / Android"
@@ -23,7 +23,7 @@ faqs:
   - question: "VidHub 的核心价值是什么？"
     answer: "核心价值是把零散文件夹重新组织成更像媒体库的视角，配上海报墙、自动分季分集、全局搜索和多设备同步，看片流程会顺很多。"
   - question: "vidhub windows 版现在有吗？"
-    answer: "按 2026 年 6 月 16 日我核对的官方页面，目前列出的支持平台是 iOS、macOS、tvOS 和 Android，没有看到 Windows 客户端。"
+    answer: "截至 2026 年 11 月 21 日，官方页面列出 Apple、Android 和鸿蒙版本，未列出 Windows 客户端。"
   - question: "VidHub 需要 NAS 才值得用吗？"
     answer: "不一定。只要你的视频文件分散在本地、SMB、WebDAV 或云盘里，它都能提供价值；只是 NAS 用户会更容易感受到它的整理和统一入口优势。"
   - question: "VidHub 免费吗？"
@@ -43,6 +43,8 @@ heroImage: "/media/vidhub-v-1-7-8/hero.png"
 
 # VidHub 体验：它真正解决的不是播放，而是“别再找片找半天”
 
+**Windows 版情况：**截至 2026 年 11 月 21 日，[官方页面](https://zh.okaapps.com/product/1659622164)未列出 Windows 客户端。
+
 先说结论：**如果你真正烦的不是“能不能播”，而是“这部片到底放哪了、看到了哪、下次从哪接着看”，VidHub 这类工具的价值会比普通播放器大很多。**
 
 我以前有个很离谱的习惯：  
@@ -58,12 +60,10 @@ VidHub 是我这次迁移里，用得最久也最顺手的播放器。
 | 项目 | 信息 | 截至日期 | 来源 |
 | --- | --- | --- | --- |
 | 产品定位 | `自动刮削电影剧集信息，打造私人影视库` | `2026-06-16` | [中文官网](https://zh.okaapps.com/product/1659622164) |
-| 当前版本 | `2.0.1` | `2026-06-16` | [中文官网](https://zh.okaapps.com/product/1659622164) |
-| App 大小 | `93.9 MB` | `2026-06-16` | [中文官网](https://zh.okaapps.com/product/1659622164) |
 | 支持平台 | `iOS 14+、macOS 10.15+、tvOS 14.0+、Android 9.0+` | `2026-06-16` | [中文官网](https://zh.okaapps.com/product/1659622164) |
 | 支持源 | `本地 / SMB / WebDAV / 阿里云盘 / 百度网盘 / 123 网盘等` | `2026-06-16` | [中文官网](https://zh.okaapps.com/product/1659622164) |
 | 核心能力 | `自动刮削、海报墙、全局搜索、自动分季分集、iCloud 同步` | `2026-06-16` | [中文官网](https://zh.okaapps.com/product/1659622164) |
-| Windows 客户端 | `官网当前未列出` | `2026-06-16` | [中文官网](https://zh.okaapps.com/product/1659622164) |
+| Windows 客户端 | `官网当前未列出` | `2026-11-21` | [中文官网](https://zh.okaapps.com/product/1659622164) |
 
 ## 先看结论：什么人会明显受益
 
@@ -230,7 +230,7 @@ VidHub 把分季分集、进度、下一集衔接做得比较自然，
 
 ### vidhub windows 版现在有官网吗？
 
-截至 2026-06-16，我在官方支持列表里没有看到 Windows 客户端。想找 `vidhub windows 版` 的话，建议直接看官网更新，不要优先信第三方下载页。
+截至 2026-11-21，我在官方支持列表里没有看到 Windows 客户端。想找 `vidhub windows 版` 的话，建议直接看官网更新，不要优先信第三方下载页。
 
 ### 如果文件命名比较乱，VidHub 还好用吗？
 
