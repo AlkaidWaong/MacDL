@@ -7,7 +7,7 @@ type Deal = {
   desc: string;
   off: string;
   life?: boolean;
-  code?: string;
+  code?: string | { label: string; value: string }[];
   price?: string;
   dates: string;
   url: string;
@@ -25,7 +25,7 @@ const sections: Section[] = [
   {
     id: "productivity",
     title: "效率工具",
-    note: "剪贴板、日历、书签、任务安排",
+    note: "笔记、剪贴板、日历、书签、任务安排",
     deals: [
       {
         name: "PastePal",
@@ -46,6 +46,20 @@ const sections: Section[] = [
         dates: "11.4 – 12.15",
         url: "https://cleanclip.cc",
         review: "/article/cleanclip-for-mac"
+      },
+      {
+        name: "Craft",
+        type: "笔记、文档与任务 · 订阅制",
+        desc: "优惠适用于 Plus 和 Family 订阅。可先用免费版写笔记、整理文档和管理任务，支持 Mac、iPhone、iPad、Windows、Android 和网页。",
+        off: "年付 6 折 · 月付 8 折",
+        code: [
+          { label: "年付优惠码", value: "BLACKFRIDAY26-A" },
+          { label: "月付优惠码", value: "BLACKFRIDAY26-M" }
+        ],
+        price: "Plus 年付 $95.99 → $57.59（美区参考，实际价格因地区而异）",
+        dates: "11.16 – 12.9",
+        url: "https://www.craft.do/pricing",
+        review: "/article/craft"
       },
       {
         name: "Shiori",
@@ -643,8 +657,8 @@ const structuredData = {
 ---
 
 <BaseLayout
-  title="2026 黑五 Mac 软件折扣清单：只挑终身授权和高折扣 | MacAppHQ"
-  description="2026 黑五与网络星期一 Mac 软件折扣清单，按效率、内容创作、AI、设计、系统、开发、财务分类，优先收录终身授权和 50% 以上折扣，已评测的软件附站内链接。"
+  title="2026 黑五 Mac 软件折扣清单：终身授权与订阅优惠 | MacAppHQ"
+  description="2026 黑五与网络星期一 Mac 软件折扣清单，按效率、内容创作、AI、设计、系统、开发、财务分类，优先收录终身授权和高折扣，也整理部分订阅优惠。已评测的软件附站内链接。"
   keywords="2026 黑五,Black Friday,Mac 软件折扣,终身授权,Mac App 优惠"
   canonical="/black-friday-2026"
   image="/media/black-friday-2026/og.jpg"
@@ -657,7 +671,7 @@ const structuredData = {
         <span class="bf-hero__eyebrow">Black Friday · 2026</span>
         <h1>2026 黑五 Mac 软件折扣清单</h1>
         <p class="bf-hero__lead">
-          从公开整理的 Mac App 折扣里挑了 {total} 个，只保留终身授权和折扣力度较大的条目。
+          汇总了 {total} 个 Mac App 黑五折扣，优先收录终身授权和高折扣，也整理了部分订阅优惠。
           已经完整评测过的软件，后面附了站内链接。
           <a class="bf-hero__submit" href="#submit">你是开发者？提交你的黑五折扣 →</a>
         </p>
@@ -729,13 +743,13 @@ const structuredData = {
                 </h3>
                 <p class="bf-card__type">{deal.type}</p>
                 <p class="bf-card__desc">{deal.desc}</p>
-                {deal.code ? (
+                {(typeof deal.code === "string" ? [{ label: "优惠码", value: deal.code }] : deal.code ?? []).map(({ label, value }) => (
                   <div class="bf-code-row">
                     <div class="bf-code-box">
-                      <span class="bf-code-label">优惠码</span>
-                      <code class="bf-code-value" title={deal.code}>{deal.code}</code>
+                      <span class="bf-code-label">{label}</span>
+                      <code class="bf-code-value" title={value}>{value}</code>
                     </div>
-                    <button class="bf-copy" type="button" data-copy={deal.code} aria-label={`复制优惠码 ${deal.code}`}>
+                    <button class="bf-copy" type="button" data-copy={value} aria-label={`复制${label} ${value}`}>
                       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                         <rect x="9" y="9" width="12" height="12" rx="2"></rect>
                         <path d="M5 15V5a2 2 0 0 1 2-2h10"></path>
@@ -743,7 +757,7 @@ const structuredData = {
                       <span class="bf-copy__text">复制</span>
                     </button>
                   </div>
-                ) : null}
+                ))}
                 {deal.review ? (
                   <a class="bf-review" href={deal.review}>
                     看我们的评测 →
@@ -762,7 +776,7 @@ const structuredData = {
       <footer class="bf-foot">
         <h2>怎么用这份清单</h2>
         <ul>
-          <li>先看「终身授权」标记。订阅制的折扣只影响首年，续费会回到原价。</li>
+          <li>想一次买断，先看「终身授权」标记。购买订阅前，请在结账页核对优惠适用期和续费价格。</li>
           <li>优惠码有时间窗口，收藏本页后在下单前再确认一次日期。</li>
           <li>同一开发者的多个应用常有统一折扣，比如 Dock 系列共用同一个优惠码。</li>
           <li>不确定要不要买的，先看站内评测，再决定是否为一个折扣提前付费。</li>
