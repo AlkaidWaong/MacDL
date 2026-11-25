@@ -9,6 +9,16 @@
 .review-heading { justify-content: space-between; gap: 1rem; }
 .review-heading h1 { font-size: clamp(1.5rem, 4vw, 2rem); margin: 0; line-height: 1.25; }
 .review-panel #admin-login { max-width: 28rem; }
+.review-search {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: .75rem;
+  margin-bottom: 1rem;
+}
+.review-search label { flex: 1 1 9rem; min-width: 0; margin: 0; font-size: .875rem; }
+.review-search :is(input, select) { min-height: 2.5rem; box-sizing: border-box; }
+.review-search button { min-height: 2.5rem; }
 .review-back { display: inline-block; margin-bottom: 1rem; }
 .review-panel :is(a, summary) { color: #1d4ed8; }
 .review-panel :is(a, button, summary, input, select, textarea, [tabindex]):focus-visible {

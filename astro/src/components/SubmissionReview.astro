@@ -29,6 +29,27 @@ const columns = ["回执编号", "产品", "状态", "投稿日期", "标签", "
         </form>
         <output id="admin-status" role="status" aria-live="polite">正在加载审核页面…</output>
         {!detail && <div id="review-queue" hidden>
+          <form id="review-search" class="submission-form review-search" role="search" aria-label="搜索投稿">
+            <label>回执编号
+              <input name="receipt" type="search" maxlength="36" placeholder="输入编号或前几位" />
+            </label>
+            <label>产品
+              <input name="product" type="search" maxlength="80" placeholder="输入产品名称" />
+            </label>
+            <label>状态
+              <select name="status">
+                <option value="">全部状态</option>
+                <option value="pending">待审核</option>
+                <option value="approved">已通过</option>
+                <option value="rejected">已拒绝</option>
+              </select>
+            </label>
+            <label>投稿日期<input name="date" type="date" /></label>
+            <div class="review-actions">
+              <button class="review-approve" type="submit">搜索</button>
+              <button type="button" id="review-search-clear">清除筛选</button>
+            </div>
+          </form>
           <div class="review-table-viewport" tabindex="0" role="region" aria-label="投稿列表，可横向滚动">
             <table class="review-table" aria-label="投稿列表">
               <thead><tr>{columns.map((column) => <th scope="col">{column}</th>)}</tr></thead>
@@ -108,8 +129,26 @@ const columns = ["回执编号", "产品", "状态", "投稿日期", "标签", "
   const requestedPage = Number(query.get("page") ?? "1");
   const initialPage = Number.isSafeInteger(requestedPage) && requestedPage > 0 &&
     Number.isSafeInteger((requestedPage - 1) * 50) ? requestedPage : 1;
+  const search = document.querySelector<HTMLFormElement>("#review-search");
+  const filterNames = ["receipt", "product", "status", "date"];
+  let filters = new URLSearchParams();
+  for (const name of filterNames) {
+    let value = query.get(name)?.trim() ?? "";
+    const field = search?.elements.namedItem(name) as HTMLInputElement | HTMLSelectElement | null;
+    if (field) {
+      field.value = value;
+      value = field.value;
+    }
+    if (value) filters.set(name, value);
+  }
+  function queueParams(target: number, selected: URLSearchParams = filters) {
+    const params = new URLSearchParams(selected);
+    if (target > 1) params.set("page", String(target));
+    return params;
+  }
   const back = document.querySelector<HTMLAnchorElement>(".review-back");
-  if (back && initialPage > 1) back.href = `/admin/submissions?page=${initialPage}`;
+  const backParams = queueParams(initialPage);
+  if (back && backParams.size) back.href = `/admin/submissions?${backParams}`;
   const queue = document.querySelector<HTMLElement>("#review-queue");
   const list = document.querySelector("#review-list");
   const editor = document.querySelector<HTMLFormElement>("#review-form");
@@ -341,7 +380,9 @@ const columns = ["回执编号", "产品", "状态", "投稿日期", "标签", "
   function rowFor(item: Submission) {
     const row = document.createElement("tr");
     const link = document.createElement("a");
-    link.href = `/admin/submissions/detail?id=${encodeURIComponent(item.id)}${page > 1 ? `&page=${page}` : ""}`;
+    const detailParams = queueParams(page);
+    detailParams.set("id", item.id);
+    link.href = `/admin/submissions/detail?${detailParams}`;
     link.textContent = item.id.length > 8 ? `${item.id.slice(0, 8)}…` : item.id;
     link.title = item.id;
     link.setAttribute("aria-label", `查看投稿详情，回执编号 ${item.id}`);
@@ -385,9 +426,11 @@ const columns = ["回执编号", "产品", "状态", "投稿日期", "标签", "
     return row;
   }
 
-  async function loadList(target: number) {
-    const { items, hasMore } = await api(`?page=${target}`) as { items: Submission[]; hasMore: boolean };
+  async function loadList(target: number, selected: URLSearchParams = filters) {
+    const params = queueParams(target, selected);
+    const { items, hasMore } = await api(`?${params}`) as { items: Submission[]; hasMore: boolean };
     page = target;
+    filters = selected;
     list!.replaceChildren(...items.map(rowFor));
     previous!.disabled = page === 1;
     next!.disabled = !hasMore;
@@ -395,10 +438,13 @@ const columns = ["回执编号", "产品", "状态", "投稿日期", "标签", "
     showSignedIn();
     queue!.hidden = false;
     const url = new URL(location.href);
-    if (page > 1) url.searchParams.set("page", String(page));
-    else url.searchParams.delete("page");
+    for (const name of [...filterNames, "page"]) {
+      const value = params.get(name);
+      if (value) url.searchParams.set(name, value);
+      else url.searchParams.delete(name);
+    }
     if (url.href !== location.href) history.replaceState(history.state, "", url);
-    status.textContent = items.length ? "" : "这一页暂无投稿。";
+    status.textContent = items.length ? "" : filters.size ? "没有符合筛选条件的投稿。" : "这一页暂无投稿。";
   }
 
   const load = () => detail ? loadDetail() : loadList(initialPage);
@@ -446,6 +492,21 @@ const columns = ["回执编号", "产品", "状态", "投稿日期", "标签", "
   });
   previous?.addEventListener("click", () => void perform(() => loadList(page - 1)));
   next?.addEventListener("click", () => void perform(() => loadList(page + 1)));
+  search?.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const selected = new URLSearchParams();
+    for (const [name, raw] of new FormData(search)) {
+      if (typeof raw === "string" && raw.trim()) selected.set(name, raw.trim());
+    }
+    void perform(() => loadList(1, selected));
+  });
+  document.querySelector("#review-search-clear")?.addEventListener("click", () => {
+    if (busy) return;
+    void perform(async () => {
+      await loadList(1, new URLSearchParams());
+      search?.reset();
+    });
+  });
   retryMailButton?.addEventListener("click", () => {
     if (!receipt) return;
     void perform(async () => {

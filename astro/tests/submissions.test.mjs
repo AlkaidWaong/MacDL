@@ -60,7 +60,9 @@ test("submission stays private and can be edited and approved only with the admi
     });
   }
   const submit = (data) => onRequestPost({ request: request("/api/submissions", "POST", data), env });
-  const read = (key) => list({ request: request("/api/admin/submissions", "GET", null, key), env });
+  const read = (key, params = {}) => list({
+    request: request(`/api/admin/submissions?${new URLSearchParams(params)}`, "GET", null, key), env
+  });
   const patch = (key, data, id) => update({
     request: request("/api/admin/submissions/" + id, "PATCH", data, key), env, params: { id }
   });
@@ -168,4 +170,26 @@ test("submission stays private and can be edited and approved only with the admi
   assert.equal(emails.length, 5);
   assert.equal(emails[3].key, emails[4].key);
   assert.deepEqual(emails[4].payload, legacyPayload);
+
+  db.prepare("UPDATE indie_submissions SET created_at = ? WHERE id = ?").run("2025-01-02T03:00:00.000Z", id);
+  db.prepare(`
+    WITH RECURSIVE sequence(n) AS (SELECT 1 UNION ALL SELECT n + 1 FROM sequence WHERE n < 51)
+    INSERT INTO indie_submissions (id, challenge_digest, name, website, downloadUrl, summary, description,
+      category, pricing, systemRequirements, mediaUrl, email, reviewAccessNotes, created_at)
+    SELECT 'queue-' || n, 'challenge-' || n, '其他产品 ' || n, website, downloadUrl, summary, description,
+      category, pricing, systemRequirements, mediaUrl, email, reviewAccessNotes, '2025-01-03T00:00:00.000Z'
+    FROM indie_submissions CROSS JOIN sequence WHERE id = ?
+  `).run(id);
+  const queue = await (await read(token, { status: "pending" })).json();
+  assert.equal(queue.items.length, 50);
+  assert.equal(queue.hasMore, true);
+  assert.equal((await (await read(token, { status: "pending", page: 2 })).json()).items.length, 1);
+  const filtered = await (await read(token, {
+    receipt: id.slice(0, 8).toUpperCase(), product: " visED ", status: "approved", date: "2025-01-02"
+  })).json();
+  assert.deepEqual(filtered.items.map((entry) => entry.id), [id]);
+  assert.equal(filtered.hasMore, false);
+  assert.deepEqual((await (await read(token, { product: "%" })).json()).items, []);
+  assert.deepEqual((await (await read(token, { receipt: id, date: "2025-01-03" })).json()).items, []);
+  assert.equal((await read(token, { date: "2025-02-30" })).status, 400);
 });
