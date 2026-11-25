@@ -4,7 +4,7 @@ import "../styles/global.css";
 import "../styles/submissions.css";
 import "../styles/submission-review.css";
 const { detail = false } = Astro.props;
-const columns = ["产品", "回执编号", "状态", "投稿日期", "标签", "价格与试用", "最低系统", "产品介绍", "联系邮箱", "链接", "评测说明", "审核备注", "操作"];
+const columns = ["回执编号", "产品", "状态", "投稿日期", "标签", "价格与试用", "最低系统", "产品介绍", "联系邮箱", "链接", "评测说明", "审核备注", "操作"];
 ---
 <!doctype html>
 <html lang="zh-CN">
@@ -23,11 +23,11 @@ const columns = ["产品", "回执编号", "状态", "投稿日期", "标签", "
           <h1>{detail ? "投稿详情" : "投稿审核"}</h1>
           <button id="admin-logout" type="button" hidden>退出审核</button>
         </header>
-        <form id="admin-login" method="post" class="submission-form">
+        <form id="admin-login" method="post" class="submission-form" hidden>
           <label>管理员令牌<input id="admin-token" type="password" required autocomplete="off" /></label>
           <button type="submit">查看投稿</button>
         </form>
-        <output id="admin-status" role="status" aria-live="polite"></output>
+        <output id="admin-status" role="status" aria-live="polite">正在加载审核页面…</output>
         {!detail && <div id="review-queue" hidden>
           <div class="review-table-viewport" tabindex="0" role="region" aria-label="投稿列表，可横向滚动">
             <table class="review-table" aria-label="投稿列表">
@@ -78,7 +78,13 @@ const columns = ["产品", "回执编号", "状态", "投稿日期", "标签", "
   const status = document.querySelector("#admin-status")!;
   const panel = document.querySelector<HTMLElement>("[data-review-detail]")!;
   const detail = panel.dataset.reviewDetail === "yes";
-  const receipt = new URLSearchParams(location.search).get("id");
+  const query = new URLSearchParams(location.search);
+  const receipt = query.get("id");
+  const requestedPage = Number(query.get("page") ?? "1");
+  const initialPage = Number.isSafeInteger(requestedPage) && requestedPage > 0 &&
+    Number.isSafeInteger((requestedPage - 1) * 50) ? requestedPage : 1;
+  const back = document.querySelector<HTMLAnchorElement>(".review-back");
+  if (back && initialPage > 1) back.href = `/admin/submissions?page=${initialPage}`;
   const queue = document.querySelector<HTMLElement>("#review-queue");
   const list = document.querySelector("#review-list");
   const editor = document.querySelector<HTMLFormElement>("#review-form");
@@ -197,15 +203,17 @@ const columns = ["产品", "回执编号", "状态", "投稿日期", "标签", "
 
   function rowFor(item: Submission) {
     const row = document.createElement("tr");
+    const link = document.createElement("a");
+    link.href = `/admin/submissions/detail?id=${encodeURIComponent(item.id)}${page > 1 ? `&page=${page}` : ""}`;
+    link.textContent = item.id.length > 8 ? `${item.id.slice(0, 8)}…` : item.id;
+    link.title = item.id;
+    link.setAttribute("aria-label", `查看投稿详情，回执编号 ${item.id}`);
+    link.className = "review-id";
+    cell(row, "").replaceChildren(link);
     const product = document.createElement("th");
     product.scope = "row";
     product.textContent = item.name;
     row.append(product);
-    const link = document.createElement("a");
-    link.href = `/admin/submissions/detail?id=${encodeURIComponent(item.id)}`;
-    link.textContent = item.id;
-    link.className = "review-id";
-    cell(row, "").replaceChildren(link);
     const state = document.createElement("span");
     state.className = "review-state";
     state.dataset.state = item.status;
@@ -253,10 +261,14 @@ const columns = ["产品", "回执编号", "状态", "投稿日期", "标签", "
     document.querySelector("#review-page")!.textContent = `第 ${page} 页`;
     showSignedIn();
     queue!.hidden = false;
+    const url = new URL(location.href);
+    if (page > 1) url.searchParams.set("page", String(page));
+    else url.searchParams.delete("page");
+    if (url.href !== location.href) history.replaceState(history.state, "", url);
     status.textContent = items.length ? "" : "这一页暂无投稿。";
   }
 
-  const load = () => detail ? loadDetail() : loadList(1);
+  const load = () => detail ? loadDetail() : loadList(initialPage);
 
   async function refreshAfterSave(refresh: () => Promise<void>, value: string) {
     const message = value ? `投稿${states[value]}。` : "审核已保存。";
@@ -310,5 +322,10 @@ const columns = ["产品", "回执编号", "状态", "投稿日期", "标签", "
       await refreshAfterSave(loadDetail, value);
     });
   });
-  if (token) void perform(load);
+  if (token) {
+    void perform(load);
+  } else {
+    login.hidden = false;
+    status.textContent = "";
+  }
 </script>

@@ -43,7 +43,7 @@
 .review-table tr > :last-child { border-inline-start: 1px solid #e5e7eb; }
 .review-table .review-actions { flex-wrap: nowrap; white-space: nowrap; }
 .review-table .review-links { display: grid; white-space: nowrap; }
-.review-id { display: inline-block; min-width: 9rem; overflow-wrap: anywhere; font-family: monospace; }
+.review-id { display: inline-block; white-space: nowrap; font-family: monospace; }
 .review-disclosure summary { cursor: pointer; }
 .review-disclosure > div { margin-top: .5rem; white-space: pre-wrap; }
 .review-preview { color: #374151; display: block; }
