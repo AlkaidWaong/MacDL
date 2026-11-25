@@ -7,6 +7,13 @@
 3. 用 `openssl rand -hex 32` 生成管理员令牌，在 Pages 保存为密钥 `ADMIN_REVIEW_TOKEN`。在 `/admin/submissions` 输入该令牌。后台 API 会独立校验令牌。也可用 Cloudflare Access 为 `/admin/*` 和 `/api/admin/*` 增加访问限制。
 4. 重新部署，在 `/submit` 提交一条测试记录，再进入后台核对并保存审核状态。检查匿名访问审核 API 返回 401。
 
+### 审核结果邮件（Resend）
+
+1. 上线前在已有投稿 D1 数据库执行 `migrations/0002_submission_review_mail.sql`。保留完整的 `CREATE TRIGGER ... END;` 语句。
+2. 在 Resend 添加并验证发件域名（如 `notify.macapphq.com`），按界面提示在 Cloudflare DNS 添加记录。创建一个仅允许发信的 API Key。
+3. 在 Pages 的 **Production → Variables and Secrets** 中，将 API Key 存为 Secret `RESEND_API_KEY`，将发件地址存为 Text `REVIEW_EMAIL_FROM`（如 `MacAppHQ <review@notify.macapphq.com>`），然后部署。
+4. 用自己的邮箱提交一条测试投稿并审核，核对后台与 Resend 的发信记录。审核结果先写入 D1，发信失败可在详情页重试。首次尝试 23 小时后，应先到 Resend 核对再手动处理，避免超出发信服务的去重时限。配置前已存在、且从未生成通知的审核结果无需补发。
+
 目标：静态站点从 Vercel 迁到 Cloudflare Pages 免费版，Vercel 保留一周做对照。
 
 ## 一、仓库里的改动（已完成）

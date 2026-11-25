@@ -46,6 +46,10 @@ const columns = ["回执编号", "产品", "状态", "投稿日期", "标签", "
           <p class="review-receipt">回执编号 <code id="review-receipt"></code></p>
           <p id="review-metadata" class="review-secondary"></p>
           <p id="review-email"></p>
+          <div id="review-mail" class="review-actions" hidden>
+            <span id="review-mail-state" class="review-secondary"></span>
+            <button id="review-mail-retry" type="button" hidden>重试发送</button>
+          </div>
           <label>开发者提供的试用或评测方式<textarea id="review-access" rows="3" readonly></textarea></label>
           <p id="review-links"></p>
           <fieldset>
@@ -88,6 +92,7 @@ const columns = ["回执编号", "产品", "状态", "投稿日期", "标签", "
   const queue = document.querySelector<HTMLElement>("#review-queue");
   const list = document.querySelector("#review-list");
   const editor = document.querySelector<HTMLFormElement>("#review-form");
+  const retryMailButton = document.querySelector<HTMLButtonElement>("#review-mail-retry");
   const fields = editor?.querySelector("fieldset");
   const previous = document.querySelector<HTMLButtonElement>("#previous-page");
   const next = document.querySelector<HTMLButtonElement>("#next-page");
@@ -148,9 +153,25 @@ const columns = ["回执编号", "产品", "状态", "投稿日期", "标签", "
     logoutButton.hidden = false;
   }
 
+  const mailMessages: Record<string, string> = {
+    sent: "审核通知已交给 Resend 发送。",
+    pending: "审核通知尚未确认发送，可在详情中重试。",
+    failed: "审核通知发送未确认，可在详情中重试。",
+    unconfigured: "审核通知尚未发送，需先配置 Resend。",
+    expired: "审核通知已超出安全重试时限，请在 Resend 核对发送记录后手动处理。"
+  };
+
+  function showMailState(notification: string) {
+    const mail = document.querySelector<HTMLElement>("#review-mail")!;
+    const message = mailMessages[notification] ?? "";
+    mail.hidden = !message;
+    mail.querySelector("#review-mail-state")!.textContent = message;
+    retryMailButton!.hidden = !["pending", "failed"].includes(notification);
+  }
+
   async function loadDetail() {
     if (!receipt) throw new Error("缺少回执编号。请从投稿列表打开详情。");
-    const { item } = await api(`/${encodeURIComponent(receipt)}`) as { item: Submission };
+    const { item, notification } = await api(`/${encodeURIComponent(receipt)}`) as { item: Submission; notification: string };
     if (!editor) return;
     for (const field of editor.querySelectorAll<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>("[name]")) {
       field.value = item[field.name] ?? "";
@@ -159,6 +180,7 @@ const columns = ["回执编号", "产品", "状态", "投稿日期", "标签", "
     document.querySelector("#review-receipt")!.textContent = item.id;
     document.querySelector("#review-metadata")!.textContent = `${states[item.status]} · 投稿于 ${item.created_at.slice(0, 10)}`;
     document.querySelector("#review-email")!.textContent = `联系邮箱：${item.email}`;
+    showMailState(notification);
     document.querySelector<HTMLTextAreaElement>("#review-access")!.value = item.reviewAccessNotes;
     showLinks(document.querySelector<HTMLElement>("#review-links")!, item);
     for (const id of ["detail-approve", "detail-reject"]) {
@@ -277,8 +299,8 @@ const columns = ["回执编号", "产品", "状态", "投稿日期", "标签", "
       button.addEventListener("click", () => {
         if (busy || (value === "rejected" && !confirm(`拒绝「${item.name}」的投稿？`))) return;
         void perform(async () => {
-          await patch(item.id, { status: value, pendingOnly: true });
-          await refreshAfterSave(() => loadList(page), value);
+          const { notification } = await patch(item.id, { status: value, pendingOnly: true });
+          await refreshAfterSave(() => loadList(page), value, notification);
         });
       });
       actions.append(button);
@@ -304,8 +326,8 @@ const columns = ["回执编号", "产品", "状态", "投稿日期", "标签", "
 
   const load = () => detail ? loadDetail() : loadList(initialPage);
 
-  async function refreshAfterSave(refresh: () => Promise<void>, value: string) {
-    const message = value ? `投稿${states[value]}。` : "审核已保存。";
+  async function refreshAfterSave(refresh: () => Promise<void>, value: string, notification: string) {
+    const message = (value ? `投稿${states[value]}。` : "审核已保存。") + (mailMessages[notification] ?? "");
     try {
       await refresh();
       status.textContent = message;
@@ -345,6 +367,14 @@ const columns = ["回执编号", "产品", "状态", "投稿日期", "标签", "
   });
   previous?.addEventListener("click", () => void perform(() => loadList(page - 1)));
   next?.addEventListener("click", () => void perform(() => loadList(page + 1)));
+  retryMailButton?.addEventListener("click", () => {
+    if (!receipt) return;
+    void perform(async () => {
+      const { notification } = await api(`/${encodeURIComponent(receipt)}`, { method: "POST" });
+      showMailState(notification);
+      status.textContent = mailMessages[notification] ?? "没有待发送的审核通知。";
+    });
+  });
   editor?.addEventListener("submit", (event) => {
     event.preventDefault();
     if (!receipt || busy) return;
@@ -352,8 +382,8 @@ const columns = ["回执编号", "产品", "状态", "投稿日期", "标签", "
     if (value === "rejected" && !confirm("拒绝这条投稿？")) return;
     const changes = Object.fromEntries(new FormData(editor));
     void perform(async () => {
-      await patch(receipt, value ? { ...changes, status: value, pendingOnly: true } : changes);
-      await refreshAfterSave(loadDetail, value);
+      const { notification } = await patch(receipt, value ? { ...changes, status: value, pendingOnly: true } : changes);
+      await refreshAfterSave(loadDetail, value, notification);
     });
   });
   if (token) {
