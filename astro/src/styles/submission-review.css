@@ -66,6 +66,12 @@
 .review-panel .review-approve { border-color: #1d4ed8; background: #1d4ed8; color: #fff; }
 .review-panel .review-approve:hover { background: #1e40af; }
 .review-panel .review-reject { color: #991b1b; }
+.review-decision-dialog { width: min(32rem, calc(100% - 2rem)); }
+.review-decision-dialog .review-secondary { margin-block: .5rem 1rem; }
+.review-decision-dialog .review-actions { justify-content: flex-end; }
+.review-decision-dialog output { color: #991b1b; }
+.review-decision-dialog output:empty { display: none; }
+.review-decision-content { margin: .25rem 0; overflow-wrap: anywhere; white-space: pre-wrap; }
 
 @media (min-width: 48rem) {
   .review-table tr > :last-child { position: sticky; right: 0; z-index: 1; }

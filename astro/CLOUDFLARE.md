@@ -9,7 +9,7 @@
 
 ### 审核结果邮件（Resend）
 
-1. 上线前在已有投稿 D1 数据库执行 `migrations/0002_submission_review_mail.sql`。保留完整的 `CREATE TRIGGER ... END;` 语句。
+1. 上线前在投稿 D1 数据库按顺序执行尚未应用的迁移：`migrations/0002_submission_review_mail.sql`、`migrations/0003_submission_review_details.sql`。保留完整的 `CREATE TRIGGER ... END;` 语句。审核通过时填写文章链接，拒绝时填写原因，两者都会写入对应的通知邮件。
 2. 在 Resend 添加并验证发件域名（如 `notify.macapphq.com`），按界面提示在 Cloudflare DNS 添加记录。创建一个仅允许发信的 API Key。
 3. 在 Pages 的 **Production → Variables and Secrets** 中，将 API Key 存为 Secret `RESEND_API_KEY`，将发件地址存为 Text `REVIEW_EMAIL_FROM`（如 `MacAppHQ <review@notify.macapphq.com>`），然后部署。
 4. 用自己的邮箱提交一条测试投稿并审核，核对后台与 Resend 的发信记录。审核结果先写入 D1，发信失败可在详情页重试。首次尝试 23 小时后，应先到 Resend 核对再手动处理，避免超出发信服务的去重时限。配置前已存在、且从未生成通知的审核结果无需补发。

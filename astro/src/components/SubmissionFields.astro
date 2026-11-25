@@ -1,6 +1,7 @@
 ---
 interface Props { publicSubmission?: boolean }
 const { publicSubmission = false } = Astro.props;
+const placeholders = { website: "例如：www.macapphq.com", category: "例如：效率工具，窗口管理" };
 const macOSVersions = [
   ["27", "Golden Gate"], ["26", "Tahoe"], ["15", "Sequoia"], ["14", "Sonoma"],
   ["13", "Ventura"], ["12", "Monterey"], ["11", "Big Sur"], ["10.15", "Catalina"],
@@ -31,12 +32,12 @@ const inputs = [
       </select>
     ) : <input
       name={name}
-      type={type === "url" && !required ? "text" : type}
+      type={type === "url" && (!required || publicSubmission) ? "text" : type}
       inputmode={type === "url" ? "url" : undefined}
       maxlength={max}
       required={required}
       aria-describedby={publicSubmission && name === "category" ? "submission-tags-help" : undefined}
-      placeholder={publicSubmission && name === "category" ? "例如：效率工具，窗口管理" : undefined}
+      placeholder={publicSubmission && (name === "website" || name === "category") ? placeholders[name] : undefined}
     />}
     {publicSubmission && name === "category" && (
       <small id="submission-tags-help">用逗号（，或 ,）分隔多个标签。</small>

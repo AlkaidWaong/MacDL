@@ -18,7 +18,10 @@ function fields(input, schema, partial = false) {
     if (partial && !Object.hasOwn(input, key)) continue;
     const raw = input[key] ?? "";
     if (typeof raw !== "string") throw new InputError(`字段格式有误：${key}。`);
-    const value = raw.trim();
+    let value = raw.trim();
+    if (key === "website" && /^[^:/?#@\\\s]+\.[^:/?#@\\\s]+(?::\d+)?(?:[/?#]|$)/u.test(value)) {
+      value = `https://${value}`;
+    }
     if ((required && !value) || value.length > length) {
       throw new InputError(`请检查字段是否填写或超长：${key}。`);
     }
@@ -51,6 +54,21 @@ export function parseAdminPatch(input) {
       throw new InputError("审核状态无效。");
     }
     changes.status = input.status;
+    if (input.status === "approved") {
+      const url = typeof input.articleUrl === "string" ? input.articleUrl.trim() : "";
+      const parsed = URL.parse(url);
+      if (url.length > 2000 || !/^https:\/\/[^/?#\s\\]+(?:[/?#][^\s\\]*)?$/i.test(url) ||
+          !parsed || parsed.protocol !== "https:" || parsed.username || parsed.password) {
+        throw new InputError("请填写有效的 HTTPS 文章链接。");
+      }
+      changes.reviewMessage = parsed.href;
+    } else if (input.status === "rejected") {
+      const reason = typeof input.rejectionReason === "string" ? input.rejectionReason.trim() : "";
+      if (!reason || reason.length > 2000) throw new InputError("请填写拒绝原因，最多 2000 字。");
+      changes.reviewMessage = reason;
+    } else {
+      changes.reviewMessage = "";
+    }
   }
   if (!Object.keys(changes).length) throw new InputError("没有可保存的字段。");
   return changes;

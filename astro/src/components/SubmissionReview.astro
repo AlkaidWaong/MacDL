@@ -46,6 +46,7 @@ const columns = ["回执编号", "产品", "状态", "投稿日期", "标签", "
           <p class="review-receipt">回执编号 <code id="review-receipt"></code></p>
           <p id="review-metadata" class="review-secondary"></p>
           <p id="review-email"></p>
+          <div id="review-decision" hidden></div>
           <div id="review-mail" class="review-actions" hidden>
             <span id="review-mail-state" class="review-secondary"></span>
             <button id="review-mail-retry" type="button" hidden>重试发送</button>
@@ -69,6 +70,25 @@ const columns = ["回执编号", "产品", "状态", "投稿日期", "标签", "
             </div>
           </fieldset>
         </form>}
+        <dialog class="submit-dialog review-decision-dialog" id="decision-dialog" aria-labelledby="decision-title">
+          <form id="decision-form" class="submission-form">
+            <h2 id="decision-title"></h2>
+            <p class="review-secondary">填写的内容会随审核结果发给投稿人。</p>
+            <fieldset>
+              <label id="decision-article">文章链接
+                <input name="articleUrl" type="url" maxlength="2000" placeholder="https://www.macapphq.com/…" />
+              </label>
+              <label id="decision-reason">拒绝原因
+                <textarea name="rejectionReason" rows="4" maxlength="2000" placeholder="说明这次未通过的具体原因"></textarea>
+              </label>
+              <div class="review-actions">
+                <button id="decision-confirm" type="submit"></button>
+                <button id="decision-cancel" type="button">取消</button>
+              </div>
+            </fieldset>
+            <output id="decision-error" role="alert"></output>
+          </form>
+        </dialog>
       </section>
     </main>
   </body>
@@ -76,6 +96,7 @@ const columns = ["回执编号", "产品", "状态", "投稿日期", "标签", "
 
 <script>
   type Submission = Record<string, string>;
+  type DecisionStatus = "approved" | "rejected";
   const key = "macapphq-review-token";
   const login = document.querySelector<HTMLFormElement>("#admin-login")!;
   const input = document.querySelector<HTMLInputElement>("#admin-token")!;
@@ -92,6 +113,13 @@ const columns = ["回执编号", "产品", "状态", "投稿日期", "标签", "
   const queue = document.querySelector<HTMLElement>("#review-queue");
   const list = document.querySelector("#review-list");
   const editor = document.querySelector<HTMLFormElement>("#review-form");
+  const dialog = document.querySelector<HTMLDialogElement>("#decision-dialog")!;
+  const decisionForm = document.querySelector<HTMLFormElement>("#decision-form")!;
+  const decisionFields = decisionForm.querySelector("fieldset")!;
+  const decisionConfirm = document.querySelector<HTMLButtonElement>("#decision-confirm")!;
+  const decisionError = document.querySelector("#decision-error")!;
+  const article = decisionForm.querySelector<HTMLInputElement>("[name=articleUrl]")!;
+  const reason = decisionForm.querySelector<HTMLTextAreaElement>("[name=rejectionReason]")!;
   const retryMailButton = document.querySelector<HTMLButtonElement>("#review-mail-retry");
   const fields = editor?.querySelector("fieldset");
   const previous = document.querySelector<HTMLButtonElement>("#previous-page");
@@ -101,12 +129,15 @@ const columns = ["回执编号", "产品", "状态", "投稿日期", "标签", "
   let token = sessionStorage.getItem(key) ?? "";
   let page = 1;
   let busy = false;
+  let detailStatus = "";
+  let decision: { id: string; value: DecisionStatus; changes: object; refresh: () => Promise<void> } | undefined;
 
   function logout() {
     token = "";
     sessionStorage.removeItem(key);
     login.hidden = false;
     logoutButton.hidden = true;
+    if (dialog.open) dialog.close();
     if (queue) queue.hidden = true;
     list?.replaceChildren();
     if (editor) {
@@ -115,6 +146,7 @@ const columns = ["回执编号", "产品", "状态", "投稿日期", "标签", "
       document.querySelector("#review-email")!.textContent = "";
       document.querySelector<HTMLTextAreaElement>("#review-access")!.value = "";
       document.querySelector("#review-links")!.replaceChildren();
+      document.querySelector("#review-decision")!.replaceChildren();
     }
   }
 
@@ -171,8 +203,11 @@ const columns = ["回执编号", "产品", "状态", "投稿日期", "标签", "
 
   async function loadDetail() {
     if (!receipt) throw new Error("缺少回执编号。请从投稿列表打开详情。");
-    const { item, notification } = await api(`/${encodeURIComponent(receipt)}`) as { item: Submission; notification: string };
+    const { item, reviewMessage, notification } = await api(`/${encodeURIComponent(receipt)}`) as {
+      item: Submission; reviewMessage: string; notification: string
+    };
     if (!editor) return;
+    detailStatus = item.status;
     for (const field of editor.querySelectorAll<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>("[name]")) {
       field.value = item[field.name] ?? "";
     }
@@ -180,6 +215,19 @@ const columns = ["回执编号", "产品", "状态", "投稿日期", "标签", "
     document.querySelector("#review-receipt")!.textContent = item.id;
     document.querySelector("#review-metadata")!.textContent = `${states[item.status]} · 投稿于 ${item.created_at.slice(0, 10)}`;
     document.querySelector("#review-email")!.textContent = `联系邮箱：${item.email}`;
+    const reviewDecision = document.querySelector<HTMLElement>("#review-decision")!;
+    reviewDecision.hidden = !reviewMessage;
+    const label = item.status === "approved" ? "文章链接" : "拒绝原因";
+    const content = document.createElement("p");
+    content.className = "review-decision-content";
+    content.textContent = reviewMessage;
+    if (item.status === "approved" && reviewMessage.startsWith("https://")) {
+      const articleLink = document.createElement("a");
+      articleLink.href = reviewMessage;
+      articleLink.textContent = reviewMessage;
+      content.replaceChildren(articleLink);
+    }
+    reviewDecision.replaceChildren(document.createTextNode(label), content);
     showMailState(notification);
     document.querySelector<HTMLTextAreaElement>("#review-access")!.value = item.reviewAccessNotes;
     showLinks(document.querySelector<HTMLElement>("#review-links")!, item);
@@ -222,6 +270,40 @@ const columns = ["回执编号", "产品", "状态", "投稿日期", "标签", "
       method: "PATCH", headers: { "content-type": "application/json" }, body: JSON.stringify(values)
     });
   }
+
+  function openDecision(id: string, name: string, value: DecisionStatus, changes: object, refresh: () => Promise<void>) {
+    if (busy || dialog.open) return;
+    decision = { id, value, changes, refresh };
+    const approved = value === "approved";
+    decisionForm.reset();
+    decisionError.textContent = "";
+    document.querySelector("#decision-title")!.textContent = `${approved ? "通过" : "拒绝"}「${name}」`;
+    for (const [field, visible] of [[article, approved], [reason, !approved]] as const) {
+      field.closest("label")!.hidden = !visible;
+      field.disabled = !visible;
+      field.required = visible;
+    }
+    decisionConfirm.textContent = approved ? "确认通过" : "确认拒绝";
+    decisionConfirm.className = approved ? "review-approve" : "review-reject";
+    dialog.showModal();
+    (approved ? article : reason).focus();
+  }
+
+  document.querySelector("#decision-cancel")!.addEventListener("click", () => dialog.close());
+  dialog.addEventListener("cancel", (event) => { if (busy) event.preventDefault(); });
+  decisionForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    if (!decision || busy) return;
+    const { id, value, changes, refresh } = decision;
+    const details = Object.fromEntries(new FormData(decisionForm));
+    decisionError.textContent = "";
+    decisionFields.disabled = true;
+    void perform(async () => {
+      const { notification } = await patch(id, { ...changes, ...details, status: value });
+      dialog.close();
+      await refreshAfterSave(refresh, value, notification);
+    }, decisionError).finally(() => { decisionFields.disabled = false; });
+  });
 
   function copyButton(item: Submission) {
     const button = document.createElement("button");
@@ -290,19 +372,14 @@ const columns = ["回执编号", "产品", "状态", "投稿日期", "标签", "
     actions.append(copyButton(item));
     operations.replaceChildren(actions);
     if (item.status !== "pending") return row;
-    for (const [value, label] of [["approved", "通过"], ["rejected", "拒绝"]]) {
+    for (const [value, label] of [["approved", "通过"], ["rejected", "拒绝"]] as const) {
       const button = document.createElement("button");
       button.type = "button";
       button.className = value === "approved" ? "review-approve" : "review-reject";
       button.textContent = label;
       button.setAttribute("aria-label", `${label} ${item.name}`);
-      button.addEventListener("click", () => {
-        if (busy || (value === "rejected" && !confirm(`拒绝「${item.name}」的投稿？`))) return;
-        void perform(async () => {
-          const { notification } = await patch(item.id, { status: value, pendingOnly: true });
-          await refreshAfterSave(() => loadList(page), value, notification);
-        });
-      });
+      button.addEventListener("click", () =>
+        openDecision(item.id, item.name, value, { pendingOnly: true }, () => loadList(page)));
       actions.append(button);
     }
     return row;
@@ -336,7 +413,7 @@ const columns = ["回执编号", "产品", "状态", "投稿日期", "标签", "
     }
   }
 
-  async function perform(action: () => Promise<void>) {
+  async function perform(action: () => Promise<void>, errorOutput: Element = status) {
     if (busy) return;
     busy = true;
     panel.setAttribute("aria-busy", "true");
@@ -345,7 +422,9 @@ const columns = ["回执编号", "产品", "状态", "投稿日期", "标签", "
     try {
       await action();
     } catch (error) {
-      status.textContent = error instanceof Error ? error.message : "操作失败，请重试。";
+      const output = dialog.open ? errorOutput : status;
+      if (output !== status) status.textContent = "";
+      output.textContent = error instanceof Error ? error.message : "操作失败，请重试。";
     } finally {
       busy = false;
       panel.removeAttribute("aria-busy");
@@ -379,11 +458,19 @@ const columns = ["回执编号", "产品", "状态", "投稿日期", "标签", "
     event.preventDefault();
     if (!receipt || busy) return;
     const value = (event.submitter as HTMLButtonElement | null)?.value ?? "";
-    if (value === "rejected" && !confirm("拒绝这条投稿？")) return;
     const changes = Object.fromEntries(new FormData(editor));
+    const selected = changes.status;
+    delete changes.status;
+    const target = value || selected;
+    if ((target === "approved" || target === "rejected") && target !== detailStatus) {
+      const name = document.querySelector("#review-product-name")!.textContent ?? "";
+      openDecision(receipt, name, target, { ...changes, pendingOnly: detailStatus === "pending" }, loadDetail);
+      return;
+    }
+    if (target === "pending" && target !== detailStatus) changes.status = target;
     void perform(async () => {
-      const { notification } = await patch(receipt, value ? { ...changes, status: value, pendingOnly: true } : changes);
-      await refreshAfterSave(loadDetail, value, notification);
+      const { notification } = await patch(receipt, changes);
+      await refreshAfterSave(loadDetail, "", notification);
     });
   });
   if (token) {
