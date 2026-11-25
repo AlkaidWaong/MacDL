@@ -1,0 +1,104 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SubmissionFields from "../components/SubmissionFields.astro";
+import "../styles/submissions.css";
+---
+<BaseLayout title="独立产品收录 | MacAppHQ" description="向 MacAppHQ 提交你的 macOS 软件，由编辑人工审核。" canonical="/submit">
+  <section class="glass submission-panel">
+    <h1>独立产品收录</h1>
+    <p>欢迎提交你开发的 macOS 软件。我们会人工审核，提交后可保留回执编号。</p>
+    <form id="product-form" method="post" action="/api/submissions" class="submission-form">
+      <fieldset disabled>
+        <SubmissionFields />
+        <label>联系邮箱（仅审核可见）<input name="email" type="email" autocomplete="email" maxlength="254" required /></label>
+        <label>试用或评测方式（选填，仅审核可见）
+          <textarea name="reviewAccessNotes" rows="3" maxlength="1000" aria-describedby="access-help"></textarea>
+        </label>
+        <p id="access-help">如需提供兑换码、许可证或测试账号，请通过邮件单独联系。</p>
+        <label><input type="checkbox" name="consent" required /> 我确认产品支持 macOS，并授权 MacAppHQ 使用上述资料进行审核。</label>
+      </fieldset>
+      <div id="submission-challenge"></div>
+      <button type="submit" disabled>提交产品</button>
+      <output role="status" aria-live="polite">正在加载投稿表单…</output>
+    </form>
+    <noscript><p>请启用 JavaScript 使用在线投稿，或通过邮箱联系。</p></noscript>
+    <p>提交后由编辑决定是否收录。备用投稿与合作请联系 <a href="mailto:alkaid.waong@foxmail.com">alkaid.waong@foxmail.com</a>，也可通过微信 AlkaidWaong 联系。<a href="/privacy-policy">隐私政策</a></p>
+  </section>
+</BaseLayout>
+
+<script>
+  type Turnstile = {
+    render(element: string, config: Record<string, unknown>): string;
+    reset(widget: string): void;
+  };
+  const form = document.querySelector<HTMLFormElement>("#product-form")!;
+  const fields = form.querySelector("fieldset")!;
+  const button = form.querySelector("button")!;
+  const status = form.querySelector("output")!;
+  let token = "";
+  let sending = false;
+  let turnstile: Turnstile;
+  let widget: string;
+
+  async function initialize() {
+    try {
+      const response = await fetch("/api/submission-config");
+      if (!response.ok) throw new Error();
+      const { siteKey } = await response.json();
+      if (!siteKey) throw new Error();
+      await new Promise<void>((resolve, reject) => {
+        const script = document.createElement("script");
+        script.src = "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit";
+        script.onload = () => resolve();
+        script.onerror = reject;
+        document.head.append(script);
+      });
+      turnstile = (window as Window & { turnstile: Turnstile }).turnstile;
+      status.textContent = "";
+      widget = turnstile.render("#submission-challenge", {
+        sitekey: siteKey, action: "indie_submit", "response-field": false,
+        callback: (value: string) => {
+          token = value;
+          button.disabled = sending;
+        },
+        "expired-callback": () => { token = ""; button.disabled = true; },
+        "error-callback": () => {
+          token = "";
+          button.disabled = true;
+          status.textContent = "人机验证暂不可用，请刷新页面或使用邮件投稿。";
+        }
+      });
+      fields.disabled = false;
+    } catch {
+      status.textContent = "在线投稿暂不可用，请通过邮箱提交。";
+    }
+  }
+
+  form.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    if (sending || !token) return;
+    const data = new FormData(form);
+    const payload = { ...Object.fromEntries(data), consent: data.has("consent"), turnstileToken: token };
+    sending = true;
+    fields.disabled = button.disabled = true;
+    status.textContent = "正在提交…";
+    try {
+      const response = await fetch(form.action, {
+        method: "POST", headers: { "content-type": "application/json" },
+        body: JSON.stringify(payload)
+      });
+      const result = await response.json();
+      if (!response.ok) throw new Error(result.error || "提交失败。");
+      form.reset();
+      status.textContent = `已收到投稿，等待人工审核。回执编号：${result.id}`;
+    } catch (error) {
+      status.textContent = error instanceof Error ? error.message : "提交失败，请稍后重试。";
+    } finally {
+      token = "";
+      sending = false;
+      fields.disabled = false;
+      turnstile.reset(widget);
+    }
+  });
+  void initialize();
+</script>

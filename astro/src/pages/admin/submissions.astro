@@ -1,0 +1,195 @@
+---
+import SubmissionFields from "../../components/SubmissionFields.astro";
+import "../../styles/global.css";
+import "../../styles/submissions.css";
+---
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex,nofollow" />
+    <meta name="referrer" content="no-referrer" />
+    <title>投稿审核 | MacAppHQ</title>
+  </head>
+  <body>
+    <main class="wrap">
+      <section class="glass submission-panel">
+        <h1>投稿审核</h1>
+        <form id="admin-login" method="post" class="submission-form">
+          <label>管理员令牌<input id="admin-token" type="password" required autocomplete="off" /></label>
+          <button type="submit">查看投稿</button>
+        </form>
+        <output id="admin-status" role="status" aria-live="polite"></output>
+        <div id="review-queue" hidden>
+          <button id="admin-logout" type="button">退出审核</button>
+          <h2>投稿列表</h2>
+          <ul id="review-list"></ul>
+          <button id="previous-page" type="button">上一页</button>
+          <button id="next-page" type="button">下一页</button>
+        </div>
+        <form id="review-form" method="post" class="submission-form" hidden>
+          <h2>投稿详情</h2>
+          <p id="review-email"></p>
+          <label>开发者提供的试用或评测方式<textarea id="review-access" rows="3" readonly></textarea></label>
+          <p id="review-links"></p>
+          <fieldset>
+            <SubmissionFields />
+            <label>审核备注<textarea name="reviewNotes" maxlength="2000" rows="3"></textarea></label>
+            <label>审核状态
+              <select name="status">
+                <option value="pending">待审核</option>
+                <option value="approved">已通过</option>
+                <option value="rejected">已拒绝</option>
+              </select>
+            </label>
+            <button type="submit">保存审核</button>
+          </fieldset>
+        </form>
+      </section>
+    </main>
+  </body>
+</html>
+
+<script>
+  type Submission = Record<string, string>;
+  const key = "macapphq-review-token";
+  const login = document.querySelector<HTMLFormElement>("#admin-login")!;
+  const input = document.querySelector<HTMLInputElement>("#admin-token")!;
+  const status = document.querySelector("#admin-status")!;
+  const queue = document.querySelector<HTMLElement>("#review-queue")!;
+  const list = document.querySelector("#review-list")!;
+  const editor = document.querySelector<HTMLFormElement>("#review-form")!;
+  const fields = editor.querySelector("fieldset")!;
+  const previous = document.querySelector<HTMLButtonElement>("#previous-page")!;
+  const next = document.querySelector<HTMLButtonElement>("#next-page")!;
+  const states: Record<string, string> = { pending: "待审核", approved: "已通过", rejected: "已拒绝" };
+  let token = sessionStorage.getItem(key) ?? "";
+  let page = 1;
+  let busy = false;
+  let selected = "";
+
+  function closeEditor() {
+    selected = "";
+    editor.hidden = true;
+    editor.reset();
+    document.querySelector("#review-email")!.textContent = "";
+    document.querySelector<HTMLTextAreaElement>("#review-access")!.value = "";
+    document.querySelector("#review-links")!.replaceChildren();
+  }
+
+  function logout() {
+    token = "";
+    sessionStorage.removeItem(key);
+    login.hidden = false;
+    queue.hidden = true;
+    list.replaceChildren();
+    closeEditor();
+  }
+
+  async function api(path = "", options: RequestInit = {}) {
+    const response = await fetch("/api/admin/submissions" + path, {
+      ...options, headers: { "x-admin-token": token, ...options.headers }
+    });
+    if (response.status === 401) {
+      logout();
+      throw new Error("管理员令牌无效或尚未配置。");
+    }
+    const result = await response.json();
+    if (!response.ok) throw new Error(result.error || "请求失败。");
+    return result;
+  }
+
+  function show(item: Submission) {
+    if (busy) return;
+    selected = item.id;
+    editor.hidden = false;
+    for (const field of editor.querySelectorAll<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>("[name]")) {
+      field.value = item[field.name] ?? "";
+    }
+    document.querySelector("#review-email")!.textContent = `联系邮箱：${item.email}`;
+    document.querySelector<HTMLTextAreaElement>("#review-access")!.value = item.reviewAccessNotes;
+    const links = document.querySelector("#review-links")!;
+    links.replaceChildren();
+    for (const [field, label] of [["website", "打开官网"], ["downloadUrl", "打开下载页"], ["mediaUrl", "打开媒体资料"]]) {
+      const url = URL.parse(item[field] ?? "");
+      if (url?.protocol !== "https:") continue;
+      const link = document.createElement("a");
+      link.href = url.href;
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
+      link.textContent = label;
+      links.append(link, "　");
+    }
+    editor.querySelector<HTMLInputElement>('[name="name"]')!.focus();
+  }
+
+  async function load(target: number) {
+    const { items, hasMore } = await api(`?page=${target}`) as { items: Submission[]; hasMore: boolean };
+    page = target;
+    list.replaceChildren();
+    for (const item of items) {
+      const row = document.createElement("li");
+      const button = document.createElement("button");
+      button.type = "button";
+      button.textContent = `${item.name} · ${states[item.status]} · ${item.created_at.slice(0, 10)}`;
+      button.addEventListener("click", () => show(item));
+      row.append(button);
+      list.append(row);
+    }
+    previous.disabled = page === 1;
+    next.disabled = !hasMore;
+    login.hidden = true;
+    queue.hidden = false;
+    status.textContent = items.length ? "" : "这一页暂无投稿。";
+  }
+
+  async function perform(action: () => Promise<void>) {
+    if (busy) return;
+    busy = true;
+    fields.disabled = true;
+    status.textContent = "处理中…";
+    try {
+      await action();
+    } catch (error) {
+      status.textContent = error instanceof Error ? error.message : "操作失败，请重试。";
+    } finally {
+      busy = false;
+      fields.disabled = false;
+    }
+  }
+
+  login.addEventListener("submit", (event) => {
+    event.preventDefault();
+    void perform(async () => {
+      token = input.value.trim();
+      input.value = "";
+      await load(1);
+      sessionStorage.setItem(key, token);
+    });
+  });
+  document.querySelector("#admin-logout")!.addEventListener("click", () => {
+    if (!busy) { logout(); status.textContent = ""; }
+  });
+  previous.addEventListener("click", () => void perform(async () => { await load(page - 1); closeEditor(); }));
+  next.addEventListener("click", () => void perform(async () => { await load(page + 1); closeEditor(); }));
+  editor.addEventListener("submit", (event) => {
+    event.preventDefault();
+    if (!selected || busy) return;
+    const body = JSON.stringify(Object.fromEntries(new FormData(editor)));
+    void perform(async () => {
+      await api(`/${encodeURIComponent(selected)}`, {
+        method: "PATCH", headers: { "content-type": "application/json" }, body
+      });
+      closeEditor();
+      status.textContent = "审核已保存。";
+      try {
+        await load(1);
+        status.textContent = "审核已保存。";
+      } catch {
+        status.textContent = "审核已保存，列表刷新失败，请重新打开后台。";
+      }
+    });
+  });
+  if (token) void perform(() => load(1));
+</script>

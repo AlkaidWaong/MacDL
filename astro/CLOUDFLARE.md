@@ -1,5 +1,12 @@
 # 迁移到 Cloudflare Pages
 
+## 独立产品投稿配置
+
+1. 在 Cloudflare 创建独立的 D1 数据库，在数据库控制台执行 `migrations/0001_indie_submissions.sql`，并在 Pages 项目的生产环境中将它绑定为 `SUBMISSIONS_DB`。预览环境使用独立数据库。
+2. 创建 Turnstile Managed 小组件，允许生产投稿域名。在 Pages 环境变量中设置 `TURNSTILE_SITE_KEY`，并将 `TURNSTILE_SECRET_KEY` 保存为密钥。
+3. 用 `openssl rand -hex 32` 生成管理员令牌，在 Pages 保存为密钥 `ADMIN_REVIEW_TOKEN`。在 `/admin/submissions` 输入该令牌。后台 API 会独立校验令牌。也可用 Cloudflare Access 为 `/admin/*` 和 `/api/admin/*` 增加访问限制。
+4. 重新部署，在 `/submit` 提交一条测试记录，再进入后台核对并保存审核状态。检查匿名访问审核 API 返回 401。
+
 目标：静态站点从 Vercel 迁到 Cloudflare Pages 免费版，Vercel 保留一周做对照。
 
 ## 一、仓库里的改动（已完成）

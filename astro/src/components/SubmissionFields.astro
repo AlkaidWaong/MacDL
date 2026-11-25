@@ -1,0 +1,16 @@
+---
+const inputs = [
+  ["name", "产品名称", "text", 80, true],
+  ["website", "产品官网", "url", 500, true],
+  ["downloadUrl", "官方下载链接（选填）", "url", 500, false],
+  ["category", "分类", "text", 60, true],
+  ["pricing", "价格和试用方式", "text", 120, true],
+  ["systemRequirements", "macOS 系统要求", "text", 160, true],
+  ["mediaUrl", "截图或媒体资料链接（选填）", "url", 500, false],
+  ["summary", "一句话介绍", "text", 160, true]
+] as const;
+---
+{inputs.map(([name, label, type, max, required]) => (
+  <label>{label}<input name={name} type={type} maxlength={max} required={required} /></label>
+))}
+<label>产品介绍<textarea name="description" maxlength="2000" rows="5" required></textarea></label>

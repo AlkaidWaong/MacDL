@@ -1,0 +1,39 @@
+.submission-panel {
+  max-width: 48rem;
+  margin: 1.5rem auto;
+  padding: clamp(1rem, 4vw, 2rem);
+}
+
+.submission-form fieldset {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  min-inline-size: 0;
+}
+
+.submission-form label {
+  display: block;
+  margin-block: .8rem;
+}
+
+.submission-form input:not([type="checkbox"]),
+.submission-form textarea,
+.submission-form select {
+  display: block;
+  width: 100%;
+  margin-top: .25rem;
+  padding: .55rem .7rem;
+  border: 1px solid #8b9099;
+  border-radius: 6px;
+  font: inherit;
+  color: inherit;
+  background: white;
+}
+
+.submission-form textarea { resize: vertical; }
+.submission-panel button { font: inherit; padding: .35rem .7rem; cursor: pointer; }
+.submission-panel button:disabled { cursor: default; }
+.submission-panel [hidden] { display: none; }
+.submission-panel output { display: block; margin-block: .6rem; overflow-wrap: anywhere; }
+.submission-panel ul { padding-inline-start: 1.4rem; }
+.submission-panel li { margin-block: .35rem; overflow-wrap: anywhere; }
