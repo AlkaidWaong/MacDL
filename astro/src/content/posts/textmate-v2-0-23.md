@@ -73,10 +73,3 @@ TextMate是一款功能强大、高度可定制的文本编辑器，非常适合
 ![image.png](/media/textmate-v2-0-23/image.webp)
 
 ![image.png](/media/textmate-v2-0-23/image-1.webp)
-
-# ⚠️说明
-
-<aside>
-💡 本下载站致力于提供免费、开源软件资源（不破解，尽可能从官方渠道获取软件包），但仍可能存在部分未经完全授权的软件混入的情况。若你下载了此类软件，可能会面临软件著作权人的法律追究，导致潜在的经济赔偿和法律责任。下载软件前，请务必了解可能存在的风险。为了你的信息安全和合法权益，花几分钟阅读[风险提示](https://www.macapphq.com/Risk-Warning)很有必要哦
-
-</aside>
