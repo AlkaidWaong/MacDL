@@ -1,16 +1,53 @@
 ---
+interface Props { publicSubmission?: boolean }
+const { publicSubmission = false } = Astro.props;
+const macOSVersions = [
+  ["27", "Golden Gate"], ["26", "Tahoe"], ["15", "Sequoia"], ["14", "Sonoma"],
+  ["13", "Ventura"], ["12", "Monterey"], ["11", "Big Sur"], ["10.15", "Catalina"],
+  ["10.14", "Mojave"], ["10.13", "High Sierra"], ["10.12", "Sierra"]
+];
 const inputs = [
   ["name", "产品名称", "text", 80, true],
   ["website", "产品官网", "url", 500, true],
   ["downloadUrl", "官方下载链接（选填）", "url", 500, false],
+  ["mediaUrl", "截图或媒体资料链接（选填）", "url", 500, false],
   ["category", "分类", "text", 60, true],
   ["pricing", "价格和试用方式", "text", 120, true],
   ["systemRequirements", "macOS 系统要求", "text", 160, true],
-  ["mediaUrl", "截图或媒体资料链接（选填）", "url", 500, false],
   ["summary", "一句话介绍", "text", 160, true]
 ] as const;
 ---
+<div class:list={[{ "submit-field-grid": publicSubmission }]}>
 {inputs.map(([name, label, type, max, required]) => (
-  <label>{label}<input name={name} type={type} maxlength={max} required={required} /></label>
+  <label class:list={[{ "submit-field-wide": publicSubmission && (name === "category" || name === "summary") }]}>
+    <span>{publicSubmission && required && <span class="submit-required" aria-hidden="true">* </span>}{publicSubmission && name === "category" ? "标签" : label}</span>
+    {publicSubmission && name === "systemRequirements" ? (
+      <select name={name} required aria-describedby="submission-macos-help">
+        <option value="" disabled selected>选择最低支持版本</option>
+        {macOSVersions.map(([version, release]) => (
+          <option value={`macOS ${version}+`}>macOS {version} {release}</option>
+        ))}
+        <option value="OS X 10.11 或更早">OS X 10.11 或更早</option>
+      </select>
+    ) : <input
+      name={name}
+      type={type === "url" && !required ? "text" : type}
+      inputmode={type === "url" ? "url" : undefined}
+      maxlength={max}
+      required={required}
+      aria-describedby={publicSubmission && name === "category" ? "submission-tags-help" : undefined}
+      placeholder={publicSubmission && name === "category" ? "例如：效率工具，窗口管理" : undefined}
+    />}
+    {publicSubmission && name === "category" && (
+      <small id="submission-tags-help">用逗号（，或 ,）分隔多个标签。</small>
+    )}
+    {publicSubmission && name === "systemRequirements" && (
+      <small id="submission-macos-help">如有小版本要求，可在产品介绍中注明。</small>
+    )}
+  </label>
 ))}
-<label>产品介绍<textarea name="description" maxlength="2000" rows="5" required></textarea></label>
+<label class:list={[{ "submit-field-wide": publicSubmission }]}>
+  <span>{publicSubmission && <span class="submit-required" aria-hidden="true">* </span>}产品介绍</span>
+  <textarea name="description" maxlength="2000" rows="5" required></textarea>
+</label>
+</div>

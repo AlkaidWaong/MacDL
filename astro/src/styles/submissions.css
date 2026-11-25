@@ -37,3 +37,99 @@
 .submission-panel output { display: block; margin-block: .6rem; overflow-wrap: anywhere; }
 .submission-panel ul { padding-inline-start: 1.4rem; }
 .submission-panel li { margin-block: .35rem; overflow-wrap: anywhere; }
+
+.public-submission {
+  color: #111827;
+  background: #fff;
+}
+
+.submit-intro h1,
+.submit-dialog h2 {
+  margin: 0;
+  line-height: 1.2;
+}
+
+.submit-intro h1 { font-size: clamp(1.5rem, 4vw, 2rem); }
+
+.submit-intro p,
+.submit-help,
+.submit-footer,
+.public-submission small {
+  color: #4b5563;
+  overflow-wrap: anywhere;
+}
+
+.submit-intro p { margin: .5rem 0 0; }
+
+.submit-section,
+.submit-footer {
+  border-top: 1px solid #e5e7eb;
+  padding-top: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.submit-section h2 {
+  margin: 0 0 1rem;
+  font-size: 1.125rem;
+  line-height: 1.25;
+}
+
+.submit-help { margin: -.5rem 0 1rem; font-size: .875rem; }
+.submit-field-grid { display: grid; gap: 1rem; align-items: start; }
+.submit-field-grid label { margin: 0; min-width: 0; font-size: .875rem; font-weight: 600; }
+.submit-field-wide { grid-column: 1 / -1; }
+.submit-field-grid :is(input, textarea, select) { font-size: 1rem; font-weight: 400; min-height: 2.75rem; }
+.public-submission small { display: block; margin-top: .25rem; font-size: .8125rem; font-weight: 400; }
+.submit-required { color: #b91c1c; }
+
+.submission-form .submit-consent {
+  display: flex;
+  align-items: baseline;
+  gap: .5rem;
+  margin: 1.5rem 0 0;
+}
+
+.submit-actions { margin-top: 1rem; }
+#submission-challenge:not(:empty) { margin-bottom: .5rem; }
+.submit-footer { font-size: .875rem; }
+.submit-footer p { margin: 0 0 .5rem; }
+
+.submission-panel .submit-primary {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  padding: .5rem 1rem;
+  border: 1px solid transparent;
+  border-radius: .5rem;
+  color: white;
+  background: #1d4ed8;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.submit-primary:hover { background: #1e40af; }
+.submit-primary:disabled { background: #4b5563; }
+.public-submission :is(input, select, textarea, a, button):focus-visible {
+  outline: 2px solid #1d4ed8;
+  outline-offset: 2px;
+}
+
+.submit-dialog {
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  width: min(28rem, calc(100% - 2rem));
+  padding: 1.5rem;
+  border: 1px solid #e5e7eb;
+  border-radius: .75rem;
+  color: inherit;
+  background: white;
+  box-shadow: 0 .5rem 1.5rem rgb(17 24 39 / .18);
+  overflow-wrap: anywhere;
+}
+
+.submit-dialog::backdrop { background: rgb(17 24 39 / .5); }
+
+@media (min-width: 40rem) {
+  .submit-field-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}

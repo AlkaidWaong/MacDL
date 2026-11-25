@@ -4,25 +4,51 @@ import SubmissionFields from "../components/SubmissionFields.astro";
 import "../styles/submissions.css";
 ---
 <BaseLayout title="独立产品收录 | MacAppHQ" description="向 MacAppHQ 提交你的 macOS 软件，由编辑人工审核。" canonical="/submit">
-  <section class="glass submission-panel">
-    <h1>独立产品收录</h1>
-    <p>欢迎提交你开发的 macOS 软件。我们会人工审核，提交后可保留回执编号。</p>
+  <section class="glass submission-panel public-submission">
+    <header class="submit-intro">
+      <h1>独立产品收录</h1>
+      <p>提交你开发的 macOS 软件，由 MacAppHQ 人工审核。</p>
+    </header>
     <form id="product-form" method="post" action="/api/submissions" class="submission-form">
       <fieldset disabled>
-        <SubmissionFields />
-        <label>联系邮箱（仅审核可见）<input name="email" type="email" autocomplete="email" maxlength="254" required /></label>
-        <label>试用或评测方式（选填，仅审核可见）
-          <textarea name="reviewAccessNotes" rows="3" maxlength="1000" aria-describedby="access-help"></textarea>
+        <section class="submit-section" aria-labelledby="submit-product-heading">
+          <h2 id="submit-product-heading">产品信息</h2>
+          <SubmissionFields publicSubmission />
+        </section>
+        <section class="submit-section" aria-labelledby="submit-contact-heading">
+          <h2 id="submit-contact-heading">联系方式与评测</h2>
+          <p class="submit-help">这部分资料仅审核人员可见。</p>
+          <div class="submit-field-grid">
+            <label><span><span class="submit-required" aria-hidden="true">* </span>联系邮箱</span><input name="email" type="email" autocomplete="email" maxlength="254" required /></label>
+            <label class="submit-field-wide">试用或评测方式（选填）
+              <textarea name="reviewAccessNotes" rows="3" maxlength="1000" aria-describedby="access-help"></textarea>
+              <small id="access-help">如需提供兑换码、许可证或测试账号，请通过邮件单独联系。</small>
+            </label>
+          </div>
+        </section>
+        <label class="submit-consent">
+          <input type="checkbox" name="consent" required />
+          <span><span class="submit-required" aria-hidden="true">* </span>我确认产品支持 macOS，并授权 MacAppHQ 使用上述资料进行审核。</span>
         </label>
-        <p id="access-help">如需提供兑换码、许可证或测试账号，请通过邮件单独联系。</p>
-        <label><input type="checkbox" name="consent" required /> 我确认产品支持 macOS，并授权 MacAppHQ 使用上述资料进行审核。</label>
       </fieldset>
-      <div id="submission-challenge"></div>
-      <button type="submit" disabled>提交产品</button>
-      <output role="status" aria-live="polite">正在加载投稿表单…</output>
+      <div class="submit-actions">
+        <div id="submission-challenge"></div>
+        <button class="submit-primary" type="submit" disabled>提交产品</button>
+        <output role="status" aria-live="polite">正在加载投稿表单…</output>
+        <a id="submission-home" href="/" hidden>返回首页</a>
+      </div>
     </form>
     <noscript><p>请启用 JavaScript 使用在线投稿，或通过邮箱联系。</p></noscript>
-    <p>提交后由编辑决定是否收录。备用投稿与合作请联系 <a href="mailto:alkaid.waong@foxmail.com">alkaid.waong@foxmail.com</a>，也可通过微信 AlkaidWaong 联系。<a href="/privacy-policy">隐私政策</a></p>
+    <footer class="submit-footer">
+      <p>备用投稿与合作请联系 <a href="mailto:alkaid.waong@foxmail.com">alkaid.waong@foxmail.com</a> 或微信 AlkaidWaong。</p>
+      <a href="/privacy-policy">隐私政策</a>
+    </footer>
+    <dialog id="submission-success" class="submit-dialog" aria-labelledby="submission-success-title" aria-describedby="submission-success-description">
+      <h2 id="submission-success-title">投稿已提交</h2>
+      <p id="submission-success-description">我们已收到产品资料，等待人工审核。请保留回执编号。</p>
+      <p>回执编号 <code id="submission-receipt"></code></p>
+      <a class="submit-primary" href="/" autofocus>确认并返回首页</a>
+    </dialog>
   </section>
 </BaseLayout>
 
@@ -35,6 +61,9 @@ import "../styles/submissions.css";
   const fields = form.querySelector("fieldset")!;
   const button = form.querySelector("button")!;
   const status = form.querySelector("output")!;
+  const successDialog = document.querySelector<HTMLDialogElement>("#submission-success")!;
+  const receipt = document.querySelector("#submission-receipt")!;
+  const home = document.querySelector<HTMLAnchorElement>("#submission-home")!;
   let token = "";
   let sending = false;
   let turnstile: Turnstile;
@@ -89,16 +118,19 @@ import "../styles/submissions.css";
       });
       const result = await response.json();
       if (!response.ok) throw new Error(result.error || "提交失败。");
-      form.reset();
+      receipt.textContent = result.id;
       status.textContent = `已收到投稿，等待人工审核。回执编号：${result.id}`;
+      home.hidden = false;
+      successDialog.showModal?.();
+      return;
     } catch (error) {
       status.textContent = error instanceof Error ? error.message : "提交失败，请稍后重试。";
-    } finally {
       token = "";
       sending = false;
       fields.disabled = false;
       turnstile.reset(widget);
     }
   });
+  successDialog.addEventListener("close", () => home.focus());
   void initialize();
 </script>

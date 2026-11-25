@@ -1,0 +1,314 @@
+---
+import SubmissionFields from "./SubmissionFields.astro";
+import "../styles/global.css";
+import "../styles/submissions.css";
+import "../styles/submission-review.css";
+const { detail = false } = Astro.props;
+const columns = ["产品", "回执编号", "状态", "投稿日期", "标签", "价格与试用", "最低系统", "产品介绍", "联系邮箱", "链接", "评测说明", "审核备注", "操作"];
+---
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex,nofollow" />
+    <meta name="referrer" content="no-referrer" />
+    <title>{detail ? "投稿详情" : "投稿审核"} | MacAppHQ</title>
+  </head>
+  <body>
+    <main class="wrap">
+      <section class:list={["glass", "submission-panel", "review-panel", { "review-panel--queue": !detail }]} data-review-detail={detail ? "yes" : "no"}>
+        {detail && <a class="review-back" href="/admin/submissions">← 返回投稿列表</a>}
+        <header class="review-heading">
+          <h1>{detail ? "投稿详情" : "投稿审核"}</h1>
+          <button id="admin-logout" type="button" hidden>退出审核</button>
+        </header>
+        <form id="admin-login" method="post" class="submission-form">
+          <label>管理员令牌<input id="admin-token" type="password" required autocomplete="off" /></label>
+          <button type="submit">查看投稿</button>
+        </form>
+        <output id="admin-status" role="status" aria-live="polite"></output>
+        {!detail && <div id="review-queue" hidden>
+          <div class="review-table-viewport" tabindex="0" role="region" aria-label="投稿列表，可横向滚动">
+            <table class="review-table" aria-label="投稿列表">
+              <thead><tr>{columns.map((column) => <th scope="col">{column}</th>)}</tr></thead>
+              <tbody id="review-list"></tbody>
+            </table>
+          </div>
+          <nav class="review-pagination" aria-label="审核列表分页">
+            <button id="previous-page" type="button">上一页</button>
+            <span id="review-page"></span>
+            <button id="next-page" type="button">下一页</button>
+          </nav>
+        </div>}
+        {detail && <form id="review-form" method="post" class="submission-form" hidden>
+          <h2 id="review-product-name"></h2>
+          <p class="review-receipt">回执编号 <code id="review-receipt"></code></p>
+          <p id="review-metadata" class="review-secondary"></p>
+          <p id="review-email"></p>
+          <label>开发者提供的试用或评测方式<textarea id="review-access" rows="3" readonly></textarea></label>
+          <p id="review-links"></p>
+          <fieldset>
+            <SubmissionFields />
+            <label>审核备注<textarea name="reviewNotes" maxlength="2000" rows="3"></textarea></label>
+            <label>审核状态
+              <select name="status">
+                <option value="pending">待审核</option>
+                <option value="approved">已通过</option>
+                <option value="rejected">已拒绝</option>
+              </select>
+            </label>
+            <div class="review-actions">
+              <button type="submit">保存审核</button>
+              <button id="detail-approve" class="review-approve" type="submit" value="approved">通过</button>
+              <button id="detail-reject" class="review-reject" type="submit" value="rejected">拒绝</button>
+            </div>
+          </fieldset>
+        </form>}
+      </section>
+    </main>
+  </body>
+</html>
+
+<script>
+  type Submission = Record<string, string>;
+  const key = "macapphq-review-token";
+  const login = document.querySelector<HTMLFormElement>("#admin-login")!;
+  const input = document.querySelector<HTMLInputElement>("#admin-token")!;
+  const status = document.querySelector("#admin-status")!;
+  const panel = document.querySelector<HTMLElement>("[data-review-detail]")!;
+  const detail = panel.dataset.reviewDetail === "yes";
+  const receipt = new URLSearchParams(location.search).get("id");
+  const queue = document.querySelector<HTMLElement>("#review-queue");
+  const list = document.querySelector("#review-list");
+  const editor = document.querySelector<HTMLFormElement>("#review-form");
+  const fields = editor?.querySelector("fieldset");
+  const previous = document.querySelector<HTMLButtonElement>("#previous-page");
+  const next = document.querySelector<HTMLButtonElement>("#next-page");
+  const logoutButton = document.querySelector<HTMLButtonElement>("#admin-logout")!;
+  const states: Record<string, string> = { pending: "待审核", approved: "已通过", rejected: "已拒绝" };
+  let token = sessionStorage.getItem(key) ?? "";
+  let page = 1;
+  let busy = false;
+
+  function logout() {
+    token = "";
+    sessionStorage.removeItem(key);
+    login.hidden = false;
+    logoutButton.hidden = true;
+    if (queue) queue.hidden = true;
+    list?.replaceChildren();
+    if (editor) {
+      editor.hidden = true;
+      editor.reset();
+      document.querySelector("#review-email")!.textContent = "";
+      document.querySelector<HTMLTextAreaElement>("#review-access")!.value = "";
+      document.querySelector("#review-links")!.replaceChildren();
+    }
+  }
+
+  async function api(path = "", options: RequestInit = {}) {
+    const response = await fetch("/api/admin/submissions" + path, {
+      ...options, headers: { "x-admin-token": token, ...options.headers }
+    });
+    if (response.status === 401) {
+      logout();
+      throw new Error("管理员令牌无效或尚未配置。");
+    }
+    const result = await response.json();
+    if (!response.ok) throw new Error(result.error || "请求失败。");
+    return result;
+  }
+
+  function showLinks(container: HTMLElement, item: Submission) {
+    const links = document.createElement("div");
+    links.className = "review-links";
+    for (const [field, label] of [["website", "打开官网"], ["downloadUrl", "打开下载页"], ["mediaUrl", "打开媒体资料"]]) {
+      let url: URL;
+      try { url = new URL(item[field] ?? ""); } catch { continue; }
+      if (url.protocol !== "https:") continue;
+      const link = document.createElement("a");
+      link.href = url.href;
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
+      link.textContent = label;
+      links.append(link);
+    }
+    container.replaceChildren(links);
+  }
+
+  function showSignedIn() {
+    login.hidden = true;
+    logoutButton.hidden = false;
+  }
+
+  async function loadDetail() {
+    if (!receipt) throw new Error("缺少回执编号。请从投稿列表打开详情。");
+    const { item } = await api(`/${encodeURIComponent(receipt)}`) as { item: Submission };
+    if (!editor) return;
+    for (const field of editor.querySelectorAll<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>("[name]")) {
+      field.value = item[field.name] ?? "";
+    }
+    document.querySelector("#review-product-name")!.textContent = item.name;
+    document.querySelector("#review-receipt")!.textContent = item.id;
+    document.querySelector("#review-metadata")!.textContent = `${states[item.status]} · 投稿于 ${item.created_at.slice(0, 10)}`;
+    document.querySelector("#review-email")!.textContent = `联系邮箱：${item.email}`;
+    document.querySelector<HTMLTextAreaElement>("#review-access")!.value = item.reviewAccessNotes;
+    showLinks(document.querySelector<HTMLElement>("#review-links")!, item);
+    for (const id of ["detail-approve", "detail-reject"]) {
+      document.querySelector<HTMLElement>(`#${id}`)!.hidden = item.status !== "pending";
+    }
+    showSignedIn();
+    editor.hidden = false;
+    status.textContent = "";
+  }
+
+  function cell(row: HTMLTableRowElement, text: string, limit = 0) {
+    const column = row.insertCell();
+    if (limit && text.length > limit) {
+      const disclosure = document.createElement("details");
+      disclosure.className = "review-disclosure";
+      const toggle = document.createElement("summary");
+      const preview = document.createElement("span");
+      preview.className = "review-preview";
+      preview.textContent = text.slice(0, limit) + "…";
+      const expand = document.createElement("span");
+      expand.className = "review-expand";
+      expand.textContent = "展开";
+      const collapse = document.createElement("span");
+      collapse.className = "review-collapse";
+      collapse.textContent = "收起";
+      toggle.append(preview, expand, collapse);
+      const full = document.createElement("div");
+      full.textContent = text;
+      disclosure.append(toggle, full);
+      column.append(disclosure);
+    } else {
+      column.textContent = text || "—";
+    }
+    return column;
+  }
+
+  function patch(id: string, values: object) {
+    return api(`/${encodeURIComponent(id)}`, {
+      method: "PATCH", headers: { "content-type": "application/json" }, body: JSON.stringify(values)
+    });
+  }
+
+  function rowFor(item: Submission) {
+    const row = document.createElement("tr");
+    const product = document.createElement("th");
+    product.scope = "row";
+    product.textContent = item.name;
+    row.append(product);
+    const link = document.createElement("a");
+    link.href = `/admin/submissions/detail?id=${encodeURIComponent(item.id)}`;
+    link.textContent = item.id;
+    link.className = "review-id";
+    cell(row, "").replaceChildren(link);
+    const state = document.createElement("span");
+    state.className = "review-state";
+    state.dataset.state = item.status;
+    state.textContent = states[item.status];
+    cell(row, "").replaceChildren(state);
+    cell(row, item.created_at.slice(0, 10));
+    cell(row, item.category, 22);
+    cell(row, item.pricing, 32);
+    cell(row, item.systemRequirements, 32);
+    cell(row, [item.summary, item.description].filter(Boolean).join("\n\n"), 52);
+    cell(row, item.email, 32);
+    const links = cell(row, "");
+    showLinks(links, item);
+    cell(row, item.reviewAccessNotes, 52);
+    cell(row, item.reviewNotes, 52);
+    const operations = cell(row, "");
+    if (item.status !== "pending") return row;
+    const actions = document.createElement("div");
+    actions.className = "review-actions";
+    for (const [value, label] of [["approved", "通过"], ["rejected", "拒绝"]]) {
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className = value === "approved" ? "review-approve" : "review-reject";
+      button.textContent = label;
+      button.setAttribute("aria-label", `${label} ${item.name}`);
+      button.addEventListener("click", () => {
+        if (busy || (value === "rejected" && !confirm(`拒绝「${item.name}」的投稿？`))) return;
+        void perform(async () => {
+          await patch(item.id, { status: value, pendingOnly: true });
+          await refreshAfterSave(() => loadList(page), value);
+        });
+      });
+      actions.append(button);
+    }
+    operations.replaceChildren(actions);
+    return row;
+  }
+
+  async function loadList(target: number) {
+    const { items, hasMore } = await api(`?page=${target}`) as { items: Submission[]; hasMore: boolean };
+    page = target;
+    list!.replaceChildren(...items.map(rowFor));
+    previous!.disabled = page === 1;
+    next!.disabled = !hasMore;
+    document.querySelector("#review-page")!.textContent = `第 ${page} 页`;
+    showSignedIn();
+    queue!.hidden = false;
+    status.textContent = items.length ? "" : "这一页暂无投稿。";
+  }
+
+  const load = () => detail ? loadDetail() : loadList(1);
+
+  async function refreshAfterSave(refresh: () => Promise<void>, value: string) {
+    const message = value ? `投稿${states[value]}。` : "审核已保存。";
+    try {
+      await refresh();
+      status.textContent = message;
+    } catch {
+      status.textContent = message + "页面刷新失败，请重新加载查看。";
+    }
+  }
+
+  async function perform(action: () => Promise<void>) {
+    if (busy) return;
+    busy = true;
+    panel.setAttribute("aria-busy", "true");
+    if (fields) fields.disabled = true;
+    status.textContent = "处理中…";
+    try {
+      await action();
+    } catch (error) {
+      status.textContent = error instanceof Error ? error.message : "操作失败，请重试。";
+    } finally {
+      busy = false;
+      panel.removeAttribute("aria-busy");
+      if (fields) fields.disabled = false;
+    }
+  }
+
+  login.addEventListener("submit", (event) => {
+    event.preventDefault();
+    void perform(async () => {
+      token = input.value.trim();
+      input.value = "";
+      await load();
+      sessionStorage.setItem(key, token);
+    });
+  });
+  logoutButton.addEventListener("click", () => {
+    if (!busy) { logout(); status.textContent = ""; }
+  });
+  previous?.addEventListener("click", () => void perform(() => loadList(page - 1)));
+  next?.addEventListener("click", () => void perform(() => loadList(page + 1)));
+  editor?.addEventListener("submit", (event) => {
+    event.preventDefault();
+    if (!receipt || busy) return;
+    const value = (event.submitter as HTMLButtonElement | null)?.value ?? "";
+    if (value === "rejected" && !confirm("拒绝这条投稿？")) return;
+    const changes = Object.fromEntries(new FormData(editor));
+    void perform(async () => {
+      await patch(receipt, value ? { ...changes, status: value, pendingOnly: true } : changes);
+      await refreshAfterSave(loadDetail, value);
+    });
+  });
+  if (token) void perform(load);
+</script>

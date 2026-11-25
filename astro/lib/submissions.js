@@ -38,7 +38,10 @@ function fields(input, schema, partial = false) {
 
 export function parseSubmission(input) {
   if (input?.consent !== true) throw new InputError("请确认产品支持 macOS，并授权审核所提交的资料。");
-  return fields(input, submissionFields);
+  const submission = fields(input, submissionFields);
+  submission.category = submission.category.split(/[,，]/).map((tag) => tag.trim()).filter(Boolean).join("，");
+  if (!submission.category) throw new InputError("请填写至少一个标签。");
+  return submission;
 }
 
 export function parseAdminPatch(input) {

@@ -11,7 +11,8 @@ const EXCLUDED_SITEMAP_PATHS = new Set([
   "/thanks",
   "/links",
   "/seo-report",
-  "/admin/submissions"
+  "/admin/submissions",
+  "/admin/submissions/detail"
 ]);
 
 export function isSitemapPageAllowed(page, noindexTagPaths = new Set(), noindexCategoryPaths = new Set()) {
