@@ -201,6 +201,39 @@ const columns = ["回执编号", "产品", "状态", "投稿日期", "标签", "
     });
   }
 
+  function copyButton(item: Submission) {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.textContent = "复制";
+    button.setAttribute("aria-label", `复制 ${item.name} 的投稿信息`);
+    button.addEventListener("click", async () => {
+      const entries = [
+        ["产品名称", item.name],
+        ["产品官网", item.website],
+        ["官方下载链接", item.downloadUrl],
+        ["截图或媒体资料链接", item.mediaUrl],
+        ["标签", item.category],
+        ["价格和试用方式", item.pricing],
+        ["macOS 系统要求", item.systemRequirements],
+        ["一句话介绍", item.summary],
+        ["产品介绍", item.description],
+        ["联系邮箱", item.email],
+        ["试用或评测方式", item.reviewAccessNotes]
+      ];
+      const content = entries
+        .filter(([, value]) => value?.trim())
+        .map(([label, value]) => `${label}：\n${value}`)
+        .join("\n\n");
+      try {
+        await navigator.clipboard.writeText(content);
+        status.textContent = `已复制「${item.name}」的投稿信息。`;
+      } catch {
+        status.textContent = "无法访问剪贴板，请在投稿详情中手动复制。";
+      }
+    });
+    return button;
+  }
+
   function rowFor(item: Submission) {
     const row = document.createElement("tr");
     const link = document.createElement("a");
@@ -230,9 +263,11 @@ const columns = ["回执编号", "产品", "状态", "投稿日期", "标签", "
     cell(row, item.reviewAccessNotes, 52);
     cell(row, item.reviewNotes, 52);
     const operations = cell(row, "");
-    if (item.status !== "pending") return row;
     const actions = document.createElement("div");
     actions.className = "review-actions";
+    actions.append(copyButton(item));
+    operations.replaceChildren(actions);
+    if (item.status !== "pending") return row;
     for (const [value, label] of [["approved", "通过"], ["rejected", "拒绝"]]) {
       const button = document.createElement("button");
       button.type = "button";
@@ -248,7 +283,6 @@ const columns = ["回执编号", "产品", "状态", "投稿日期", "标签", "
       });
       actions.append(button);
     }
-    operations.replaceChildren(actions);
     return row;
   }
 
