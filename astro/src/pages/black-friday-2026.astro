@@ -11,6 +11,7 @@ type Deal = {
   price?: string;
   dates: string;
   url: string;
+  showPurchaseLink?: boolean;
   review?: string;
 };
 
@@ -388,6 +389,29 @@ const sections: Section[] = [
     note: "窗口、Dock、文件与显示器",
     deals: [
       {
+        name: "Mole",
+        type: "Mac 清理与系统监控",
+        desc: "清理缓存和 AI 工具的旧数据，卸载或更新 App，分析磁盘占用和查看系统状态。一次买断，后续更新免费。结账自动打折，无需优惠码。",
+        off: "−20%",
+        life: true,
+        price: "$19 → $15.20",
+        dates: "11.25 – 11.30",
+        url: "https://mole.fit/zh/?utm_source=macapphq&utm_campaign=bf2026",
+        showPurchaseLink: true,
+        review: "/article/mole"
+      },
+      {
+        name: "Yado",
+        type: "iPhone 清理与备份",
+        desc: "在 Mac 上导出 iPhone 照片、清理重复照片和大视频、卸载 App、整理主屏幕，并把备份留在本机。一次买断，后续更新免费。结账自动打折，无需优惠码。",
+        off: "−20%",
+        life: true,
+        price: "$19 → $15.20",
+        dates: "11.27 – 11.30",
+        url: "https://yado.house/zh?utm_source=macapphq&utm_campaign=bf2026",
+        showPurchaseLink: true
+      },
+      {
         name: "Wins",
         type: "窗口管理",
         desc: "原生窗口管理，支持贴边分屏、Dock 预览和快捷键。",
@@ -515,6 +539,17 @@ const sections: Section[] = [
     title: "开发工具",
     note: "ASO、终端历史、AI 代理状态",
     deals: [
+      {
+        name: "Pake",
+        type: "网页打包",
+        desc: "把网页打包成轻量的桌面 App，支持 Mac、Windows 和 Linux，无需安装编译环境。一次买断，后续更新免费。结账自动打折，无需优惠码。",
+        off: "−20%",
+        life: true,
+        price: "$19 → $15.20",
+        dates: "11.27 – 11.30",
+        url: "https://pake.run/zh?utm_source=macapphq&utm_campaign=bf2026",
+        showPurchaseLink: true
+      },
       {
         name: "Ascope",
         type: "ASO 与关键词",
@@ -690,6 +725,8 @@ const structuredData = {
           <span>共 {total} 个折扣</span>
           <span>
             来源：
+            <a href="#submit">开发者自荐</a>
+            <span>、</span>
             <a
               href="https://themacapps.com/topics/black-friday"
               target="_blank"
@@ -777,6 +814,11 @@ const structuredData = {
                   {deal.price ? <span class="bf-price">{deal.price}</span> : null}
                   <span class="bf-dates">{deal.dates}</span>
                 </div>
+                {deal.showPurchaseLink ? (
+                  <a class="bf-purchase" href={deal.url} target="_blank" rel="nofollow noopener noreferrer" aria-label={`优惠购买 ${deal.name}`}>
+                    优惠购买 →
+                  </a>
+                ) : null}
               </article>
             ))}
           </div>

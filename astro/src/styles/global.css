@@ -3175,6 +3175,7 @@ a:hover {
   line-height: 1.8;
 }
 
+.bf-purchase,
 .bf-submit__btn {
   flex: none;
   display: inline-flex;
@@ -3190,8 +3191,13 @@ a:hover {
   transition: background 120ms ease;
 }
 
+.bf-purchase:hover,
 .bf-submit__btn:hover {
   background: #000;
+}
+
+.bf-purchase {
+  justify-content: center;
 }
 
 @media (max-width: 720px) {
