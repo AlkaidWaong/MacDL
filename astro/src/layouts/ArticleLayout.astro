@@ -18,6 +18,7 @@ type Props = {
   categories?: string[];
   tags?: string[];
   quickTake?: string;
+  introLinks?: Array<{ label: string; href: string }>;
   canonical?: string;
   image?: string;
   heroImage?: string;
@@ -59,6 +60,7 @@ const {
   categories = [],
   tags = [],
   quickTake,
+  introLinks = [],
   canonical,
   image,
   heroImage,
@@ -114,6 +116,11 @@ const factItems = [
       <section class="article-intro" aria-label="文章导语">
         <h2 class="article-intro__title">这篇评测回答什么？</h2>
         <p>{introLine}</p>
+        {introLinks.length > 0 ? (
+          <nav class="article-intro__links" aria-label="文章快捷入口">
+            {introLinks.map(({ label, href }) => <a href={href}>{label}</a>)}
+          </nav>
+        ) : null}
       </section>
     ) : null}
     {heroImage ? (

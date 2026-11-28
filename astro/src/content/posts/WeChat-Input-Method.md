@@ -11,7 +11,14 @@ sources:
   - name: "微信输入法官网"
     url: "https://z.weixin.qq.com/"
     note: "官方下载与功能说明"
-quickTake: "如果你本来就是微信重度用户，它用起来会很顺；但如果你对隐私、残留文件和输入法权限很敏感，安装前最好先想清楚。"
+quickTake: "微信输入法 Mac 版可从官网下载。安装后，在「系统设置 → 键盘」中添加输入法。卸载时，先从输入法列表移除，再删除应用。"
+introLinks:
+  - label: "官方下载 Mac 版"
+    href: "https://z.weixin.qq.com/?utm_source=macapphq&utm_medium=organic&utm_campaign=seo-wechat-input-method"
+  - label: "安装步骤"
+    href: "#mac-微信输入法安装步骤"
+  - label: "卸载步骤"
+    href: "#mac-微信输入法卸载步骤"
 bestFor:
   - "长期在微信里聊天和办公的人"
   - "想了解 Mac 微信输入法安装与卸载流程的人"

@@ -221,6 +221,8 @@ OpenCode Go 是 OpenCode 的可选模型订阅，不是使用 OpenCode、T3 Code
 
 你已经使用多个 CLI Agent，主要问题是线程、设备和 Git 操作分散。你希望保留原有 Agent 订阅，只增加一个控制界面
 
+决定先试 T3 Code 的话，可以直接看 [Mac 版下载、安装与创建第一个线程](/article/t3-code#在-macos-上安装-t3-code)。
+
 ### 选 Orca ADE
 
 你已经在并行运行多个 Agent，主要问题是分支切换、目录冲突、差异审查和任务回收。你愿意使用 worktree 作为日常工作流的一部分

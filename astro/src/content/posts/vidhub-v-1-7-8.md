@@ -2,15 +2,18 @@
 urlSlug: "vidhub-v-1-7-8"
 title: "VidHub 播放器 2026：NAS 本地网盘播放器，有 Windows 版吗？"
 date: "2026-03-25"
-updatedAt: "2026-11-21"
+updatedAt: "2026-11-28"
 description: "VidHub 是一款适合管理 NAS、本地和网盘混合片源的播放器。这篇体验文重点聊聊它怎么把“找片、接着看、管理进度”这件事变顺，以及 vidhub windows 版现在到底有没有。"
 price: "免费下载"
-platform: "macOS / iOS / tvOS / Android"
+platform: "macOS / iOS / tvOS / Android（含电视版）/ 鸿蒙"
 sources:
   - name: "VidHub 中文官网"
     url: "https://zh.okaapps.com/product/1659622164"
     note: "支持平台、功能与下载入口"
-quickTake: "它最打动我的不是单次播放能力，而是终于把“找资源”这件事从文件夹层级，变成了更轻松的片库视角。"
+quickTake: "截至 2026 年 11 月 28 日，VidHub 官网未列出 Windows 版下载，已列出 Apple、Android 和鸿蒙版本。VidHub 可以把 NAS、本地硬盘和网盘里的视频整理成同一个片库。"
+introLinks:
+  - label: "查看官方支持平台与下载"
+    href: "https://zh.okaapps.com/product/1659622164?utm_source=macapphq&utm_medium=organic&utm_campaign=seo-vidhub-v-1-7-8"
 bestFor:
   - "家里有 NAS 或混合片源的人"
   - "想减少找片和续播成本的人"
@@ -23,7 +26,7 @@ faqs:
   - question: "VidHub 的核心价值是什么？"
     answer: "核心价值是把零散文件夹重新组织成更像媒体库的视角，配上海报墙、自动分季分集、全局搜索和多设备同步，看片流程会顺很多。"
   - question: "vidhub windows 版现在有吗？"
-    answer: "截至 2026 年 11 月 21 日，官方页面列出 Apple、Android 和鸿蒙版本，未列出 Windows 客户端。"
+    answer: "截至 2026 年 11 月 28 日，VidHub 官网列出 Apple、Android 和鸿蒙版本，未列出 Windows 版下载。"
   - question: "VidHub 需要 NAS 才值得用吗？"
     answer: "不一定。只要你的视频文件分散在本地、SMB、WebDAV 或云盘里，它都能提供价值；只是 NAS 用户会更容易感受到它的整理和统一入口优势。"
   - question: "VidHub 免费吗？"
@@ -43,8 +46,6 @@ heroImage: "/media/vidhub-v-1-7-8/hero.png"
 
 # VidHub 体验：它真正解决的不是播放，而是“别再找片找半天”
 
-**Windows 版情况：**截至 2026 年 11 月 21 日，[官方页面](https://zh.okaapps.com/product/1659622164)未列出 Windows 客户端。
-
 先说结论：**如果你真正烦的不是“能不能播”，而是“这部片到底放哪了、看到了哪、下次从哪接着看”，VidHub 这类工具的价值会比普通播放器大很多。**
 
 我以前有个很离谱的习惯：  
@@ -59,11 +60,11 @@ VidHub 是我这次迁移里，用得最久也最顺手的播放器。
 
 | 项目 | 信息 | 截至日期 | 来源 |
 | --- | --- | --- | --- |
-| 产品定位 | `自动刮削电影剧集信息，打造私人影视库` | `2026-06-16` | [中文官网](https://zh.okaapps.com/product/1659622164) |
-| 支持平台 | `iOS 14+、macOS 10.15+、tvOS 14.0+、Android 9.0+` | `2026-06-16` | [中文官网](https://zh.okaapps.com/product/1659622164) |
-| 支持源 | `本地 / SMB / WebDAV / 阿里云盘 / 百度网盘 / 123 网盘等` | `2026-06-16` | [中文官网](https://zh.okaapps.com/product/1659622164) |
-| 核心能力 | `自动刮削、海报墙、全局搜索、自动分季分集、iCloud 同步` | `2026-06-16` | [中文官网](https://zh.okaapps.com/product/1659622164) |
-| Windows 客户端 | `官网当前未列出` | `2026-11-21` | [中文官网](https://zh.okaapps.com/product/1659622164) |
+| 产品定位 | 自动获取电影和剧集信息，整理私人片库 | 2026-11-28 | [中文官网](https://zh.okaapps.com/product/1659622164) |
+| 支持平台 | iOS 14+、macOS 10.15+、tvOS 14.0+、Android 9.0+。官网另列 Android TV 和鸿蒙下载入口 | 2026-11-28 | [中文官网](https://zh.okaapps.com/product/1659622164) |
+| 支持源 | 本地文件、SMB、WebDAV、阿里云盘、百度网盘、123 网盘等 | 2026-11-28 | [中文官网](https://zh.okaapps.com/product/1659622164) |
+| 核心能力 | 自动获取影视信息、海报墙、全局搜索、自动分季分集和 iCloud 同步 | 2026-11-28 | [中文官网](https://zh.okaapps.com/product/1659622164) |
+| Windows 客户端 | 官网未列出 Windows 版下载 | 2026-11-28 | [中文官网](https://zh.okaapps.com/product/1659622164) |
 
 ## 先看结论：什么人会明显受益
 
@@ -136,21 +137,7 @@ VidHub 把分季分集、进度、下一集衔接做得比较自然，
 
 ## 关于 `vidhub windows 版`，我查到的结论
 
-我自己也搜过很多次 `vidhub windows 版`。
-
-按我在 **2026 年 6 月 16 日** 核对的官方页面，支持平台写的是：
-**iOS 14+、macOS 10.15+、tvOS 14.0+、Android 9.0+**。
-
-也就是说，**我目前没有在官方支持列表里看到 Windows 客户端。**
-
-如果你也在找 `vidhub windows 版`，我会很直接地建议：
-
-- 先以官网支持列表为准
-- 不要优先信第三方“Windows 下载页”
-- 如果你的主设备真的是 Windows，现在就别把它当成完整主力方案来规划
-
-这其实也是这篇最重要的 SEO 结论之一：  
-**现在搜 `vidhub windows 版`，更合理的答案不是“去哪下”，而是“官方目前没列出来”。** ⚠️
+截至 2026 年 11 月 28 日，[VidHub 官网](https://zh.okaapps.com/product/1659622164)列出 Apple、Android、Android TV 和鸿蒙下载入口，未列出 Windows 版下载。若看到第三方页面提供 Windows 安装包，建议先向开发商确认来源。如果你的主力设备是 Windows，选播放器时应先确认它能接入你的片源，例如 NAS 上的 SMB 或 WebDAV 共享。
 
 ## 值不值得下载，以及该怎么开始
 
@@ -230,7 +217,7 @@ VidHub 把分季分集、进度、下一集衔接做得比较自然，
 
 ### vidhub windows 版现在有官网吗？
 
-截至 2026-11-21，我在官方支持列表里没有看到 Windows 客户端。想找 `vidhub windows 版` 的话，建议直接看官网更新，不要优先信第三方下载页。
+截至 2026 年 11 月 28 日，VidHub 官网未列出 Windows 版下载。查最新支持平台可直接看 [VidHub 官网](https://zh.okaapps.com/product/1659622164)。
 
 ### 如果文件命名比较乱，VidHub 还好用吗？
 

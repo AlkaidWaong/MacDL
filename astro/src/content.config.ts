@@ -40,6 +40,10 @@ const posts = defineCollection({
       )
       .optional(),
     quickTake: z.string().optional(),
+    introLinks: z.array(z.object({
+      label: z.string().min(1),
+      href: z.string().regex(/^(?:https:\/\/\S+|#[^\s#]+)$/)
+    })).optional(),
     bestFor: z.array(z.string().min(1)).optional(),
     officialUrl: z.string().url().optional(),
     faqs: z

@@ -5,6 +5,11 @@ date: "2026-11-19"
 updatedAt: "2026-11-19"
 description: "T3 Code 是一个开源的编程智能体控制中心，可在同一界面中管理 Claude Code、Codex、OpenCode、Cursor 和其他 Agent，支持桌面、网页和手机端访问，并使用用户已有的订阅。"
 quickTake: "T3 Code 不提供模型或转售 token。它在本机运行已安装并已登录的编程 Agent，将线程、Git worktree、diff、提交、PR 和远程访问集中到一个界面。多 Agent、多项目或需要从手机处理任务时，T3 Code 的作用最明确。"
+introLinks:
+  - label: "官方下载 T3 Code"
+    href: "https://t3.codes/download"
+  - label: "Mac 安装与首次使用"
+    href: "#在-macos-上安装-t3-code"
 bestFor:
   - "同时使用 Claude Code、Codex、OpenCode 或其他编程 Agent 的开发者"
   - "需要为不同 Agent 线程隔离 Git worktree、审查 diff 和创建 PR 的人"
@@ -111,7 +116,7 @@ T3 Code 不负责提供 Claude、OpenAI、Google 或其他模型的订阅额度
 
 ## 在 macOS 上安装 T3 Code
 
-T3 Code 提供 Apple Silicon 和 Intel Mac 的桌面安装包。也可以使用 Homebrew：
+打开 [T3 Code 官方下载页](https://t3.codes/download)，按你的 Mac 芯片选择 Apple Silicon（arm64）或 Intel（x64）安装包。打开下载的 DMG，把 T3 Code 拖到「应用程序」。也可以使用 Homebrew：
 
 ```bash
 brew install --cask t3-code
@@ -129,7 +134,13 @@ curl -fsSL https://t3.codes/install.sh | sh
 t3
 ```
 
-T3 Code 会启动服务器并打开网页应用。首次使用时，应先安装并登录至少一个 Agent，再在 T3 Code 中创建线程
+运行 `t3` 会启动服务器并打开网页应用。
+
+### 创建第一个线程
+
+1. 在运行 T3 Code 的 Mac 上，先安装并登录一个你已经在用的 Agent，例如 Claude Code 或 Codex。
+2. 打开 T3 Code，选择要处理的项目目录，创建线程，并选中刚才登录的 Agent。
+3. 先发一个小任务，例如「读一下 README，告诉我怎么运行这个项目」，确认线程能收到回复。
 
 ## 从手机或另一台电脑访问
 

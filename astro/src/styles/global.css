@@ -1381,6 +1381,22 @@ a:hover {
   line-height: 1.8;
 }
 
+.article-intro__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 16px;
+  margin-top: 8px;
+}
+
+.article-intro__links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--accent2);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 .category-intro {
   margin: 0 0 18px;
   padding: 18px 22px;
@@ -3175,7 +3191,6 @@ a:hover {
   line-height: 1.8;
 }
 
-.bf-purchase,
 .bf-submit__btn {
   flex: none;
   display: inline-flex;
@@ -3191,13 +3206,8 @@ a:hover {
   transition: background 120ms ease;
 }
 
-.bf-purchase:hover,
 .bf-submit__btn:hover {
   background: #000;
-}
-
-.bf-purchase {
-  justify-content: center;
 }
 
 @media (max-width: 720px) {

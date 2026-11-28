@@ -11,7 +11,6 @@ type Deal = {
   price?: string;
   dates: string;
   url: string;
-  showPurchaseLink?: boolean;
   review?: string;
 };
 
@@ -35,7 +34,7 @@ const sections: Section[] = [
         off: "−30%",
         life: true,
         dates: "11.23 – 11.30",
-        url: "https://culturedcode.com/things/",
+        url: "https://culturedcode.com/things/#get",
         review: "/article/things3-for-mac"
       },
       {
@@ -397,7 +396,6 @@ const sections: Section[] = [
         price: "$19 → $15.20",
         dates: "11.25 – 11.30",
         url: "https://mole.fit/zh/?utm_source=macapphq&utm_campaign=bf2026",
-        showPurchaseLink: true,
         review: "/article/mole"
       },
       {
@@ -408,8 +406,7 @@ const sections: Section[] = [
         life: true,
         price: "$19 → $15.20",
         dates: "11.27 – 11.30",
-        url: "https://yado.house/zh?utm_source=macapphq&utm_campaign=bf2026",
-        showPurchaseLink: true
+        url: "https://yado.house/zh?utm_source=macapphq&utm_campaign=bf2026"
       },
       {
         name: "Wins",
@@ -547,8 +544,7 @@ const sections: Section[] = [
         life: true,
         price: "$19 → $15.20",
         dates: "11.27 – 11.30",
-        url: "https://pake.run/zh?utm_source=macapphq&utm_campaign=bf2026",
-        showPurchaseLink: true
+        url: "https://pake.run/zh?utm_source=macapphq&utm_campaign=bf2026"
       },
       {
         name: "Ascope",
@@ -783,11 +779,7 @@ const structuredData = {
                   <span class={`bf-off ${deal.life ? "bf-off--life" : ""}`}>{deal.off}</span>
                   {deal.life ? <span class="bf-tag">终身授权</span> : null}
                 </div>
-                <h3 class="bf-card__name">
-                  <a href={deal.url} target="_blank" rel="nofollow noopener noreferrer">
-                    {deal.name}
-                  </a>
-                </h3>
+                <h3 class="bf-card__name">{deal.name}</h3>
                 <p class="bf-card__type">{deal.type}</p>
                 <p class="bf-card__desc">{deal.desc}</p>
                 {(typeof deal.code === "string" ? [{ label: "优惠码", value: deal.code }] : deal.code ?? []).map(({ label, value }) => (
@@ -805,18 +797,16 @@ const structuredData = {
                     </button>
                   </div>
                 ))}
-                {deal.review ? (
-                  <a class="bf-review" href={deal.review}>
-                    看我们的评测 →
-                  </a>
-                ) : null}
+                <a class="bf-review" href={deal.url} target="_blank" rel="nofollow noopener noreferrer" aria-label={`优惠购买 ${deal.name}`}>
+                  优惠购买 →
+                </a>
                 <div class="bf-card__foot">
                   {deal.price ? <span class="bf-price">{deal.price}</span> : null}
                   <span class="bf-dates">{deal.dates}</span>
                 </div>
-                {deal.showPurchaseLink ? (
-                  <a class="bf-purchase" href={deal.url} target="_blank" rel="nofollow noopener noreferrer" aria-label={`优惠购买 ${deal.name}`}>
-                    优惠购买 →
+                {deal.review ? (
+                  <a class="bf-review" href={deal.review}>
+                    看我们的评测 →
                   </a>
                 ) : null}
               </article>
